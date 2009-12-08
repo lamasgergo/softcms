@@ -6,6 +6,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/kernel/external/adodb.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/kernel/external/smarty.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/kernel/external/xajax.inc.php");
 
+include_once($_SERVER['DOCUMENT_ROOT']."/kernel/user.class.php"); // load before languages
 require_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/languages.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/base.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/ui.php");
@@ -15,7 +16,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/ui.php");
 
 $xajax = new xajax();
 
-include_once($_SERVER['DOCUMENT_ROOT']."/kernel/user.class.php");
+
 
 if (!is_admin()){
     include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/modules.php");
