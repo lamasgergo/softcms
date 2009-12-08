@@ -1,28 +1,21 @@
-<?php
+<?
+
+parse_edit_lang();
   
-$smarty->assign("edit_lang_block",parse_edit_lang());
+$smarty->assign("username",$user->name."&nbsp;".$user->familyname);
 
 $smarty->assign("top_menu",get_top_menu());
   
-$parse_menu = $smarty->fetch("index_menu/menu.tpl",null,$language);
+$parse_menu = $smarty->fetch("templates/common/top_menu.tpl",null,$language);
   
 $xajax->registerFunction("change_edit_lang");  
 
 function parse_edit_lang(){
-global $db,$smarty,$user,$config;
-  $ret = "";
-	foreach ($config->SUPPORTED_LANGUAGES_LIST as $lang=>$name){
-      if ($lang == $user->data['lang']){
-		$ret .= '<div style="float: left; background: url(/source/images/icons/selected_lang.gif) 0% 30% no-repeat; height: 35px; width: 35px; text-align: center;" onMouseOver="this.style.background=\'url(/source/images/icons/selected_lang_over.gif) 0% 30% no-repeat\';" onMouseOut="this.style.background=\'url(/source/images/icons/selected_lang.gif) 0% 30% no-repeat\';">';
-		$ret .= "<input type='image' style='margin: 12px 0px 0px 3px;' src='/source/images/flags/".$lang.".gif' border='0' onclick='xajax_change_edit_lang(\"".$lang."\");'>&nbsp;";
-        $ret .= '</div>';
-      } else {
-		$ret .= '<div style="float: left; height: 35px; width: 35px; text-align: center; padding: 2px 0px 0px 2px;" onMouseOver="this.style.background=\'url(/source/images/icons/selected_lang_over.gif) 0% 30% no-repeat\';" onMouseOut="this.style.background=\'\';">';
-		$ret .= "<input type='image' style='margin: 10px 0px 0px 3px;' src='/source/images/flags/".$lang.".gif' border='0' onclick='xajax_change_edit_lang(\"".$lang."\");'>&nbsp;";
-		$ret .= '</div>';
-	  }
-     }
-  return $ret;
+global $db, $smarty,$user, $config, $language;
+  
+  $smarty->assign("lang_list", $config->SUPPORTED_LANGUAGES_LIST);
+  $smarty->assign("cur_lang", $user->data['Language']);
+  $smarty->assign("LANG", $smarty->fetch("templates/common/languages.tpl",null,$language));
 }  
 
 function change_edit_lang($edit_lang_id){
