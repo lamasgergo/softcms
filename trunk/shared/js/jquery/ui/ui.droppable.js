@@ -1,7 +1,7 @@
 /*
- * jQuery UI Droppable 1.7.1
+ * jQuery UI Droppable 1.6rc6
  *
- * Copyright (c) 2009 AUTHORS.txt (http://jqueryui.com/about)
+ * Copyright (c) 2009 AUTHORS.txt (http://ui.jquery.com/about)
  * Dual licensed under the MIT (MIT-LICENSE.txt)
  * and GPL (GPL-LICENSE.txt) licenses.
  *
@@ -31,7 +31,7 @@ $.widget("ui.droppable", {
 		$.ui.ddmanager.droppables[this.options.scope] = $.ui.ddmanager.droppables[this.options.scope] || [];
 		$.ui.ddmanager.droppables[this.options.scope].push(this);
 
-		(this.options.addClasses && this.element.addClass("ui-droppable"));
+		(this.options.cssNamespace && this.element.addClass(this.options.cssNamespace+"-droppable"));
 
 	},
 
@@ -42,7 +42,7 @@ $.widget("ui.droppable", {
 				drop.splice(i, 1);
 
 		this.element
-			.removeClass("ui-droppable ui-droppable-disabled")
+			.removeClass(this.options.cssNamespace+"-droppable "+this.options.cssNamespace+"-droppable-disabled")
 			.removeData("droppable")
 			.unbind(".droppable");
 	},
@@ -51,7 +51,7 @@ $.widget("ui.droppable", {
 
 		if(key == 'accept') {
 			this.options.accept = value && $.isFunction(value) ? value : function(d) {
-				return d.is(value);
+				return d.is(accept);
 			};
 		} else {
 			$.widget.prototype._setData.apply(this, arguments);
@@ -101,7 +101,7 @@ $.widget("ui.droppable", {
 		if (!draggable || (draggable.currentItem || draggable.element)[0] == this.element[0]) return false; // Bail if draggable and droppable are same element
 
 		var childrenIntersection = false;
-		this.element.find(":data(droppable)").not(".ui-draggable-dragging").each(function() {
+		this.element.find(":data(droppable)").not("."+draggable.options.cssNamespace+"-draggable-dragging").each(function() {
 			var inst = $.data(this, 'droppable');
 			if(inst.options.greedy && $.ui.intersect(draggable, $.extend(inst, { offset: inst.element.offset() }), inst.options.tolerance)) {
 				childrenIntersection = true; return false;
@@ -133,12 +133,12 @@ $.widget("ui.droppable", {
 });
 
 $.extend($.ui.droppable, {
-	version: "1.7.1",
+	version: "1.6rc6",
 	eventPrefix: 'drop',
 	defaults: {
 		accept: '*',
 		activeClass: false,
-		addClasses: true,
+		cssNamespace: 'ui',
 		greedy: false,
 		hoverClass: false,
 		scope: 'default',
