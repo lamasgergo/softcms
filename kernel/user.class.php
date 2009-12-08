@@ -26,13 +26,22 @@ class User{
         $sql = $this->db->prepare("SELECT ID, Login, Published, GroupID, Language FROM ".DB_PREFIX."users WHERE Login='".$login."' AND Password='".$password."' AND Published='1'");
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0){
-            $this->id = $res->fields['ID'];
-            $this->login = $res->fields['Login'];
-            $this->data = $res->fields;
             $this->lang->setLanguage($this->data['Language']);
+            $this->getDeta();
             $this->startSession();
         } else{
             $_SESSION[SES_PREFIX."error"] = $this->lang->locale("login_wrong");
+        }
+    }
+
+    function getData(){
+        if (!isset($this->id) || $this->id <= 0) return false;
+        
+        $sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."users WHERE ID='".$this->id."' AND Published='1'");
+        $res = $this->db->Execute($sql);
+        if ($res && $res->RecordCount() > 0){
+            $this->login = $res->fields['Login'];
+            $this->data = $res->fields;
         }
     }
 
@@ -41,6 +50,11 @@ class User{
     }
 
     function is_auth(){
+        if (isset($_SESSION[SES_PREFIX."id"]) && $_SESSION[SES_PREFIX."id"] > 0){
+            $this->id = $_SESSION[SES_PREFIX."id"];
+            $this->getData();
+        }
+
         return (isset($this->id) && $this->id > 0);
     }
 
