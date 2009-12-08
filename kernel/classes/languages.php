@@ -11,11 +11,11 @@ class languages {
 
     var $_languagesList = array();
 
-    var $locale;
+    var $locale = array();
 
     var $localeStorePath = '/shared/locale/';
 
-    var $localeDefaultNames = array('commmon', 'errors', 'site');
+    var $localeDefaultNames = array('common', 'errors', 'site');
 
     function languages(){
         global $config;
@@ -48,7 +48,11 @@ class languages {
         $path = $_SERVER['DOCUMENT_ROOT'].'/'.$this->localeStorePath.'/'.$this->getLanguage().'/'.$module.'.php';
         if (file_exists($path)){
             include_once($path);
-            array_push($this->locale, $lang);
+            if (count($this->locale) == 0){
+                $this->locale = $lang;
+            } else {
+                array_push($this->locale, $lang);
+            }
             unset($lang);
         }
     }
