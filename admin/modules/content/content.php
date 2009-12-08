@@ -1,14 +1,15 @@
 <?php
-$mod_name = $_GET[MODULE];
+$mod_name = "content";
 
-require_once(__PATH__."/admin/modules/".$mod_name."/categories.php");
-require_once(__PATH__."/admin/modules/".$mod_name."/items.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/admin/common/adminform.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$mod_name."/categories.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$mod_name."/items.php");
 
 
-$form = new Backend($mod_name);
+$form = new AdminForm($mod_name);
 
-$form->addObject(new Categories($mod_name),1);
-$form->addObject(new Items($mod_name),2);
+$form->addTabObject(new Categories($mod_name,0));
+$form->addTabObject(new Items($mod_name,1));
 
 $parse_main = $form->show();
 ?>

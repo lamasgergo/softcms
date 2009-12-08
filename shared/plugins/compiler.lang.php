@@ -23,6 +23,6 @@
  
 function smarty_compiler_lang ($params, &$smarty) {
  return "($"."lang.".$params.")";
- 
+
 }
 ?>

@@ -1,25 +1,23 @@
 <?
 
-require_once(__LIBS__."/xajax.inc.php");
-$xajax = new xajax();
-#$xajax->errorHandlerOff();
-#$xajax->debugOn();
 
 $xajax->registerFunction("check_rights");
 
 /* menu */
-include_once(__PATH__."/admin/common/menu.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/menu.php");
 
+
+define("MODULE", $page->_moduleVarName);
 
 if (preg_match("/^(\w+)\|(\w+)$/ui", $_GET[MODULE], $matches)){
 	$module = $matches[1];
 	$lib = strtolower($matches[2]);
 
 	$_GET[MODULE] = $module;
-	if (isset($module) && isset($lib) && file_exists(__PATH__."/admin/modules/".$module."/".$lib.".php")){
+	if (isset($module) && isset($lib) && file_exists($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$module."/".$lib.".php")){
 	  if (check_show_rights()){
-		include_once(__PATH__."/admin/modules/".$module."/".$lib.".php");
-		loadModuleLocale($_GET[MODULE], $language);
+		include_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$module."/".$lib.".php");
+		$lang->loadLocale($_GET[MODULE]);
 		$lib = ucfirst($lib);
 		$class = new $lib($module);
 		$smarty->assign("BODY", $class->show());
@@ -30,16 +28,16 @@ if (preg_match("/^(\w+)\|(\w+)$/ui", $_GET[MODULE], $matches)){
 }
 
 
-if (isset($_GET[MODULE]) && file_exists(__PATH__."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php")){
+if (isset($_GET[MODULE]) && file_exists($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php")){
   if (check_show_rights()){
   	loadModuleLocale($_GET[MODULE], $language);
-    include_once(__PATH__."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php");
+    include_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php");
   } else {
-    include_once(__PATH__."/admin/common/dashboard.php");
+    include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/dashboard.php");
   }
 } else {
   /* admin mainpage*/
-  include_once(__PATH__."/admin/common/dashboard.php");
+  include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/dashboard.php");
 }
 
 
@@ -48,7 +46,7 @@ $smarty->assign("BODY",$parse_main);
 
 
 $xajax->processRequests();
-$smarty->assign("xajax_js",$xajax->getJavascript(JS_DIR."/xajax/","xajax.js"));
+$smarty->assign("xajax_js",$xajax->getJavascript("/shared/js/xajax/","xajax.js"));
 
 $smarty->display('templates/admin.tpl', null, $language);
 
@@ -99,17 +97,5 @@ function check_rights($action){
   return $ret;
 }
 
-function loadModuleLocale($module, $language){
-	global $lang;
-	if (file_exists(__PATH__.'/admin/modules/'.$module.'/locale/'.$language.'/')){
-	  $lang_dir = dir(__PATH__.'/admin/modules/'.$module.'/locale/'.$language.'/');
-	  while (false !== ($lang_file = $lang_dir->read())) {
-	    if ($lang_file != '.' && $lang_file !='..' && preg_match("/.*\.php/",$lang_file)){
-	      include_once($lang_dir->path.$lang_file);
-	    }
-	  }
-	  $lang_dir->close();
-	}
-}
 
 ?>
