@@ -1,0 +1,26 @@
+.ui-layout-pane { 
+	background: transparent !important;
+	border: 1px solid #BBB; 
+	padding: 10px; 
+	overflow: auto;
+} 
+
+.ui-layout-resizer { /* all 'resizer-bars' */ 
+	background: #DDD; 
+} 
+
+.ui-layout-toggler { /* all 'toggler-buttons' */ 
+	background: #AAA; 
+} 
+
+.ui-layout-north{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.ui-layout-west, .ui-layout-center, .ui-layout-east, .ui-layout-north, .ui-layout-south{
+	padding: 10px;	
+	border: none !important;
+	background: transparent !important;
+}
