@@ -1,5 +1,5 @@
 <?php
-require_once(__PATH__.'/admin/common/WidgetElement.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/admin/common/WidgetElement.php');
 class AdminWidget{
 /* Name of a Tab Element */
 	var $name;

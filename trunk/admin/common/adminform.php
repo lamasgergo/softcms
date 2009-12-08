@@ -1,5 +1,5 @@
 <?php
-require_once(__PATH__.'/admin/common/tabelement.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/admin/common/tabelement.php');
 class AdminForm{
 
 	var $tabs;

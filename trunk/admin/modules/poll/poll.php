@@ -1,9 +1,9 @@
 <?php
 $mod_name = "poll";
 
-require_once(__PATH__."/admin/common/adminform.php");
-require_once(__PATH__."/admin/modules/".$mod_name."/categories.php");
-require_once(__PATH__."/admin/modules/".$mod_name."/items.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/admin/common/adminform.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$mod_name."/categories.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$mod_name."/items.php");
 
 
 $form = new AdminForm($mod_name);

@@ -3,19 +3,12 @@ $_SERVER['DOCUMENT_ROOT'] = realpath(dirname(__FILE__).'/../');
 
 session_start();
 include_once("../config/config.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/kernel/external/adodb.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/kernel/external/smarty.php");
-require_once($_SERVER['DOCUMENT_ROOT']."/kernel/external/xajax.inc.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/kernel/user.class.php"); // load before languages
-require_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/languages.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/QueryBuilder.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/Backend.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/kernel/init.php");
 
 
 $smarty->template_dir  = dirname(__FILE__).'/';
 
 $user = new User;
-$user->isBackend(true);
 
 
 $smarty->assign("images", '/admin/images');

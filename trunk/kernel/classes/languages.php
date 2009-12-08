@@ -67,6 +67,13 @@ class languages {
     function getLocale(){
         return $this->locale;
     }
+
+    function locale($name){
+        if (isset($this->locale[$name]) && !empty($this->locale[$name])){
+            return $this->locale[$name]; 
+        }
+        return $name;
+    }
 }
 
 $lang = new languages();

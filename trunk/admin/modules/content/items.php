@@ -1,5 +1,5 @@
 <?php
-require_once(__PATH__."/admin/common/BackendElement.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/admin/common/BackendElement.php");
 
 class Items extends BackendElement {
     
