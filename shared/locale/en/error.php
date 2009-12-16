@@ -1,5 +1,5 @@
 <?
-$error["login_wrong"] = "Логин или пароль отсутсвуют в системе или введены не правильно.";
-$error["login_blocked"] = "Пользователь заблокирован. Обратитесь к администратору сайта.";
+$ error [ "login_wrong"] = "Username or password otsutsvuyut in the system or entered wrong.";
+$ error [ "login_blocked"] = "User is blocked. Please contact the site administrator.";
 
 ?>
