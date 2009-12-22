@@ -239,5 +239,10 @@ class BackendElement{
 			return $data;
 		}
 	}
+
+    function getFilter(){
+		return $this->output('filter');
+	}
+
 }
 ?>
