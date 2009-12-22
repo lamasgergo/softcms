@@ -12,7 +12,7 @@ class Items extends BackendElement {
 	function Items($module_name){
 		$this->name=__CLASS__;
 		$this->module = $module_name;
-		$this->table = DB_PREFIX.'cnt_item';
+		$this->table = DB_PREFIX.'content';
 		
 		parent::BackendElement();
 	}

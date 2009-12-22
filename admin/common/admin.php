@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 $xajax->registerFunction("check_rights");
@@ -6,38 +6,19 @@ $xajax->registerFunction("check_rights");
 /* menu */
 include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/menu.php");
 
-
 define("MODULE", $page->_moduleVarName);
 
-if (preg_match("/^(\w+)\|(\w+)$/ui", $_GET[MODULE], $matches)){
-	$module = $matches[1];
-	$lib = strtolower($matches[2]);
-
-	$_GET[MODULE] = $module;
-	if (isset($module) && isset($lib) && file_exists($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$module."/".$lib.".php")){
-	  if (check_show_rights()){
-		include_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$module."/".$lib.".php");
-		$lang->loadLocale($_GET[MODULE]);
-		$lib = ucfirst($lib);
-		$class = new $lib($module);
-		$smarty->assign("BODY", $class->show());
-		$smarty->display('templates/ajax.tpl');
-	  } 
-	}
-	exit();
-}
 
 
 if (isset($_GET[MODULE]) && file_exists($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php")){
-  if (check_show_rights()){
-  	loadModuleLocale($_GET[MODULE], $language);
-    include_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php");
-  } else {
-    include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/dashboard.php");
-  }
+    if (check_show_rights()){
+        include_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php");
+    } else {
+        include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/dashboard.php");
+    }
 } else {
-  /* admin mainpage*/
-  include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/dashboard.php");
+    /* admin mainpage*/
+    include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/dashboard.php");
 }
 
 

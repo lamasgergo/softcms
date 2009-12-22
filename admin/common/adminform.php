@@ -33,7 +33,7 @@ class AdminForm{
 		$obj->tabID = $this->tabCounter;
 		$this->tabs[$this->tabCounter] = array(
 						"name"		=> $obj->getName(),
-						"value"		=> $obj->getTabContent(),
+						"value"		=> $obj->showGrid(),
 						"menu"		=> $obj->getMenu(),
 						"filter"	=> $obj->getFilter()
 						);
@@ -56,7 +56,15 @@ class AdminForm{
 		$this->smarty->assign("tabs",$this->tabs);
 		$this->smarty->assign("tabs_names",$this->parseTabNames());
 		$this->smarty->assign("tabs_count",count($this->tabs));
-		return $this->smarty->fetch($this->name.'/main.tpl', null, $this->language);
+
+        $tpl= 'main';
+
+        if (file_exists($this->smarty->template_dir.'/modules/'.strtolower($this->name).'/templates/'.strtolower($this->name).'/'.$tpl.'.tpl')){
+			return $this->smarty->fetch('modules/'.strtolower($this->name).'/templates/'.strtolower($this->name).'/'.$tpl.'.tpl', null, $this->language);
+		} else {
+			return $this->smarty->fetch('templates/common/modules/'.$tpl.'.tpl', null, $this->language);
+		}
+
 	}
 	
 }

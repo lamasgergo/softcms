@@ -12,7 +12,7 @@ class Categories extends BackendElement {
 	function Categories($module_name){
 		$this->name=__CLASS__;
 		$this->module = $module_name;
-		$this->table = DB_PREFIX.'cnt_category';
+		$this->table = DB_PREFIX.'content_categories';
 		
 		parent::BackendElement();
 	}
