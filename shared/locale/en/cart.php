@@ -43,7 +43,7 @@ $lang["cart_payment_courier"] = "cash on delivery";
 $lang["cart_Country"] = "Country";
 $lang["cart_City"] = "City";
 $lang["cart_Address"] = "Address";
-$lang["cart_submit_buy"] = "to complete your purchase;
+$lang["cart_submit_buy"] = "to complete your purchase";
 $lang["cart_finish_buy"] = "Thank you for your purchase";
 $lang["cart_go_back"] = "Return";
 
