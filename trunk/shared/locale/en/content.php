@@ -32,10 +32,10 @@ $lang['tab_categories_change'] = 'Edit Category';
 
 
 $lang["categories_add_suc"] = "Category added successfully";
-$lang["categories_add_err"] = "Failed to append category;
+$lang["categories_add_err"] = "Failed to append category";
 
 $lang["categories_change_suc"] = "Category changed successfully";
-$lang["categories_change_err"] = "Failed to change the category;
+$lang["categories_change_err"] = "Failed to change the category";
 
 $lang["categories_delete_suc"] = "Category deleted successfully";
 $lang["categories_delete_err"] = "Error deleting category";
