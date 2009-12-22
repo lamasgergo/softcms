@@ -151,6 +151,78 @@ INSERT INTO `bs_cat_item` VALUES (1584,1,32,1,'Bluetooth Nokia HS-26W','<HR WIDT
 UNLOCK TABLES;
 
 --
+-- Table structure for table `bs_cnt_category`
+--
+
+DROP TABLE IF EXISTS `bs_cnt_category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bs_cnt_category` (
+  `ID` bigint(21) unsigned NOT NULL AUTO_INCREMENT,
+  `UserID` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `ParentID` bigint(21) unsigned DEFAULT '0',
+  `LangID` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `Name` varchar(255) NOT NULL DEFAULT '',
+  `Description` text,
+  `Published` enum('0','1') DEFAULT '0',
+  `Created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `LoginRequired` tinyint(3) unsigned DEFAULT '0',
+  `AllowComments` tinyint(3) unsigned DEFAULT '0',
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bs_cnt_category`
+--
+
+LOCK TABLES `bs_cnt_category` WRITE;
+/*!40000 ALTER TABLE `bs_cnt_category` DISABLE KEYS */;
+INSERT INTO `bs_cnt_category` VALUES (1,1,0,1,'Страницы','','1','2009-02-03 08:17:30',0,0),(2,1,0,1,'Новости','','1','2009-02-03 08:17:38',0,0),(3,1,0,1,'Блоки информации','','1','2009-03-03 19:12:32',0,0);
+/*!40000 ALTER TABLE `bs_cnt_category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bs_cnt_item`
+--
+
+DROP TABLE IF EXISTS `bs_cnt_item`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bs_cnt_item` (
+  `ID` bigint(21) unsigned NOT NULL AUTO_INCREMENT,
+  `UserID` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `CategoryID` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `LangID` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `Title` varchar(255) NOT NULL DEFAULT '',
+  `Short_Text` text,
+  `Full_Text` text,
+  `Published` enum('0','1') NOT NULL DEFAULT '0',
+  `Created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `MetaAlt` varchar(255) DEFAULT NULL,
+  `MetaKeywords` varchar(255) DEFAULT NULL,
+  `MetaTitle` varchar(255) DEFAULT NULL,
+  `MetaDescription` varchar(255) DEFAULT NULL,
+  `LoginRequired` tinyint(3) unsigned DEFAULT '0',
+  `ViewCount` int(10) unsigned DEFAULT '0',
+  `CommentsCount` int(10) unsigned DEFAULT '0',
+  `AllowComments` tinyint(3) unsigned DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  FULLTEXT KEY `search` (`Title`,`Short_Text`,`Full_Text`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bs_cnt_item`
+--
+
+LOCK TABLES `bs_cnt_item` WRITE;
+/*!40000 ALTER TABLE `bs_cnt_item` DISABLE KEYS */;
+INSERT INTO `bs_cnt_item` VALUES (1,1,1,1,'О компании','','<p><b class=\"tb\"><img height=\"9\" border=\"0\" width=\"13\" alt=\"\" src=\"http://www.mobilization.biz/system_images/pim.gif\" />Торговая марка Mobilization - оптово-розничная торговля аксессуарами для мобильных телефонов</b></p>\n<p>&nbsp;<img hspace=\"4\" height=\"277\" align=\"left\" width=\"200\" vspace=\"4\" alt=\"\" src=\"/files/UserFiles/Image/office.jpg\" /> Торговая марка Mobilization представляет Вашему вниманию самый широкий ассортимент аксессуаров для мобильных телефонов, поставляемых со всех уголков нашей страны. Выбирая нашу торговую марку Вы выбераете высокое качество товара, качественный сервис и поддержку. Наша фирма работает на рынке с 2002 года. Имея многолетний опыт работы, мы максимально учитываем интересы и пожелания наших клиентов. Наши технические специалисты ответят на все Ваши вопросы. <br />\n<br />\nБудем рады видеть Вас в наших точках продаж.<br />\n<br />\n<br />\n<br />\n<br />\n</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p><br />\n<b>Сегодня торговая марка Mobilization это:</b></p>\n<ul>\n    <li>Широкий ассортимент товара - более 10 000 наименований</li>\n    <li>Низкие цены, гибкая система скидок</li>\n    <li>Регулярные поступления аксессуаров на новые модели телефонов</li>\n    <li>Высокое качество товара</li>\n    <li>Низкая граница опта, минимальная партия</li>\n    <li>Доставка товара - любым удобным для клиента способом (по договоренности)</li>\n    <li>Быстрое оформление и формирование заказа</li>\n    <li>Заявки принимаются в любом виде ( по телефону, e-mail, факсу, лично)</li>\n    <li>На весь товар предоставляется гарантия</li>\n    <li>Оплата по наличному или безналичному расчету</li>\n    <li>Клиенту предоставляется персональный менеджер</li>\n    <li>Работа под заказ</li>\n    <li>Индивидуальный подход к каждому клиенту</li>\n</ul>\n<p><strong>Наши представительства:</strong></p>\n<p><b>г. Симферополь</b><br />\nул. Шмидта, 29/2 (Основной офис)<br />\nтел./факс 8 (0652) 53-33-33, тел. 8 (0652) 53-33-35</p>\n<p>Рынок мобильных технологий <b>&quot;ЗВЕЗДА&quot;</b><br />\n(подземный переход пр-т победы - ул. Лермонтова)<br />\nтел. 8 (095) 462-99-00</p>\n<p>ул. К.Маркса, 7 (2-й этаж)<br />\nтел. 8 (0652) 53-33-30</p>\n<hr width=\"70%\" />\n<p><br />\n<b>г. Ялта</b></p>\n<p>ул. Гоголя, 20</p>\n<p>&nbsp;</p>\n<p>тел. 8 (050) 324-99-99</p>\n<p>&nbsp;</p>\n<hr width=\"70%\" />\n<p><br />\n<b>г. Евпатория</b></p>\n<p>ул. Интернациональная 103/35</p>\n<p>&nbsp;</p>\n<p>тел. 8 (050) 360-03-05, тел. 8 (06569) 24-944</p>\n<hr width=\"70%\" />\n<p><br />\n<b>г. Керчь</b></p>\n<p>ул. Дубинина, 33</p>\n<p>&nbsp;</p>\n<p>тел. 8 (050) 344-76-06</p>\n<hr width=\"70%\" />\n<p><br />\n<b>г. Феодосия</b></p>\n<p>бул. Старшинова, 8-а</p>\n<p>&nbsp;</p>\n<p>тел. 8 (067) 447-1-447, тел. 8 (06562) 200-40</p>','1','2009-02-03 08:00:00','','','','',0,33,0,0),(2,1,1,1,'Контакты','','<p><strong>Наши представительства:</strong></p>\n<p><b>г. Симферополь</b><br />\nул. Шмидта, 29/2 (Основной офис)<br />\nтел./факс 8 (0652) 53-33-33, тел. 8 (0652) 53-33-35</p>\n<p>Рынок мобильных технологий <b>&quot;ЗВЕЗДА&quot;</b><br />\n(подземный переход пр-т победы - ул. Лермонтова)<br />\nтел. 8 (095) 462-99-00</p>\n<p>ул. К.Маркса, 7 (2-й этаж)<br />\nтел. 8 (0652) 53-33-30</p>\n<hr width=\"70%\" />\n<br />\n<b>г. Ялта</b><br />\n<p>ул. Гоголя, 20</p>\n<br />\n<p>тел. 8 (050) 324-99-99</p>\n<br />\n<hr width=\"70%\" />\n<br />\n<b>г. Евпатория</b><br />\n<p>ул. Интернациональная 103/35</p>\n<br />\n<p>тел. 8 (050) 360-03-05, тел. 8 (06569) 24-944</p>\n<hr width=\"70%\" />\n<br />\n<b>г. Керчь</b><br />\n<p>ул. Дубинина, 33</p>\n<br />\n<p>тел. 8 (050) 344-76-06</p>\n<hr width=\"70%\" />\n<br />\n<b>г. Феодосия</b><br />\n<p>бул. Старшинова, 8-а</p>\n<br />\n<p>тел. 8 (067) 447-1-447, тел. 8 (06562) 200-40</p>','1','2009-02-03 08:00:00','','','','',0,3,0,0),(3,1,2,1,'Обновление сайте','<p>В ближайшее время появится новая расширенная версия сайта.</p>','<p>В ближайшее время появится новая расширенная версия сайта.</p>','1','2009-02-16 08:00:00','','','','',0,1,0,0),(4,1,2,1,'Новый дизайн2','<p>Нравится ли Вам наш новый дизайн?</p>','<p>Нравится ли Вам наш новый дизайн?</p>','1','2009-03-04 18:32:01','','','','',0,0,0,0),(5,1,2,1,'test','<p>test</p>','<p>test</p>','1','2009-03-04 00:00:00','test','test','test','test',1,0,0,1);
+/*!40000 ALTER TABLE `bs_cnt_item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `bs_comments`
 --
 
@@ -889,7 +961,7 @@ CREATE TABLE `bs_users` (
   `ID` bigint(21) unsigned NOT NULL AUTO_INCREMENT,
   `Login` varchar(255) NOT NULL DEFAULT '',
   `Password` varchar(255) NOT NULL DEFAULT '',
-  `LangID` bigint(21) unsigned NOT NULL DEFAULT '0',
+  `Language` char(2) NOT NULL DEFAULT 'en',
   `GroupID` bigint(21) unsigned NOT NULL DEFAULT '0',
   `Name` varchar(255) NOT NULL DEFAULT '',
   `Familyname` varchar(255) NOT NULL DEFAULT '',
@@ -899,7 +971,6 @@ CREATE TABLE `bs_users` (
   `City` varchar(255) DEFAULT NULL,
   `Address` tinytext,
   `Published` enum('0','1') NOT NULL DEFAULT '1',
-  `EditLangID` bigint(21) unsigned NOT NULL DEFAULT '0',
   `Phone` varchar(255) NOT NULL DEFAULT '',
   `Cellphone` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`ID`),
@@ -913,7 +984,7 @@ CREATE TABLE `bs_users` (
 
 LOCK TABLES `bs_users` WRITE;
 /*!40000 ALTER TABLE `bs_users` DISABLE KEYS */;
-INSERT INTO `bs_users` VALUES (1,'admin','1$8VJ9etjPUEY',1,1,'Administrator','','starostenko@gmail.com','','','','','1',1,'111-11-11','8050111111'),(2,'Aleksey','1$/JsQ4Mkd7N2',1,0,'Aleksey Starostenko','Starostenko','a.diesel@gmail.com','','','','','1',1,'',''),(3,'test','1$/JsQ4Mkd7N2',1,0,'test','test','test@test.com',NULL,NULL,NULL,NULL,'1',1,'1','1'),(12,'zzz','1$8VJ9etjPUEY',1,0,'zzz2','','zzz@zzz.zzz',NULL,NULL,NULL,NULL,'1',0,'',''),(13,'test2','1$YSMh8Q/50vw',1,0,'test2','','test@test.com',NULL,NULL,NULL,NULL,'1',0,'','');
+INSERT INTO `bs_users` VALUES (1,'admin','1$/JsQ4Mkd7N2','1',1,'Administrator','','starostenko@gmail.com','','','','','1','111-11-11','8050111111'),(2,'Aleksey','1$/JsQ4Mkd7N2','1',0,'Aleksey Starostenko','Starostenko','a.diesel@gmail.com','','','','','1','',''),(3,'test','1$/JsQ4Mkd7N2','1',0,'test','test','test@test.com',NULL,NULL,NULL,NULL,'1','1','1'),(12,'zzz','1$8VJ9etjPUEY','1',0,'zzz2','','zzz@zzz.zzz',NULL,NULL,NULL,NULL,'1','',''),(13,'test2','1$YSMh8Q/50vw','1',0,'test2','','test@test.com',NULL,NULL,NULL,NULL,'1','','');
 /*!40000 ALTER TABLE `bs_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -926,4 +997,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2009-12-08  8:16:14
+-- Dump completed on 2009-12-11 18:56:10

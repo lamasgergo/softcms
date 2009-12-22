@@ -13,6 +13,20 @@
         <entry key="$PROJECT_DIR$">
           <value>
             <SvnBranchConfiguration>
+              <option name="branchMap">
+                <map>
+                  <entry key="https://diesel/svn/cms1/branches">
+                    <value>
+                      <list />
+                    </value>
+                  </entry>
+                  <entry key="https://diesel/svn/cms1/tags">
+                    <value>
+                      <list />
+                    </value>
+                  </entry>
+                </map>
+              </option>
               <option name="branchUrls">
                 <list>
                   <option value="https://diesel/svn/cms1/branches" />

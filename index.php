@@ -1,5 +1,6 @@
 <?php
 $_SERVER['DOCUMENT_ROOT'] = realpath(dirname(__FILE__));
+define("BACKEND", false);
 session_start();
 ini_set('display_errors','on');
 error_reporting(2039);
