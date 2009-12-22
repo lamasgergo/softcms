@@ -121,12 +121,15 @@ class Page extends base{
     function getContent($name, $vars=array()){
         $result = '';
         $this->includeModule($name);
-        $class = new $name();
-        if (method_exists($class, 'output')){
-            $class->setVars($vars);
-            $result = $class->output();
-        } else {
+        if (class_exists($name)){
+            $class = new $name();
+            if (method_exists($class, 'output')){
+                $result = $class->output();
+            }
+        }
+        if (empty($result) && !empty($output)){
             $result = $output;
+            unset($output);
         }
         return $result;
     }
