@@ -5,8 +5,6 @@ class User{
 
     var $login;
 
-    var $group_id;
-
     var $lang;
 
     var $data;
@@ -23,12 +21,14 @@ class User{
         $login = mysql_real_escape_string($login);
         $password = mysql_real_escape_string($password);
         $password = crypt($password,CRYPT_MD5);
-        $sql = $this->db->prepare("SELECT ID, Login, Published, GroupID, Language FROM ".DB_PREFIX."users WHERE Login='".$login."' AND Password='".$password."' AND Published='1'");
+
+        $sql = $this->db->prepare("SELECT ID, Login, Published, Language FROM ".DB_PREFIX."users WHERE Login='".$login."' AND Password='".$password."' AND Published='1'");
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0){
-            $this->lang->setLanguage($this->data['Language']);
-            $this->getDeta();
+            $this->id = $res->fields['ID']; 
+            $this->lang->setLanguage($res->fields['Language']);
             $this->startSession();
+            $this->getData();
         } else{
             $_SESSION[SES_PREFIX."error"] = $this->lang->locale("login_wrong");
         }
@@ -37,9 +37,10 @@ class User{
     function getData(){
         if (!isset($this->id) || $this->id <= 0) return false;
         
-        $sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."users WHERE ID='".$this->id."' AND Published='1'");
+        $sql = $this->db->prepare("SELECT u.*, g.Name as `Group`  FROM ".DB_PREFIX."users as u LEFT JOIN ".DB_PREFIX."groups as g ON (g.ID=u.GroupID) WHERE u.ID='".$this->id."' AND u.Published='1'");
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0){
+            $this->id = $res->fields['ID'];
             $this->login = $res->fields['Login'];
             $this->data = $res->fields;
         }

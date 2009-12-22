@@ -1,7 +1,7 @@
 <?php
 
-function is_admin(){
-    if (defined(ADMIN) && ADMIN==true) return true;
+function is_backend(){
+    if (BACKEND && BACKEND==true) return true;
     return false;
 }
 
