@@ -51,15 +51,15 @@ class Items extends BackendElement {
 		return $ret;
 	}
 	
-	function Items_add($data){
+	function items_add($data){
 		return $this->runAjaxAction("add", $data);
 	}
 
-	function Items_change($data){
+	function items_change($data){
 		return $this->runAjaxAction("change", $data);
 	}
 	
-	function Items_delete($data){
+	function items_delete($data){
 		return $this->runAjaxAction("delete", $data, false);
 	}
 	

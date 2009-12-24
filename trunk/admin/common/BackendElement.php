@@ -30,13 +30,13 @@ class BackendElement{
 		$this->lang = $lang;
 		$this->user = $user;
 		$this->db = $db;
-		$this->smarty = &$smarty;
-		$this->xajax = &$xajax;
-		
+		$this->smarty = $smarty;
+		$this->xajax = $xajax;
+
 		$this->qb = new QueryBuilder($this->table);
 		
 		if ($this->langDepended){
-			$this->qb->setLangID($this->user->edit_lang_id);
+			$this->qb->setLang($this->user->data['ContentLang']);
 		}
 		
 		$this->autoFillFields = array(
@@ -101,7 +101,6 @@ class BackendElement{
 		$this->smarty->assign("columns", $this->getGridFields());
 		$this->smarty->assign("module", $this->getName());
 		$this->smarty->assign("items_arr", $this->getGridData());
-
 		return $this->output('table');
 	}
 	

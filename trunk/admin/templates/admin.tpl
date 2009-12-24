@@ -12,17 +12,17 @@
 
 <link rel="stylesheet" type="text/css" href="{$js}/jquery/themes/default/ui.all.css" media="screen" /> 
 <script type="text/javascript" src="{$js}/jquery/jquery.js"></script>
-<script type="text/javascript" src="{$js}/jquery/ui/jquery.ui.all.js"></script>
+<script type="text/javascript" src="{$js}/jquery/ui/jquery-ui.js"></script>
 
 
 <link rel="stylesheet" href="{$js}/jquery/plugins/layout/layout.css" type="text/css">
 <script type="text/javascript" src="{$js}/jquery/plugins/layout/jquery.layout.js"></script>
 
-<link rel="stylesheet" href="{$js}/jquery/plugins/tablesorter/themes/blue/style.css" type="text/css" id="" media="print, projection, screen" />
-<script type="text/javascript" src="{$js}/jquery/plugins/tablesorter/jquery.tablesorter.js"></script> 
-<script type="text/javascript" src="{$js}/jquery/plugins/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script> 
-
 <script src="{$js}/jquery/plugins/fckeditor/jquery.FCKEditor.js" type="text/javascript" language="javascript"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="{$js}/jquery/plugins/jqGrid/css/ui.jqgrid.css" />
+<script src="{$js}/jquery/plugins/jqGrid/js/i18n/grid.locale-{$GUILang}.js" type="text/javascript"></script>
+<script src="{$js}/jquery/plugins/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
 
 {literal}
 <script>

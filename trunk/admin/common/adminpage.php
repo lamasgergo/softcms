@@ -7,13 +7,15 @@ class AdminPage extends base{
     var $_moduleVarName = 'mod'; 
     var $user;
     var $lang;
+    var $xajax;
 
 	function AdminPage($module=null){
-        global $user, $lang;
+        global $user, $lang, $xajax;
         parent::base();
 
         $this->user = $user;
         $this->lang = $lang;
+        $this->xajax = $xajax;
         $this->language = $lang->getLanguage();
 
         $this->smarty->template_dir = $_SERVER['DOCUMENT_ROOT'].'/admin/';
@@ -84,15 +86,14 @@ class AdminPage extends base{
         if ($res && $res->RecordCount() > 0){
             $menu_top = $res->getArray();
         }
-
         $this->smarty->assign("top_menu",$menu_top);
         $this->smarty->assign("username",$this->user->data['Login']);
         return $this->smarty->fetch("templates/common/top_menu.tpl",null,$this->language);
     }
 
 	function runAjax($module){
-		if (file_exists($this->getModule($name))){
-            include_once($this->getModule($name));
+		if (file_exists($this->getModule($module))){
+            include_once($this->getModule($module));
         }
 		
 		list($module, $name) = explode("|", $module);
@@ -106,7 +107,8 @@ class AdminPage extends base{
                 $result = $class->show();
             }
         }
-		$smarty->assign("BODY", $result);
+        
+		$this->smarty->assign("BODY", $result);
 		$this->tpl = 'templates/ajax.tpl';
 		$this->smarty->display($this->tpl,null,$this->language);
 	}
@@ -121,11 +123,17 @@ class AdminPage extends base{
             } else {
                 $data = $this->dashboard();
             }
+            $this->smarty->assign("GUILang",$this->user->data['GUILang']);
+            $this->smarty->assign("ContentLang",$this->user->data['ContentLang']);
             $this->smarty->assign("MENU",$this->menu());
             $this->smarty->assign("BODY",$data);
         } else {
             $this->tpl = 'templates/login/login.tpl';
         }
+
+        $this->xajax->processRequests();
+        $this->smarty->assign("xajax_js",$this->xajax->getJavascript("/shared/js/xajax/","xajax.js"));
+
         $this->smarty->display($this->tpl,null,$this->language);
     }
 }

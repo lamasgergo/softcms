@@ -4,7 +4,7 @@ class Access {
 
     function isPrivileged(){
         global $user;
-        if (isset($user->data['Group']) && $user->data['Group']=='admin') return true;
+        if (isset($user->data['Group']) && $user->data['Group']=='Administrators') return true;
         return false;
     }
 

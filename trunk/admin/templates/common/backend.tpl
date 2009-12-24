@@ -4,7 +4,7 @@
 		$('#backend > ul').tabs({
 			add: function(e, ui) {
 				$(this).tabs('select', '#' + ui.panel.id);
-			},
+			}
 		});
 	});
 </script>

@@ -10,6 +10,7 @@ class Content extends UI{
     }
 
     function prepareOutput(){
+        die($this->vars['type']);
         if ($this->vars['type']=='article'){
             $this->obj = new ContentItem();
         } else {
