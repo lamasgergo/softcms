@@ -5,35 +5,123 @@
   </component>
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="36239626-bbf1-4a7a-b226-ba1a448b50ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jsProgressBarHandler.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/content/items.php" afterPath="$PROJECT_DIR$/admin/modules/content/items.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/modules/menu.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/modules/menu.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/tour.iml" afterPath="$PROJECT_DIR$/.idea/tour.iml" />
-      <change type="MOVED" beforePath="C:\htdocs\php4\tour\kernel\user.class.php" afterPath="$PROJECT_DIR$/kernel/classes/user.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/adminpage.php" afterPath="$PROJECT_DIR$/admin/common/adminpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/admin.tpl" afterPath="$PROJECT_DIR$/admin/templates/admin.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kernel/classes/QueryBuilder.php" afterPath="$PROJECT_DIR$/kernel/classes/QueryBuilder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/Access.php" afterPath="$PROJECT_DIR$/admin/common/Access.php" />
-      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\tab-view.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/manage/users.php" afterPath="$PROJECT_DIR$/admin/modules/manage/users.php" />
-      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\sort_table.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\image-slideshow-5.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/modules/table.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/modules/table.tpl" />
-      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\xajax.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/backend.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/backend.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/content/content.php" afterPath="$PROJECT_DIR$/modules/content/content.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/index.tpl" afterPath="$PROJECT_DIR$/design/index.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/dashboard/dashboard.tpl" afterPath="$PROJECT_DIR$/admin/templates/dashboard/dashboard.tpl" />
-      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\prototype.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\xajax_uncompressed.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\dhtmlgoodies_calendar.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/index.php" afterPath="$PROJECT_DIR$/admin/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/BackendElement.php" afterPath="$PROJECT_DIR$/admin/common/BackendElement.php" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\jquery.metadata.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-triggers.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-empty-table.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\img\small_desc.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\img\small_asc.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\jquery-1.1.2.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\build\pack.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\build\ParseMaster.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\img\header-asc.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\delphi.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\demo.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\css\jquery.tabs.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\build\writeFile.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-option-sort-list.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\themes\blue\style.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\img\external.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/docs/css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\cplusplus.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-option-sort-key.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/tests" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\metadata.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\javascript.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\delphi.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-meta-headers.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\php.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\jquery.tablesorter.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-options-headers.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/docs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/themes" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\themes\blue\blue.zip" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-ajax.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/tests/assets" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\large.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\css\jquery.tabs-ie.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\examples.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\recipes.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\cplusplus.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-meta-parsers.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-option-text-extraction.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/addons/pager/icons" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\mysql.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\themes\blue\desc.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\java.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-option-digits.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\java.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\html.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\themes\blue\bg.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\themes\green\bg.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\jquery.tablesorter.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\lotusscript.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-option-sort-force.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-meta-sort-list.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\img\small.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-option-sort-order.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\img\tab.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\themes\green\style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/addons" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\colspan.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\index.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\addons\pager\icons\next.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\recipes.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\img\header-desc.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\chili-1.8b.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\chili-1.8b.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\build\jsmin.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\javascript.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\css.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\php.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/themes/green" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\addons\pager\jquery.tablesorter.pager.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\themes\green\green.zip" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\build\packer.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\checkbox.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\html.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-option-debug.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\build\min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\csharp.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\themes\green\desc.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\themes\green\asc.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\pager.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-pager.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\img\header-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/addons/pager" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\mysql.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/build" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\js-jquery\javascript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/docs/js/chili/js-jquery" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\ajax-content.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-trigger-sort.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\themes\blue\asc.gif" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\js-jquery\javascript.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\css\jq.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/tests/assets/img" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/tests/assets/css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/docs/js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\assets\ajax-content.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/docs/img" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\cell.metadata.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\addons\pager\jquery.tablesorter.pager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/themes/blue" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\addons\pager\icons\first.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-parsers.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\addons\pager\icons\last.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\docs.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\csharp.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\lotusscript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/docs/assets" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\build\js.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-extending-defaults.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/tablesorter/docs/js/chili" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\assets\css\default.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\example-widgets.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\tests\index.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\docs\js\chili\css.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kernel/init.php" afterPath="$PROJECT_DIR$/kernel/init.php" />
-      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\plugins\function.tablePlugin.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\js\jquery\plugins\tablesorter\addons\pager\icons\prev.png" afterPath="" />
     </list>
     <list id="dc59c7c7-e8dc-4fe7-aaeb-63dff4d2e153" name="Failed commit: Default" comment="" />
     <ignored path=".idea/workspace.xml" />
@@ -92,6 +180,73 @@
     <favorites_list name="tour" />
   </component>
   <component name="FileColors" enabled="true" enabledForTabs="true" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="table.tpl" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/table.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="26" selection-start="290" selection-end="290" vertical-scroll-proportion="0.12031048">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grid.tbltogrid.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shared/js/jquery/plugins/jqGrid/src/grid.tbltogrid.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="80" column="7" selection-start="2291" selection-end="2291" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categories.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/content/categories.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="24" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BackendElement.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/common/BackendElement.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="61" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueryBuilder.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/classes/QueryBuilder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="115" column="10" selection-start="2658" selection-end="2658" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/admin.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="44" selection-start="1403" selection-end="1403" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminpage.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/common/adminpage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="126" column="74" selection-start="4072" selection-end="4072" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -154,10 +309,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites">
-        <subPane subId="tour" />
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -706,7 +857,11 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Favorites">
+        <subPane subId="tour" />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -714,7 +869,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -881,21 +1036,21 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3357605" sideWeight="0.6619883" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24939272" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -974,39 +1129,51 @@
         <state line="37" column="32" selection-start="956" selection-end="956" vertical-scroll-proportion="0.78136647" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/common/adminpage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="74" selection-start="4072" selection-end="4072" vertical-scroll-proportion="-20.166666" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/common/BackendElement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="61" selection-start="784" selection-end="784" vertical-scroll-proportion="-16.291666" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/classes/QueryBuilder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="10" selection-start="2658" selection-end="2658" vertical-scroll-proportion="-19.458334" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/modules/content/categories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="24" selection-start="415" selection-end="415" vertical-scroll-proportion="-11.333333" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/js/jquery/plugins/jqGrid/src/grid.tbltogrid.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="80" column="7" selection-start="2291" selection-end="2291" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/modules/content/categories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="24" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/common/BackendElement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="61" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/classes/QueryBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="10" selection-start="2658" selection-end="2658" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/templates/admin.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="44" selection-start="1403" selection-end="1403" vertical-scroll-proportion="-17.708334" />
+        <state line="25" column="44" selection-start="1403" selection-end="1403" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/common/adminpage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="74" selection-start="4072" selection-end="4072" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/table.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="28" selection-start="239" selection-end="239" vertical-scroll-proportion="0.12670808" />
+        <state line="8" column="26" selection-start="290" selection-end="290" vertical-scroll-proportion="0.12031048">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
