@@ -6,7 +6,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/kernel/external/smarty.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/kernel/external/xajax.inc.php");
 
 include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/languages.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/kernel/user.class.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/user.php");
 
 include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/base.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/modules.php");

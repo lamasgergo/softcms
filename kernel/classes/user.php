@@ -5,8 +5,6 @@ class User{
 
     var $login;
 
-    var $lang;
-
     var $data;
 
     function User(){
@@ -22,61 +20,55 @@ class User{
         $password = mysql_real_escape_string($password);
         $password = crypt($password,CRYPT_MD5);
 
-        $sql = $this->db->prepare("SELECT ID, Login, Published, Language FROM ".DB_PREFIX."users WHERE Login='".$login."' AND Password='".$password."' AND Published='1'");
+        $sql = $this->db->prepare("SELECT ID FROM ".DB_PREFIX."users WHERE Login='".$login."' AND Password='".$password."' AND Published='1'");
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0){
             $this->id = $res->fields['ID']; 
-            $this->lang->setLanguage($res->fields['Language']);
-            $this->startSession();
-            $this->getData();
+            $this->_startSession();
+            $this->_getData();
         } else{
             $_SESSION[SES_PREFIX."error"] = $this->lang->locale("login_wrong");
         }
     }
 
-    function getData(){
+    function _getData(){
         if (!isset($this->id) || $this->id <= 0) return false;
         
-        $sql = $this->db->prepare("SELECT u.*, g.Name as `Group`  FROM ".DB_PREFIX."users as u LEFT JOIN ".DB_PREFIX."groups as g ON (g.ID=u.GroupID) WHERE u.ID='".$this->id."' AND u.Published='1'");
+        $sql = $this->db->prepare("SELECT u.ID as userID, u.*, m.*  FROM ".DB_PREFIX."users as u LEFT JOIN ".DB_PREFIX."users_misc as m ON (u.ID=m.ID) WHERE u.ID='".$this->id."' AND u.Published='1'");
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0){
-            $this->id = $res->fields['ID'];
+            $this->id = $res->fields['userID'];
             $this->login = $res->fields['Login'];
             $this->data = $res->fields;
+
+            $this->lang->setLanguage($res->fields['GUILang']);
         }
     }
 
-    function startSession(){
+    function _startSession(){
         $_SESSION[SES_PREFIX."id"] = $this->id;
     }
 
     function is_auth(){
         if (isset($_SESSION[SES_PREFIX."id"]) && $_SESSION[SES_PREFIX."id"] > 0){
             $this->id = $_SESSION[SES_PREFIX."id"];
-            $this->getData();
+            $this->_getData();
         }
-
         return (isset($this->id) && $this->id > 0);
     }
 
-    function clearSessions(){
+    function _clearSessions(){
         unset($_SESSION[SES_PREFIX."id"]);
         unset($this->id);
     }
 
 
-    function new_password($password){
+    function _newPassword($password){
         return crypt($password,CRYPT_MD5);
     }
 
-    function change_lang($lang){
-        $sql = $this->db->prepare("UPDATE ".DB_PREFIX."users SET Language='".$lang."' WHERE ID='".$this->id."'");
-        $this->db->Execute($sql);
-        $this->data['Language'] = $lang;
-    }
-
     function logout(){
-        $this->clearSessions();
+        $this->_clearSessions();
         session_unregister($_SESSION[SES_PREFIX."id"]);
     }
 }

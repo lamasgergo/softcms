@@ -1,7 +1,7 @@
 {literal}
 <script>
   $(document).ready(function(){
-    $("#dashboard > ul").tabs();
+    $("#dashboard").tabs();
   });
   
   </script>
@@ -12,13 +12,12 @@
 <div id="dashboard">
 <ul>
 {foreach name=mod from=$modules_groups item=module}
-		<li><a href="#{$module.ModGroup}"><span>{$module.ModGroup|lang}</span></a></li>
+		<li><a href="#tab_{$module.ModGroup}">{$module.ModGroup|lang}</a></li>
 {/foreach}
 </ul>
 
 {foreach name=mod from=$modules_groups key="mod_key" item=module}
-	<div id="{$module.ModGroup}">
-		
+	<div id="tab_{$module.ModGroup}">
 		{foreach from=$modules[$mod_key] item=item}
 		<div class="icon" style="float:left;">
 	        {if $item.Icon ne ""}
@@ -35,7 +34,8 @@
 	          </a>
 	        {/if}
 	     </div>
-		{/foreach} 
+		{/foreach}
+        <div style="clear: left;"></div>
 	</div>
 {/foreach}
 </div>

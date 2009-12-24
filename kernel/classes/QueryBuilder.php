@@ -86,7 +86,8 @@ class QueryBuilder{
 		$conditions = array();
 		if (count($this->filterData) > 0){
 			foreach ($this->filterData as $i=>$condition){
-				if (preg_match("/^[varchar|char|text|tinytext|longtext]+.*$/ui", $this->columns[$condition['field']]['Type'])){
+				//if (preg_match("/^[varchar|char|text|tinytext|longtext]+.*$/ui", $this->columns[$condition['field']]['Type'])){
+				if (preg_match("/^[text|tinytext|longtext]+.*$/ui", $this->columns[$condition['field']]['Type'])){
 					$conditions[] = $condition['field']." LIKE '%".$condition['value']."%'";
 				} else {
 					$conditions[] = $condition['field']."='".$condition['value']."'";
@@ -112,6 +113,7 @@ class QueryBuilder{
 		$query .= $this->order;
 		$query .= $this->limit;
 		$query = $this->db->prepare($query);
+        //die($query);
 		$res = $this->db->Execute($query);
 		if ($res && $res->RecordCount()){
 			$arr = $res->getArray();

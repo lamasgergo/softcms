@@ -3,9 +3,10 @@ $_SERVER['DOCUMENT_ROOT'] = realpath(dirname(__FILE__).'/../');
 session_start();
 
 define("BACKEND", true);
+define("ACTION_URL", 'act');
+
 include_once("../config/config.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/kernel/init.php");
-
 
 $smarty->template_dir  = dirname(__FILE__).'/';
 

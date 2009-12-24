@@ -27,11 +27,11 @@
 		if (lastIndex!=0){
 			removeDynamicTabs();
 		}
-		lastIndex = $('#backend > ul').tabs('length');
-		
+		lastIndex = $('#backend').tabs('length');
+        
 		var link = '/admin/index.php?mod='+module+'|'+component+'&act='+action;
 		if (id) link = link + "&id="+id;
-		$("#backend > ul").tabs("add", link, title);
+		$('#backend').tabs("add", link, title);
 	};
 	
 	function removeTabByTitle(title){
@@ -44,7 +44,7 @@
 		});
 	};
 	function removeDynamicTabs(){
-		for (i=lastIndex; i<$('#backend > ul').tabs('length'); i++){
+		for (i=lastIndex; i<$('#backend').tabs('length'); i++){
 			$("#backend > ul").tabs("remove", i);
 		}
 	};
