@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="{$js}/jquery/themes/default/ui.all.css" media="screen" /> 
 <script type="text/javascript" src="{$js}/jquery/jquery.js"></script>
 <script type="text/javascript" src="{$js}/jquery/ui/jquery-ui.js"></script>
+<script type="text/javascript" src="{$js}/jquery/external/bgiframe/jquery.bgiframe.min.js"></script>
 
 
 <link rel="stylesheet" href="{$js}/jquery/plugins/layout/layout.css" type="text/css">
@@ -23,6 +24,10 @@
 <link rel="stylesheet" type="text/css" media="screen" href="{$js}/jquery/plugins/jqGrid/css/ui.jqgrid.css" />
 <script src="{$js}/jquery/plugins/jqGrid/js/i18n/grid.locale-{$GUILang}.js" type="text/javascript"></script>
 <script src="{$js}/jquery/plugins/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="{$js}/jquery/plugins/jdMenu/jquery.jdMenu.css" />
+<script src="{$js}/jquery/plugins/jdMenu/jquery.jdMenu.js" type="text/javascript"></script>
+<script src="{$js}/jquery/plugins/jdMenu/jquery.positionBy.js" type="text/javascript"></script>
 
 {literal}
 <script>
