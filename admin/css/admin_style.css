@@ -158,13 +158,33 @@ legend {
     color: white;
 }
 
-#menu_top div.user {
+#menu_top div.right {
     position: absolute;
     right: 5px;
-    top: 5px;
+    bottom: 7px;
     color: #000000;
     font-weight: bold;
 }
+#menu_top .user {
+	position: absolute;
+	right: 5px;
+    top: 1px;
+    text-align: right;
+	vertical-align: middle;
+	line-height: 21px;
+}
+
+#menu_top .moduleTitle{
+	position: absolute;
+    left: 15px;
+    top: 28px;
+    color: #000000;
+	font-family: Verdana, Tahoma;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+
 
 #dashboard div.icon {
     margin: 5px;
