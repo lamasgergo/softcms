@@ -30,10 +30,10 @@
 		Layout = $('body').layout({
 			initClosed: true,
 			north__initClosed : false,
-			east__initClosed : false
+			north__minSize : 80,
+			north__maxSize : 80,
+			east__minSize : 350
 		});
-		Layout.sizePane('north', 80);
-		Layout.sizePane('east', 50);
     });
 </script>
 
@@ -42,7 +42,7 @@
 </head>
 <body>
 <div class="ui-layout-center">{$BODY}</div>
-<div class="ui-layout-north">{$MENU}</div>
+<div class="ui-layout-north">{admin_menu type='top'}</div>
 <div class="ui-layout-east">{$LANG}</div>
 <div class="ui-layout-west">{$TREE}</div>
 
