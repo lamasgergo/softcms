@@ -26,8 +26,9 @@
 <script src="{$js}/jquery/plugins/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
 
 <link rel="stylesheet" type="text/css" media="screen" href="{$js}/jquery/plugins/jdMenu/jquery.jdMenu.css" />
-<script src="{$js}/jquery/plugins/jdMenu/jquery.jdMenu.js" type="text/javascript"></script>
+<script src="{$js}/jquery/plugins/jdMenu/jquery.dimensions.js" type="text/javascript"></script>
 <script src="{$js}/jquery/plugins/jdMenu/jquery.positionBy.js" type="text/javascript"></script>
+<script src="{$js}/jquery/plugins/jdMenu/jquery.jdMenu.js" type="text/javascript"></script>
 
 {literal}
 <script>
