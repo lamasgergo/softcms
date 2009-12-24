@@ -80,16 +80,6 @@ class AdminPage extends base{
         return $this->smarty->fetch('templates/dashboard/dashboard.tpl', null, $this->language);
     }
 
-    function menu(){
-        $sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."modules WHERE Active='1' ORDER BY ModGroup ASC, Name ASC");
-        $res = $this->db->execute($sql);
-        if ($res && $res->RecordCount() > 0){
-            $menu_top = $res->getArray();
-        }
-        $this->smarty->assign("top_menu",$menu_top);
-        $this->smarty->assign("username",$this->user->data['Login']);
-        return $this->smarty->fetch("templates/common/top_menu.tpl",null,$this->language);
-    }
 
 	function runAjax($module){
 		if (file_exists($this->getModule($module))){
@@ -125,7 +115,6 @@ class AdminPage extends base{
             }
             $this->smarty->assign("GUILang",$this->user->data['GUILang']);
             $this->smarty->assign("ContentLang",$this->user->data['ContentLang']);
-            $this->smarty->assign("MENU",$this->menu());
             $this->smarty->assign("BODY",$data);
         } else {
             $this->tpl = 'templates/login/login.tpl';
