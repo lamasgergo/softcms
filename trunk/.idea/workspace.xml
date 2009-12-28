@@ -5,18 +5,23 @@
   </component>
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="36239626-bbf1-4a7a-b226-ba1a448b50ce" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\htdocs\php4\tour\shared\plugins\function.npa_image_slider.php" afterPath="$PROJECT_DIR$/shared/plugins/function.admin_menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/layout/layout.css" afterPath="$PROJECT_DIR$/shared/js/jquery/plugins/layout/layout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/top_menu.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/top_menu.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/content/items.php" afterPath="$PROJECT_DIR$/admin/modules/content/items.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/modules/menu.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/modules/menu.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/backend.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/backend.tpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/adminpage.php" afterPath="$PROJECT_DIR$/admin/common/adminpage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/admin.tpl" afterPath="$PROJECT_DIR$/admin/templates/admin.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/css/admin_style.css" afterPath="$PROJECT_DIR$/admin/css/admin_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/tour.sql" afterPath="$PROJECT_DIR$/sql/tour.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kernel/classes/QueryBuilder.php" afterPath="$PROJECT_DIR$/kernel/classes/QueryBuilder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/jdMenu/jquery.jdMenu.css" afterPath="$PROJECT_DIR$/shared/js/jquery/plugins/jdMenu/jquery.jdMenu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/content/categories.php" afterPath="$PROJECT_DIR$/admin/modules/content/categories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/top_menu.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/top_menu.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tour.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/BackendElement.php" afterPath="$PROJECT_DIR$/admin/common/BackendElement.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kernel/init.php" afterPath="$PROJECT_DIR$/kernel/init.php" />
+      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\images\icons\combo.php" afterPath="" />
     </list>
     <list id="dc59c7c7-e8dc-4fe7-aaeb-63dff4d2e153" name="Failed commit: Default" comment="" />
-    <ignored path=".idea/workspace.xml" />
     <ignored path="tour.iws" />
+    <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,37 +78,82 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="top_menu.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/templates/common/top_menu.tpl">
+      <file leaf-file-name="categories.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/content/categories.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="19" selection-start="42" selection-end="42" vertical-scroll-proportion="-2.125">
+            <state line="16" column="26" selection-start="417" selection-end="417" vertical-scroll-proportion="-11.333333">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_style.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/css/admin_style.css">
+      <file leaf-file-name="BackendElement.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/common/BackendElement.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="29" selection-start="2990" selection-end="2990" vertical-scroll-proportion="0.49215922">
+            <state line="254" column="13" selection-start="7726" selection-end="7726" vertical-scroll-proportion="0.5601552">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/templates/admin.tpl">
+      <file leaf-file-name="categories.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/catalog/categories.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="22" selection-start="1577" selection-end="1577" vertical-scroll-proportion="-19.75">
+            <state line="69" column="13" selection-start="1561" selection-end="1561" vertical-scroll-proportion="-10.708333">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shared/js/jquery/plugins/layout/layout.css">
+      <file leaf-file-name="QueryBuilder.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/classes/QueryBuilder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="14" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
+            <state line="227" column="51" selection-start="5178" selection-end="5178" vertical-scroll-proportion="-3.0833333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/content/templates/items/form.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/menu.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="23" selection-start="805" selection-end="805" vertical-scroll-proportion="-19.666666">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/table.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="26" selection-start="290" selection-end="290" vertical-scroll-proportion="-5.6666665">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="backend.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/common/backend.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="8" selection-start="52" selection-end="52" vertical-scroll-proportion="-2.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/main.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="23" selection-start="357" selection-end="378" vertical-scroll-proportion="-14.166667">
               <folding />
             </state>
           </provider>
@@ -119,22 +169,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/admin/index.php" />
+        <option value="$PROJECT_DIR$/shared/plugins/function.admin_menu.php" />
+        <option value="$PROJECT_DIR$/shared/js/jquery/plugins/layout/layout.css" />
+        <option value="$PROJECT_DIR$/admin/css/admin_style.css" />
+        <option value="$PROJECT_DIR$/admin/templates/common/top_menu.tpl" />
+        <option value="$PROJECT_DIR$/shared/js/jquery/plugins/jdMenu/jquery.jdMenu.css" />
+        <option value="$PROJECT_DIR$/admin/modules/content/items.php" />
+        <option value="$PROJECT_DIR$/shared/images/icons/combo.php" />
         <option value="$PROJECT_DIR$/kernel/init.php" />
-        <option value="$PROJECT_DIR$/admin/common/Access.php" />
-        <option value="$PROJECT_DIR$/kernel/classes/user.php" />
-        <option value="$PROJECT_DIR$/admin/templates/common/backend.tpl" />
-        <option value="$PROJECT_DIR$/admin/templates/dashboard/dashboard.tpl" />
+        <option value="$PROJECT_DIR$/admin/modules/content/categories.php" />
+        <option value="$PROJECT_DIR$/admin/common/adminpage.php" />
+        <option value="$PROJECT_DIR$/admin/templates/admin.tpl" />
         <option value="$PROJECT_DIR$/admin/common/BackendElement.php" />
         <option value="$PROJECT_DIR$/kernel/classes/QueryBuilder.php" />
-        <option value="$PROJECT_DIR$/admin/templates/common/modules/table.tpl" />
-        <option value="$PROJECT_DIR$/admin/common/adminpage.php" />
-        <option value="$PROJECT_DIR$/shared/plugins/function.npa_image_slider.php" />
-        <option value="$PROJECT_DIR$/shared/plugins/function.admin_menu.php" />
-        <option value="$PROJECT_DIR$/admin/templates/admin.tpl" />
-        <option value="$PROJECT_DIR$/shared/js/jquery/plugins/layout/layout.css" />
-        <option value="$PROJECT_DIR$/admin/templates/common/top_menu.tpl" />
-        <option value="$PROJECT_DIR$/admin/css/admin_style.css" />
+        <option value="$PROJECT_DIR$/admin/templates/common/modules/menu.tpl" />
+        <option value="$PROJECT_DIR$/admin/templates/common/modules/main.tpl" />
+        <option value="$PROJECT_DIR$/admin/templates/common/backend.tpl" />
       </list>
     </option>
   </component>
@@ -173,6 +223,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -195,320 +246,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jqGrid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jqGrid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kernel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kernel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="design" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="design" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -528,28 +265,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -666,34 +381,8 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="categories" />
+              <option name="myItemId" value="items" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -720,32 +409,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="categories" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tour" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -769,23 +432,22 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Favorites">
         <subPane subId="tour" />
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PhpRunConfigurationType" factoryName="PHP" break_at_first_line="false" browser="DEFAULT" open_page_automatically="true" session_id="" stop_session_after_first_page="false" web_path="">
@@ -900,6 +562,10 @@
     <option name="myMappingRoots">
       <list>
         <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="C:\htdocs\php4\tour\.idea" />
+          <option name="myCopyRoot" value="C:\htdocs\php4\tour\.idea" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
           <option name="myVcsRoot" value="C:\htdocs\php4\tour" />
           <option name="myCopyRoot" value="C:\htdocs\php4\tour" />
         </SvnCopyRootSimple>
@@ -950,17 +616,17 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3357605" sideWeight="0.6619883" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19579288" sideWeight="0.6619883" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24939272" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -996,102 +662,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/index.php">
+    <entry file="file://$PROJECT_DIR$/shared/js/jquery/plugins/jdMenu/jquery.jdMenu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="16" selection-start="668" selection-end="668" vertical-scroll-proportion="-17.708334" />
+        <state line="18" column="24" selection-start="282" selection-end="282" vertical-scroll-proportion="0.020506635">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kernel/classes/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="44" selection-start="1282" selection-end="1282" vertical-scroll-proportion="-13.791667" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/menu.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="51" selection-start="667" selection-end="678" vertical-scroll-proportion="-18.041666" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templates/common/backend.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="24" selection-start="63" selection-end="68" vertical-scroll-proportion="-2.125" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templates/dashboard/dashboard.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="32" selection-start="956" selection-end="956" vertical-scroll-proportion="0.78136647" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/js/jquery/plugins/jqGrid/src/grid.tbltogrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="7" selection-start="2291" selection-end="2291" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/modules/content/categories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="24" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
+        <state line="75" column="0" selection-start="2117" selection-end="2117" vertical-scroll-proportion="-27.25">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/common/BackendElement.php">
+    <entry file="file://$PROJECT_DIR$/admin/common/Backend.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="61" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="719" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/classes/QueryBuilder.php">
+    <entry file="file://$PROJECT_DIR$/admin/modules/content/items.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="10" selection-start="2658" selection-end="2658" vertical-scroll-proportion="0.0">
+        <state line="55" column="22" selection-start="1652" selection-end="1661" vertical-scroll-proportion="-38.958332">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="589" selection-end="589" vertical-scroll-proportion="-9.916667">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/common/adminpage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="52" selection-start="461" selection-end="461" vertical-scroll-proportion="0.43037975">
+        <state line="18" column="32" selection-start="402" selection-end="402" vertical-scroll-proportion="-11.666667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/plugins/function.admin_menu.php">
+    <entry file="file://$PROJECT_DIR$/admin/modules/catalog/categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="12" selection-start="258" selection-end="258" vertical-scroll-proportion="0.19367088">
+        <state line="69" column="13" selection-start="1561" selection-end="1561" vertical-scroll-proportion="-10.708333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/modules/content/categories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="26" selection-start="417" selection-end="417" vertical-scroll-proportion="-11.333333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/classes/QueryBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="227" column="51" selection-start="5178" selection-end="5178" vertical-scroll-proportion="-3.0833333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/modules/content/templates/items/form.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/menu.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="23" selection-start="805" selection-end="805" vertical-scroll-proportion="-19.666666">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/table.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="26" selection-start="290" selection-end="290" vertical-scroll-proportion="-3.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/js/jquery/plugins/layout/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="14" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
+        <state line="8" column="26" selection-start="290" selection-end="290" vertical-scroll-proportion="-5.6666665">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/templates/admin.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="22" selection-start="1577" selection-end="1577" vertical-scroll-proportion="-19.75">
+        <state line="45" column="22" selection-start="2168" selection-end="2177" vertical-scroll-proportion="0.9708122">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templates/common/top_menu.tpl">
+    <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/main.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="19" selection-start="42" selection-end="42" vertical-scroll-proportion="-2.125">
+        <state line="20" column="23" selection-start="357" selection-end="378" vertical-scroll-proportion="-14.166667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/css/admin_style.css">
+    <entry file="file://$PROJECT_DIR$/admin/templates/common/backend.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="29" selection-start="2990" selection-end="2990" vertical-scroll-proportion="0.49215922">
+        <state line="3" column="8" selection-start="52" selection-end="52" vertical-scroll-proportion="-2.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/common/BackendElement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="254" column="13" selection-start="7726" selection-end="7726" vertical-scroll-proportion="0.5601552">
           <folding />
         </state>
       </provider>

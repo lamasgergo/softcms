@@ -7,7 +7,7 @@
 			});
 		</script>
 	{/literal}
-  
+
 	<div class="menu">
 		<ul class="jd_menu">
 			<li>
@@ -29,7 +29,7 @@
 			{/foreach}
 		</ul>
 	</div>
-  
+
 	<div class="moduleTitle">
 		{$smarty.get.mod|lang}
 	</div>

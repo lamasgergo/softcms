@@ -32,7 +32,7 @@ class Categories extends BackendElement {
 	
 	function getTreeList($parent_id=0, $ret=array(), $depth=0){
 		$depth++;
-		$sql = "SELECT ID, Name FROM ".DB_PREFIX."cnt_category WHERE ParentID='".$parent_id."' AND LangID='".$this->user->edit_lang_id."' ORDER BY ID";
+		$sql = "SELECT ID, Name FROM ".$this->table." WHERE ParentID='".$parent_id."' AND Lang='".$this->getLang()."' ORDER BY ID";
 		$res = $this->db->Execute($sql);
 		if ($res && $res->RecordCount() > 0){
 			while (!$res->EOF){

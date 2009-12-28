@@ -1,16 +1,21 @@
 {literal}
 <script>
 
+    function closeActiveTab(){
+        var selected = $("#backend").data('selected.tabs');
+
+    }
+
 	function refreshTabTable(module, component, tabLocked){
 		
 		if (!tabLocked){
-			var selected = $("#backend > ul").data('selected.tabs');
-			$("#backend > ul").tabs('remove', selected);
-			$("#backend > ul").find('[href=#'+component+']').click();
+			var selected = $("#backend").data('selected.tabs');
+			$("#backend").tabs('remove', selected);
+			$("#backend").find('[href=#tab_'+component+']').click();
 		}
 
-		var selected = $("#backend > ul").data('selected.tabs');
-
+		var selected = $("#backend").data('selected.tabs');
+        
 		var link = '/admin/index.php?mod='+module+'|'+component;
 		
 		$('#'+component+"_pager").remove();
@@ -28,24 +33,24 @@
 			removeDynamicTabs();
 		}
 		lastIndex = $('#backend').tabs('length');
-        
 		var link = '/admin/index.php?mod='+module+'|'+component+'&act='+action;
 		if (id) link = link + "&id="+id;
 		$('#backend').tabs("add", link, title);
+        //$("#backend").tabs("select", lastIndex+1);
 	};
 	
 	function removeTabByTitle(title){
 		var index = 0;
 		$("#backend >ul").find('li').each(function(){
 			if ($(this).find('span').text()==title){
-				$("#backend > ul").tabs("remove", index);
+				$("#backend").tabs("remove", index);
 			}
 			index++;
 		});
 	};
 	function removeDynamicTabs(){
 		for (i=lastIndex; i<$('#backend').tabs('length'); i++){
-			$("#backend > ul").tabs("remove", i);
+			$("#backend").tabs("remove", i);
 		}
 	};
 	

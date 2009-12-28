@@ -13,6 +13,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/modules.php");
 
 $xajax = new xajax();
 
+
 $smarty->register_object("db",$db);
 
 if (!is_backend()){

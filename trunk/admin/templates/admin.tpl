@@ -38,9 +38,15 @@
 			north__initClosed : false,
 			north__minSize : 80,
 			north__maxSize : 80,
-			east__minSize : 350
+			east__minSize : 350,
+            south__minSize : 60
 		});
     });
+
+    function showDebug(text){
+        $('#debug').html(text);
+        Layout.open('south');
+    }
 </script>
 
 {/literal}
@@ -51,6 +57,7 @@
 <div class="ui-layout-north">{admin_menu type='top'}</div>
 <div class="ui-layout-east">{$LANG}</div>
 <div class="ui-layout-west">{$TREE}</div>
+<div class="ui-layout-south"><div id="debug"></div></div>
 
 </body>
 </html>
