@@ -16,6 +16,7 @@ ul.jd_menu_vertical {
 }
 ul.jd_menu_vertical li {
 	float: none;
+    visibility: visible;
 }
 
 /* -- Sub-Menus -- */

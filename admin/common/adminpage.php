@@ -10,12 +10,13 @@ class AdminPage extends base{
     var $xajax;
 
 	function AdminPage($module=null){
-        global $user, $lang, $xajax;
+        global $user, $lang, $xajax, $smarty;
         parent::base();
 
         $this->user = $user;
         $this->lang = $lang;
-        $this->xajax = $xajax;
+        $this->xajax = &$xajax;
+        $this->smarty = &$smarty;
         $this->language = $lang->getLanguage();
 
         $this->smarty->template_dir = $_SERVER['DOCUMENT_ROOT'].'/admin/';

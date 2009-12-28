@@ -1,5 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/admin/common/BackendElement.php");
+require_once(dirname(__FILE__)."/categories.php");
 
 class Items extends BackendElement {
     
@@ -19,7 +20,8 @@ class Items extends BackendElement {
 	
 	function prepareModifyForm(){
 		// CategoryID
-        $category_arr = $this->getTreeList(0);
+        $categories = new Categories($this->mod_name);
+        $category_arr = $categories->getTreeList();
         $category_ids = array();
         $category_names = array();
         foreach ($category_arr as $data){

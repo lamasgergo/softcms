@@ -44,6 +44,7 @@ class QueryBuilder{
 
 	function setLang($lang){
 		if (!empty($lang)){
+            $this->lang = $lang;
 			$this->setFilter('Lang', $lang);
 		}
 	}
@@ -154,7 +155,11 @@ class QueryBuilder{
 		if ($this->langID && !empty($this->langID)){
 			$data['LangID'] = $this->langID;
 		}
-		
+
+		if ($this->lang && !empty($this->lang)){
+			$data['Lang'] = $this->lang;
+		}
+
 		$old_data = $data;
 		$data = array();
 		foreach ($old_data as $key=>$value){
@@ -195,6 +200,9 @@ class QueryBuilder{
 		
 		if ($this->langID && !empty($this->langID)){
 			$data['LangID'] = $this->langID;
+		}
+        if ($this->lang && !empty($this->lang)){
+			$data['Lang'] = $this->lang;
 		}
 		
 		$idName = array_shift($fields);
