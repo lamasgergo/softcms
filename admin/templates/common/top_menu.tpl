@@ -1,23 +1,17 @@
 <div id="menu_top">
   
-	{literal}
-		<script>
-			$(document).ready(function(){
-				$('ul.jd_menu').jdMenu();
-			});
-		</script>
-	{/literal}
+	
 
 	<div class="menu">
-		<ul class="jd_menu">
+		<ul class="dropdown dropdown-horizontal">
 			<li>
 				<a href="/admin/">
-				<img src="{$images}/icons/home.png" border="0">&nbsp;
+				{"Home"|lang}&nbsp;
 				</a>
 			</li>
 			{foreach from=$modules key=group item=moduleItems}
 				<li>
-					{$group}
+					<a href="#">{$group}</a>
 					<ul>
 					{foreach from=$moduleItems item=module}
 						<li>

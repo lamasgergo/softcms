@@ -25,10 +25,9 @@
 <script src="{$js}/jquery/plugins/jqGrid/js/i18n/grid.locale-{$GUILang}.js" type="text/javascript"></script>
 <script src="{$js}/jquery/plugins/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
 
-<link rel="stylesheet" type="text/css" media="screen" href="{$js}/jquery/plugins/jdMenu/jquery.jdMenu.css" />
-<script src="{$js}/jquery/plugins/jdMenu/jquery.dimensions.js" type="text/javascript"></script>
-<script src="{$js}/jquery/plugins/jdMenu/jquery.positionBy.js" type="text/javascript"></script>
-<script src="{$js}/jquery/plugins/jdMenu/jquery.jdMenu.js" type="text/javascript"></script>
+<link href="{$js}/jquery/plugins/dropDown/css/dropdown.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="{$js}/jquery/plugins/dropDown/css/themes/mtv.com/default.ultimate.css" media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$js}/jquery/plugins/dropDown/jquery.dropdown.js"></script>
 
 {literal}
 <script>
