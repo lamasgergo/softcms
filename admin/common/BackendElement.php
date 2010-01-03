@@ -232,9 +232,9 @@ class BackendElement{
             $res = $this->db->Execute($query);
             if ($res){
                 $resp->addAlert($this->translate($this->module.'_'.$this->getName().'_'.$action.'_true'));
-                if ($closeTab){
-                    $resp->addScriptCall($action.'FormCallback', $this->module, $this->getName());
-                }
+				$resp->addAlert((bool)$closeTab);
+                $resp->addScriptCall($action.'FormCallback', $this->module, $this->getName(), (bool)$closeTab);
+                
             } else {
                 $resp->addAlert($this->translate($this->module.'_'.$this->getName().'_'.$action.'_false'));
                 if ($this->debug){
@@ -253,8 +253,9 @@ class BackendElement{
     }
 
     function translate($data){
-        if (isset($this->lang[$data])){
-            return $this->lang[$data];
+		$locale = $this->lang->getLocale();
+        if (isset($locale[$data])){
+            return $locale[$data];
         } else {
             return $data;
         }

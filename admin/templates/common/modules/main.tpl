@@ -18,5 +18,7 @@
 </div>
 
 <script type="text/javascript">
+
   $('#backend').tabs();
+
 </script>
