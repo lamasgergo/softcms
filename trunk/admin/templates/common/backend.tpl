@@ -1,10 +1,4 @@
-{literal}
-<script>
-	$(document).ready(function(){
-		
-	});
-</script>
-{/literal}
+
 <div id="backend">
 <ul>
 {foreach from=$objects item=object}

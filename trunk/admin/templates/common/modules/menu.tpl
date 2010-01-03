@@ -7,7 +7,6 @@
     }
 
 	function refreshTabTable(module, component, tabLocked){
-		
 		if (!tabLocked){
 			var selected = $("#backend").data('selected.tabs');
 			$("#backend").tabs('remove', selected);
@@ -20,7 +19,8 @@
 		
 		$('#'+component+"_pager").remove();
 		$.get(link, function(data){
-			$('#'+component+"Table").replaceWith(data);
+			$('#'+component+"GridRefresh").replaceWith(data);
+			jsGrid(component);
 		});
 		
 		
@@ -36,7 +36,7 @@
 		var link = '/admin/index.php?mod='+module+'|'+component+'&act='+action;
 		if (id) link = link + "&id="+id;
 		$('#backend').tabs("add", link, title);
-        //$("#backend").tabs("select", lastIndex+1);
+        $("#backend").tabs("select", lastIndex);
 	};
 	
 	function removeTabByTitle(title){
@@ -60,11 +60,11 @@
 	};
 
 	function showChangeForm(component){
-		var val = $("#"+component+"Table").find("input[name^=actionid]:checked").val();
+		var val = $("#"+component+"Grid").getGridParam("selrow");
 		val = $.trim(val);
 		if (val!='' && val!='undefined'){
 			var title = '{/literal}{"Change"|lang}{literal}';
-			addTab(title, 'change', '{/literal}{$module}{literal}', component, $("#"+component+"Table").find("input[name^=actionid]:checked").val());
+			addTab(title, 'change', '{/literal}{$module}{literal}', component, val);
 		} else {
 			alert('{/literal}{"check_item_first"|lang}{literal}');
 		}
@@ -88,8 +88,8 @@
 		refreshTabTable(module, component);
 	};
 	
-	function changeFormCallback(module, component){
-		refreshTabTable(module, component);
+	function changeFormCallback(module, component, tabLocked){
+		refreshTabTable(module, component, tabLocked);
 	};
 	function deleteFormCallback(module, component){
 		refreshTabTable(module, component, true);

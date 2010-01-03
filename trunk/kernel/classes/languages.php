@@ -16,13 +16,16 @@ class languages {
     var $localeStorePath = '/shared/locale/';
 
     var $localeDefaultNames = array('common', 'errors', 'site');
+	
+	var $db;
 
     function languages(){
-        global $config;
+        global $config, $db;
         $this->default = $config->DEFAULT_LANG;
         $this->_current = $config->DEFAULT_LANG;
         $this->_languages = $config->SUPPORTED_LANGUAGES;
         $this->_languagesList = $config->SUPPORTED_LANGUAGES_LIST;
+		$this->db = $db;
     }
 
     function getLanguage(){
@@ -74,8 +77,38 @@ class languages {
         }
         return $name;
     }
+	
+	function loadBackendLocale(){
+		$sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."modules WHERE Active='1' ORDER BY Name ASC");
+		$res = $this->db->execute($sql);
+		if ($res && $res->RecordCount() > 0){
+			while (!$res->EOF){
+				$this->loadBackendModuleLocale($res->fields['Name']);
+				$res->MoveNext();
+			}
+		} 
+	}
+	
+	function loadBackendModuleLocale($module){
+		$path = $_SERVER['DOCUMENT_ROOT'].'/admin/modules/'.$module.'/locale/'.$this->_current.'.php';
+		
+		if (file_exists($path)){
+			include_once($path);
+			$this->locale = array_merge($this->locale, $lang);
+			unset($lang);
+		}
+	}
+	
+	function translate($str){
+		if (isset($this->locale[$str])){
+			return $this->locale[$str];
+		} else return $str;
+	}
 }
 
 $lang = new languages();
 $lang->localeDefaults();
+//if (!is_backend()){
+	$lang->loadBackendLocale();
+//}
 ?>

@@ -24,6 +24,7 @@ function smarty_postfilter_lang($tpl, &$smarty) {
 
     $locale = $lang->getLocale();
 
+
     $tpl = preg_replace('/\<\?\w+\s+\(\$lang\.([\w\d\_\-]+)\)\s+\?\>/iu',"###\\1###",$tpl);
 
     preg_match_all('/\#\#\#([\w\d\_\-]+)\#\#\#/iu',$tpl,$res);

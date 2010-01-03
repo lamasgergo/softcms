@@ -54,8 +54,8 @@ class Categories extends BackendElement {
 		return $this->runAjaxAction("add", $data);
 	}
 
-	function Categories_change($data, $closeTab){
-		return $this->runAjaxAction("change", $data);
+	function Categories_change($data, $closeTab=true){
+		return $this->runAjaxAction("change", $data, true, (bool)$closeTab);
 	}
 	
 	function Categories_delete($data){

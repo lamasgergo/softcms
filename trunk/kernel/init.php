@@ -22,12 +22,14 @@ if (!is_backend()){
     $modules->loadModules();
     include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/page.php");
 } else {
+    include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/AdminLocale.php");
     include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/access.php");
     include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/adminpage.php");
     include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/QueryBuilder.php");
     include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/Backend.php");
     include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/adminform.php");
     include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/tabelement.php");
+	
 }
 
 

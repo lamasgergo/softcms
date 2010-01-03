@@ -1,6 +1,6 @@
 <?php
 
-class AdminPage extends base{
+class AdminPage{
 
 	var $url = '/';
     var $tpl = 'templates/admin.tpl';
@@ -11,13 +11,12 @@ class AdminPage extends base{
 
 	function AdminPage($module=null){
         global $user, $lang, $xajax, $smarty;
-        parent::base();
 
         $this->user = $user;
         $this->lang = $lang;
         $this->xajax = &$xajax;
         $this->smarty = &$smarty;
-        $this->language = $lang->getLanguage();
+        $this->language = $user->data['GUILanguage'];
 
         $this->smarty->template_dir = $_SERVER['DOCUMENT_ROOT'].'/admin/';
 
