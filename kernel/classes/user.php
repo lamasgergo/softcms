@@ -7,10 +7,12 @@ class User{
 
     var $data;
 
+    var $locale;
+
     function User(){
-        global $db, $lang;
+        global $db, $locale;
         $this->db = $db;
-        $this->lang = $lang;
+        $this->locale = $locale;
         $this->is_auth();
     }
 
@@ -27,7 +29,7 @@ class User{
             $this->_startSession();
             $this->_getData();
         } else{
-            $_SESSION[SES_PREFIX."error"] = $this->lang->locale("login_wrong");
+            $_SESSION[SES_PREFIX."error"] = $this->locale->translate("login_wrong");
         }
     }
 
@@ -41,7 +43,7 @@ class User{
             $this->login = $res->fields['Login'];
             $this->data = $res->fields;
 
-            $this->lang->setLanguage($res->fields['GUILang']);
+            $this->locale->setLanguage($res->fields['GUILang']);
         }
     }
 

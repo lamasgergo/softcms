@@ -7,7 +7,7 @@ class BackendElement{
 
     var $gridHideItems = '';
 
-    var $lang;
+    var $locale;
 
     var $langID;
 
@@ -36,8 +36,12 @@ class BackendElement{
     var $debug = true;
 
     function BackendElement(){
-        global $smarty, $user, $db, $xajax, $lang;
-        $this->lang = $lang;
+        global $smarty, $user, $db, $xajax, $locale;
+
+        $this->locale = $locale;
+        $this->locale->loadBackendModuleLocale($this->module);
+
+
         $this->user = $user;
         $this->db = $db;
         $this->smarty = &$smarty;
@@ -253,12 +257,7 @@ class BackendElement{
     }
 
     function translate($data){
-		$locale = $this->lang->getLocale();
-        if (isset($locale[$data])){
-            return $locale[$data];
-        } else {
-            return $data;
-        }
+		return $this->locale->translate($data);
     }
 
     function getFilter(){
