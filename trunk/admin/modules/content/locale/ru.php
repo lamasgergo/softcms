@@ -1,42 +1,43 @@
 <?php
+$lang['content'] = array();
+$lang['content']['content_Categories'] = 'Категории';
+$lang['content']['content_Items'] = 'Страницы';
 
-$lang['content_Categories'] = 'Категории';
-$lang['content_Items'] = 'Страницы';
-
-$lang['content_Categories_add_true'] = 'Категория добавлена успешно';
-$lang['content_Categories_add_false'] = 'Ошибка добавления категории';
-$lang['content_Categories_change_true'] = 'Категория изменена успешно';
-$lang['content_Categories_chang_false'] = 'Ошибка изменения категории';
+$lang['content']['content_categories_add_true'] = 'Категория добавлена успешно';
+$lang['content']['content_categories_add_false'] = 'Ошибка добавления категории';
+$lang['content']['content_categories_change_true'] = 'Категория изменена успешно';
+$lang['content']['content_categories_chang_false'] = 'Ошибка изменения категории';
 
 
-$lang['Categories_action'] = '';
-$lang['Categories_ID'] = 'ID';
-$lang['Categories_UserID'] = 'Владелец';
-$lang['Categories_ParentID'] = 'Родительский каталог';
-$lang['Categories_LangID'] = 'Язык';
-$lang['Categories_Name'] = 'Название';
-$lang['Categories_Description'] = 'Описание';
-$lang['Categories_Published'] = 'Опубликовна';
-$lang['Categories_Created'] = 'Создана';
-$lang['Categories_LoginRequired'] = 'Только зарегистрированным пользователям';
-$lang['Categories_AllowComments'] = 'Комментарии';
+$lang['content']['categories_action'] = '';
+$lang['content']['categories_ID'] = 'ID';
+$lang['content']['categories_Lang'] = 'Язык';
+$lang['content']['categories_UserID'] = 'Владелец';
+$lang['content']['categories_ParentID'] = 'Родительский каталог';
+$lang['content']['categories_LangID'] = 'Язык';
+$lang['content']['categories_Name'] = 'Название';
+$lang['content']['categories_Description'] = 'Описание';
+$lang['content']['categories_Published'] = 'Опубликовна';
+$lang['content']['categories_Created'] = 'Создана';
+$lang['content']['categories_LoginRequired'] = 'Только зарегистрированным пользователям';
+$lang['content']['categories_AllowComments'] = 'Комментарии';
 
-$lang['Items_action'] = '';
-$lang['Items_ID'] = 'ID';
-$lang['Items_MenuID'] = 'Связать с пунктом меню';
-$lang['Items_LoginRequired'] = 'Только для зарегистрированных пользователей';
-$lang['Items_CategoryID'] = 'Категория';
-$lang['Items_Title'] = 'Заголовок';
-$lang['Items_Short_Text'] = 'Краткое содержание';
-$lang['Items_Full_Text'] = 'Содержание';
-$lang['Items_Published'] = 'Опубликовать';
-$lang['Items_AllowComments'] = 'Показывать комментарии';
-$lang['Items_Created'] = 'Дата создания';
-$lang['Items_MetaTitle'] = 'Мета-заголовок';
-$lang['Items_MetaKeywords'] = 'Мета-ключевые слова';
-$lang['Items_MetaDescription'] = 'Мета-описание';
-$lang['Items_MetaAlt'] = 'Мета-описание картинок';
-$lang['Items_ViewCount'] = 'Кол-во просмотров';
-$lang['Items_CommentsCount'] = 'Кол-во комментариев';
+$lang['content']['items_action'] = '';
+$lang['content']['items_ID'] = 'ID';
+$lang['content']['items_MenuID'] = 'Связать с пунктом меню';
+$lang['content']['items_LoginRequired'] = 'Только для зарегистрированных пользователей';
+$lang['content']['items_CategoryID'] = 'Категория';
+$lang['content']['items_Title'] = 'Заголовок';
+$lang['content']['items_Short_Text'] = 'Краткое содержание';
+$lang['content']['items_Full_Text'] = 'Содержание';
+$lang['content']['items_Published'] = 'Опубликовать';
+$lang['content']['items_AllowComments'] = 'Показывать комментарии';
+$lang['content']['items_Created'] = 'Дата создания';
+$lang['content']['items_MetaTitle'] = 'Мета-заголовок';
+$lang['content']['items_MetaKeywords'] = 'Мета-ключевые слова';
+$lang['content']['items_MetaDescription'] = 'Мета-описание';
+$lang['content']['items_MetaAlt'] = 'Мета-описание картинок';
+$lang['content']['items_ViewCount'] = 'Кол-во просмотров';
+$lang['content']['items_CommentsCount'] = 'Кол-во комментариев';
 
 ?>

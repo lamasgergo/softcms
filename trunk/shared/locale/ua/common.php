@@ -61,7 +61,6 @@ $lang["logout"] = "Выход";
 $lang["system"] = "Системные модули";
 $lang["users_and_groups"] = "Пользователи и группы<br>&nbsp;";
 $lang["module_permissions"] = "Права на модули<br>&nbsp;";
-$lang["content"] = "Управление<br>страницами и FAQ";
 $lang["meta"] = "Управление<br>метаданными";
 $lang["modules"] = "Управление<br>модулями";
 

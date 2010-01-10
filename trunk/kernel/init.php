@@ -6,6 +6,7 @@ include_once($_SERVER['DOCUMENT_ROOT']."/kernel/external/smarty.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/kernel/external/xajax.inc.php");
 
 include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/languages.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/locale.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/user.php");
 
 include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/base.php");
@@ -22,7 +23,10 @@ if (!is_backend()){
     $modules->loadModules();
     include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/page.php");
 } else {
-    include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/AdminLocale.php");
+//    $locale->loadBackendLocale();
+//    echo '<pre>';
+//    print_r($locale->locale);
+//    exit();
     include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/access.php");
     include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/adminpage.php");
     include_once($_SERVER['DOCUMENT_ROOT']."/kernel/classes/QueryBuilder.php");
