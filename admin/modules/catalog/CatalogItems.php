@@ -1,16 +1,16 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/admin/common/BackendElement.php");
-require_once(dirname(__FILE__)."/categories.php");
+require_once(dirname(__FILE__)."/CatalogCategories.php");
 
-class Items extends BackendElement {
+class CatalogItems extends BackendElement {
 
 	var $module;
 	var $table;
 	var $langDepended = true;
-	var $gridHideItems = 'Description, ImageGroupID, MetaAlt, MetaDescription, MetaKeywords, MetaTitle';
+	var $gridHideItems = 'Description, ImageGroupID, PriceUnit, MetaAlt, MetaDescription, MetaKeywords, MetaTitle';
 	var $requiredFields = 'Name, Price';
 
-	function Items($module_name){
+	function CatalogItems($module_name){
 		$this->name=__CLASS__;
 		$this->module = $module_name;
 		$this->table = DB_PREFIX.'catalog';

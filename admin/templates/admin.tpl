@@ -34,7 +34,7 @@
     $(document).ready(function () {
 		Layout = $('body').layout({
 			initClosed: true,
-			north__initClosed : false,
+			north__initClosed : true,
 			north__minSize : 80,
 			north__maxSize : 80,
 			east__minSize : 350,

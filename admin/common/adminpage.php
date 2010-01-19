@@ -8,14 +8,16 @@ class AdminPage{
     var $user;
     var $lang;
     var $xajax;
+    var $db;
 
 	function AdminPage($module=null){
-        global $user, $lang, $xajax, $smarty;
+        global $user, $lang, $xajax, $smarty, $db;
 
         $this->user = $user;
         $this->lang = $lang;
         $this->xajax = &$xajax;
         $this->smarty = &$smarty;
+        $this->db = $db;
         $this->language = $user->data['GUILanguage'];
 
         $this->smarty->template_dir = $_SERVER['DOCUMENT_ROOT'].'/admin/';
@@ -29,7 +31,8 @@ class AdminPage{
 		if (strpos($moduleName,'|')){
 			list($moduleName, $component) = explode("|", $moduleName);
 		}
-        return $_SERVER['DOCUMENT_ROOT'].'/admin/modules/'.$moduleName.'/'.(!empty($component) ? $component : $moduleName).'.php';
+        $path = $_SERVER['DOCUMENT_ROOT'].'/admin/modules/'.$moduleName.'/'.(!empty($component) ? $component : $moduleName).'.php';
+        return $path;
     }
 
     function isModuleCall(){
@@ -106,16 +109,15 @@ class AdminPage{
     function display(){
         if ($this->user->is_auth()){
             $module = $_GET[$this->_moduleVarName];
-			if (strpos($module,'|')) return $this->runAjax($module);
-            $data = '';
-            if ($this->isModuleCall() && Access::check($module)){
-                $data = $this->getContent($module);
+            if (!empty($module) && Access::check($module)){
+                if (file_exists($this->getModule($module))){
+                    include_once($this->getModule($module));
+                }
             } else {
-                $data = $this->dashboard();
+                $this->smarty->assign("BODY",$this->dashboard());
             }
             $this->smarty->assign("GUILang",$this->user->data['GUILang']);
             $this->smarty->assign("ContentLang",$this->user->data['ContentLang']);
-            $this->smarty->assign("BODY",$data);
         } else {
             $this->tpl = 'templates/login/login.tpl';
         }
