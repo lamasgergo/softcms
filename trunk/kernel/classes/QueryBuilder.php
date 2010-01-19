@@ -31,7 +31,9 @@ class QueryBuilder{
 					$this->columns[$field] = $columns[$key];
 					$this->columnsNames[] = $field;
 				}
-			}
+			} else {
+                die('Table is not exists');
+            }
 		}
 	}
 	
@@ -58,12 +60,11 @@ class QueryBuilder{
 		}
 	}
 	
-	function setLimit($from, $count=0){
-		$limit = '';
-		if ($from){
-			$limit = ' LIMIT '.$from;
-		}
-		if ($from && $count && $count!=0){
+	function setLimit($from=0, $count=0){
+
+		$limit = ' LIMIT '.$from;
+		
+		if ($count>0){
 			$limit .= ', '.$count;
 		}
 		$this->limit = $limit;

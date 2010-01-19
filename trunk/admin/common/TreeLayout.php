@@ -10,7 +10,7 @@ class TreeLayout {
 
     function TreeLayout(){
         global $smarty;
-        $this->smarty = $smarty;
+        $this->smarty = &$smarty;
     }
 
     function addCategories($obj){

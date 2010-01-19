@@ -35,6 +35,10 @@ class BackendElement{
 
     var $debug = true;
 
+    var $page = 0;
+
+    var $perPage = 20;
+
     function BackendElement(){
         global $smarty, $user, $db, $xajax, $locale;
 
@@ -52,6 +56,7 @@ class BackendElement{
 
 
         $this->qb = new QueryBuilder($this->table);
+        
 
         if ($this->langDepended){
             $this->qb->setLang($this->contentLang);
@@ -115,6 +120,7 @@ class BackendElement{
     }
 
     function getGridData(){
+        $this->qb->setLimit($this->perPage*$this->page, $this->perPage);
         $data = $this->qb->makeSelect();
         return $data;
     }

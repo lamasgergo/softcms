@@ -1,4 +1,7 @@
 <?php
+error_reporting(2039);
+ini_set('display_errors', 'on');
+
 $_SERVER['DOCUMENT_ROOT'] = realpath(dirname(__FILE__).'/../');
 session_start();
 

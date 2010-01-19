@@ -5,10 +5,11 @@
 	});
 	
 	function jsGrid(component){
-	
-		tableToGrid($('#'+component+'Grid'), 
+
+//  width: $('#backend').find('.ui-tabs-panel:visible').width(),
+		tableToGrid($('#'+component+'Grid'),
 		{
-			 width: $('#backend').find('.ui-tabs-panel:visible').width(),
+			 width: 'auto',
              height: 'auto',
              rowNum:20,
              rowList:[10,20,30],

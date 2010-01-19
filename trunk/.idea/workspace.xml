@@ -5,19 +5,16 @@
   </component>
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="36239626-bbf1-4a7a-b226-ba1a448b50ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/content/items.php" afterPath="$PROJECT_DIR$/admin/modules/content/items.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/modules/menu.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/modules/menu.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/backend.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/backend.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/index.php" afterPath="$PROJECT_DIR$/admin/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/catalog/catalog.php" afterPath="$PROJECT_DIR$/admin/modules/catalog/catalog.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/adminpage.php" afterPath="$PROJECT_DIR$/admin/common/adminpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/admin.tpl" afterPath="$PROJECT_DIR$/admin/templates/admin.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/modules/table.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/modules/table.tpl" />
+      <change type="MOVED" beforePath="D:\htdocs\tour\admin\modules\catalog\categories.php" afterPath="$PROJECT_DIR$/admin/modules/catalog/CatalogCategories.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kernel/classes/QueryBuilder.php" afterPath="$PROJECT_DIR$/kernel/classes/QueryBuilder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/js/jquery/plugins/jdMenu/jquery.jdMenu.css" afterPath="$PROJECT_DIR$/shared/js/jquery/plugins/jdMenu/jquery.jdMenu.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/content/categories.php" afterPath="$PROJECT_DIR$/admin/modules/content/categories.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/common/top_menu.tpl" afterPath="$PROJECT_DIR$/admin/templates/common/top_menu.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tour.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/admin.tpl" afterPath="$PROJECT_DIR$/admin/templates/admin.tpl" />
+      <change type="MOVED" beforePath="D:\htdocs\tour\admin\modules\catalog\items.php" afterPath="$PROJECT_DIR$/admin/modules/catalog/CatalogItems.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/TreeLayout.php" afterPath="$PROJECT_DIR$/admin/common/TreeLayout.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/BackendElement.php" afterPath="$PROJECT_DIR$/admin/common/BackendElement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kernel/init.php" afterPath="$PROJECT_DIR$/kernel/init.php" />
-      <change type="DELETED" beforePath="C:\htdocs\php4\tour\shared\images\icons\combo.php" afterPath="" />
     </list>
     <list id="dc59c7c7-e8dc-4fe7-aaeb-63dff4d2e153" name="Failed commit: Default" comment="" />
     <ignored path="tour.iws" />
@@ -78,10 +75,55 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="categories.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/modules/content/categories.php">
+      <file leaf-file-name="adminpage.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/common/adminpage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="26" selection-start="417" selection-end="417" vertical-scroll-proportion="-11.333333">
+            <state line="34" column="8" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CatalogCategories.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/catalog/CatalogCategories.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="49" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalog.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/catalog/catalog.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="8" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="29" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TreeLayout.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/common/TreeLayout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="19" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CatalogItems.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/catalog/CatalogItems.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="64" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -90,16 +132,16 @@
       <file leaf-file-name="BackendElement.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/common/BackendElement.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="13" selection-start="7726" selection-end="7726" vertical-scroll-proportion="0.5601552">
+            <state line="39" column="21" selection-start="536" selection-end="536" vertical-scroll-proportion="0.4755245">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="categories.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/modules/catalog/categories.php">
+      <file leaf-file-name="items.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/content/items.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="13" selection-start="1561" selection-end="1561" vertical-scroll-proportion="-10.708333">
+            <state line="22" column="4" selection-start="576" selection-end="576" vertical-scroll-proportion="-0.7083333">
               <folding />
             </state>
           </provider>
@@ -108,25 +150,7 @@
       <file leaf-file-name="QueryBuilder.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kernel/classes/QueryBuilder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="227" column="51" selection-start="5178" selection-end="5178" vertical-scroll-proportion="-3.0833333">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/modules/content/templates/items/form.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/menu.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="23" selection-start="805" selection-end="805" vertical-scroll-proportion="-19.666666">
+            <state line="117" column="10" selection-start="2708" selection-end="2708" vertical-scroll-proportion="-27.5">
               <folding />
             </state>
           </provider>
@@ -135,25 +159,7 @@
       <file leaf-file-name="table.tpl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/table.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="26" selection-start="290" selection-end="290" vertical-scroll-proportion="-5.6666665">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="backend.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/templates/common/backend.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="8" selection-start="52" selection-end="52" vertical-scroll-proportion="-2.125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/main.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="23" selection-start="357" selection-end="378" vertical-scroll-proportion="-14.166667">
+            <state line="8" column="64" selection-start="200" selection-end="200" vertical-scroll-proportion="-1.75">
               <folding />
             </state>
           </provider>
@@ -169,22 +175,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/shared/plugins/function.admin_menu.php" />
-        <option value="$PROJECT_DIR$/shared/js/jquery/plugins/layout/layout.css" />
-        <option value="$PROJECT_DIR$/admin/css/admin_style.css" />
-        <option value="$PROJECT_DIR$/admin/templates/common/top_menu.tpl" />
-        <option value="$PROJECT_DIR$/shared/js/jquery/plugins/jdMenu/jquery.jdMenu.css" />
-        <option value="$PROJECT_DIR$/admin/modules/content/items.php" />
-        <option value="$PROJECT_DIR$/shared/images/icons/combo.php" />
         <option value="$PROJECT_DIR$/kernel/init.php" />
         <option value="$PROJECT_DIR$/admin/modules/content/categories.php" />
-        <option value="$PROJECT_DIR$/admin/common/adminpage.php" />
-        <option value="$PROJECT_DIR$/admin/templates/admin.tpl" />
-        <option value="$PROJECT_DIR$/admin/common/BackendElement.php" />
-        <option value="$PROJECT_DIR$/kernel/classes/QueryBuilder.php" />
         <option value="$PROJECT_DIR$/admin/templates/common/modules/menu.tpl" />
         <option value="$PROJECT_DIR$/admin/templates/common/modules/main.tpl" />
         <option value="$PROJECT_DIR$/admin/templates/common/backend.tpl" />
+        <option value="$PROJECT_DIR$/admin/templates/admin.tpl" />
+        <option value="$PROJECT_DIR$/admin/modules/catalog/categories.php" />
+        <option value="$PROJECT_DIR$/admin/modules/catalog/CatalogCategories.php" />
+        <option value="$PROJECT_DIR$/admin/index.php" />
+        <option value="$PROJECT_DIR$/admin/modules/catalog/catalog.php" />
+        <option value="$PROJECT_DIR$/admin/common/TreeLayout.php" />
+        <option value="$PROJECT_DIR$/admin/common/adminpage.php" />
+        <option value="$PROJECT_DIR$/admin/modules/catalog/CatalogItems.php" />
+        <option value="$PROJECT_DIR$/admin/templates/common/modules/table.tpl" />
+        <option value="$PROJECT_DIR$/kernel/classes/QueryBuilder.php" />
+        <option value="$PROJECT_DIR$/admin/common/BackendElement.php" />
       </list>
     </option>
   </component>
@@ -223,7 +229,11 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Favorites">
+        <subPane subId="tour" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -233,6 +243,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tour" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tour" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tour" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kernel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tour" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tour" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kernel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -426,16 +468,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="catalog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tour" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tour" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites">
-        <subPane subId="tour" />
-      </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -483,13 +543,11 @@
       <option name="PORT" value="5005" />
       <method>
         <option name="BuildArtifacts" enabled="false" />
-        <option name="FtpUpload" enabled="false" />
       </method>
     </configuration>
     <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" class_name="" html_or_swf_file_path="" main_class_name="" method_name="" module_name="" output_log_level="" package_name="" port="0" run_mode="HtmlOrSwfFile" scope="Class" socket_policy_port="0" url_to_launch="http://">
       <method>
         <option name="BuildArtifacts" enabled="false" />
-        <option name="FtpUpload" enabled="false" />
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -506,7 +564,6 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="BuildArtifacts" enabled="false" />
-        <option name="FtpUpload" enabled="false" />
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -525,7 +582,6 @@
       <envs />
       <method>
         <option name="BuildArtifacts" enabled="false" />
-        <option name="FtpUpload" enabled="false" />
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -536,7 +592,6 @@
       </JSDebuggerConfigurationSettings>
       <method>
         <option name="BuildArtifacts" enabled="false" />
-        <option name="FtpUpload" enabled="false" />
       </method>
     </configuration>
     <list size="0" />
@@ -554,7 +609,7 @@
     <option name="DETECT_NESTED_COPIES" value="false" />
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <configuration useDefault="true">C:\Users\Aleksey\AppData\Roaming\Subversion</configuration>
+    <configuration useDefault="true">C:\Users\Alexey\AppData\Roaming\Subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
     <supportedVersion>125</supportedVersion>
   </component>
@@ -562,20 +617,20 @@
     <option name="myMappingRoots">
       <list>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="C:\htdocs\php4\tour\.idea" />
-          <option name="myCopyRoot" value="C:\htdocs\php4\tour\.idea" />
+          <option name="myVcsRoot" value="D:\htdocs\tour" />
+          <option name="myCopyRoot" value="D:\htdocs\tour" />
         </SvnCopyRootSimple>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="C:\htdocs\php4\tour" />
-          <option name="myCopyRoot" value="C:\htdocs\php4\tour" />
+          <option name="myVcsRoot" value="D:\htdocs\tour\.idea" />
+          <option name="myCopyRoot" value="D:\htdocs\tour\.idea" />
         </SvnCopyRootSimple>
       </list>
     </option>
     <option name="myMoreRealMappingRoots">
       <list>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="C:\htdocs\php4\tour" />
-          <option name="myCopyRoot" value="C:\htdocs\php4\tour" />
+          <option name="myVcsRoot" value="D:\htdocs\tour" />
+          <option name="myCopyRoot" value="D:\htdocs\tour" />
         </SvnCopyRootSimple>
       </list>
     </option>
@@ -610,25 +665,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
+    <frame x="-8" y="-8" width="1680" height="1036" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19579288" sideWeight="0.6619883" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19305725" sideWeight="0.6619883" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24939272" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -662,114 +717,102 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shared/js/jquery/plugins/jdMenu/jquery.jdMenu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="24" selection-start="282" selection-end="282" vertical-scroll-proportion="0.020506635">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/classes/user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="2117" selection-end="2117" vertical-scroll-proportion="-27.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/common/Backend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="719" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/modules/content/items.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="22" selection-start="1652" selection-end="1661" vertical-scroll-proportion="-38.958332">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="589" selection-end="589" vertical-scroll-proportion="-9.916667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/common/adminpage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="32" selection-start="402" selection-end="402" vertical-scroll-proportion="-11.666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/modules/catalog/categories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="13" selection-start="1561" selection-end="1561" vertical-scroll-proportion="-10.708333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/modules/content/categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="26" selection-start="417" selection-end="417" vertical-scroll-proportion="-11.333333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/classes/QueryBuilder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="51" selection-start="5178" selection-end="5178" vertical-scroll-proportion="-3.0833333">
-          <folding />
-        </state>
+        <state line="16" column="26" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/modules/content/templates/items/form.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/admin.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="36" selection-start="1980" selection-end="1980" vertical-scroll-proportion="0.48920864" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/common/backend.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="8" selection-start="33" selection-end="33" vertical-scroll-proportion="0.06115108" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/menu.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="23" selection-start="805" selection-end="805" vertical-scroll-proportion="-19.666666">
+        <state line="35" column="23" selection-start="830" selection-end="830" vertical-scroll-proportion="0.020383693" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/main.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="23" selection-start="357" selection-end="378" vertical-scroll-proportion="0.40767387" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/common/adminpage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="8" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/modules/catalog/CatalogCategories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="49" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/modules/catalog/catalog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="8" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="29" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/common/TreeLayout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="19" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/modules/catalog/CatalogItems.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="64" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/table.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="26" selection-start="290" selection-end="290" vertical-scroll-proportion="-5.6666665">
+        <state line="8" column="64" selection-start="200" selection-end="200" vertical-scroll-proportion="-1.75">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templates/admin.tpl">
+    <entry file="file://$PROJECT_DIR$/admin/modules/content/items.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="22" selection-start="2168" selection-end="2177" vertical-scroll-proportion="0.9708122">
+        <state line="22" column="4" selection-start="576" selection-end="576" vertical-scroll-proportion="-0.7083333">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templates/common/modules/main.tpl">
+    <entry file="file://$PROJECT_DIR$/kernel/classes/QueryBuilder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="23" selection-start="357" selection-end="378" vertical-scroll-proportion="-14.166667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templates/common/backend.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="8" selection-start="52" selection-end="52" vertical-scroll-proportion="-2.125">
+        <state line="117" column="10" selection-start="2708" selection-end="2708" vertical-scroll-proportion="-27.5">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/common/BackendElement.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="13" selection-start="7726" selection-end="7726" vertical-scroll-proportion="0.5601552">
+        <state line="39" column="21" selection-start="536" selection-end="536" vertical-scroll-proportion="0.4755245">
           <folding />
         </state>
       </provider>
