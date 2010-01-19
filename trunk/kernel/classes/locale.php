@@ -69,8 +69,7 @@ class Locale extends languages{
 
 	function translate($name){
         $name = trim($name);
-        if (isset($this->locale[$this->module]) && (isset($this->locale[$this->module][$name]) && !empty($this->locale[$this->module][$name]))){
-            echo $name.":".$this->module.":".$this->locale[$this->module][$name]."<br>";
+        if (isset($this->locale[$this->module][$name]) && !empty($this->locale[$this->module][$name])){
             return $this->locale[$this->module][$name];
         }
         if (isset($this->locale[$name]) && !empty($this->locale[$name])){

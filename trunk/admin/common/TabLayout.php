@@ -1,6 +1,6 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/admin/common/tabelement.php');
-class AdminForm{
+
+class TabLayout{
 
 	var $tabs;
 	var $name;
@@ -9,7 +9,7 @@ class AdminForm{
 	var $lang;
 	var $tabCounter;
 	
-	function AdminForm($name){
+	function TabLayout($name){
 		global $smarty,$language,$lang;
 		$this->name = $name;
 		$this->smarty = $smarty;

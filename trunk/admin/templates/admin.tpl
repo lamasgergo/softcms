@@ -54,8 +54,8 @@
 <body>
 <div class="ui-layout-center">{$BODY}</div>
 <div class="ui-layout-north">{admin_menu type='top'}</div>
-<div class="ui-layout-east">{$LANG}</div>
-<div class="ui-layout-west">{$TREE}</div>
+<div class="ui-layout-east">{$LEFT}</div>
+<div class="ui-layout-west">{$RIGHT}</div>
 <div class="ui-layout-south"><div id="debug"></div></div>
 
 </body>
