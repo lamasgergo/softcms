@@ -1,0 +1,54 @@
+.search{
+
+}
+
+.search .form{
+	margin: 10px 0px;
+}
+
+.search .form  .submit{
+	background-color:#0076C6;
+	border:1px solid #FFFFFF;
+	color:#FFFFFF;
+	font-weight:bold;
+	width:55px;
+}
+
+.search .content{
+	margin: 20px 0px;
+}
+
+.search .content .title{
+	color: #0588CC;
+	font-size: 14px;
+	font-weight: bold;
+	background: none;
+	border: 0px;
+}
+
+.search .content .title a{
+	color: #0588CC;
+	text-decoration: none;
+}
+
+.search .content .date{
+	color: #FFFFFF;
+	font-size: 10px;
+	text-align: right;
+	margin-top: 3px;
+}
+
+.search .content .text{
+	font-size: 12px;
+}
+
+.search .content .more{
+	font-size: 10px;
+	text-align: right;
+	/*border-bottom: 1px solid #005F8E;*/
+	line-height: 30px;
+}
+
+.search .content .more a{
+	color: #0588CC;
+}

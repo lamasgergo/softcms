@@ -1,0 +1,1 @@
+{$item_arr[0].Full_Text}

@@ -1,0 +1,75 @@
+.search{
+
+}
+
+.search .form{
+	margin: 10px 0px;
+}
+
+.search .form  .submit{
+	background-color:#0076C6;
+	border:1px solid #FFFFFF;
+	color:#FFFFFF;
+	font-weight:bold;
+	width:55px;
+}
+
+.search .title{
+	margin: 10px 0px;
+}
+
+.search .catalog{
+	margin: 15px 0px;
+	width: 100%;
+}
+
+.search .catalog .name{
+	padding: 0px 27px 10px 0px;
+	position: relative;
+}
+
+.search .catalog .name a{
+	color: #0588CC;
+	text-decoration: none;
+}
+
+.search .catalog .addcart{
+	height:24px;
+	position:absolute;
+	right:3px;
+	top:0;
+	width:24px;
+}
+
+.search .catalog .image{
+	text-align: center;
+	height: 120px;
+	width: 150px;
+	float: left;
+}
+
+.search .catalog .image img{
+	max-height: 120px;
+	max-width: 120px;
+}
+
+.search .catalog .desc{
+	float: left;
+	margin: 10px 10px 10px 0px;
+}
+
+.search .catalog .desc .price{
+	line-height: 18px;
+}
+.search .catalog .desc .price .name{
+	border: 1px solid #FFFFFF;
+	background-color: #CE0000;
+	color: #FFFFFF;
+	margin: 0px;
+	padding: 2px 3px;
+}
+
+.search .clr{
+	clear: both;
+	border-bottom: 1px solid #005F8E;
+}
