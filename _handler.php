@@ -2,7 +2,10 @@
 $_SERVER['DOCUMENT_ROOT'] = realpath(dirname(__FILE__));
 
 include_once($_SERVER['DOCUMENT_ROOT']."/config/config.php");
-include_once(__PATH__."/init.php");
+include_once(__PATH__."/kernel/adodb.php");
+include_once(__PATH__."/kernel/smarty.php");
+include_once(__PATH__."/kernel/mod_rewrite.php");
+
 
 $path = ModRewrite::clearPath($_SERVER['REQUEST_URI']);
 

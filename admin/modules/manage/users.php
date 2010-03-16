@@ -115,7 +115,7 @@ function add_users($data){
     if ($res && $res->RecordCount() > 0){
       $objResponse->addAlert($lang["users_login_exist"]);
     } else {
-      $password = $user->_newPassword($data["password"]);
+      $password = $user->new_password($data["password"]);
       $published =$data["published"];
         if ($published=="") $published = "0";
       $sql = $db->prepare("INSERT INTO ".DB_PREFIX."users(Login,Password,LangID,GroupID,Name,Familyname,Email,Country,ZIP,City,Address,Published,Phone,Cellphone) VALUES('".$data["login"]."','".$password."','".$data["langid"]."','".$data["groupsid"]."','".$data["name"]."','".$data["familyname"]."','".$data["email"]."','".$data["country"]."','".$data["zip"]."','".$data["city"]."','".$data["address"]."','".$published."','".$data["phone"]."','".$data["cellphone"]."')");
@@ -168,7 +168,7 @@ function change_users($data){
   if ($data["login"]!=""  && $data["langid"]!="" && $data["groupsid"]!="" && $data["name"]!=""){
     (isset($data["published"]) && $data["published"]="1")? $published="1" : $published = "0";
     if ($data["password"]!=""){
-      $password = $user->_newPassword($data["password"]);
+      $password = $user->new_password($data["password"]);
       $sql = $db->prepare("UPDATE ".DB_PREFIX."users SET Login='".$data["login"]."', Password='".$password."', LangID='".$data["langid"]."', GroupID='".$data["groupsid"]."', Name='".$data["name"]."', Familyname='".$data["familyname"]."', Email='".$data["email"]."', Country='".$data["country"]."', ZIP='".$data["zip"]."', City='".$data["city"]."', Address='".$data["address"]."', Published='".$published."', Phone='".$data["phone"]."', Cellphone='".$data["cellphone"]."' WHERE ID='".$data["id"]."'");
     } else{
       $sql = $db->prepare("UPDATE ".DB_PREFIX."users SET Login='".$data["login"]."', LangID='".$data["langid"]."', GroupID='".$data["groupsid"]."', Name='".$data["name"]."', Familyname='".$data["familyname"]."', Email='".$data["email"]."', Country='".$data["country"]."', ZIP='".$data["zip"]."', City='".$data["city"]."', Address='".$data["address"]."', Published='".$published."', Phone='".$data["phone"]."', Cellphone='".$data["cellphone"]."' WHERE ID='".$data["id"]."'");  

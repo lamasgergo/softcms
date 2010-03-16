@@ -1,15 +1,15 @@
 <?php
 $mod_name = "catalog";
 
-require_once($_SERVER['DOCUMENT_ROOT']."/admin/common/TreeLayout.php");
-require_once($_SERVER['DOCUMENT_ROOT']."/admin/common/BackendElement.php");
-require_once($_SERVER['DOCUMENT_ROOT']."/admin/common/TreeElement.php");
-require_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$mod_name."/CatalogCategories.php");
-require_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/".$mod_name."/CatalogItems.php");
+require_once(__PATH__."/admin/common/adminform.php");
+require_once(__PATH__."/admin/modules/".$mod_name."/categories.php");
+require_once(__PATH__."/admin/modules/".$mod_name."/items.php");
 
-$tree = new TreeLayout($mod_name);
-$tree->addCategories(new CatalogCategories($mod_name,0));
-$tree->addContent(new CatalogItems($mod_name,1));
 
-$tree->show();
+$form = new AdminForm($mod_name);
+
+$form->addTabObject(new Categories($mod_name,0));
+$form->addTabObject(new Items($mod_name,1));
+
+$parse_main = $form->show();
 ?>

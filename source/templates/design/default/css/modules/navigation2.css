@@ -1,0 +1,90 @@
+.navigation{
+	text-align: center;
+	margin: 15px 0px;
+	clear: both;
+}
+
+.navigation .center{
+	margin: 0 auto;
+	width: 470px;
+}
+
+.navigation a{
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.navigation b{
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.navigation span{
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.navigation .navItems{
+	float: left;
+	margin: 0px 10px;
+	display: none;
+}
+
+.navigation .navPrev{
+	float: left;
+	margin: 0px 10px;
+	border: 1px solid #FFFFFF;
+	color: #FFFFFF;
+	padding: 5px;
+	margin: 3px;
+	background-color: #CE0000;
+}
+
+.navigation .navPrevBlock span{
+	color: #AAAAAA;
+}
+
+.navigation .navPages{
+	float: left;
+	margin: 0px 10px;
+}
+
+.navigation .navPages .block{
+	float: left;
+	border: 1px solid #FFFFFF;
+	background-color: #CE0000;
+	color: #FFFFFF;
+	width: 25px;
+	height: 25px;
+	margin: 3px;
+	line-height: 25px;
+}
+
+.navigation .navPages .block a:hover{
+	color: #0076C6;
+}
+
+.navigation .navPages .block b{
+	color: #0076C6;
+}
+
+
+.navigation .navNext{
+	float: left;
+	margin: 0px 10px;
+	border: 1px solid #FFFFFF;
+	color: #FFFFFF;
+	padding: 5px;
+	margin: 3px;
+	background-color: #CE0000;
+}
+
+.navigation .navNextBlock span{
+	color: #AAAAAA;
+}
+
+
+.navigation .clr{
+	clear: both;
+	border: 0px !important;
+}

@@ -3,7 +3,7 @@
 // TEST FILE
 //
 
-require_once($_SERVER['DOCUMENT_ROOT']."/admin/helpers/blocks.php");
+require_once(__PATH__."/admin/helpers/blocks.php");
 
 BlocksHelper::getModulesList();
 ?>

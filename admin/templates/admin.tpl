@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -7,56 +6,59 @@
 <!--[if lt IE 7.]>
 <script defer type="text/javascript" src="{$js}/pngfix.js"></script>
 <![endif]-->
-{$xajax_js}
-<script type="text/javascript" src="/admin/source/editors/FCKEditor/fckeditor.js"></script>
 
-<link rel="stylesheet" type="text/css" href="{$js}/jquery/themes/default/ui.all.css" media="screen" /> 
+<script type="text/javascript" src="/admin/source/editors/FCKEditor/fckeditor.js"></script>
+<script type="text/javascript" src="{$js}/functions.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{$js}/jquery/themes/base/ui.all.css" media="screen" /> 
 <script type="text/javascript" src="{$js}/jquery/jquery.js"></script>
 <script type="text/javascript" src="{$js}/jquery/ui/jquery-ui.js"></script>
-<script type="text/javascript" src="{$js}/jquery/external/bgiframe/jquery.bgiframe.min.js"></script>
 
+<!-- <script src="{$js}/jquery/plugins/fckeditor/jquery.FCKEditor.js" type="text/javascript"></script> -->
+<script type="text/javascript" src="/admin/source/editors/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/admin/source/editors/ckeditor/adapters/jquery.js"></script>
 
-<link rel="stylesheet" href="{$js}/jquery/plugins/layout/layout.css" type="text/css">
-<script type="text/javascript" src="{$js}/jquery/plugins/layout/jquery.layout.js"></script>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="{$images}/admin_bg.gif" style="background-repeat:no-repeat; background-position: bottom right; height: 100%;">
+<table border="0" cellpadding="0" cellspacing="0" align="left" width="100%">
+  <tr valign="top">
+    <td width="100%">
+      <table border="0" cellpadding="0" cellspacing="0" align="left" width="100%">
+      <tr>
+        <td style='width:100%;'>
+        {include file="index_menu/menu.tpl"}
+        </td>
+      </tr>
+      </table>
+    </td>
+  </tr>
+  <tr valign="middle">
+    <td id="ProgressCell" style='visibility: hidden; height: 0px; vertical-align: middle;' align="center">
+      <span class="progressBar" id="element1">0%</span>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td id="BodyCell">
+      {$BODY}
+    </td>
+  </tr>
+</table>
 
-<script src="{$js}/jquery/plugins/fckeditor/jquery.FCKEditor.js" type="text/javascript" language="javascript"></script>
-
-<link rel="stylesheet" type="text/css" media="screen" href="{$js}/jquery/plugins/jqGrid/css/ui.jqgrid.css" />
-<script src="{$js}/jquery/plugins/jqGrid/js/i18n/grid.locale-{$GUILang}.js" type="text/javascript"></script>
-<script src="{$js}/jquery/plugins/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
-
-<link href="{$js}/jquery/plugins/dropDown/css/dropdown.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="{$js}/jquery/plugins/dropDown/css/themes/mtv.com/default.ultimate.css" media="screen" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="{$js}/jquery/plugins/dropDown/jquery.dropdown.js"></script>
 
 {literal}
 <script>
-    $(document).ready(function () {
-		Layout = $('body').layout({
-			initClosed: true,
-			north__initClosed : true,
-			north__minSize : 80,
-			north__maxSize : 80,
-			east__minSize : 350,
-            south__minSize : 60
-		});
-    });
-
-    function showDebug(text){
-        $('#debug').html(text);
-        Layout.open('south');
-    }
+	$(document).find('.widget_tableDiv').each(function(){
+		var $table = $(this);
+		var defHeight = parseInt($table.get(0).style.height);
+		$head = $table.find('thead');
+		$body = $table.find('.scrollingContent');
+		if (defHeight < $head.height() + $body.height()){
+			$body.height(defHeight-$head.height()-30);
+			$body.css('overflow-y','auto');
+		}
+	});
 </script>
-
 {/literal}
-
-</head>
-<body>
-<div class="ui-layout-center">{$BODY}</div>
-<div class="ui-layout-north">{admin_menu type='top'}</div>
-<div class="ui-layout-east">{$LEFT}</div>
-<div class="ui-layout-west">{$RIGHT}</div>
-<div class="ui-layout-south"><div id="debug"></div></div>
 
 </body>
 </html>

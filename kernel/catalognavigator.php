@@ -28,10 +28,12 @@ class CatalogNavigator{
 	}
 	
 	function getInfo($link){
+		$link = preg_replace("/[\?\&\/]+page[\?\&\/\=]+\d+/", "", $link);
+		$link = $link.'&page=';
 		
-		$link = $link.'/page/';
 		$pages = ceil($this->count/$this->navigationLimit);
 		$total_pages = ceil( $this->count / $this->navigationLimit );
+		
 		$page	= $this->page+1;
 
 		$start_loop	= (floor(($page-1)/$this->maxPages))*$this->maxPages+1;
@@ -41,10 +43,9 @@ class CatalogNavigator{
 		} else {
 			$stop_loop = $total_pages;
 		}
-
 		if ($page > 1) {
 			$spage = $this->page-1;
-			$this->smarty->assign("startLink",$link.$spage);
+			$this->smarty->assign("startLink",LinkHelper::getStaticLink($link.$spage));
 		}
 		$arr = array();
 		if ($stop_loop==0){
@@ -55,7 +56,7 @@ class CatalogNavigator{
         		if ($i==$page){
         			$arr[] = '<b>'.$i.'</b>';
         		} else {
-          			$arr[] = '<a class="navLink" style="position:relative;" href="'.$link.($i-1).'">'.$i.'</a>';
+          			$arr[] = '<a class="navLink" style="position:relative;" href="'.LinkHelper::getStaticLink($link.($i-1)).'">'.$i.'</a>';
         		}
       		}
 			//return list
@@ -63,7 +64,7 @@ class CatalogNavigator{
 		$this->smarty->assign("nav_arr",$arr);
 		if ($page < $total_pages) {
 			$spage = $this->page+1;
-			$this->smarty->assign("endLink",$link.$spage);
+			$this->smarty->assign("endLink",LinkHelper::getStaticLink($link.$spage));
 		}
 	}
 	

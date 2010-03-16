@@ -19,12 +19,6 @@ class TabElement{
 	/* ADODB object */
 	var $db;
 
-	/* xAjax object */
-	var $xajax;
-
-	/* array of xajax functions names*/
-	var $xajax_functions;
-
 	/* Smarty object */
 	var $smarty;
 
@@ -65,16 +59,12 @@ class TabElement{
 	
 	
 	function TabElement($mod_name){
-		global $smarty,$language,$lang,$xajax,$db,$user;
+		global $smarty,$language,$lang,$db,$user;
 		$this->counter++;
 		$this->user = $user;
 		$this->visual_div_name = "visual_".$this->getName();
 		$this->smarty = &$smarty;
-		$this->xajax = &$xajax;
-		//register common ajax functions
-		$this->addXajaxFunction("show_form");
-		$this->addXajaxFunction("delete_image");
-		$this->addXajaxFunction("delete_image_direct");
+		
 		//set existing objects
 		$this->db = &$db;
 		$this->lang = $lang;
@@ -87,18 +77,10 @@ class TabElement{
 		$this->uploadDirectory = uploadDirectory.'/gallery/';
 		// set url to uploaded images
 		$this->relativePath = uploadDirectoryURL;
-		// set ajax functions
-		$this->setAjaxVars();
+
 	}
 	
 		
-	// register ajax functions
-	function setAjaxVars(){
-		foreach ($this->xajax_functions as $func_name){
-			$this->xajax->registerFunction(array($func_name,$this,$func_name));
-		}
-	}
-	
 	function addXajaxFunction($name){
 		$this->xajax_functions[] = $name;	
 	}

@@ -1,9 +1,4 @@
-<?php
-
-function is_backend(){
-    if (BACKEND && BACKEND==true) return true;
-    return false;
-}
+<?
 
 function showBreadCrumbs($path = array()){
 global $smarty, $language, $lang;

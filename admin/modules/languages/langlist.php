@@ -94,7 +94,7 @@ class LangList extends TabElement{
 		$flags_ids = array();
 		$flags_images = array();
 		$flags_dir = '/source/images/flags';
-		$flags = dir($_SERVER['DOCUMENT_ROOT'].$flags_dir);
+		$flags = dir(__PATH__.$flags_dir);
 		while (false !== ($entry = $flags->read())) {
 			if (!preg_match("/^\.{1,2}$/", $entry)){
 				$flags_ids[] = preg_replace("/\.[\w\d]{1,4}$/","",$entry);

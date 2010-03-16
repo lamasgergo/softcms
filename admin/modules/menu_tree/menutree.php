@@ -1,5 +1,5 @@
 <?php
-define("menu2UploadDirectory", $_SERVER['DOCUMENT_ROOT']."/files/left/");
+define("menu2UploadDirectory", __PATH__."/files/left/");
 define("menu2UploadDirectoryURL", SITE_URL."/files/left/");
 
 class MenuTree extends TabElement{

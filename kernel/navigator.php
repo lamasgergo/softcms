@@ -28,6 +28,7 @@ class Navigator{
 	}
 	
 	function getInfo($link){
+		$link = preg_replace("/[\?\&\/]+page[\?\&\/\=]+\d+/", "", $link);
 		$link = $link.'&page=';
 		$pages = ceil($this->count/$this->navigationLimit);
 		$total_pages = ceil( $this->count / $this->navigationLimit );

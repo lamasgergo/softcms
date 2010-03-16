@@ -1,7 +1,7 @@
 <?
-include_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/permissions/modules.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/permissions/groups.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/admin/modules/permissions/users.php");
+include_once(__PATH__."/admin/modules/permissions/modules.php");
+include_once(__PATH__."/admin/modules/permissions/groups.php");
+include_once(__PATH__."/admin/modules/permissions/users.php");
 
 $parse_main = $smarty->fetch('permissions/permissions.tpl', null, $language);
 
