@@ -1,4 +1,4 @@
-<?
+<?php
 /* [GLOBALS] */
 define("__PATH__",$_SERVER['DOCUMENT_ROOT']);
 define("__LIBS__",__PATH__."/kernel");
@@ -25,7 +25,7 @@ define("JS_DIR", SITE_URL."/source/js");
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "");
-define("DB_NAME", "hypermarket.org.ua");
+define("DB_NAME", "my_test");
 define("DB_PREFIX","bs_");
 define("SDB_PREFIX","bs_sh_");
 define("DB_CHARSET","utf8");

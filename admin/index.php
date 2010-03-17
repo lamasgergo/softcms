@@ -10,7 +10,7 @@ if (isset($_POST["logout"])){
 	$user->logout();
 }
 if (isset($_POST["login"]) && !empty($_POST["login"]) && isset($_POST["password"]) && !empty($_POST["password"])){
-  $user->auth($_POST["login"],$_POST["password"],true);
+  $user->login($_POST["login"],$_POST["password"], true);
 }
 
 /* check auth*/

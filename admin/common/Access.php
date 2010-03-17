@@ -10,7 +10,7 @@ function check_show_rights(){
     if ($res && $res->RecordCount() > 0){
       if ($res->fields["IsShow"]=="0") $ret = false;
     } else {
-      $sql = $db->prepare("SELECT r.IsShow as IsShow FROM ".DB_PREFIX."modules_rights as r LEFT JOIN ".DB_PREFIX."modules as m ON (m.ID=r.ModuleID) WHERE r.GroupID='".$user->group_id."' AND m.Link='".$module."' GROUP BY r.ModuleID");
+      $sql = $db->prepare("SELECT r.IsShow as IsShow FROM ".DB_PREFIX."modules_rights as r LEFT JOIN ".DB_PREFIX."modules as m ON (m.ID=r.ModuleID) WHERE r.GroupID='".$user->group."' AND m.Link='".$module."' GROUP BY r.ModuleID");
       $res = $db->Execute($sql);
       if ($res && $res->RecordCount() > 0){
         if ($res->fields["IsShow"]=="0") $ret = false;
@@ -34,7 +34,7 @@ function check_rights($action){
     if ($res && $res->RecordCount() > 0){
       if ($res->fields["Perm"]=="1") $ret = true;
     } else {
-      $sql = $db->prepare("SELECT r.Is".$action." as Perm FROM ".DB_PREFIX."modules_rights as r LEFT JOIN ".DB_PREFIX."modules as m ON (m.ID=r.ModuleID) WHERE r.GroupID='".$user->group_id."' AND m.Link='".$module."' GROUP BY r.ModuleID");
+      $sql = $db->prepare("SELECT r.Is".$action." as Perm FROM ".DB_PREFIX."modules_rights as r LEFT JOIN ".DB_PREFIX."modules as m ON (m.ID=r.ModuleID) WHERE r.GroupID='".$user->group."' AND m.Link='".$module."' GROUP BY r.ModuleID");
       $res = $db->Execute($sql);
       if ($res && $res->RecordCount() > 0){
         if ($res->fields["Perm"]=="1") $ret = true;

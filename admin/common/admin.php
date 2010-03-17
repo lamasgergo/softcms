@@ -4,7 +4,6 @@ $smarty->assign("modules", getModules());
 $smarty->assign("langList", $langService->getLanguagesList());
 $smarty->assign("user",$user->data);
 
-
 if (isset($_GET[MODULE]) && file_exists(__PATH__."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php")){
   if (check_show_rights()){
     include_once(__PATH__."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php");
