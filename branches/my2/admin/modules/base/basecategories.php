@@ -86,7 +86,7 @@ class BaseCategories extends TabElement {
 
     function getTreeValues($parent_id = 0, $ret = array(), $depth = 0) {
         $depth++;
-        $sql = "SELECT * FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND Lang='" . $this->language . "' ORDER BY ID";
+        $sql = "SELECT * FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND Lang='" . $this->user->get('EditLang') . "' ORDER BY ID";
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0) {
             while (!$res->EOF) {
@@ -109,7 +109,7 @@ class BaseCategories extends TabElement {
 
     function getTreeList($parent_id = 0, $ret = array(), $depth = 0) {
         $depth++;
-        $sql = "SELECT ID, Name FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND LangID='" . $this->user->edit_lang_id . "' ORDER BY ID";
+        $sql = "SELECT ID, Name FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND Lang='" . $this->user->get('EditLang') . "' ORDER BY ID";
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0) {
             while (!$res->EOF) {
@@ -128,7 +128,7 @@ class BaseCategories extends TabElement {
     }
 
     function formData($form, $id = "") {
-        //LangID
+        //Lang
         #$blocks_sql = "SELECT ID, Description FROM ".DB_PREFIX."lang";
         #$this->getOptions($blocks_sql,array('ID','Description'), array('lang_ids','lang_names'));
 
@@ -290,17 +290,17 @@ class BaseCategories extends TabElement {
     }
 
 
-    function get_category_row_options($id, $cur_id = 0, $langid = 0, $userid = '', $depth = 0, $row = array()) {
+    function get_category_row_options($id, $cur_id = 0, $Lang = 0, $userid = '', $depth = 0, $row = array()) {
         $depth ++;
         if ($userid != '' && $userid != 0) {
             $userid_sql = " AND UserID='" . $userid . "' ";
         } else
             $userid_sql = '';
-        if ($langid != 0) {
-            $langid_sql = " AND LangID='" . $langid . "' ";
+        if ($Lang != 0) {
+            $Lang_sql = " AND Lang='" . $Lang . "' ";
         } else
-            $langid_sql = "AND LangID='" . $user->edit_lang_id . "'";
-        $sql = $this->db->prepare("SELECT * FROM " . DB_PREFIX . "cnt_category WHERE ParentID='" . $id . "' " . $userid_sql . " AND ID<>'" . $cur_id . "' " . $langid_sql . " ORDER BY Name ASC");
+            $Lang_sql = "AND Lang='" . $user->EditLang . "'";
+        $sql = $this->db->prepare("SELECT * FROM " . DB_PREFIX . "cnt_category WHERE ParentID='" . $id . "' " . $userid_sql . " AND ID<>'" . $cur_id . "' " . $Lang_sql . " ORDER BY Name ASC");
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0) {
             while (! $res->EOF) {
@@ -308,19 +308,19 @@ class BaseCategories extends TabElement {
                 for ($i = 1; $i < $depth; $i ++)
                     $depth_value .= '-';
                 $row[] = array($res->fields["ID"], $depth_value, $res->fields["Name"]);
-                $row = $this->get_category_row_options($res->fields["ID"], $cur_id, $langid, $userid, $depth, $row);
+                $row = $this->get_category_row_options($res->fields["ID"], $cur_id, $Lang, $userid, $depth, $row);
                 $res->MoveNext();
             }
         }
         return $row;
     }
 
-    function categories_showCategories($langid, $cur_id = 0) {
+    function categories_showCategories($Lang, $cur_id = 0) {
         isset($this->lang["select_default_name"]) ? $def_value = $this->lang["select_default_name"] : "select_default_name";
         $options = '<select name="ParentID" id="ParentID">';
         $options .= '<option value="0">' . $def_value . '</option>';
         $objResponse = new xajaxResponse();
-        $cat = $this->get_category_row_options(0, $cur_id, 0, $langid);
+        $cat = $this->get_category_row_options(0, $cur_id, 0, $Lang);
         for ($i = 0; $i < count($cat); $i ++) {
             $options .= '<option value="' . $cat[$i][0] . '">' . $cat[$i][1] . $cat[$i][2] . '</option>';
         }

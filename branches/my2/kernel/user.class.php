@@ -68,6 +68,16 @@ class User {
     function get_lang(){
         return $this->data['EditLang'];
     }
+
+    function is_admin(){
+        if ($this->data['Group']=='administrators') return true;
+        return false;
+    }
+
+    function get($param){
+        if (isset($this->data[$param])) return $this->data[$param];
+        return '';
+    }
 }
 
 $user = new User();

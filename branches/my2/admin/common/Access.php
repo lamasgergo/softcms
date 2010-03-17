@@ -4,7 +4,7 @@ function check_show_rights(){
   global $lang,$user,$db;
   $ret = true;
   $module = $_GET[MODULE];
-  if (!$user->admin){
+  if (!$user->is_admin()){
     $sql = $db->prepare("SELECT r.IsShow as IsShow FROM ".DB_PREFIX."modules_rights as r LEFT JOIN ".DB_PREFIX."modules as m ON (m.ID=r.ModuleID) WHERE r.UserID='".$user->id."'  AND m.Link='".$module."' GROUP BY r.ModuleID");
     $res = $db->Execute($sql);
     if ($res && $res->RecordCount() > 0){
@@ -28,7 +28,7 @@ function check_rights($action){
   $module = $_GET[MODULE];
   $action = ucfirst($action);
 
-  if (!$user->admin){
+  if (!$user->is_admin()){
     $sql = $db->prepare("SELECT r.Is".$action." as Perm FROM ".DB_PREFIX."modules_rights as r LEFT JOIN ".DB_PREFIX."modules as m ON (m.ID=r.ModuleID) WHERE r.UserID='".$user->id."' AND m.Link='".$module."' GROUP BY r.ModuleID");
     $res = $db->Execute($sql);
     if ($res && $res->RecordCount() > 0){
