@@ -9,7 +9,7 @@ if (isset($_GET[MODULE]) && file_exists(__PATH__."/admin/modules/".$_GET[MODULE]
     include_once(__PATH__."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php");
   }
 } else {
-    $smarty->assign('BODY', $smarty->fetch('admin/dashboard.tpl', null, $language));
+    $parse_main = $smarty->fetch('admin/dashboard.tpl', null, $language);
 }
 $smarty->assign("BODY",$parse_main);
 $smarty->display('admin.tpl', null, $language);

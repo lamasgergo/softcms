@@ -79,14 +79,10 @@ class BaseCategories extends TabElement {
         $this->smarty->assign("sort_table_fields", $this->sort_table_fields);
     }
 
-    function getTabContent() {
-        return $this->getValue();
-    }
-
 
     function getTreeValues($parent_id = 0, $ret = array(), $depth = 0) {
         $depth++;
-        $sql = "SELECT * FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND Lang='" . $this->user->get('EditLang') . "' ORDER BY ID";
+        $sql = "SELECT * FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND Lang='" . $this->language . "' ORDER BY ID";
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0) {
             while (!$res->EOF) {
@@ -107,33 +103,13 @@ class BaseCategories extends TabElement {
     }
 
 
-    function getTreeList($parent_id = 0, $ret = array(), $depth = 0) {
-        $depth++;
-        $sql = "SELECT ID, Name FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND Lang='" . $this->user->get('EditLang') . "' ORDER BY ID";
-        $res = $this->db->Execute($sql);
-        if ($res && $res->RecordCount() > 0) {
-            while (!$res->EOF) {
-                $depth_str = '';
-                for ($i = 0; $i < $depth; $i++) $depth_str .= '-';
-                $ret[] = array(
-                    'id' => $res->fields["ID"],
-                    'name' => $depth_str . $res->fields["Name"]
-                );
-
-                $ret = $this->getTreeList($res->fields["ID"], $ret, $depth);
-                $res->MoveNext();
-            }
-        }
-        return $ret;
-    }
-
     function formData($form, $id = "") {
         //Lang
         #$blocks_sql = "SELECT ID, Description FROM ".DB_PREFIX."lang";
         #$this->getOptions($blocks_sql,array('ID','Description'), array('lang_ids','lang_names'));
 
         // ParentID
-        $parent_arr = $this->getTreeList(0);
+        $parent_arr = $this->getTreeListByParent(0);
         $parent_ids = array();
         $parent_names = array();
         foreach ($parent_arr as $parent) {
@@ -183,28 +159,6 @@ class BaseCategories extends TabElement {
         return $values;
     }
 
-    function add($data){
-        $data = $this->prepareData($data);
-        $sql = $this->db->prepare("INSERT INTO " . $this->table . "(
-            `" . implode('`,`', array_keys($data)) . "`
-            ) VALUES (
-            '" . implode("','", array_values($data)) . "'
-            )");
-        if ($this->db->Execute($sql)) return true;
-        return false;
-    }
-
-    function change($data){
-        $data = $this->prepareData($data);
-        $upd = array();
-        foreach ($data as $field=>$value){
-            $upd[] = "`".$field."` = ".$value."'";
-        }
-        $sql = $this->db->prepare("UPDATE " . $this->table . " SET ".implode(",", $upd)." WHERE ID='".$data['ID']."'");
-        if ($this->db->Execute($sql)) return true;
-        return false;
-    }
-
     function basecategories_add($data) {
         $result = true;
         if ($this->checkRequiredFields($data)) {
@@ -238,32 +192,14 @@ class BaseCategories extends TabElement {
         return array($result, $msg);
     }
 
-    function categories_delete($data) {
-        $result = true;
-        $ids = explode(',', $data['ids']);
-        $ids = array_unique($ids);
-            // fix
-
-        if (count($ids) <= 0) return false;
-
-        $delete = array();
-        foreach ($ids as $id) {
-            $delete[] = array('id' => $id);
-            $delete = array_merge_recursive($this->getTreeList($id), $delete);
-        }
-
-        foreach ($delete as $delete_item) {
-            $ids[] = $delete_item['id'];
-        }
-
-        if (count($ids) <= 0) return false;
-
-        $ids = array_unique($ids);
-        $sql = $this->db->prepare("DELETE FROM " . $this->table . " WHERE id IN ('" . implode("','", $ids) . "')");
-        $res = $this->db->Execute($sql);
-        if ($res) {
+    function basecategories_delete($data) {
+        return array(true, '123');
+        $ids = $this->deleteRecursive($data);
+        if (count($ids) > 0) {
             $msg = $this->lang[$this->getName() . "_delete_suc"];
-            $items->items_delete($ids, true);
+            $items = new BaseItems($this->mod_name);
+            $items->delete($ids);
+            $result = true;
         } else {
             $msg = $this->lang[$this->getName() . "_delete_err"];
             $result = false;
