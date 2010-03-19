@@ -94,7 +94,7 @@ class BaseItems extends TabElement {
     function formData($form,$id=""){
         // ParentID
         $categories = new BaseCategories($mod_name);
-        $parent_arr = $categories->getTreeList(0);
+        $parent_arr = $categories->getTreeListByParent(0);
         $parent_ids = array();
         $parent_names = array();
         foreach ($parent_arr as $parent){

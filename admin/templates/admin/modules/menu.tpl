@@ -6,7 +6,7 @@
 
     }
 
-	function refreshTabTable( module, component, method, tabLocked){
+	function refreshTabTable( module, component, tabLocked){
 		if (!tabLocked){
 			var selected = $("#backend").data('selected.tabs');
 			$("#backend").tabs('remove', selected);
@@ -67,7 +67,7 @@
 			var title = '{/literal}{$module|cat:"_change"|lang}{literal}';
 			addTab(title, 'change', module, component, val);
 		} else {
-			alert('{/literal}{"check_item_first"|lang}{literal}');
+			alert('{/literal}{'check_item_first'|lang}{literal}');
 		}
 	};
 	
@@ -82,7 +82,8 @@
 
         if (ids.length > 0){
             var link = '/admin/ajax/index.php?mod='+module+'&class='+component+'&method='+component+'_delete';
-
+            self.module = module;
+            self.component = component;
             $.ajax({
                 type: "POST",
                 url: link,
@@ -94,12 +95,11 @@
                         result = response[0];
                     }
                     if (result){
-                        refreshTabTable(module, component, method);
+                        refreshTabTable(self.module, self.component);
                     }
                 }
             });
-
-		} 
+        }
 		return false;
 	};
 	
