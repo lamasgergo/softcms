@@ -1,0 +1,100 @@
+
+option {
+    border-bottom: #C5DBEC 1px dotted;
+    font-size: 11px;
+    color: #7d7d7d;
+    font-family: verdana, arial, helvetica, sans-serif;
+    height: 12px;
+    width: 150px;
+}
+
+select {
+    border: #C5DBEC 1px solid;
+    font-size: 11px;
+    color: #7d7d7d;
+    font-family: verdana, arial, helvetica, sans-serif;
+    height: 17px;
+    width: 150px;
+}
+
+input.text {
+    border: #C5DBEC 1px solid;
+    font-size: 10px;
+    color: #7d7d7d;
+    font-family: verdana, arial, helvetica, sans-serif;
+    height: 17px;
+    width: 150px;
+}
+
+input.checkbox {
+    border: #C5DBEC 1px solid;
+    font-size: 10px;
+    color: #7d7d7d;
+    font-family: verdana, arial, helvetica, sans-serif;
+    height: 17px;
+}
+
+.form_item {
+    border: #C5DBEC 1px solid;
+    font-size: 10px;
+    color: #7d7d7d;
+    font-family: verdana, arial, helvetica, sans-serif;
+    height: 17px;
+    width: 150px;
+}
+
+.form_area {
+
+    font-size: 10px;
+    width: 400px;
+    font-family: verdana, arial, helvetica;
+    height: 150px;
+    background-color: #ffffff;
+    border: #C5DBEC 1px solid;
+    color: #7d7d7d;
+    /*
+    scrollbar-face-color: #B49A6D3;
+    scrollbar-highlight-color: #B49A6D;
+    scrollbar-shadow-color: #000000;
+    scrollbar-3dlight-color: #000000;
+    scrollbar-arrow-color: black;
+    scrollbar-track-color: #B49A6D;
+    scrollbar-darkshadow-color: #ffffff;
+    */
+}
+
+hr {
+    height: 1px;
+    width: 80%;
+}
+
+.form_but {
+    height: 25px;
+}
+
+ul {
+    color: green;
+}
+
+li {
+    color: red;
+    text-color: #7d7d7d;
+}
+
+fieldset {
+    border: 1px solid #C5DBEC;
+}
+
+legend {
+    font-family: Verdana, Tahoma;
+    font-size: 11px;
+    font-weight: normal;
+    color: #7d7d7d;
+}
+
+.required {
+    font-family: Verdana, Tahoma;
+    font-size: 11px;
+    font-weight: normal;
+    color: red;
+}

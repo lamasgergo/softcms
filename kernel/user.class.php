@@ -70,7 +70,7 @@ class User {
     }
 
     function is_admin(){
-        if ($this->data['Group']=='administrators') return true;
+        if ($this->get('Group')=='administrators') return true;
         return false;
     }
 

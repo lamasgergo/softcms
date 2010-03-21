@@ -43,6 +43,8 @@ class BaseItems extends TabElement {
 	var $sort_table_fields;
 
     var $type = 'article';
+
+    var $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID');
 	
 	function BaseItems($mod_name){
 	    global $form;
@@ -68,11 +70,11 @@ class BaseItems extends TabElement {
 	}
 	
 	//set common template vars
-	function setTemplateVars(){
-		$this->smarty->assign("prefix",$this->mod_name);	
-		$this->smarty->assign("tab_prefix",$this->getName());	
-		$this->smarty->assign("sort_table_fields",$this->sort_table_fields);
-	}
+	function setTemplateVars() {
+        $this->smarty->assign("module", $this->mod_name);
+        $this->smarty->assign("component", $this->getName());
+        $this->smarty->assign("sort_table_fields", $this->sort_table_fields);
+    }
 	
 	function getTabContent(){
 		return $this->getValue();	
@@ -119,165 +121,73 @@ class BaseItems extends TabElement {
 		}
 	}
 	
-    function baseitems_form($form, $id=""){
+    function baseitems_form($form, $id = "") {
         $file = '';
-		if (check_rights($form)){
-			$this->formData($form,$id);
-			$this->smarty->assign("form",$form);
-			$this->smarty->assign("tab_prefix",$this->getName());
-			$file = $this->smarty->fetch($this->tpl_path . '/form.tpl',null,$this->language);
-		}
-		return $file;
-	}
-	
-	
-    function baseitems_add($data){
-		$result = true;
-		$error = false;
-		if ($this->checkRequiredFields($data)){
-			isset($data['Published']) ? $published = $data['Published'] : $published = 0;
-			if (!isset($data['LoginRequired'])) $data['LoginRequired'] = 0;
-			if (!isset($data['AllowComments'])) $data['AllowComments'] = 0;
-			
-			$sql = $this->db->prepare(
-				"INSERT INTO ".$this->table."(
-					CategoryID,
-					UserID,
-					`Type`,
-					Lang,
-					Title,
-					Short_Text,
-					Full_Text,
-					Published,
-					Created,
-					MetaAlt,
-					MetaKeywords,
-					MetaDescription,
-					MetaTitle,
-					LoginRequired,
-					AllowComments) 
-					VALUES(
-					'".$data["CategoryID"]."',
-					'".$this->user->id."',
-					'".$this->type."',
-					'".$this->user->edit_lang_id."',
-					'".mysql_escape_string($data["Title"])."',
-					'".mysql_escape_string($data["Short_Text"])."',
-					'".mysql_escape_string($data["Full_Text"])."',
-					'".$published."',
-					'".$data["Created"]."',
-					'".$data["MetaAlt"]."',
-					'".$data["MetaKeywords"]."',
-					'".$data["MetaDescription"]."',
-					'".$data["MetaTitle"]."',
-					'".$data["LoginRequired"]."',
-					'".$data["AllowComments"]."'
-					)
-				"
-			);
-
-			if ($this->db->Execute($sql)){
-				$id = $this->db->Insert_ID(ADB_PREFIX."car","ID");
-		        if (isset($id) && !empty($id)){
-			        if (isset($data['MenuID']) && $data['MenuID']!=0){
-						$link = '/index.php?'.MODULE.'=content&iid='.$id;
-						$sql = $this->db->prepare("UPDATE ".DB_PREFIX."menutree SET Link = '".$link."' WHERE ID='".$data["MenuID"]."'");
-						$this->db->Execute($sql);
-					}
-		        }
-				$msg = $this->lang[$this->getName()."_add_suc"];
-			} else {
-				$msg = $this->lang[$this->getName()."_add_err"];
-				$result = false;
-			}
-		} else {
-      		$msg = $this->lang["requered_data_absent"];
-      		$result = false;
-    	}
-
-        return array($result, $msg);
-	}
-	
-	function baseitems_change($data, $no_reload=false){
-		$result = true;
-		
-		if ($this->checkRequiredFields($data)){
-		    isset($data['Published']) ? $published = $data['Published'] : $published = 0;
-			if (!isset($data['LoginRequired'])) $data['LoginRequired'] = 0;
-			if (!isset($data['AllowComments'])) $data['AllowComments'] = 0;
-			$sql = $this->db->prepare(
-				"UPDATE ".$this->table." SET
-						CategoryID='".$data["CategoryID"]."', 
-						Title='".mysql_escape_string($data["Title"])."',
-						Short_Text='".mysql_escape_string($data["Short_Text"])."', 
-						Full_Text='".mysql_escape_string($data["Full_Text"])."', 
-						Published='".$published."', 
-						Created='".$data["Created"]."', 
-						MetaAlt='".$data["MetaAlt"]."', 
-						MetaKeywords='".$data["MetaKeywords"]."', 
-						MetaDescription='".$data["MetaDescription"]."', 
-						MetaTitle='".$data["MetaTitle"]."',
-						LoginRequired='".$data["LoginRequired"]."',
-						AllowComments='".$data["AllowComments"]."'
-						WHERE ID='".$data["ID"]."'"
-			);
-			if ($this->db->Execute($sql)){
-				if (isset($data['MenuID']) && $data['MenuID']!=0){
-					$link = '/index.php?'.MODULE.'=content&iid='.$data['ID'];
-					$sql = $this->db->prepare("UPDATE ".DB_PREFIX."menutree SET Link = '".$link."' WHERE ID='".$data["MenuID"]."'");
-					$this->db->Execute($sql);
-				}
-				$msg = $this->lang[$this->getName()."_change_suc"];
-			} else {
-				$result = false;
-				$msg = $this->lang[$this->getName()."_change_err"];
-			}
-		} else {
-			$result = false;
-      		$msg = $this->lang["requered_data_absent"]; 
-    	}
-
-        return array($result, $msg);
-	}
-	
-    function baseitems_delete($id, $byCategoryId=false){
-        $result = true;
-
-        if ($byCategoryId==true){
-            $field = 'ID';
-        } else $field = 'CategoryID';
-
-        if (is_array($id)){
-            $sql = $this->db->prepare("DELETE FROM " . $this->table . " WHERE ".$field." IN ('".implode("','", $id)."')");
-        } else {
-		    $sql = $this->db->prepare("DELETE FROM " . $this->table . " WHERE ".$field."='".$id."'");
+        if (check_rights($form)) {
+            $this->formData($form, $id);
+            $this->smarty->assign("form", $form);
+            $this->smarty->assign("module", $this->mod_name);
+            $this->smarty->assign("component", $this->getName());
+            $file = $this->smarty->fetch($this->tpl_path . '/form.tpl', null, $this->language);
         }
-		if ($this->db->Execute($sql)){
-			$msg = $this->lang[$this->getName()."_delete_suc"];
-		} else {
-			$msg = $this->lang[$this->getName()."_delete_err"];
-            $result = false;
-		}
-		return array($result, $msg);
-	}
-	
-    function baseitems_publish ($id, $value)
-    {
-        $objResponse = new xajaxResponse();
-        if (check_rights('publish')) {
-            if ($value == "true") {
-                $value = "1";
-            } else
-                $value = "0";
-            if ($id != "") {
-                $sql = $this->db->prepare("UPDATE " . $this->table . " SET Published='" . $value . "' WHERE ID='" . $id . "'");
-                $res = $this->db->Execute($sql);
-            }
-        } else
-            $objResponse->addAlert($lang["per_cant_publish"]);
-        return $objResponse->getXML();
+        return $file;
     }
-    
+
+    function prepareData($data){
+        $data['LoginRequired'] = (int)$data['LoginRequired'];
+        $data['ViewCount'] = (int)$data['LoginRequired'];
+        $data['ImageGroupID'] = (int)$data['ImageGroupID'];
+        return parent::prepareData($data);
+    }
+
+    function baseitems_add($data) {
+        $result = true;
+        if ($this->checkRequiredFields($data)) {
+            if ($this->add($data)) {
+                $msg = $this->lang[$this->getName() . "_add_suc"];
+            } else {
+                $msg = $this->lang[$this->getName() . "_add_err"];
+                $result = false;
+            }
+        } else {
+            $msg = $this->lang["requered_data_absent"];
+            $result = false;
+        }
+        return array($result, $msg);
+    }
+
+    function baseitems_change($data) {
+        $result = true;
+        if ($this->checkRequiredFields($data)) {
+            if ($this->change($data)) {
+                $msg = $this->lang[$this->getName() . "_change_suc"];
+            } else {
+                $result = false;
+                $msg = $this->lang[$this->getName() . "_change_err"];
+            }
+        } else {
+            $result = false;
+            $msg = $this->lang["requered_data_absent"];
+        }
+
+        return array($result, $msg);
+    }
+
+    function baseitems_delete($data) {
+        $ids = $this->deleteRecursive($data);
+        if (count($ids) > 0) {
+            $msg = $this->lang[$this->getName() . "_delete_suc"];
+            $items = new BaseItems($this->mod_name);
+            $items->delete($ids);
+            $result = true;
+        } else {
+            $msg = $this->lang[$this->getName() . "_delete_err"];
+            $result = false;
+        }
+
+        return array($result, $msg);
+    }
+
     
 }
 ?>

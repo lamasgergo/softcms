@@ -62,6 +62,8 @@ class TabElement{
 
     var $fields = array();
 
+    var $requiredFields = array();
+
 	
 	function TabElement($mod_name){
 		global $smarty,$language,$lang,$db,$user;
@@ -373,7 +375,7 @@ class TabElement{
         $data = $this->prepareData($data);
         $upd = array();
         foreach ($data as $field=>$value){
-            $upd[] = "`".$field."` = ".$value."'";
+            $upd[] = "`".$field."` = '".$value."'";
         }
         $sql = $this->db->prepare("UPDATE " . $this->table . " SET ".implode(",", $upd)." WHERE ID='".$data['ID']."'");
         if ($this->db->Execute($sql)) return true;

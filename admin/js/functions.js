@@ -1,3 +1,36 @@
+function form_skining(form){
+    $("input:submit").button();
+
+    markRequired(form);
+    formPanels(form);
+}
+
+function markRequired(form){
+    var req = $(form).find('#RequiredFields').val();
+    var fields = req.split(',');
+    for (var i in fields){
+        var field = $.trim(fields[i]);
+        $(form).find('[name='+field+']').css('border-left', '2px solid red');
+    }
+
+}
+
+function formPanels(form){
+    var self = $(form);
+    self.find('.panel').each(function(){
+        var header = $('<div></div>')
+            .addClass('ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix')
+            .html($(this).find('.title'));
+        $(this).find('.title').remove();
+
+        var body = $('<div></div>')
+                .addClass('ui-dialog-content ui-widget-content')
+                .html($(this).html());
+        $(this).empty();
+        $(this).append(header);
+        $(this).append(body);
+    });
+}
 
 function send_form(formId, module, component, method, tabLocked){
 
@@ -8,13 +41,14 @@ function send_form(formId, module, component, method, tabLocked){
         url: url,
         data: $('#'+formId).serialize(),
         success: function(response){
+            if (!response) return;
             eval('var response = '+response+';');
             if(typeof response =='object' || typeof response =='array'){
                 alert(response[1]);
                 result = response[0];
             } 
             if (result){
-                refreshTabTable(module, component, method, tabLocked);
+                refreshTabTable(module, component, tabLocked);
             }
         }
     });
