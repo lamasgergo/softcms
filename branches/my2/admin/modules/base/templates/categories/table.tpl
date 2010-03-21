@@ -1,15 +1,16 @@
     <form method="post" action="javascript:return false;" name="{$component}">
-    
+    {$component}
     <div class="widget_tableDiv">
     <table id="myTable">
       <thead>
         <tr>
-          <td>{$module|cat:"_action"|lang}</td>
-		  <td>{$module|cat:"_ID"|lang}</td>
-          <td>{$module|cat:"_name"|lang}</td>
-          <td>{$module|cat:"_description"|lang}</td>
-          <td>{$module|cat:"_published"|lang}</td>
-          <td>{$module|cat:"_modified"|lang}</td>
+          <td>{$component|cat:"_action"|lang}</td>
+		  <td>{$component|cat:"_ID"|lang}</td>
+          <td>{$component|cat:"_Name"|lang}</td>
+          <td>{$component|cat:"_Description"|lang}</td>
+          <td>{$component|cat:"_Published"|lang}</td>
+          <td>{$component|cat:"_Modified"|lang}</td>
+          <td>{$component|cat:"_Lang"|lang}</td>
         </tr>
       </thead>
       <tbody class="scrollingContent">
@@ -23,11 +24,15 @@
 			{if $item.Published eq "1"}{assign var="pub_ch" value="checked"}{else}{assign var="pub_ch" value=""}{/if}
 			<input type="checkbox" name="published_{$item.ID}" {$pub_ch} value="1" onclick="xajax_categories_publish({$item.ID},this.checked);">
 		  </td>
-          <td>{$item.Modified}</td>
+          <td>{$item.Modified|date_format:"%d.%m.%Y %H:%M:%S"|default:"&nbsp;"}</td>
+          <td>{$item.Lang}</td>
         </tr>
       {/foreach}
       </tbody>
     </table>
     </div>
     </form>
-    
+    <script type="text/javascript">
+      initTableWidget('myTable',"100%","480",Array({$sort_table_fields}));
+    </script>
+

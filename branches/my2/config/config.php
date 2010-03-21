@@ -25,7 +25,7 @@ define("JS_DIR", SITE_URL."/source/js");
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "");
-define("DB_NAME", "my_test");
+define("DB_NAME", "my2");
 define("DB_PREFIX","bs_");
 define("SDB_PREFIX","bs_sh_");
 define("DB_CHARSET","utf8");

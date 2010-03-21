@@ -48,6 +48,8 @@ class BaseCategories extends TabElement {
 
     var $fields = array('ID', 'UserID', 'Type', 'ParentID', 'Lang', 'Name', 'Description', 'Published');
 
+    var $requiredFields = array('Name');
+
     function BaseCategories($mod_name) {
         global $form;
         $this->name = __CLASS__;
@@ -138,26 +140,28 @@ class BaseCategories extends TabElement {
         $file = '';
         if (check_rights($form)) {
             $this->formData($form, $id);
+            $this->smarty->assign("required", implode(",", $this->requiredFields));
             $this->smarty->assign("form", $form);
+            $this->smarty->assign("module", $this->mod_name);
             $this->smarty->assign("component", $this->getName());
             $file = $this->smarty->fetch($this->tpl_path . '/form.tpl', null, $this->language);
         }
         return $file;
     }
 
-    function prepareData($data){
-        if (!isset($data['Published'])) $data['Published'] = 0;
-        $data['UserID'] = $this->user->id;
-        $data['Type'] = $this->type;
-        $data['Lang'] = $this->language;
-        $values = array();
-        foreach ($this->fields as $item){
-            if ($item=='ID'){
-                if (!empty($data[$item])) $values[$item] = mysql_real_escape_string($data[$item]);
-            } else $values[$item] = mysql_real_escape_string($data[$item]); 
-        }
-        return $values;
-    }
+//    function prepareData($data){
+//        if (!isset($data['Published'])) $data['Published'] = 0;
+//        $data['UserID'] = $this->user->id;
+//        $data['Type'] = $this->type;
+//        $data['Lang'] = $this->language;
+//        $values = array();
+//        foreach ($this->fields as $item){
+//            if ($item=='ID'){
+//                if (!empty($data[$item])) $values[$item] = mysql_real_escape_string($data[$item]);
+//            } else $values[$item] = mysql_real_escape_string($data[$item]);
+//        }
+//        return $values;
+//    }
 
     function basecategories_add($data) {
         $result = true;
@@ -193,7 +197,6 @@ class BaseCategories extends TabElement {
     }
 
     function basecategories_delete($data) {
-        return array(true, '123');
         $ids = $this->deleteRecursive($data);
         if (count($ids) > 0) {
             $msg = $this->lang[$this->getName() . "_delete_suc"];
@@ -207,24 +210,6 @@ class BaseCategories extends TabElement {
 
         return array($result, $msg);
     }
-
-
-    function categories_publish($id, $value) {
-        $objResponse = new xajaxResponse();
-        if (check_rights('publish')) {
-            if ($value == "true") {
-                $value = "1";
-            } else
-                $value = "0";
-            if ($id != "") {
-                $sql = $this->db->prepare("UPDATE " . DB_PREFIX . "cnt_category SET Published='" . $value . "' WHERE ID='" . $id . "'");
-                $res = $this->db->Execute($sql);
-            }
-        } else
-            $objResponse->addAlert($lang["per_cant_publish"]);
-        return $objResponse->getXML();
-    }
-
 
     function get_category_row_options($id, $cur_id = 0, $Lang = 0, $userid = '', $depth = 0, $row = array()) {
         $depth ++;

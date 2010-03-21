@@ -2,7 +2,7 @@
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <title>{lang admin_title}</title>
-<link rel="stylesheet" href="{$css}/admin_style.css" type="text/css">
+<link rel="stylesheet" href="/admin/css/admin_style.css" type="text/css">
 </head>
 <body leftmargin="0" topmargin="0" bgcolor="#FFFFFF" background="/source/images/admin_bg.gif" style="background-repeat:no-repeat;background-position: top right">
 <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">

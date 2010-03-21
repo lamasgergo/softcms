@@ -1,0 +1,67 @@
+
+#mod_menu {
+    text-align: left;
+    vertical-align: middle;
+    margin: 5px;
+    clear: left;
+}
+
+#mod_menu div.title {
+    text-align: center;
+    background-color: #1A8DE5;
+    color: white;
+    font-weight: bold;
+    margin: 5px;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 12px;
+    height: 14px;
+}
+
+#mod_menu div.icon {
+    margin: 5px;
+    float: left;
+    height: 200px;
+    width: 200px;
+    display: block;
+}
+
+.icon * img {
+    height: 128px;
+    width: 128px;
+}
+
+#mod_menu div.icon a {
+    display: block;
+    vertical-align: middle;
+    text-decoration: none;
+    border: 1px solid #DDD;
+    text-align: center;
+    height: 180px;
+}
+
+#mod_menu div.icon a:link {
+    color: #808080;
+}
+
+#mod_menu div.icon a:hover {
+    color: #333;
+    background-color: #F9F9FF;
+    border: 1px solid #999AFF; /*padding: 3px 4px 0px 6px; */
+}
+
+#mod_menu div.icon a:active {
+    color: #808080;
+}
+
+#mod_menu div.icon a:visited {
+    color: #808080;
+}
+
+#mod_menu div.icon img {
+    margin-top: 13px;
+}
+
+#mod_menu div.icon span {
+    display: block;
+    padding-top: 3px;
+}
