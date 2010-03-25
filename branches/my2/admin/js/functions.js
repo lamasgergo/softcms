@@ -1,8 +1,7 @@
 function form_skining(form){
-    $("input:submit").button();
-
     markRequired(form);
-    formPanels(form);
+//    formPanels(form);
+//    $("select, input:checkbox, input:radio, input:file, input:text").uniform();
 }
 
 function markRequired(form){
