@@ -418,7 +418,7 @@ class TabElement{
     }
 
     function getTreeListByParent($parent_id = 0, $ret = array(), $depth = 0) {
-        if (in_array($this->fields, 'ParentID')) return array();
+        if (isset($this->fields) && !in_array('ParentID', $this->fields)) return array();
 
         $depth++;
         $sql = "SELECT ID, Name FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND Lang='" . $this->language . "' ORDER BY ID";

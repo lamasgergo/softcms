@@ -8,8 +8,8 @@ require_once(__PATH__."/admin/modules/".$mod_name."/baseitems.php");
 
 $form = new AdminForm($mod_name);
 
-$form->addTabObject(new BaseCategories($mod_name,0));
-$form->addTabObject(new BaseItems($mod_name,1));
+$form->addTabObject(new BaseCategories($mod_name));
+$form->addTabObject(new BaseItems($mod_name));
 
 $parse_main = $form->show();
 ?>
