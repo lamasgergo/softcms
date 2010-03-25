@@ -1,6 +1,6 @@
 <script type="text/javascript" src="{$js}/sort_table.js"></script>
 <link type="text/css" rel="StyleSheet" href="{$css}/sort_table.css" />
-        
+
 <div id="backend">
 	<ul>
 	    <li><a href="/admin/ajax/index.php?mod=base&class=baseitems&method=baseitems_form&action=add">test</a></li>

@@ -7,7 +7,7 @@
 <script defer type="text/javascript" src="{$js}/pngfix.js"></script>
 <![endif]-->
 
-<script type="text/javascript" src="/admin/source/editors/FCKEditor/fckeditor.js"></script>
+{*<script type="text/javascript" src="/admin/source/editors/FCKEditor/fckeditor.js"></script>*}
 <script type="text/javascript" src="/admin/js/functions.js"></script>
 
 {*<link rel="stylesheet" type="text/css" href="{$js}/jquery/themes/base/jquery-ui.css" media="screen" /> *}
@@ -20,7 +20,7 @@
 <script type="text/javascript" src="/admin/source/editors/ckeditor/adapters/jquery.js"></script>
 
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="{$images}/admin_bg.gif" style="background-repeat:no-repeat; background-position: bottom right; height: 100%;">
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <table border="0" cellpadding="0" cellspacing="0" align="left" width="100%">
   <tr valign="top">
     <td width="100%">
