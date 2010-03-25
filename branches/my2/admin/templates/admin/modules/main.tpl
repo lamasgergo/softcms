@@ -3,6 +3,7 @@
         
 <div id="backend">
 	<ul>
+	    <li><a href="/admin/ajax/index.php?mod=base&class=baseitems&method=baseitems_form&action=add">test</a></li>
 	  {foreach from=$tabs item=tab}
 		<li><a href="#{"tab_"|cat:$tab.name}">{$module|cat:'_'|cat:$tab.name|lang}</a></li>
 	  {/foreach}
