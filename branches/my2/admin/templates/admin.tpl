@@ -19,6 +19,9 @@
 <script type="text/javascript" src="/admin/source/editors/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="/admin/source/editors/ckeditor/adapters/jquery.js"></script>
 
+<link rel="stylesheet" type="text/css" media="all" href="/source/js/jquery/plugins/niceforms/niceforms-default.css" />
+<script language="javascript" type="text/javascript" src="/source/js/jquery/plugins/niceforms/niceforms.js"></script>
+
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <table border="0" cellpadding="0" cellspacing="0" align="left" width="100%">

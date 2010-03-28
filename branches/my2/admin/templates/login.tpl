@@ -9,13 +9,14 @@
 
 <link rel="stylesheet" type="text/css" media="all" href="/source/js/jquery/plugins/niceforms/niceforms-default.css" />
 <script language="javascript" type="text/javascript" src="/source/js/jquery/plugins/niceforms/niceforms.js"></script>
-
 </head>
 <body>
 
+<div class="loginForm">
+    <div class="login">
         ##ERROR_MESSAGE##
 
-        <form method="POST">
+        <form method="POST" class="niceform">
         <fieldset>                            
         <legend>{lang autorization}:</legend>
         <dl>
@@ -31,6 +32,7 @@
     	    <input type="submit" name="submit" id="submit" value="Submit" />
         </fieldset>
         </form>
-
+    </div>        
+</div>
 </body>
 </html>

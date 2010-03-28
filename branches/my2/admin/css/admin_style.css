@@ -1,5 +1,6 @@
 @CHARSET "UTF-8";
 
+@import "login.css";
 @import "form.css";
 @import "top_menu.css";
 @import "dashboard.css";
