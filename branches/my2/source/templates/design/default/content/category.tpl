@@ -1,6 +1,6 @@
 <h2>{$details[0].Name}</h2>
 
-{if $item_arr[0].LoginRequired==1 && !$is_auth}
+{if $item_arr[0].LoginRequired==1 && !$isAuth}
 			<b>{"You have no right to see this content"|lang}</b>
 {else}
 			

@@ -1,4 +1,4 @@
-{if $is_auth}
+{if $isAuth}
 <link rel="stylesheet" href="/source/templates/design/default/filemanager/css/tree_component.css" type="text/css" >
 <script type="text/javascript" src="{$js}/jquery/jquery.js"></script>
 <script type="text/javascript" src="{$js}/jquery/ui/jquery.ui.all.js"></script>

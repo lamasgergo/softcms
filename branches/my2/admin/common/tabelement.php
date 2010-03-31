@@ -2,34 +2,34 @@
 
 class TabElement{
 	/* Name of a Tab Element */
-	var $name;
+	private $name;
 
 	/* Body of a Tab Element */
-	var $value;
+	private $value;
 
 	/* Action menu for Tab Element */
-	var $menu;
+	private $menu;
 
 	/* Data Filter for Tab Element */
-	var $filter;
+	private $filter;
 
 	/* Name of a DIV where Tab Element will parsed */
-	var $visual_div_name;
+	private $visual_div_name;
 
 	/* ADODB object */
-	var $db;
+	protected $db;
 
 	/* Smarty object */
-	var $smarty;
+	protected $smarty;
 
-	/* Lang array with localization vars */
-	var $lang;
+	/* Lang array with localization privates */
+	private $locale;
 
-	/* Var with lang ID for smarty templates engine */
-	var $language;
+	/* private with lang ID for smarty templates engine */
+	protected $language;
 
 	/* Main module name */
-	var $mod_name;
+	protected $mod_name;
 
 	/* JS sortable params:
 	 * false 	: don't sort
@@ -38,45 +38,49 @@ class TabElement{
 	 * 
 	 * example: false,'S','N',false,'S','S'
 	*/
-	var $sort_table_fields;
+	private $sort_table_fields;
 	
 	/* root path for templates*/
-	var $tpl_path;
+	private $tpl_path;
 	/* root path for module templates*/
-	var $tpl_module_path;
+	private $tpl_module_path;
 	
 	/* ID of the class (tab ID) */
-	var $counter = 0;
-	var $tabID;
+	private $counter = 0;
+	private $tabID;
 	
 	/* Upload directory */
-	var $uploadDirectory;
+	private $uploadDirectory;
 	/* Relative path to images dir */
-	var $relativePath;
+	private $relativePath;
 	
 	/* user ID */
-	var $user;
+	private $user;
 
     /* data type*/
-    var $type;
+    private $type;
 
-    var $fields = array();
+    private $fields = array();
 
-    var $requiredFields = array();
+    private $requiredFields = array();
+
+    private $table;
 
 	
-	function TabElement($mod_name){
-		global $smarty,$language,$lang,$db,$user;
+	function __construct($mod_name){
 		$this->counter++;
-		$this->user = $user;
-		$this->visual_div_name = "visual_".$this->getName();
-		$this->smarty = &$smarty;
+
+        $this->visual_div_name = "visual_".$this->getName();
+
+        $obReg = ObjectRegistry::getInstance();
+		$this->user = $obReg->get('user');
+		$this->smarty = $obReg->get('smarty');
+		$this->db = $obReg->get('db');
 		
-		//set existing objects
-		$this->db = &$db;
-		$this->lang = $lang;
-		$this->language = $language;
-		//set common module name
+		$this->locale = $obReg->get('locale');
+		$this->language = $obReg->get('language');
+
+        //set common module name
 		$this->mod_name = $mod_name;
 		//set path to tab module templates
 		$this->tpl_module_path = strtolower($this->mod_name);
@@ -86,14 +90,15 @@ class TabElement{
 		$this->relativePath = uploadDirectoryURL;
 
 	}
-	
+
+    function getName() {
+        return strtolower(__CLASS__);
+    }
 		
 	function getMenu(){
 		$menu_items = array('add','change','delete');
 		foreach ($menu_items as $item){
-			if (isset($this->lang["menu_".strtolower($this->name)."_".$item])){
-				$this->smarty->assign("menu_".strtolower($this->name)."_".$item, $this->lang["menu_".strtolower($this->name)."_".$item]);
-			} else $this->smarty->assign("menu_".strtolower($this->name)."_".$item, "menu_".strtolower($this->name)."_".$item);
+            $this->smarty->assign("menu_".strtolower($this->name)."_".$item, $this->locale->get("menu_".strtolower($this->name)."_".$item));
 		}
 		return $this->smarty->fetch($this->tpl_path.'/menu/menu.tpl',null,$this->language);
 	}
@@ -102,15 +107,15 @@ class TabElement{
 		return "";
 	}
 	
-	function refresh($tab_id=0){
-		$objResponse = new xajaxResponse();
-		$objResponse->addAlert($this->tab_id);
-		$objResponse->addAssign($this->visual_div_name,'innerHTML',$this->getValue());
-		$objResponse->addScriptCall("initTableWidget","myTable","100%","480","Array(".$this->sort_table_fields.")");
-		$objResponse->addScriptCall("showTab",$tab_id);
-		$objResponse->addAlert($tab_id);
-		return $objResponse->getXML();
-	}
+//	function refresh($tab_id=0){
+//		$objResponse = new xajaxResponse();
+//		$objResponse->addAlert($this->tab_id);
+//		$objResponse->addAssign($this->visual_div_name,'innerHTML',$this->getValue());
+//		$objResponse->addScriptCall("initTableWidget","myTable","100%","480","Array(".$this->sort_table_fields.")");
+//		$objResponse->addScriptCall("showTab",$tab_id);
+//		$objResponse->addAlert($tab_id);
+//		return $objResponse->getXML();
+//	}
 	
 	
 	function checkRequiredFields($data){
@@ -230,103 +235,103 @@ class TabElement{
   		return $this->smarty->fetch("images/preview_files.tpl",null,$this->language);
 	}
 	
-	function delete_image($id, $uploadDir=''){
-		if (empty($uploadDir)) $uploadDir = $this->uploadDirectory."/";
-  		$objResponse = new xajaxResponse();
-  		$sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."images WHERE ID='".$id."'");
-  		$res = $this->db->execute($sql);
-  		if ($res && $res->RecordCount() > 0){
-    		if (file_exists($uploadDir.$res->fields["ImageResize"])){
-      			@unlink($uploadDir.$res->fields["ImageResize"]);
-    		}
-    		if (file_exists($uploadDir.$res->fields["Image"])){
-      			@unlink($uploadDir.$res->fields["Image"]);
-    		}
-    		if (!$this->db->Execute("DELETE FROM ".DB_PREFIX."images WHERE ID='".$id."'")){
-      			$objResponse->addAlert($this->lang["images_deleted_err"]);
-    		} else {
-      			$objResponse->addScript("document.getElementById('".$res->fields["Name"]."').innerHTML=''");
-      			$objResponse->addAlert($this->lang["images_deleted_suc"]);
-    		}
-    
-  		}
-  		return $objResponse->getXML();		
-	}
-
-	function delete_image_direct($file='', $uploadDir=''){
-		$uploadDir = urldecode($uploadDir);
-		if (empty($uploadDir)) $uploadDir = $this->uploadDirectory."/";
-  		$objResponse = new xajaxResponse();
-  		if (file_exists($uploadDir.'/'.$file)){
-	   		unlink($uploadDir.'/'.$file);
-			$objResponse->addScript("document.getElementById('".$file."').innerHTML=''");
-  		}
-  		return $objResponse->getXML();		
-	}
-	
-	// $id bs_images_group
-	function addUploadedFiles($id=0, $uploadDir=''){
-		if (empty($uploadDir)) $uploadDir = $this->uploadDirectory."/";
-		if (empty($id)){
-			$sql = $this->db->prepare("INSERT INTO ".DB_PREFIX."images_group(Created) VALUES (NOW())");	
-			if ($this->db->Execute($sql)){
-				$id = $this->db->Insert_ID(DB_PREFIX."images_group","ID");
-			}
-		} 
-		if ($id!=false && $id!=0){
-	    	$sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."tmp_images WHERE UserID='".$this->user->id."' ORDER BY ID ASC");
-	    	$res = $this->db->execute($sql);
-	    	if ($res && $res->RecordCount() > 0){
-	        	while (!$res->EOF){
-			        copy(tmpuploadDirectory.$res->fields["Image"],$uploadDir.$res->fields["Image"]);
-			        chmod($uploadDir.$res->fields["Image"],0777);
-			        if ($res->fields["ImageResize"]){
-				        copy(tmpuploadDirectory.$res->fields["ImageResize"],$uploadDir.$res->fields["ImageResize"]);
-				        chmod($uploadDir.$res->fields["ImageResize"],0777);
-			        }
-		           	$insql =$this->db->prepare("INSERT INTO ".DB_PREFIX."images(GroupID,Name,Image,ImageResize) VALUES ('".$id."','".$res->fields["Name"]."','".$res->fields["Image"]."','".$res->fields["ImageResize"]."')");
-			       	if( $this->db->execute($insql)){
-				       	unlink(tmpuploadDirectory.$res->fields["Image"]);
-				       	unlink(tmpuploadDirectory.$res->fields["ImageResize"]);
-				       	$this->db->execute("DELETE FROM ".DB_PREFIX."tmp_images WHERE ID='".$res->fields["ID"]."'");
-			       	}
-			       	$res->MoveNext();
-	        	}
-	    	}
-		}
-		return $id;
-	}
-
-	// $id bs_images_group
-	function moveUploadedFiles($uploadDir=''){
-		if (empty($uploadDir)) $uploadDir = $this->uploadDirectory."/";
-    	$sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."tmp_images WHERE UserID='".$this->user->id."' ORDER BY ID ASC");
-    	$res = $this->db->execute($sql);
-    	if ($res && $res->RecordCount() > 0){
-        	while (!$res->EOF){
-		        copy(tmpuploadDirectory.$res->fields["Image"],$uploadDir.$res->fields["Image"]);
-		        chmod($uploadDir.$res->fields["Image"],0777);
-
-		       	unlink(tmpuploadDirectory.$res->fields["Image"]);
-				$this->db->execute("DELETE FROM ".DB_PREFIX."tmp_images WHERE ID='".$res->fields["ID"]."'");
-		       	$res->MoveNext();
-	        	}
-	    	}
-	}
-	
-	function deleteImagesGroup($groupID, $uploadDir=''){
-		if (empty($uploadDir)) $uploadDir = $this->uploadDirectory."/";
-		$sql = "SELECT ID FROM ".DB_PREFIX."images WHERE GroupID='".$groupID."'";
-		$res = $this->db->Execute($sql);
-		if ($res && $res->RecordCount() > 0){
-			while (!$res->EOF){
-				$this->delete_image($res->fields["ID"], $uploadDir);
-				$res->MoveNext();	
-			}
-		}
-		$sql = "DELETE FROM ".DB_PREFIX."images_group WHERE ID='".$groupID."'";
-		$res = $this->db->Execute($sql);
-	}
+//	function delete_image($id, $uploadDir=''){
+//		if (empty($uploadDir)) $uploadDir = $this->uploadDirectory."/";
+//  		$objResponse = new xajaxResponse();
+//  		$sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."images WHERE ID='".$id."'");
+//  		$res = $this->db->execute($sql);
+//  		if ($res && $res->RecordCount() > 0){
+//    		if (file_exists($uploadDir.$res->fields["ImageResize"])){
+//      			@unlink($uploadDir.$res->fields["ImageResize"]);
+//    		}
+//    		if (file_exists($uploadDir.$res->fields["Image"])){
+//      			@unlink($uploadDir.$res->fields["Image"]);
+//    		}
+//    		if (!$this->db->Execute("DELETE FROM ".DB_PREFIX."images WHERE ID='".$id."'")){
+//      			$objResponse->addAlert($this->locale["images_deleted_err"]);
+//    		} else {
+//      			$objResponse->addScript("document.getElementById('".$res->fields["Name"]."').innerHTML=''");
+//      			$objResponse->addAlert($this->locale["images_deleted_suc"]);
+//    		}
+//
+//  		}
+//  		return $objResponse->getXML();
+//	}
+//
+//	function delete_image_direct($file='', $uploadDir=''){
+//		$uploadDir = urldecode($uploadDir);
+//		if (empty($uploadDir)) $uploadDir = $this->uploadDirectory."/";
+//  		$objResponse = new xajaxResponse();
+//  		if (file_exists($uploadDir.'/'.$file)){
+//	   		unlink($uploadDir.'/'.$file);
+//			$objResponse->addScript("document.getElementById('".$file."').innerHTML=''");
+//  		}
+//  		return $objResponse->getXML();
+//	}
+//
+//	// $id bs_images_group
+//	function addUploadedFiles($id=0, $uploadDir=''){
+//		if (empty($uploadDir)) $uploadDir = $this->uploadDirectory."/";
+//		if (empty($id)){
+//			$sql = $this->db->prepare("INSERT INTO ".DB_PREFIX."images_group(Created) VALUES (NOW())");
+//			if ($this->db->Execute($sql)){
+//				$id = $this->db->Insert_ID(DB_PREFIX."images_group","ID");
+//			}
+//		}
+//		if ($id!=false && $id!=0){
+//	    	$sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."tmp_images WHERE UserID='".$this->user->id."' ORDER BY ID ASC");
+//	    	$res = $this->db->execute($sql);
+//	    	if ($res && $res->RecordCount() > 0){
+//	        	while (!$res->EOF){
+//			        copy(tmpuploadDirectory.$res->fields["Image"],$uploadDir.$res->fields["Image"]);
+//			        chmod($uploadDir.$res->fields["Image"],0777);
+//			        if ($res->fields["ImageResize"]){
+//				        copy(tmpuploadDirectory.$res->fields["ImageResize"],$uploadDir.$res->fields["ImageResize"]);
+//				        chmod($uploadDir.$res->fields["ImageResize"],0777);
+//			        }
+//		           	$insql =$this->db->prepare("INSERT INTO ".DB_PREFIX."images(GroupID,Name,Image,ImageResize) VALUES ('".$id."','".$res->fields["Name"]."','".$res->fields["Image"]."','".$res->fields["ImageResize"]."')");
+//			       	if( $this->db->execute($insql)){
+//				       	unlink(tmpuploadDirectory.$res->fields["Image"]);
+//				       	unlink(tmpuploadDirectory.$res->fields["ImageResize"]);
+//				       	$this->db->execute("DELETE FROM ".DB_PREFIX."tmp_images WHERE ID='".$res->fields["ID"]."'");
+//			       	}
+//			       	$res->MoveNext();
+//	        	}
+//	    	}
+//		}
+//		return $id;
+//	}
+//
+//	// $id bs_images_group
+//	function moveUploadedFiles($uploadDir=''){
+//		if (empty($uploadDir)) $uploadDir = $this->uploadDirectory."/";
+//    	$sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."tmp_images WHERE UserID='".$this->user->id."' ORDER BY ID ASC");
+//    	$res = $this->db->execute($sql);
+//    	if ($res && $res->RecordCount() > 0){
+//        	while (!$res->EOF){
+//		        copy(tmpuploadDirectory.$res->fields["Image"],$uploadDir.$res->fields["Image"]);
+//		        chmod($uploadDir.$res->fields["Image"],0777);
+//
+//		       	unlink(tmpuploadDirectory.$res->fields["Image"]);
+//				$this->db->execute("DELETE FROM ".DB_PREFIX."tmp_images WHERE ID='".$res->fields["ID"]."'");
+//		       	$res->MoveNext();
+//	        	}
+//	    	}
+//	}
+//
+//	function deleteImagesGroup($groupID, $uploadDir=''){
+//		if (empty($uploadDir)) $uploadDir = $this->uploadDirectory."/";
+//		$sql = "SELECT ID FROM ".DB_PREFIX."images WHERE GroupID='".$groupID."'";
+//		$res = $this->db->Execute($sql);
+//		if ($res && $res->RecordCount() > 0){
+//			while (!$res->EOF){
+//				$this->delete_image($res->fields["ID"], $uploadDir);
+//				$res->MoveNext();
+//			}
+//		}
+//		$sql = "DELETE FROM ".DB_PREFIX."images_group WHERE ID='".$groupID."'";
+//		$res = $this->db->Execute($sql);
+//	}
 	
 	function getOptions($sql_str, $sql_fields=array(), $assign=array()){
 	    $ids = array();

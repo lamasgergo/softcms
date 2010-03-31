@@ -50,6 +50,28 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `my2`.`bs_users_data`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `my2`.`bs_users_data` ;
+
+CREATE  TABLE IF NOT EXISTS `my2`.`bs_users_data` (
+  `ID` INT NOT NULL ,
+  `Familyname` VARCHAR(255) NULL ,
+  `Patronymic` VARCHAR(255) NULL ,
+  `Country` VARCHAR(255) NULL ,
+  `City` VARCHAR(255) NULL ,
+  `Address` TEXT NULL ,
+  `Address2` TEXT NULL ,
+  `ZIP` VARCHAR(45) NULL ,
+  `Phone` VARCHAR(255) NULL ,
+  `Cellphone` VARCHAR(255) NULL ,
+  PRIMARY KEY (`ID`) )
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
+
+
+-- -----------------------------------------------------
 -- Table `my2`.`bs_users`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `my2`.`bs_users` ;
@@ -61,22 +83,21 @@ CREATE  TABLE IF NOT EXISTS `my2`.`bs_users` (
   `Lang` CHAR(4) NOT NULL DEFAULT 'ru' ,
   `Group` VARCHAR(255) NOT NULL DEFAULT 'users' ,
   `Name` VARCHAR(255) NOT NULL DEFAULT '' ,
-  `Familyname` VARCHAR(255) NULL DEFAULT '' ,
   `Email` VARCHAR(255) NOT NULL DEFAULT '' ,
-  `Country` VARCHAR(255) NULL DEFAULT NULL ,
-  `ZIP` VARCHAR(10) NULL DEFAULT NULL ,
-  `City` VARCHAR(255) NULL DEFAULT NULL ,
-  `Address` TINYTEXT NULL DEFAULT NULL ,
   `Published` ENUM('0','1') NOT NULL DEFAULT '0' ,
   `EditLang` CHAR(4) NOT NULL DEFAULT 'ru' ,
-  `Phone` VARCHAR(255) NULL DEFAULT '' ,
-  `Cellphone` VARCHAR(255) NULL DEFAULT '' ,
   PRIMARY KEY (`ID`) ,
   UNIQUE INDEX `uniq` (`Login` ASC) ,
   INDEX `fk_bs_users_bs_comments1` (`ID` ASC) ,
+  INDEX `fk_bs_users_bs_users_data1` (`ID` ASC) ,
   CONSTRAINT `fk_bs_users_bs_comments1`
     FOREIGN KEY (`ID` )
     REFERENCES `my2`.`bs_comments` (`UserID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_bs_users_bs_users_data1`
+    FOREIGN KEY (`ID` )
+    REFERENCES `my2`.`bs_users_data` (`ID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = MyISAM
@@ -222,11 +243,11 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `my2`.`bs_groups`
+-- Table `my2`.`bs_users_groups`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `my2`.`bs_groups` ;
+DROP TABLE IF EXISTS `my2`.`bs_users_groups` ;
 
-CREATE  TABLE IF NOT EXISTS `my2`.`bs_groups` (
+CREATE  TABLE IF NOT EXISTS `my2`.`bs_users_groups` (
   `ID` BIGINT(21) UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(255) NOT NULL DEFAULT '' ,
   PRIMARY KEY (`ID`) ,
@@ -306,14 +327,11 @@ DROP TABLE IF EXISTS `my2`.`bs_modules_rights` ;
 
 CREATE  TABLE IF NOT EXISTS `my2`.`bs_modules_rights` (
   `ID` BIGINT(21) UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `ModuleID` BIGINT(21) UNSIGNED NOT NULL DEFAULT '0' ,
+  `Module` VARCHAR(255) NOT NULL ,
   `UserID` BIGINT(21) UNSIGNED NULL DEFAULT NULL ,
-  `GroupID` BIGINT(21) UNSIGNED NULL DEFAULT NULL ,
-  `IsShow` ENUM('0','1') NOT NULL DEFAULT '1' ,
-  `IsAdd` ENUM('0','1') NOT NULL DEFAULT '0' ,
-  `IsChange` ENUM('0','1') NOT NULL DEFAULT '0' ,
-  `IsDelete` ENUM('0','1') NOT NULL DEFAULT '0' ,
-  `IsPublish` ENUM('0','1') NOT NULL DEFAULT '0' ,
+  `Group` VARCHAR(255) NULL DEFAULT NULL ,
+  `Action` VARCHAR(255) NOT NULL ,
+  `Approved` TINYINT(3) NOT NULL ,
   PRIMARY KEY (`ID`) )
 ENGINE = MyISAM
 AUTO_INCREMENT = 9
@@ -328,11 +346,8 @@ DROP TABLE IF EXISTS `my2`.`bs_modules` ;
 CREATE  TABLE IF NOT EXISTS `my2`.`bs_modules` (
   `ID` BIGINT(21) UNSIGNED NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(255) NOT NULL DEFAULT '' ,
-  `Link` VARCHAR(255) NOT NULL DEFAULT '' ,
-  `Icon` VARCHAR(255) NOT NULL DEFAULT '' ,
   `ModGroup` VARCHAR(255) NOT NULL DEFAULT '' ,
-  `Delete` ENUM('0','1') NOT NULL DEFAULT '1' ,
-  `Active` ENUM('0','1') NOT NULL DEFAULT '1' ,
+  `Active` TINYINT(3) NOT NULL DEFAULT '1' ,
   PRIMARY KEY (`ID`) ,
   INDEX `fk_bs_modules_bs_blocks1` (`Name` ASC) ,
   INDEX `fk_bs_modules_bs_modules_rights1` (`ID` ASC) ,
@@ -343,7 +358,7 @@ CREATE  TABLE IF NOT EXISTS `my2`.`bs_modules` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_bs_modules_bs_modules_rights1`
     FOREIGN KEY (`ID` )
-    REFERENCES `my2`.`bs_modules_rights` (`ModuleID` )
+    REFERENCES `my2`.`bs_modules_rights` (`Module` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = MyISAM
@@ -380,16 +395,16 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Data for table `my2`.`bs_users`
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
-insert into `my2`.`bs_users` (`ID`, `Login`, `Password`, `Lang`, `Group`, `Name`, `Familyname`, `Email`, `Country`, `ZIP`, `City`, `Address`, `Published`, `EditLang`, `Phone`, `Cellphone`) values (NULL, 'admin', '1$/JsQ4Mkd7N2', 'ru', 'administrators', 'admin', NULL, 'a.diesel@gmail.com', NULL, NULL, NULL, NULL, '1', 'ru', NULL, NULL);
+insert into `my2`.`bs_users` (`ID`, `Login`, `Password`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang`) values (NULL, 'admin', '1$/JsQ4Mkd7N2', 'ru', 'administrators', 'admin', 'a.diesel@gmail.com', '1', 'ru');
 
 COMMIT;
 
 -- -----------------------------------------------------
--- Data for table `my2`.`bs_groups`
+-- Data for table `my2`.`bs_users_groups`
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
-insert into `my2`.`bs_groups` (`ID`, `Name`) values (1, 'administarators');
-insert into `my2`.`bs_groups` (`ID`, `Name`) values (2, 'users');
+insert into `my2`.`bs_users_groups` (`ID`, `Name`) values (1, 'administarators');
+insert into `my2`.`bs_users_groups` (`ID`, `Name`) values (2, 'users');
 
 COMMIT;
 
@@ -397,6 +412,7 @@ COMMIT;
 -- Data for table `my2`.`bs_modules`
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
-insert into `my2`.`bs_modules` (`ID`, `Name`, `Link`, `Icon`, `ModGroup`, `Delete`, `Active`) values (NULL, 'base', 'base', 'base.png', 'content', '0', '1');
+insert into `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) values (NULL, 'content', 'base', '1');
+insert into `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) values (NULL, 'users', 'base', '1');
 
 COMMIT;

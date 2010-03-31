@@ -64,7 +64,7 @@
 </div>
 
 <hr />
-{if !$is_auth && $step==1}
+{if !$isAuth && $step==1}
 <div id="error">{$error}</div>
 <form name="EXForm" id="EXForm" method="POST">
 <table id="cart_reg" border="0" cellpadding="3" cellspacing="0" class="content" style="padding:10px; width: 100%;">

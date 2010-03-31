@@ -23,7 +23,7 @@
 
         <div class="icon">
             <a href="/admin/index.php?mod={$module.Name}">
-                <img border="0" src="/source/images/icons/{$module.Icon}" /><br>
+                    <img border="0" src="/admin/modules/{$module.Name}/images/{$module.Name}.png" /><br>
                {$module.Name|lang}
             </a>
         </div>

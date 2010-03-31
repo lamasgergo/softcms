@@ -30,7 +30,7 @@
       <table border="0" cellpadding="0" cellspacing="0" align="left" width="100%">
       <tr>
         <td style='width:100%;'>
-        {include file="index_menu/menu.tpl"}
+        {include file="admin/top_menu.tpl"}
         </td>
       </tr>
       </table>

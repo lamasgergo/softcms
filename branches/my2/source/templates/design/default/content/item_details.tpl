@@ -1,6 +1,6 @@
 <h3>{$item_arr[0].Title}</h3>
 
-{if $item_arr[0].LoginRequired==1 && !$is_auth}
+{if $item_arr[0].LoginRequired==1 && !$isAuth}
 	<b>{"You have no right to see this content"|lang}</b>
 {else}
 	{$item_arr[0].Full_Text|regex_replace:"/^\<br\s*\/?\>/":""}

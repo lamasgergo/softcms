@@ -1,21 +1,32 @@
 <?php
 class User {
 
-    var $backend_groups = array('administrators', 'managers', 'editors');
-    var $backend;
-    var $db;
-    var $data;
-    var $id;
+    private $backend_groups = array('administrators', 'managers', 'editors');
+    private $backend;
+    private $db;
+    private $data;
+    private $id;
+    private static $instance;
 
-    function User() {
-        global $db;
-        $this->db = &$db;
-        $this->is_auth();
+    public function __construct() {
+        $obReg = ObjectRegistry::getInstance();
+        $this->db = $obReg->get('db');
+        $this->id = $this->getSession();
+        $this->getDetail();
     }
 
-    function login($login, $password, $backend=false){
+
+    public static function getInstance(){
+        if (!isset(self::$instance)) {
+            self::$instance = new User();
+        }
+        return self::$instance;
+    }
+
+
+    public function login($login, $password, $backend=false){
         $this->backend = $backend;
-        
+
         $passwd = crypt($password, CRYPT_MD5);
 
         $query = $this->db->prepare("SELECT ID, Login, Published, `Group` FROM " . DB_PREFIX . "users WHERE Login='" . $login . "' AND Password='" . $passwd . "' AND Published='1'");
@@ -25,60 +36,61 @@ class User {
         $res = $this->db->Execute($query);
         if ($res && $res->RecordCount() > 0) {
             $this->id = $res->fields['ID'];
-            $this->data = $this->getData();
+            $this->getDetail();
             $this->setSession();
         }
     }
 
-    function getData(){
-        $query = $this->db->prepare("SELECT ID, Login, `Group`, Name, Familyname, Email, Country, ZIP, City, Address, EditLang, Phone, Cellphone FROM " . DB_PREFIX . "users WHERE ID='" . $this->id . "'");
+    private function getDetail(){
+        $query = $this->db->prepare("SELECT `ID`, `Login`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang` FROM " . DB_PREFIX . "users WHERE ID='" . $this->id . "'");
         $res = $this->db->Execute($query);
         if ($res && $res->RecordCount() > 0) {
             $data = $res->getArray();
             if (!isset($data[0])) $data[0] = array();
             $this->data = $data[0];
         }
-        return $this->data;
     }
 
-    function isBackend($val) {
+    public function isBackend($val) {
         $this->backend = (bool) $val;
     }
 
-    function setSession() {
+    private function getSession(){
+        if (isset( $_SESSION[SES_PREFIX . "id"])){
+            return  $_SESSION[SES_PREFIX . "id"];
+        }
+        return null;
+    }
+
+    private function setSession() {
         if (isset($this->id) && $this->id > 0){
             $_SESSION[SES_PREFIX . "id"] = $this->id;
         }
     }
 
-    function is_auth() {
-        if (isset( $_SESSION[SES_PREFIX . "id"]) &&  $_SESSION[SES_PREFIX . "id"] > 0){
-            $this->id =  $_SESSION[SES_PREFIX . "id"];
-            $this->data = $this->getData();
-            return true;
-        }
-        return false;
+    public function isAuth() {
+        $user = User::getInstance();
+        return $user->get('ID') > 0;
     }
 
-    function logout() {
+    public function logout() {
         unset($_SESSION[SES_PREFIX . "id"]);
         session_unregister($_SESSION[SES_PREFIX . "id"]);
     }
 
-    function get_lang(){
-        return $this->data['EditLang'];
-    }
-
-    function is_admin(){
+    public function isAdmin(){
         if ($this->get('Group')=='administrators') return true;
         return false;
     }
 
-    function get($param){
+    public function get($param){
         if (isset($this->data[$param])) return $this->data[$param];
         return '';
     }
+
+    public function getData(){
+        return $this->data;
+    }
 }
 
-$user = new User();
 ?>

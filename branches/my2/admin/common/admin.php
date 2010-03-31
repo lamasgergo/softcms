@@ -2,16 +2,18 @@
 
 $smarty->assign("modules", getModules());
 $smarty->assign("langList", $langService->getLanguagesList());
-$smarty->assign("user",$user->data);
+$smarty->assign("user", $user->getData());
 
-if (isset($_GET[MODULE]) && file_exists(__PATH__."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php")){
-  if (check_show_rights()){
-    include_once(__PATH__."/admin/modules/".$_GET[MODULE]."/".$_GET[MODULE].".php");
+$module = $_GET[MODULE];
+$parse_main = '';
+if (isset($module) && file_exists(__PATH__."/admin/modules/".$module."/module.php")){
+  if (Access::check($module, 'show')){
+    include_once(dirname(__FILE__)."/../modules/".$module."/module.php");
   }
 } else {
     $parse_main = $smarty->fetch('admin/dashboard.tpl', null, $language);
 }
-$smarty->assign("BODY",$parse_main);
+$smarty->assign("BODY", $parse_main);
 $smarty->display('admin.tpl', null, $language);
 
 

@@ -1,5 +1,6 @@
 <?php
 
+require_once (dirname(__FILE__)."/../../common/tabelement.php");
 require_once (dirname(__FILE__)."/basecategories.php");
 
 class BaseItems extends TabElement {
@@ -46,11 +47,11 @@ class BaseItems extends TabElement {
 
     var $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID');
 	
-	function BaseItems($mod_name){
+	function __construct($mod_name){
 	    global $form;
 		$this->name=__CLASS__;
 
-		parent::TabElement($mod_name);
+		parent::__construct($mod_name);
 		
 		$this->setClassVars();
 		
@@ -95,7 +96,7 @@ class BaseItems extends TabElement {
 	
     function formData($form,$id=""){
         // ParentID
-        $categories = new BaseCategories($mod_name);
+        $categories = new BaseCategories($this->mod_name);
         $parent_arr = $categories->getTreeListByParent(0);
         $parent_ids = array();
         $parent_names = array();

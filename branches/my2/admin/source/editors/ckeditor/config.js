@@ -25,7 +25,7 @@ CKEDITOR.editorConfig = function( config )
         ['Source']
     ];
 
-    config.toolbar_Lite =
+    config.toolbar_Basic =
     [
         ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
         ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
@@ -34,6 +34,15 @@ CKEDITOR.editorConfig = function( config )
         ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
         '/',
         ['Styles','Format','Font','FontSize'],
+        ['TextColor','BGColor'],
+        ['Source']
+    ];
+
+    config.toolbar_Lite =
+    [
+        ['Bold','Italic','Underline'],
+        ['Link','Unlink','Anchor'],
+        ['Image'],
         ['TextColor','BGColor'],
         ['Source']
     ];

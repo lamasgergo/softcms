@@ -1,49 +1,25 @@
 <?php
+class Access {
 
-function check_show_rights(){
-  global $lang,$user,$db;
-  $ret = true;
-  $module = $_GET[MODULE];
-  if (!$user->is_admin()){
-    $sql = $db->prepare("SELECT r.IsShow as IsShow FROM ".DB_PREFIX."modules_rights as r LEFT JOIN ".DB_PREFIX."modules as m ON (m.ID=r.ModuleID) WHERE r.UserID='".$user->id."'  AND m.Link='".$module."' GROUP BY r.ModuleID");
-    $res = $db->Execute($sql);
-    if ($res && $res->RecordCount() > 0){
-      if ($res->fields["IsShow"]=="0") $ret = false;
-    } else {
-      $sql = $db->prepare("SELECT r.IsShow as IsShow FROM ".DB_PREFIX."modules_rights as r LEFT JOIN ".DB_PREFIX."modules as m ON (m.ID=r.ModuleID) WHERE r.GroupID='".$user->get('Group')."' AND m.Link='".$module."' GROUP BY r.ModuleID");
-      $res = $db->Execute($sql);
-      if ($res && $res->RecordCount() > 0){
-        if ($res->fields["IsShow"]=="0") $ret = false;
-      }
+    public static function check($module, $action) {
+        $obReg = ObjectRegistry::getInstance();
+        $db = $obReg->get('db');
+        $user = $obReg->get('user');
+
+        $module = strtolower($module);
+        $action = strtolower($action);
+
+        if (!$module || !$action) return false;
+        
+        if ($user->isAdmin()) return true;
+
+        $query = $db->prepare("SELECT Approved FROM " . DB_PREFIX . "modules_rights WHERE Module='".$module."' AND `Action`='".$action."' AND (`Group`='".$user->get('Group')."' OR UserID='".$user->get('ID')."') ORDER BY Approved DESC");
+        $res = $db->Execute($query);
+        if ($res && $res->RecordCount() > 0) {
+            if ($res->fields["Approved"] == "1") return true;
+        }
+        return false;
     }
-  } else $ret = true;
-  if ($ret==false) echo "<script language='Javascript'>alert('".$lang["per_cant_show"]."');</script>";
-  return $ret;
-}
-
-
-function check_rights($action){
-  global $lang,$user,$db;
-  $ret = false;
-  $module = $_GET[MODULE];
-  $action = ucfirst($action);
-
-  if (!$user->is_admin()){
-    $sql = $db->prepare("SELECT r.Is".$action." as Perm FROM ".DB_PREFIX."modules_rights as r LEFT JOIN ".DB_PREFIX."modules as m ON (m.ID=r.ModuleID) WHERE r.UserID='".$user->id."' AND m.Link='".$module."' GROUP BY r.ModuleID");
-    $res = $db->Execute($sql);
-    if ($res && $res->RecordCount() > 0){
-      if ($res->fields["Perm"]=="1") $ret = true;
-    } else {
-      $sql = $db->prepare("SELECT r.Is".$action." as Perm FROM ".DB_PREFIX."modules_rights as r LEFT JOIN ".DB_PREFIX."modules as m ON (m.ID=r.ModuleID) WHERE r.GroupID='".$user->get('Group')."' AND m.Link='".$module."' GROUP BY r.ModuleID");
-      $res = $db->Execute($sql);
-      if ($res && $res->RecordCount() > 0){
-        if ($res->fields["Perm"]=="1") $ret = true;
-      }
-    }
-  } else{
-    $ret = true;
-  }
-  return $ret;
 }
 
 ?>
