@@ -2,9 +2,14 @@
 	<div class="item"><a href="/admin/"><img src="/source/images/icons/home.png" border="0"></a></div>
 	<div class="top_menu">
           {foreach from=$modules item=module}
-            <a href="index.php?mod={$menu.Link}">
+            <a href="index.php?mod={$module.Name}">
 				<div class="item">
+				    <div class="icon">
+				    <img border="0" height="32" src="/admin/modules/{$module.Name}/images/{$module.Name}32x32.png" />
+				    </div>
+				    <div>
 					{$module.Name|lang|replace:"<br>":" "}
+					</div>
 				</div>
 			</a>
           {/foreach}

@@ -27,7 +27,7 @@ $smarty->template_dir = $smarty->template_dir.'/xml';
 
 $smarty->register_object("db",$db);
 $smarty->register_object("meta",$meta);
-$smarty->assign("has_reg_auth",$cuser->is_auth());
+$smarty->assign("has_reg_auth",$cuser->isAuth());
 $smarty->assign("MODULE",MODULE);
 
 

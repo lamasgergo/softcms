@@ -4,68 +4,30 @@ require_once (dirname(__FILE__)."/baseitems.php");
 
 class BaseCategories extends TabElement {
 
-    /* Name of a Tab Element */
-    var $name;
+    private $items;
 
-    /* Body of a Tab Element */
-    var $value;
+    private $type = 'article';
 
-    /* Action menu for Tab Element */
-    var $menu;
+    private $fields = array('ID', 'UserID', 'Type', 'ParentID', 'Lang', 'Name', 'Description', 'Published', 'LoginRequired');
 
-    /* Data Filter for Tab Element */
-    var $filter;
+    private $requiredFields = array('Name');
 
-    /* Name of a DIV where Tab Element will parsed */
-    var $visual_div_name;
-
-    /* Smarty object */
-    var $smarty;
-
-    /* Lang array with localization vars */
-    var $lang;
-
-    /* Var with lang ID for smarty templates engine */
-    var $language;
-
-    /* Main module name */
-    var $mod_name;
-
-    /* JS sortable params:
-      * false 	: don't sort
-      * 'S'		: string sorting
-      * 'N'		: numeric sorting
-      *
-      * example: false,'S','N',false,'S','S'
-     */
-    var $sort_table_fields;
-
-    var $table;
-
-    var $items;
-
-    var $type = 'article';
-
-    var $fields = array('ID', 'UserID', 'Type', 'ParentID', 'Lang', 'Name', 'Description', 'Published');
-
-    var $requiredFields = array('Name');
-
-    function BaseCategories($mod_name) {
+    function __construct($mod_name) {
         global $form;
         $this->name = __CLASS__;
-        parent::TabElement($mod_name);
+        parent::__construct($mod_name);
 
-        $this->setClassVars();
+        $this->setClassprivates();
 
             // set common module path
 
-            // set template and ajax vars
-        $this->setTemplateVars();
+            // set template and ajax privates
+        $this->setTemplateprivates();
 
         $this->table = DB_PREFIX . 'data_categories';
     }
 
-    function setClassVars() {
+    function setClassprivates() {
         $this->sort_table_fields = "false,'S'";
         $this->tpl_path = dirname(__FILE__).'/templates/categories/';
     }
@@ -74,8 +36,8 @@ class BaseCategories extends TabElement {
         return strtolower(__CLASS__);
     }
 
-    //set common template vars
-    function setTemplateVars() {
+    //set common template privates
+    function setTemplateprivates() {
         $this->smarty->assign("module", $this->mod_name);
         $this->smarty->assign("component", $this->getName());
         $this->smarty->assign("sort_table_fields", $this->sort_table_fields);
@@ -138,7 +100,7 @@ class BaseCategories extends TabElement {
 
     function basecategories_form($form, $id = "") {
         $file = '';
-        if (check_rights($form)) {
+        if (Access::check($this->mod_name, $form)) {
             $this->formData($form, $id);
             $this->smarty->assign("required", implode(",", $this->requiredFields));
             $this->smarty->assign("form", $form);
@@ -167,13 +129,13 @@ class BaseCategories extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if ($this->add($data)) {
-                $msg = $this->lang[$this->getName() . "_add_suc"];
+                $msg = $this->locale->get($this->getName() . "_add_suc");
             } else {
-                $msg = $this->lang[$this->getName() . "_add_err"];
+                $msg = $this->locale->get($this->getName() . "_add_err");
                 $result = false;
             }
         } else {
-            $msg = $this->lang["requered_data_absent"];
+            $msg = $this->locale->get("requered_data_absent");
             $result = false;
         }
         return array($result, $msg);
@@ -183,14 +145,14 @@ class BaseCategories extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if ($this->change($data)) {
-                $msg = $this->lang[$this->getName() . "_change_suc"];
+                $msg = $this->locale->get($this->getName() . "_change_suc");
             } else {
                 $result = false;
-                $msg = $this->lang[$this->getName() . "_change_err"];
+                $msg = $this->locale->get($this->getName() . "_change_err");
             }
         } else {
             $result = false;
-            $msg = $this->lang["requered_data_absent"];
+            $msg = $this->locale->get("requered_data_absent");
         }
 
         return array($result, $msg);
@@ -199,12 +161,12 @@ class BaseCategories extends TabElement {
     function basecategories_delete($data) {
         $ids = $this->deleteRecursive($data);
         if (count($ids) > 0) {
-            $msg = $this->lang[$this->getName() . "_delete_suc"];
+            $msg = $this->locale->get($this->getName() . "_delete_suc");
             $items = new BaseItems($this->mod_name);
             $items->delete($ids);
             $result = true;
         } else {
-            $msg = $this->lang[$this->getName() . "_delete_err"];
+            $msg = $this->locale->get($this->getName() . "_delete_err");
             $result = false;
         }
 
@@ -237,7 +199,7 @@ class BaseCategories extends TabElement {
     }
 
     function categories_showCategories($Lang, $cur_id = 0) {
-        isset($this->lang["select_default_name"]) ? $def_value = $this->lang["select_default_name"] : "select_default_name";
+        $def_value = $this->locale->get("select_default_name");
         $options = '<select name="ParentID" id="ParentID">';
         $options .= '<option value="0">' . $def_value . '</option>';
         $objResponse = new xajaxResponse();

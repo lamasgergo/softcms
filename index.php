@@ -56,7 +56,7 @@ if (isset($_POST["send_request"]) && isset($_POST["send_request"])){
 $smarty->register_object("db",$db);
 $smarty->register_object("meta",$meta);
 $smarty->assign("has_reg_auth",$user->is_auth());
-$smarty->assign("is_auth",$user->is_auth());
+$smarty->assign("isAuth",$user->is_auth());
 $smarty->assign("user_login",$user->login);
 $smarty->assign("user_id",$user->id);
 $smarty->assign("user_name", $user->name);

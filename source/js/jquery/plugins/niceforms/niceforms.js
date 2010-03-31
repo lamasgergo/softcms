@@ -190,8 +190,8 @@ function inputCheck(el) { //extend Checkboxes
 	if(el.checked) {el.dummy.className = "NFCheck NFh";}
 	else {el.dummy.className = "NFCheck";}
 	el.dummy.ref = el;
-	if(isIE == false) {el.dummy.style.left = findPosX(el) + 'px'; el.dummy.style.top = findPosY(el) + 'px';}
-	else {el.dummy.style.left = findPosX(el) + 4 + 'px'; el.dummy.style.top = findPosY(el) + 4 + 'px';}
+//	if(isIE == false) {el.dummy.style.left = findPosX(el) + 'px'; el.dummy.style.top = findPosY(el) + 'px';}
+//	else {el.dummy.style.left = findPosX(el) + 4 + 'px'; el.dummy.style.top = findPosY(el) + 4 + 'px';}
 	el.dummy.onclick = function() {
 		if(!this.ref.checked) {
 			this.ref.checked = true;
@@ -330,7 +330,10 @@ function textarea(el) { //extend Textareas
 		this.right.appendChild(this.left);
 		this.right.appendChild(this);
 		this.bottomRight.appendChild(this.bottomLeft);
-		el.style.width = el.topRight.style.width = el.bottomRight.style.width = el.width + 'px';
+		if (isIE){
+            el.style.width = el.topRight.style.width = el.bottomRight.style.width = el.width + 'px';
+            el.topRight.style.width = el.bottomRight.style.width = el.width + 13 + 'px';
+        }
 		el.style.height = el.left.style.height = el.right.style.height = el.height + 'px';
 		this.className = "NFTextarea";
 	}
@@ -502,6 +505,7 @@ function multiSelects(el) { //extend Multiple Selects
 		this.bottomRight.appendChild(this.bottomLeft);
 		el.style.width = el.topRight.style.width = el.bottomRight.style.width = el.width + 'px';
 		el.style.height = el.left.style.height = el.right.style.height = el.height + 'px';
+        if (isIE) el.style.width = (el.width - 13) + 'px';
 		el.className = "NFMultiSelect";
 	}
 	el.unload = function() {

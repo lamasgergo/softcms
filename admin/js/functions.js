@@ -54,20 +54,24 @@ function send_form(formId, module, component, method, tabLocked){
 
 };
 
-function initEditorFull(item){
+function initEditor(item, toolbar){
     if (CKEDITOR.instances[item]) {
         CKEDITOR.remove(CKEDITOR.instances[item]);
     }
 
-    $( '#' + item ).ckeditor(function() { /* callback code */ }, { skin : 'office2003', toolbar: 'Full' });
-}
+    var edHeight = '200px';
 
-function initEditorLite(item){
-       if (CKEDITOR.instances[item]) {
-        CKEDITOR.remove(CKEDITOR.instances[item]);
+    if (toolbar=='Full') {
+        edHeight = '500px';
     }
 
-    $( '#' + item ).ckeditor(function() { /* callback code */ }, { skin : 'office2003', toolbar: 'Lite' });
+    $( '#' + item ).ckeditor(function() { /* callback code */ }, {
+        skin : 'office2003',
+        toolbar: toolbar,
+        width: '100%',
+        height: edHeight,
+        resize_enabled: false
+    });
 }
 
 //function initEditorFull(item){
