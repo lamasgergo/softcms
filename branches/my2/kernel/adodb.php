@@ -1,11 +1,14 @@
-<?
-require_once($_SERVER['DOCUMENT_ROOT'].'/config/config.php');
+<?php
 include_once(dirname(__FILE__).'/adodb/adodb.inc.php');
-require_once(__LIBS__.'/adodb/adodb-active-record.inc.php');
+require_once(dirname(__FILE__).'/adodb/adodb-active-record.inc.php');
+
+$settings = Configuration::getInstance();
+
 $db = &ADONewConnection('mysql');
 ADOdb_Active_Record::SetDatabaseAdapter($db);
-$db->Connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$db->Connect($settings->get('host'), $settings->get('user'), $settings->get('password'), $settings->get('database'));
 $db->setFetchMode(ADODB_FETCH_ASSOC);
 
-$db->Execute("SET NAMES '".DB_CHARSET."';");
+$db->Execute("SET NAMES 'utf8';");
+
 ?>

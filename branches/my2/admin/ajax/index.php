@@ -1,7 +1,7 @@
 <?php
 
 include_once($_SERVER['DOCUMENT_ROOT'] . "/config/config.php");
-include_once($_SERVER['DOCUMENT_ROOT'] . "/admin/common/load.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/admin/common/init.php");
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/admin/common/tabelement.php');
 
