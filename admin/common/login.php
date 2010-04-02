@@ -1,4 +1,4 @@
-<?
+<?php
 
   $smarty->assign("login","");
   $smarty->assign("password","");

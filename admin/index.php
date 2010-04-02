@@ -2,8 +2,9 @@
 ini_set('display_errors', 1);
 $_SERVER['DOCUMENT_ROOT'] = realpath(dirname(__FILE__).'/../');
 
-include_once($_SERVER['DOCUMENT_ROOT']."/config/config.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/admin/common/load.php");
+include_once(dirname(__FILE__)."/common/init.php");
+
+$user = ObjectRegistry::getInstance()->get('user');
 
 /* auth */
 if (isset($_POST["logout"])){
@@ -15,9 +16,9 @@ if (isset($_POST["login"]) && !empty($_POST["login"]) && isset($_POST["password"
 
 /* check auth*/
 if ($user->isAuth()){
-    include_once(__PATH__."/admin/common/admin.php");
+    include_once(dirname(__FILE__)."/common/admin.php");
 } else {
-  include_once(__PATH__."/admin/common/login.php");
+  include_once(dirname(__FILE__)."/common/login.php");
 }
 
 

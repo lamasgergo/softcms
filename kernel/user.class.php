@@ -8,6 +8,8 @@ class User {
     private $id;
     private static $instance;
 
+    private static $USER_SESSION_PREFIX = 'my_';
+
     public function __construct() {
         $obReg = ObjectRegistry::getInstance();
         $this->db = $obReg->get('db');
@@ -28,7 +30,7 @@ class User {
         $this->backend = $backend;
 
         $passwd = crypt($password, CRYPT_MD5);
-
+        
         $query = $this->db->prepare("SELECT ID, Login, Published, `Group` FROM " . DB_PREFIX . "users WHERE Login='" . $login . "' AND Password='" . $passwd . "' AND Published='1'");
         if ($this->backend) {
             $query .= " AND `Group` IN ('".implode("','", $this->backend_groups)."')";
@@ -56,26 +58,26 @@ class User {
     }
 
     private function getSession(){
-        if (isset( $_SESSION[SES_PREFIX . "id"])){
-            return  $_SESSION[SES_PREFIX . "id"];
+        if (isset( $_SESSION[self::$USER_SESSION_PREFIX . "id"])){
+            return  $_SESSION[self::$USER_SESSION_PREFIX . "id"];
         }
         return null;
     }
 
     private function setSession() {
         if (isset($this->id) && $this->id > 0){
-            $_SESSION[SES_PREFIX . "id"] = $this->id;
+            $_SESSION[self::$USER_SESSION_PREFIX . "id"] = $this->id;
         }
     }
 
     public function isAuth() {
-        $user = User::getInstance();
-        return $user->get('ID') > 0;
+        if ($this->id && $this->id > 0) return true;
+        return false;
     }
 
     public function logout() {
-        unset($_SESSION[SES_PREFIX . "id"]);
-        session_unregister($_SESSION[SES_PREFIX . "id"]);
+        unset($_SESSION[self::$USER_SESSION_PREFIX . "id"]);
+        session_unregister($_SESSION[self::$USER_SESSION_PREFIX . "id"]);
     }
 
     public function isAdmin(){

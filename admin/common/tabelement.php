@@ -1,8 +1,8 @@
 <?php
-class ITabElement{
-    function getValue(){}
-    function formData(){}
-    function getName(){}
+interface ITabElement{
+    function getValue();
+    function formData($form, $id="");
+    function getName();
 }
 
 class TabElement implements ITabElement{
@@ -99,7 +99,10 @@ class TabElement implements ITabElement{
     function getName() {
         return strtolower(__CLASS__);
     }
-		
+
+    function getValue(){}
+    function formData($form,$id=""){}
+
 	function getMenu(){
 		$menu_items = array('add','change','delete');
 		foreach ($menu_items as $item){

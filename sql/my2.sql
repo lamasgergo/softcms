@@ -372,16 +372,9 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `my2`.`bs_settings` ;
 
 CREATE  TABLE IF NOT EXISTS `my2`.`bs_settings` (
-  `Name` VARCHAR(255) NOT NULL DEFAULT '' ,
+  `Key` VARCHAR(255) NOT NULL DEFAULT '' ,
   `Value` TEXT NOT NULL ,
-  `Lang` CHAR(4) NOT NULL DEFAULT 'ru' ,
-  PRIMARY KEY (`Name`) ,
-  INDEX `fk_bs_settings_bs_lang1` (`Lang` ASC) ,
-  CONSTRAINT `fk_bs_settings_bs_lang1`
-    FOREIGN KEY (`Lang` )
-    REFERENCES `my2`.`bs_lang` (`Name` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`Key`) )
 ENGINE = MyISAM
 DEFAULT CHARACTER SET = utf8;
 
@@ -396,6 +389,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
 insert into `my2`.`bs_users` (`ID`, `Login`, `Password`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang`) values (NULL, 'admin', '1$/JsQ4Mkd7N2', 'ru', 'administrators', 'admin', 'a.diesel@gmail.com', '1', 'ru');
+insert into `my2`.`bs_users` (`ID`, `Login`, `Password`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang`) values (NULL, 'admin2', '1$8VJ9etjPUEY', 'ru', 'administrators', 'admin2', 'a.diesel@gmail.com', '1', 'ru');
 
 COMMIT;
 
@@ -414,5 +408,16 @@ COMMIT;
 SET AUTOCOMMIT=0;
 insert into `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) values (NULL, 'content', 'base', '1');
 insert into `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) values (NULL, 'users', 'base', '1');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `my2`.`bs_settings`
+-- -----------------------------------------------------
+SET AUTOCOMMIT=0;
+insert into `my2`.`bs_settings` (`Key`, `Value`) values ('smarty_templates_dir', '/source/templates');
+insert into `my2`.`bs_settings` (`Key`, `Value`) values ('smarty_compiled_dir', '/source/templates_c');
+insert into `my2`.`bs_settings` (`Key`, `Value`) values ('smarty_plugins_dir', '/source/plugins');
+insert into `my2`.`bs_settings` (`Key`, `Value`) values ('smarty_caching', '0');
 
 COMMIT;

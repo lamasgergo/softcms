@@ -5,7 +5,7 @@ class Access {
         $obReg = ObjectRegistry::getInstance();
         $db = $obReg->get('db');
         $user = $obReg->get('user');
-
+        
         $module = strtolower($module);
         $action = strtolower($action);
 

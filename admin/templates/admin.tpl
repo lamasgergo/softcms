@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/admin/css/admin_style.css" type="text/css">
 <!--[if lt IE 7.]>
-<script defer type="text/javascript" src="{$js}/pngfix.js"></script>
+<script defer type="text/javascript" src="/source/js/pngfix.js"></script>
 <![endif]-->
 
 {*<script type="text/javascript" src="/admin/source/editors/FCKEditor/fckeditor.js"></script>*}
 <script type="text/javascript" src="/admin/js/functions.js"></script>
 
 {*<link rel="stylesheet" type="text/css" href="{$js}/jquery/themes/base/jquery-ui.css" media="screen" /> *}
-<link rel="stylesheet" type="text/css" href="{$js}/jquery/themes/redmond/jquery.ui.all.css" media="screen" /> 
-<script type="text/javascript" src="{$js}/jquery/jquery.js"></script>
-<script type="text/javascript" src="{$js}/jquery/ui/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="/source/js/jquery/themes/redmond/jquery.ui.all.css" media="screen" />
+<script type="text/javascript" src="/source/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="/source/js/jquery/ui/jquery-ui.js"></script>
 
-<!-- <script src="{$js}/jquery/plugins/fckeditor/jquery.FCKEditor.js" type="text/javascript"></script> -->
+<!-- <script src="source/js/jquery/plugins/fckeditor/jquery.FCKEditor.js" type="text/javascript"></script> -->
 <script type="text/javascript" src="/admin/source/editors/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="/admin/source/editors/ckeditor/adapters/jquery.js"></script>
 
