@@ -1,6 +1,11 @@
 <?php
+class ITabElement{
+    function getValue(){}
+    function formData(){}
+    function getName(){}
+}
 
-class TabElement{
+class TabElement implements ITabElement{
 	/* Name of a Tab Element */
 	private $name;
 
