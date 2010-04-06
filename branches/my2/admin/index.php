@@ -18,7 +18,7 @@ if (isset($_POST["login"]) && !empty($_POST["login"]) && isset($_POST["password"
 if ($user->isAuth()){
     include_once(dirname(__FILE__)."/common/admin.php");
 } else {
-  include_once(dirname(__FILE__)."/common/login.php");
+  include_once(dirname(__FILE__)."/login.php");
 }
 
 

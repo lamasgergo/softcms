@@ -4,7 +4,8 @@ $smarty->assign("modules", getModules());
 $smarty->assign("langList", LanguageService::getInstance()->getAll());
 $smarty->assign("user", User::getInstance()->getData());
 
-$module = $_GET['mod'];
+$module = '';
+if (isset($_GET['mod'])) $module = $_GET['mod'];
 $parse_main = '';
 
 $module_path = realpath(dirname(__FILE__)."/../modules/".$module."/module.php");

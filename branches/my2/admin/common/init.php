@@ -24,7 +24,7 @@ ObjectRegistry::getInstance()->set('smarty', $smarty);
 $user = User::getInstance();
 ObjectRegistry::getInstance()->set('user', $user);
 
-Locale::setLang($user->get('EditLang'));
+Locale::setLang($language=$user->get('EditLang'));
 
 $user->isBackend(true);
 
