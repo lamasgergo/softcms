@@ -11,7 +11,7 @@ include_once(__PATH__."/kernel/lang.php");
 include_once(__PATH__."/kernel/smarty.php");
 
 
-include_once(__PATH__."/kernel/user.class.php");
+include_once(__PATH__."/kernel/User.php");
 include_once(__PATH__."/kernel/cart.class.php");
 include_once(__PATH__."/kernel/page.php");
 include_once(__PATH__."/kernel/common.php");

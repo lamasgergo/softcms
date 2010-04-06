@@ -129,13 +129,13 @@ class BaseCategories extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if ($this->add($data)) {
-                $msg = $this->locale->get($this->getName() . "_add_suc");
+                $msg = Locale::get($this->getName() . "_add_suc");
             } else {
-                $msg = $this->locale->get($this->getName() . "_add_err");
+                $msg = Locale::get($this->getName() . "_add_err");
                 $result = false;
             }
         } else {
-            $msg = $this->locale->get("requered_data_absent");
+            $msg = Locale::get("requered_data_absent");
             $result = false;
         }
         return array($result, $msg);
@@ -145,14 +145,14 @@ class BaseCategories extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if ($this->change($data)) {
-                $msg = $this->locale->get($this->getName() . "_change_suc");
+                $msg = Locale::get($this->getName() . "_change_suc");
             } else {
                 $result = false;
-                $msg = $this->locale->get($this->getName() . "_change_err");
+                $msg = Locale::get($this->getName() . "_change_err");
             }
         } else {
             $result = false;
-            $msg = $this->locale->get("requered_data_absent");
+            $msg = Locale::get("requered_data_absent");
         }
 
         return array($result, $msg);
@@ -161,12 +161,12 @@ class BaseCategories extends TabElement {
     function basecategories_delete($data) {
         $ids = $this->deleteRecursive($data);
         if (count($ids) > 0) {
-            $msg = $this->locale->get($this->getName() . "_delete_suc");
+            $msg = Locale::get($this->getName() . "_delete_suc");
             $items = new BaseItems($this->mod_name);
             $items->delete($ids);
             $result = true;
         } else {
-            $msg = $this->locale->get($this->getName() . "_delete_err");
+            $msg = Locale::get($this->getName() . "_delete_err");
             $result = false;
         }
 
@@ -199,7 +199,7 @@ class BaseCategories extends TabElement {
     }
 
     function categories_showCategories($Lang, $cur_id = 0) {
-        $def_value = $this->locale->get("select_default_name");
+        $def_value = Locale::get("select_default_name");
         $options = '<select name="ParentID" id="ParentID">';
         $options .= '<option value="0">' . $def_value . '</option>';
         $objResponse = new xajaxResponse();

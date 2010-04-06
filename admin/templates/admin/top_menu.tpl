@@ -15,7 +15,7 @@
           {/foreach}
 	</div>
 
-	<div class="user">({$user.Name})&nbsp;<a href="{mod_admin_common_link value='logout'}" style="color:black;">{lang logout}</a></div>
+	<div class="user">({$user.Name})&nbsp;<a href="/admin/logout.php" style="color:black;">{lang logout}</a></div>
     <div class="lang">
 	    <select onChange='change_edit_lang(this.value);'>
 		{foreach from=$langList key=lang item=lang_desc}

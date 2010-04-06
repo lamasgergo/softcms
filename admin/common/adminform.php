@@ -19,7 +19,7 @@ class AdminForm{
         global $locale;
 		$names = array();
 		foreach (self::$tabs as $tab){
-            $tabName = $locale->get($module."_".strtolower($tab["name"]));
+            $tabName = Locale::get($module."_".strtolower($tab["name"]));
 			array_push($names,"'".$tabName."'");
 		}
 		return implode(",",$names);

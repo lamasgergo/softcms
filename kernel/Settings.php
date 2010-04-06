@@ -1,43 +1,39 @@
 <?php
-include_once dirname(__FILE__).'/Configuration.php';
 
-class Settings extends Configuration{
-    private static $instance;
-    protected static $settings = array();
-    private $db;
+class Settings{
+    private static $settings = array();
+    private static $table = 'settings';
+    private static $configFile  = '/settings.php';
 
-    public function __construct(){
-        $this->db = ObjectRegistry::getInstance()->get('db');
-        self::$settings = Configuration::$settings;
-        $this->load();
-    }
-
-    public static function getInstance(){
-        if (!isset(self::$instance)){
-            $class = __CLASS__;
-            return self::$instance = new $class();
-        }
-        return self::$instance;
-    }
-
-    public function load(){
-        $query = $this->db->prepare("SELECT `Key`, `Value` FROM ".Configuration::get('database_prefix')."settings");
-        $res = $this->db->Execute($query);
+    public static function load(){
+        $db = ObjectRegistry::getInstance()->get('db');
+        $query = $db->prepare("SELECT `Name`, `Value` FROM ".self::get('database_prefix').self::$table);
+        $res = $db->Execute($query);
         if ($res && $res->RecordCount() > 0){
             while (!$res->EOF){
-                self::$settings[$res->fields['Key']] = $res->fields['Value'];
+                self::$settings[$res->fields['Name']] = $res->fields['Value'];
                 $res->MoveNext();
             }
         }
+        return self::$settings;
     }
 
-    public static  function get($key){
-        Settings::getInstance();
+    public static function loadFS(){
+        $settings = array();
+        if (file_exists($_SERVER['DOCUMENT_ROOT'].'/'.self::$configFile)){
+            require_once($_SERVER['DOCUMENT_ROOT'].'/'.self::$configFile);
+        } else {
+            header('Location: /install/');
+            exit();
+        }
+        return self::$settings = $settings;
+    }
+
+    public static function get($key){
         if (isset(self::$settings[$key])) return self::$settings[$key];
     }
 
-    public static  function set($key, $value){
-        Settings::getInstance();
+    public static function set($key, $value){
         self::$settings[$key] = $value;
     }
 }
