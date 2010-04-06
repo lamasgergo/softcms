@@ -1,7 +1,7 @@
 <?php
 
 $smarty->assign("modules", getModules());
-$smarty->assign("langList", $langService->getLanguagesList());
+$smarty->assign("langList", LanguageService::getInstance()->getAll());
 $smarty->assign("user", User::getInstance()->getData());
 
 $module = $_GET['mod'];

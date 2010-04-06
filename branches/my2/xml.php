@@ -6,7 +6,7 @@ include_once("config/config.php");
 include_once(__PATH__."/kernel/adodb.php");
 include_once(__PATH__."/kernel/smarty.php");
 include_once(__PATH__."/kernel/lang.php");
-include_once(__PATH__."/kernel/user.class.php");
+include_once(__PATH__."/kernel/User.php");
 include_once(__PATH__."/kernel/page.php");
 include_once(__PATH__."/kernel/common.php");
 include_once(MODULES_DIR."/cart/cart.user.php");

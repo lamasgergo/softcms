@@ -13,7 +13,8 @@ class ObjectRegistry {
     }
 
     function get($name){
-        return $this->objects[$name];
+        if (isset($this->objects[$name]))
+            return $this->objects[$name];
     }
 
     function set($name, $object){

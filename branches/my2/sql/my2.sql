@@ -269,13 +269,12 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `my2`.`bs_lang` ;
 
 CREATE  TABLE IF NOT EXISTS `my2`.`bs_lang` (
-  `ID` BIGINT(21) UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `Name` VARCHAR(45) NOT NULL DEFAULT '' ,
-  `Description` VARCHAR(255) NOT NULL DEFAULT '' ,
-  PRIMARY KEY (`ID`) ,
+  `Name` VARCHAR(255) NOT NULL ,
+  `Value` TEXT NOT NULL ,
   UNIQUE INDEX `name_unique` (`Name` ASC) ,
   INDEX `fk_bs_lang_bs_data1` (`Name` ASC) ,
   INDEX `fk_bs_lang_bs_data_categories1` (`Name` ASC) ,
+  PRIMARY KEY (`Name`) ,
   CONSTRAINT `fk_bs_lang_bs_data1`
     FOREIGN KEY (`Name` )
     REFERENCES `my2`.`bs_data` (`Lang` )
@@ -372,9 +371,9 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `my2`.`bs_settings` ;
 
 CREATE  TABLE IF NOT EXISTS `my2`.`bs_settings` (
-  `Key` VARCHAR(255) NOT NULL DEFAULT '' ,
+  `Name` VARCHAR(255) NOT NULL DEFAULT '' ,
   `Value` TEXT NOT NULL ,
-  PRIMARY KEY (`Key`) )
+  PRIMARY KEY (`Name`) )
 ENGINE = MyISAM
 DEFAULT CHARACTER SET = utf8;
 
@@ -403,6 +402,15 @@ insert into `my2`.`bs_users_groups` (`ID`, `Name`) values (2, 'users');
 COMMIT;
 
 -- -----------------------------------------------------
+-- Data for table `my2`.`bs_lang`
+-- -----------------------------------------------------
+SET AUTOCOMMIT=0;
+insert into `my2`.`bs_lang` (`Name`, `Value`) values ('ru', 'Russian');
+insert into `my2`.`bs_lang` (`Name`, `Value`) values ('en', 'English');
+
+COMMIT;
+
+-- -----------------------------------------------------
 -- Data for table `my2`.`bs_modules`
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
@@ -415,9 +423,15 @@ COMMIT;
 -- Data for table `my2`.`bs_settings`
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
-insert into `my2`.`bs_settings` (`Key`, `Value`) values ('smarty_templates_dir', '/source/templates');
-insert into `my2`.`bs_settings` (`Key`, `Value`) values ('smarty_compiled_dir', '/source/templates_c');
-insert into `my2`.`bs_settings` (`Key`, `Value`) values ('smarty_plugins_dir', '/source/plugins');
-insert into `my2`.`bs_settings` (`Key`, `Value`) values ('smarty_caching', '0');
+insert into `my2`.`bs_settings` (`Name`, `Value`) values ('smarty_templates_dir', '/source/templates');
+insert into `my2`.`bs_settings` (`Name`, `Value`) values ('smarty_compiled_dir', '/source/templates_c');
+insert into `my2`.`bs_settings` (`Name`, `Value`) values ('smarty_plugins_dir', '/source/plugins');
+insert into `my2`.`bs_settings` (`Name`, `Value`) values ('smarty_caching', '0');
+insert into `my2`.`bs_settings` (`Name`, `Value`) values ('default_lang', 'ru');
+insert into `my2`.`bs_settings` (`Name`, `Value`) values ('session_prefix', 'BS_');
+insert into `my2`.`bs_settings` (`Name`, `Value`) values ('upload_directory', '/files');
+insert into `my2`.`bs_settings` (`Name`, `Value`) values ('upload_tmp_directory', '/files/tmp');
+insert into `my2`.`bs_settings` (`Name`, `Value`) values ('navigation_max_pages', '10');
+insert into `my2`.`bs_settings` (`Name`, `Value`) values ('navigation_limit', '4');
 
 COMMIT;

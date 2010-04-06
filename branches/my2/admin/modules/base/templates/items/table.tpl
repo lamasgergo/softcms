@@ -19,7 +19,7 @@
           <td style="height:20px;"><input type="checkbox" name="actionid_{$item.ID}" value="{$item.ID}"></td>
 		  <td>{$item.ID}</td>
           <td>{$item.Title}</td>
-          <td>{$item.CategoryID|ShowCntCategory|default:"&nbsp;"}</td>
+          <td>{$item.CategoryID|default:"&nbsp;"}</td>
           <td>
 			{if $item.Published eq "1"}{assign var="pub_ch" value="checked"}{else}{assign var="pub_ch" value=""}{/if}
 			<input type="checkbox" name="published_{$item.ID}" {$pub_ch} value="1" onclick="items_publish({$item.ID},this.checked);">

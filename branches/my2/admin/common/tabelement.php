@@ -106,7 +106,7 @@ class TabElement implements ITabElement{
 	function getMenu(){
 		$menu_items = array('add','change','delete');
 		foreach ($menu_items as $item){
-            $this->smarty->assign("menu_".strtolower($this->name)."_".$item, $this->locale->get("menu_".strtolower($this->name)."_".$item));
+            $this->smarty->assign("menu_".strtolower($this->name)."_".$item, Locale::get("menu_".strtolower($this->name)."_".$item));
 		}
 		return $this->smarty->fetch($this->tpl_path.'/menu/menu.tpl',null,$this->language);
 	}

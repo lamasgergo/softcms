@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * Smarty plugin
  * -------------------------------------------------------------
@@ -26,9 +26,7 @@ global $lang;
 
   preg_match_all('/\#\#\#([\w\d\_\-]+)\#\#\#/iu',$tpl,$res);
   for ($i=0;$i<count($res[1]);$i++) {
-    if ($lang[$res[1][$i]]){
-      $tpl = preg_replace('/\#\#\#'.$res[1][$i].'\#\#\#/iu',$lang[$res[1][$i]],$tpl);     
-    } else $tpl = preg_replace('/\#\#\#'.$res[1][$i].'\#\#\#/iu',$res[1][$i],$tpl);     
+      $tpl = preg_replace('/\#\#\#'.$res[1][$i].'\#\#\#/iu', Locale::get($res[1][$i]), $tpl);
   }
 
   return $tpl;
