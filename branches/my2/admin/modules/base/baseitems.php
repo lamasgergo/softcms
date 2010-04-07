@@ -30,7 +30,7 @@ class BaseItems extends TabElement {
 	var $language;
 
 	/* Main module name */
-	var $mod_name;
+	var $moduleName;
 
     var $table;
 
@@ -47,7 +47,7 @@ class BaseItems extends TabElement {
 
     var $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID');
 	
-	function __construct($mod_name){
+	function __construct($moduleName){
 	    global $form;
 		$this->name=__CLASS__;
 

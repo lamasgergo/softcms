@@ -31,7 +31,7 @@ class Catalog{
   var $lang;
   var $language;
 
-  function Catalog($mod_name, $block_vars,$dynamic){
+  function Catalog($moduleName, $block_vars,$dynamic){
     global $db, $smarty, $lang, $language;
     $this->moduleName = $mod_name;
     $this->block_vars = $block_vars;

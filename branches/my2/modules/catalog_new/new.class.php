@@ -86,7 +86,7 @@ class CatalogNewItems{
 		$this->smarty->assign("uploadDirURL",$this->uploadDirURL);
 		$this->smarty->assign("currency", $this->getCurrency());
 		$this->smarty->assign("item_arr",$this->getInfo());
-		$this->smarty->assign("mod_name",$this->moduleName);
+		$this->smarty->assign("moduleName",$this->moduleName);
 		return $this->smarty->fetch(strtolower($this->moduleName)."/".$this->tpl,null,$this->language);
 	}
 }

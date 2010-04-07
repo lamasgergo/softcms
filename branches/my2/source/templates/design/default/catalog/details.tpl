@@ -14,7 +14,7 @@
     <div class="desc">
 		<div class="price">
 			{if $item_arr.Price ne ""}
-				<span class="name">{$mod_name|cat:"_Price"|lang}</span>&nbsp;:&nbsp;
+				<span class="name">{$moduleName|cat:"_Price"|lang}</span>&nbsp;:&nbsp;
 				{math assign="Price" equation="x * y" x=$item_arr.Price y=$currency[$item_arr.PriceUnit]}
 				{$Price}&nbsp;{"currency"|lang}
 			{/if}

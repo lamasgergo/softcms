@@ -23,7 +23,7 @@ class ItemDetails{
   	var $data;
 	
 	
-	function ItemDetails($mod_name, $id){
+	function ItemDetails($moduleName, $id){
 		global $smarty,$db,$lang,$language,$LangID, $meta;
 		$this->moduleName = $mod_name;
 		$this->db = $db;
@@ -83,7 +83,7 @@ class ItemDetails{
 		$this->meta->set_keywords($items['MetaKeywords']);
 		$this->meta->set_alt($items['MetaAlt']);
 		
-		$this->smarty->assign("mod_name",$this->moduleName);
+		$this->smarty->assign("moduleName",$this->moduleName);
 		$this->smarty->assign("item_arr",$items);
 		return $this->smarty->fetch(strtolower($this->moduleName)."/".$this->tpl,null,$this->language);
 	}

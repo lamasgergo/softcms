@@ -18,7 +18,7 @@ class Catalog{
 	//autolist
 	var $place;
 
-	function Catalog($mod_name, $block_vars,$dynamic){
+	function Catalog($moduleName, $block_vars,$dynamic){
 		$this->moduleName = $mod_name;
 		$this->block_vars = $block_vars;
 		$this->dynamic = $dynamic;

@@ -14,7 +14,7 @@ class Register{
 	var $edit = false;
 	var $user;
 
-	function Register($mod_name){
+	function Register($moduleName){
 		$this->moduleName = $mod_name;
 		
 		$this->getVars();

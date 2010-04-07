@@ -16,7 +16,7 @@ class SearchContent{
   var $search_arr;
   
  
-  function SearchContent($mod_name, $search_arr,$page=0){
+  function SearchContent($moduleName, $search_arr,$page=0){
     global $smarty,$db,$lang,$language,$LangID;
     
     $this->moduleName = $mod_name;
