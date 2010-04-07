@@ -12,10 +12,10 @@ class BaseCategories extends TabElement {
 
     private $requiredFields = array('Name');
 
-    function __construct($moduleName) {
+    function __construct() {
         global $form;
         $this->name = __CLASS__;
-        parent::__construct($mod_name);
+        parent::__construct();
 
         $this->setClassprivates();
 

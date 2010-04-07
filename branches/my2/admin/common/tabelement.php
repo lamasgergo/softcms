@@ -195,7 +195,7 @@ class TabElement implements ITabElement{
         if (isset($this->fields) && !in_array('ParentID', $this->fields)) return array();
 
         $depth++;
-        $sql = "SELECT ID, Name FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND Lang='" . $this->language . "' ORDER BY ID";
+        $sql = "SELECT ID, Name FROM {$this->table} WHERE ParentID='{$parent_id}' AND Lang='{$this->language}' ORDER BY ID";
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0) {
             while (!$res->EOF) {

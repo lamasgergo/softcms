@@ -47,11 +47,11 @@ class BaseItems extends TabElement {
 
     var $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID');
 	
-	function __construct($moduleName){
+	function __construct(){
 	    global $form;
 		$this->name=__CLASS__;
 
-		parent::__construct($mod_name);
+		parent::__construct();
 		
 		$this->setClassVars();
 		
