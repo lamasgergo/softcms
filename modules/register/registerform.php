@@ -15,7 +15,7 @@ class RegisterForm{
   var $userData;
   
   
-  function RegisterForm($mod_name, $backURL=''){
+  function RegisterForm($moduleName, $backURL=''){
     global $smarty,$db,$lang,$language,$langID,$user;
     
     $this->moduleName = $mod_name;
@@ -118,7 +118,7 @@ class RegisterForm{
 	$this->smarty->assign("user_data",$this->userData);
   
 	$this->smarty->assign("error",$this->error);
-  	$this->smarty->assign("mod_name",$this->moduleName);
+  	$this->smarty->assign("moduleName",$this->moduleName);
     return $this->smarty->fetch(strtolower($this->moduleName)."/".$this->tpl,null,$this->language);
   }
 }

@@ -35,7 +35,7 @@ class WidgetElement{
 	var $language;
 
 	/* Main module name */
-	var $mod_name;
+	var $moduleName;
 
 	/* JS sortable params:
 	 * false 	: don't sort
@@ -64,7 +64,7 @@ class WidgetElement{
 	var $user;
 	
 	
-	function WidgetElement($mod_name){
+	function WidgetElement($moduleName){
 		global $smarty,$language,$lang,$xajax,$db,$user;
 		$this->counter++;
 		$this->user = $user;

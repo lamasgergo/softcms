@@ -25,7 +25,7 @@ class ItemList{
 	var $columns = catalog_items_per_row;
 
 
-	function ItemList($mod_name, $parentID=0, $page=0){
+	function ItemList($moduleName, $parentID=0, $page=0){
 		global $smarty,$db,$lang,$language,$LangID;
 
 		$this->uploadDir = catalogUploadDirectory;
@@ -129,7 +129,7 @@ class ItemList{
 		$this->smarty->assign("currency", $this->getCurrency());
 		$this->smarty->assign("uploadDir",$this->uploadDir);
 		$this->smarty->assign("uploadDirURL",$this->uploadDirURL);
-		$this->smarty->assign("mod_name",$this->moduleName);
+		$this->smarty->assign("moduleName",$this->moduleName);
 		$this->smarty->assign("item_arr",$this->getInfo());
 		$this->smarty->assign("navigation",$this->Navigation());
 		return $this->smarty->fetch(strtolower($this->moduleName)."/".$this->tpl,null,$this->language);

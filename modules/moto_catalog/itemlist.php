@@ -20,7 +20,7 @@ class ItemList{
 	var $uploadDir;
 	var $uploadDirURL;
 	
-	function ItemList($mod_name, $page = 0){
+	function ItemList($moduleName, $page = 0){
 		global $smarty, $db, $lang, $language, $LangID;
 		
 		$this->uploadDir = catalogUploadDirectory;
@@ -101,7 +101,7 @@ class ItemList{
 	function show(){
 		$this->smarty->assign("uploadDir", $this->uploadDir);
 		$this->smarty->assign("uploadDirURL", $this->uploadDirURL);
-		$this->smarty->assign("mod_name", $this->moduleName);
+		$this->smarty->assign("moduleName", $this->moduleName);
 		$this->smarty->assign("item_arr", $this->getInfo());
 		$this->smarty->assign("navigation", $this->Navigation());
 		$this->filterData();

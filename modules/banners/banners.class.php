@@ -17,7 +17,7 @@ class Banners {
 	var $limit;
 	var $tpl;
 	
-	function Banners($mod_name, $block_vars, $dynamic) {
+	function Banners($moduleName, $block_vars, $dynamic) {
 		global $db, $smarty, $language;
 		$this->moduleName = $mod_name;
 		$this->block_vars = $block_vars;

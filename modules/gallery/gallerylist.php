@@ -29,7 +29,7 @@ class GalleryList{
 	var $page;
 	
 	
-	function GalleryList($mod_name, $parentID=0, $page=0, $random=0, $limit=100, $tpl='items.tpl', $url=''){
+	function GalleryList($moduleName, $parentID=0, $page=0, $random=0, $limit=100, $tpl='items.tpl', $url=''){
 		global $smarty,$db,$lang,$language,$LangID, $meta;
 		$this->moduleName = $mod_name;
 		$this->db = $db;
@@ -117,7 +117,7 @@ class GalleryList{
 		$this->smarty->assign("gallery_nav",$this->Navigation());
 		
 		$this->smarty->assign("url",$this->url);
-		$this->smarty->assign("mod_name",$this->moduleName);
+		$this->smarty->assign("moduleName",$this->moduleName);
 		$this->smarty->assign("item_arr",$items);
 		$this->smarty->assign("random",$this->random);
 		$this->smarty->assign("limit",$this->limit);

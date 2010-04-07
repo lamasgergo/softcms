@@ -27,7 +27,7 @@ class Gallery {
 	var $tpl;
 	var $url;
 	
-	function Gallery($mod_name, $block_vars, $dynamic) {
+	function Gallery($moduleName, $block_vars, $dynamic) {
 		global $db, $smarty, $language;
 		$this->moduleName = $mod_name;
 		$this->block_vars = $block_vars;

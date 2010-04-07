@@ -12,7 +12,7 @@ class BaseCategories extends TabElement {
 
     private $requiredFields = array('Name');
 
-    function __construct($mod_name) {
+    function __construct($moduleName) {
         global $form;
         $this->name = __CLASS__;
         parent::__construct($mod_name);
@@ -38,7 +38,7 @@ class BaseCategories extends TabElement {
 
     //set common template privates
     function setTemplateprivates() {
-        $this->smarty->assign("module", $this->mod_name);
+        $this->smarty->assign("module", $this->moduleName);
         $this->smarty->assign("component", $this->getName());
         $this->smarty->assign("sort_table_fields", $this->sort_table_fields);
     }
@@ -100,11 +100,11 @@ class BaseCategories extends TabElement {
 
     function basecategories_form($form, $id = "") {
         $file = '';
-        if (Access::check($this->mod_name, $form)) {
+        if (Access::check($this->moduleName, $form)) {
             $this->formData($form, $id);
             $this->smarty->assign("required", implode(",", $this->requiredFields));
             $this->smarty->assign("form", $form);
-            $this->smarty->assign("module", $this->mod_name);
+            $this->smarty->assign("module", $this->moduleName);
             $this->smarty->assign("component", $this->getName());
             $file = $this->smarty->fetch($this->tpl_path . '/form.tpl', null, $this->language);
         }
@@ -162,7 +162,7 @@ class BaseCategories extends TabElement {
         $ids = $this->deleteRecursive($data);
         if (count($ids) > 0) {
             $msg = Locale::get($this->getName() . "_delete_suc");
-            $items = new BaseItems($this->mod_name);
+            $items = new BaseItems($this->moduleName);
             $items->delete($ids);
             $result = true;
         } else {

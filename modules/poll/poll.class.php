@@ -22,7 +22,7 @@ class Poll {
 	var $voted=0;
 	var $random = 0;
 	
-	function Poll($mod_name, $block_vars, $dynamic) {
+	function Poll($moduleName, $block_vars, $dynamic) {
 		global $db, $smarty, $language, $LangID;
 		$this->moduleName = $mod_name;
 		$this->block_vars = $block_vars;

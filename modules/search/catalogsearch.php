@@ -16,7 +16,7 @@ class SearchCatalog{
   var $search_arr;
   
  
-  function SearchCatalog($mod_name, $search_arr,$page=0){
+  function SearchCatalog($moduleName, $search_arr,$page=0){
     global $smarty,$db,$lang,$language,$LangID;
     
     $this->moduleName = $mod_name;

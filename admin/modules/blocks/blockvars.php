@@ -29,7 +29,7 @@ class BlockVars extends TabElement{
 	var $language;
 
 	/* Main module name */
-	var $mod_name;
+	var $moduleName;
 
 	/* JS sortable params:
 	 * false 	: don't sort
@@ -40,7 +40,7 @@ class BlockVars extends TabElement{
 	*/
 	var $sort_table_fields;
 	
-	function BlockVars($mod_name,$tabID){
+	function BlockVars($moduleName,$tabID){
 		$this->name=__CLASS__;
 		$this->addXajaxFunction($this->getName()."_change");
 		$this->addXajaxFunction($this->getName()."_add");

@@ -21,7 +21,7 @@ class ItemDetails{
   	var $uploadDirURL;
 	
 	
-	function ItemDetails($mod_name, $id){
+	function ItemDetails($moduleName, $id){
 		global $smarty,$db,$lang,$language,$LangID, $meta;
 		$this->moduleName = $mod_name;
 		$this->db = $db;
@@ -67,7 +67,7 @@ class ItemDetails{
 		$this->meta->set_keywords($items[0]['MetaKeywords']);
 		$this->meta->set_alt($items[0]['MetaAlt']);
 		
-		$this->smarty->assign("mod_name",$this->moduleName);
+		$this->smarty->assign("moduleName",$this->moduleName);
 		$this->smarty->assign("item_arr",$items);
 		return $this->smarty->fetch(strtolower($this->moduleName)."/".$this->tpl,null,$this->language);
 	}

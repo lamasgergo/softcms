@@ -17,7 +17,7 @@ class Search{
 	var $moduleName;
 	
 
-	function Search($mod_name){
+	function Search($moduleName){
 		$this->moduleName = $mod_name;
 		
 		$this->getVars();

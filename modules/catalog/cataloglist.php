@@ -25,7 +25,7 @@ class CatalogList{
 	var $subCatalogLimit = catalog_subcategories_limit;
 	var $columns = catalog_categories_per_row;
 	
-	function CatalogList($mod_name, $categoryID, $page = 0){
+	function CatalogList($moduleName, $categoryID, $page = 0){
 		global $smarty, $db, $lang, $language, $LangID, $meta;
 		
 		$this->uploadDir = catalogUploadDirectory;
@@ -98,7 +98,7 @@ class CatalogList{
 		$this->smarty->assign("columns", $this->columns);
 		$this->smarty->assign("uploadDir", $this->uploadDir);
 		$this->smarty->assign("uploadDirURL", $this->uploadDirURL);
-		$this->smarty->assign("mod_name", $this->moduleName);
+		$this->smarty->assign("moduleName", $this->moduleName);
 		$this->smarty->assign("item_arr", $items);
 		$this->smarty->assign("subcatalogs_arr", $this->getSubcatalogs());
 		return $this->smarty->fetch(strtolower($this->moduleName) . "/" . $this->tpl, null, $this->language);

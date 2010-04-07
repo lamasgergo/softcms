@@ -23,7 +23,7 @@ class HistoryList{
 	var $uploadDir;
 	var $uploadDirURL;
 	
-	function HistoryList($mod_name, $page = 0){
+	function HistoryList($moduleName, $page = 0){
 		global $smarty, $db, $lang, $language, $LangID, $user, $xajax;
 		
 		$this->moduleName = $mod_name;
@@ -76,7 +76,7 @@ class HistoryList{
 	function show(){
 		$this->smarty->assign("uploadDir", $this->uploadDir);
 		$this->smarty->assign("uploadDirURL", $this->uploadDirURL);
-		$this->smarty->assign("mod_name", $this->moduleName);
+		$this->smarty->assign("moduleName", $this->moduleName);
 		$this->smarty->assign("item_arr", $this->getInfo());
 		$this->smarty->assign("navigation", $this->Navigation());
 		return $this->smarty->fetch(strtolower($this->moduleName) . "/" . $this->tpl, null, $this->language);

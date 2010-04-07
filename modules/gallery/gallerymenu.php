@@ -13,7 +13,7 @@ class GalleryMenu{
 	var $LangID;
 	
 
-	function GalleryMenu($mod_name, $block_vars="", $dynamic=""){
+	function GalleryMenu($moduleName, $block_vars="", $dynamic=""){
 		global $smarty,$db,$lang,$language,$LangID;
 		$this->moduleName = $mod_name;		
 		$this->db = $db;

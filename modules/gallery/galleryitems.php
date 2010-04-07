@@ -25,7 +25,7 @@ class GalleryItems{
 	var $url;
 	
 	
-	function GalleryItems($mod_name, $id, $cid=0, $random=0, $limit=100, $tpl='item_detail.tpl', $url=''){
+	function GalleryItems($moduleName, $id, $cid=0, $random=0, $limit=100, $tpl='item_detail.tpl', $url=''){
 		global $smarty,$db,$lang,$language,$LangID, $meta;
 		$this->moduleName = $mod_name;
 		$this->db = $db;
@@ -79,7 +79,7 @@ class GalleryItems{
 		$this->meta->set_alt($items[0]['MetaAlt']);
 		
 		$this->smarty->assign("url",$this->url);
-		$this->smarty->assign("mod_name",$this->moduleName);
+		$this->smarty->assign("moduleName",$this->moduleName);
 		$this->smarty->assign("item_arr",$items);
 		$this->smarty->assign("random",$this->random);
 		$this->smarty->assign("limit",$this->limit);

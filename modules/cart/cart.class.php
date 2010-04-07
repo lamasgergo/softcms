@@ -17,7 +17,7 @@ class CartModule{
 	
 	var $step = 1;
 	
-	function CartModule($mod_name, $block_vars, $dynamic=false){
+	function CartModule($moduleName, $block_vars, $dynamic=false){
 		global $smarty,$db,$lang,$language,$LangID, $cart;
 		
 		$this->moduleName = 'cart';

@@ -27,7 +27,7 @@ class ItemList{
 	var $emailFrom = infoFromEmail;
 	var $emailFromName = infoFromEmailName;
 	
-	function ItemList($mod_name, $page = 0){
+	function ItemList($moduleName, $page = 0){
 		global $smarty, $db, $lang, $language, $LangID, $user, $xajax;
 		
 		$this->uploadDir = catalogUploadDirectory;
@@ -122,7 +122,7 @@ class ItemList{
 	function show(){
 		$this->smarty->assign("uploadDir", $this->uploadDir);
 		$this->smarty->assign("uploadDirURL", $this->uploadDirURL);
-		$this->smarty->assign("mod_name", $this->moduleName);
+		$this->smarty->assign("moduleName", $this->moduleName);
 		$this->smarty->assign("item_arr", $this->getInfo());
 		$this->smarty->assign("navigation", $this->Navigation());
 		return $this->smarty->fetch(strtolower($this->moduleName) . "/" . $this->tpl, null, $this->language);
