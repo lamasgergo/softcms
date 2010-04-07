@@ -387,8 +387,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Data for table `my2`.`bs_users`
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
-insert into `my2`.`bs_users` (`ID`, `Login`, `Password`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang`) values (NULL, 'admin', '1$/JsQ4Mkd7N2', 'ru', 'administrators', 'admin', 'a.diesel@gmail.com', '1', 'ru');
-insert into `my2`.`bs_users` (`ID`, `Login`, `Password`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang`) values (NULL, 'admin2', '1$8VJ9etjPUEY', 'ru', 'administrators', 'admin2', 'a.diesel@gmail.com', '1', 'ru');
+INSERT INTO `my2`.`bs_users` (`ID`, `Login`, `Password`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang`) VALUES (NULL, 'admin', '1$/JsQ4Mkd7N2', 'ru', 'administrators', 'admin', 'a.diesel@gmail.com', '1', 'ru');
+INSERT INTO `my2`.`bs_users` (`ID`, `Login`, `Password`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang`) VALUES (NULL, 'admin2', '1$8VJ9etjPUEY', 'ru', 'administrators', 'admin2', 'a.diesel@gmail.com', '1', 'ru');
 
 COMMIT;
 
@@ -396,8 +396,8 @@ COMMIT;
 -- Data for table `my2`.`bs_users_groups`
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
-insert into `my2`.`bs_users_groups` (`ID`, `Name`) values (1, 'administarators');
-insert into `my2`.`bs_users_groups` (`ID`, `Name`) values (2, 'users');
+INSERT INTO `my2`.`bs_users_groups` (`ID`, `Name`) VALUES (1, 'administarators');
+INSERT INTO `my2`.`bs_users_groups` (`ID`, `Name`) VALUES (2, 'users');
 
 COMMIT;
 
@@ -405,8 +405,8 @@ COMMIT;
 -- Data for table `my2`.`bs_lang`
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
-insert into `my2`.`bs_lang` (`Name`, `Value`) values ('ru', 'Russian');
-insert into `my2`.`bs_lang` (`Name`, `Value`) values ('en', 'English');
+INSERT INTO `my2`.`bs_lang` (`Name`, `Value`) VALUES ('ru', 'Russian');
+INSERT INTO `my2`.`bs_lang` (`Name`, `Value`) VALUES ('en', 'English');
 
 COMMIT;
 
@@ -414,8 +414,8 @@ COMMIT;
 -- Data for table `my2`.`bs_modules`
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
-insert into `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) values (NULL, 'content', 'base', '1');
-insert into `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) values (NULL, 'users', 'base', '1');
+INSERT INTO `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) VALUES (NULL, 'content', 'base', '1');
+INSERT INTO `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) VALUES (NULL, 'users', 'base', '1');
 
 COMMIT;
 
@@ -423,15 +423,16 @@ COMMIT;
 -- Data for table `my2`.`bs_settings`
 -- -----------------------------------------------------
 SET AUTOCOMMIT=0;
-insert into `my2`.`bs_settings` (`Name`, `Value`) values ('smarty_templates_dir', '/source/templates');
-insert into `my2`.`bs_settings` (`Name`, `Value`) values ('smarty_compiled_dir', '/source/templates_c');
-insert into `my2`.`bs_settings` (`Name`, `Value`) values ('smarty_plugins_dir', '/source/plugins');
-insert into `my2`.`bs_settings` (`Name`, `Value`) values ('smarty_caching', '0');
-insert into `my2`.`bs_settings` (`Name`, `Value`) values ('default_lang', 'ru');
-insert into `my2`.`bs_settings` (`Name`, `Value`) values ('session_prefix', 'BS_');
-insert into `my2`.`bs_settings` (`Name`, `Value`) values ('upload_directory', '/files');
-insert into `my2`.`bs_settings` (`Name`, `Value`) values ('upload_tmp_directory', '/files/tmp');
-insert into `my2`.`bs_settings` (`Name`, `Value`) values ('navigation_max_pages', '10');
-insert into `my2`.`bs_settings` (`Name`, `Value`) values ('navigation_limit', '4');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('smarty_templates_dir', '/source/templates');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('smarty_compiled_dir', '/source/templates_c');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('smarty_plugins_dir', '/source/plugins');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('smarty_caching', '0');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('default_lang', 'ru');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('session_prefix', 'BS_');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('upload_directory', '/files');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('upload_tmp_directory', '/files/tmp');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('navigation_max_pages', '10');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('navigation_limit', '4');
+INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('modules_varname', 'mod');
 
 COMMIT;

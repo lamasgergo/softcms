@@ -2,46 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="c633a719-29bd-4cb2-a1c6-31e79e3bcf86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/moto_auction/historylist.php" afterPath="$PROJECT_DIR$/modules/moto_auction/historylist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/templates/design/default/catalog/details.tpl" afterPath="$PROJECT_DIR$/source/templates/design/default/catalog/details.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/tabelement.php" afterPath="$PROJECT_DIR$/admin/common/tabelement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/catalog_hits/hits.class.php" afterPath="$PROJECT_DIR$/modules/catalog_hits/hits.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/moto_auction/itemdetails.php" afterPath="$PROJECT_DIR$/modules/moto_auction/itemdetails.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/moto_catalog/itemlist.php" afterPath="$PROJECT_DIR$/modules/moto_catalog/itemlist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/search/contentsearch.php" afterPath="$PROJECT_DIR$/modules/search/contentsearch.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/templates/design/default/catalog/list.tpl" afterPath="$PROJECT_DIR$/source/templates/design/default/catalog/list.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/moto_catalog/catalog.class.php" afterPath="$PROJECT_DIR$/modules/moto_catalog/catalog.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/base/basecategories.php" afterPath="$PROJECT_DIR$/admin/modules/base/basecategories.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/templates/design/default/catalog/hits.tpl" afterPath="$PROJECT_DIR$/source/templates/design/default/catalog/hits.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/moto_auction/itemlist.php" afterPath="$PROJECT_DIR$/modules/moto_auction/itemlist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/blocks/blockvars.php" afterPath="$PROJECT_DIR$/admin/modules/blocks/blockvars.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/catalog/cataloglist.php" afterPath="$PROJECT_DIR$/modules/catalog/cataloglist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/templates/design/default/gallery/marquee.tpl" afterPath="$PROJECT_DIR$/source/templates/design/default/gallery/marquee.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/poll/poll.class.php" afterPath="$PROJECT_DIR$/modules/poll/poll.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/moto_catalog/itemdetails.php" afterPath="$PROJECT_DIR$/modules/moto_catalog/itemdetails.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/templates/design/default/catalog/new.tpl" afterPath="$PROJECT_DIR$/source/templates/design/default/catalog/new.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/base/module.php" afterPath="$PROJECT_DIR$/admin/modules/base/module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/blocks/blocks.php" afterPath="$PROJECT_DIR$/admin/modules/blocks/blocks.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/templates/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/admin.tpl" afterPath="$PROJECT_DIR$/admin/templates/admin.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/my2.sql" afterPath="$PROJECT_DIR$/sql/my2.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/base/baseitems.php" afterPath="$PROJECT_DIR$/admin/modules/base/baseitems.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/register/register.class.php" afterPath="$PROJECT_DIR$/modules/register/register.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/WidgetElement.php" afterPath="$PROJECT_DIR$/admin/common/WidgetElement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/moto_auction/catalog.class.php" afterPath="$PROJECT_DIR$/modules/moto_auction/catalog.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/gallery/gallerymenu.php" afterPath="$PROJECT_DIR$/modules/gallery/gallerymenu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/templates/design/default/gallery/block.tpl" afterPath="$PROJECT_DIR$/source/templates/design/default/gallery/block.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/catalog_new/new.class.php" afterPath="$PROJECT_DIR$/modules/catalog_new/new.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/search/catalogsearch.php" afterPath="$PROJECT_DIR$/modules/search/catalogsearch.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/blocks/blocksmanager.php" afterPath="$PROJECT_DIR$/admin/modules/blocks/blocksmanager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/gallery/gallerylist.php" afterPath="$PROJECT_DIR$/modules/gallery/gallerylist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/catalog/itemlist.php" afterPath="$PROJECT_DIR$/modules/catalog/itemlist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/banners/banners.class.php" afterPath="$PROJECT_DIR$/modules/banners/banners.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/search/search.class.php" afterPath="$PROJECT_DIR$/modules/search/search.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/register/registerform.php" afterPath="$PROJECT_DIR$/modules/register/registerform.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/catalog/catalog.class.php" afterPath="$PROJECT_DIR$/modules/catalog/catalog.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/gallery/gallery.class.php" afterPath="$PROJECT_DIR$/modules/gallery/gallery.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/catalog/itemdetails.php" afterPath="$PROJECT_DIR$/modules/catalog/itemdetails.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/gallery/galleryitems.php" afterPath="$PROJECT_DIR$/modules/gallery/galleryitems.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/cart/cart.class.php" afterPath="$PROJECT_DIR$/modules/cart/cart.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/index.php" afterPath="$PROJECT_DIR$/admin/index.php" />
+      <change type="MOVED" beforePath="C:\htdocs\my2\admin\common\adminform.php" afterPath="$PROJECT_DIR$/admin/common/TabContainer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/modules/base/basecategories.php" afterPath="$PROJECT_DIR$/admin/modules/base/basecategories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my2.iml" afterPath="$PROJECT_DIR$/my2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/common/tabelement.php" afterPath="$PROJECT_DIR$/admin/common/tabelement.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/login.tpl" afterPath="$PROJECT_DIR$/admin/templates/login.tpl" />
     </list>
-    <ignored path=".idea/workspace.xml" />
     <ignored path="my2.iws" />
+    <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,10 +73,94 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tabelement.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tabelement.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/common/tabelement.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="55" selection-start="1181" selection-end="1193" vertical-scroll-proportion="0.84993696">
+            <state line="34" column="13" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1270633721210" expanded="true" signature="159:6175" placeholder="..." />
+                <marker date="1270633721210" expanded="true" signature="6134:6173" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basecategories.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/base/basecategories.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="28" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="baseitems.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/base/baseitems.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="22" selection-start="1160" selection-end="1160" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="module.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/modules/base/module.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="28" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TabContainer.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/common/TabContainer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="47" selection-start="1016" selection-end="1016" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Admin.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/common/Admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="30" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.203125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/admin.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="18" selection-start="37" selection-end="37" vertical-scroll-proportion="-0.68">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/index.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="10" selection-start="744" selection-end="744" vertical-scroll-proportion="-10.2">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/templates/login.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="741" selection-end="741" vertical-scroll-proportion="-14.96">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="16" selection-start="223" selection-end="223" vertical-scroll-proportion="-4.76">
               <folding />
             </state>
           </provider>
@@ -117,7 +176,17 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/admin/common/adminform.php" />
         <option value="$PROJECT_DIR$/admin/common/tabelement.php" />
+        <option value="$PROJECT_DIR$/admin/modules/base/module.php" />
+        <option value="$PROJECT_DIR$/admin/modules/base/basecategories.php" />
+        <option value="$PROJECT_DIR$/admin/modules/base/baseitems.php" />
+        <option value="$PROJECT_DIR$/admin/common/TabContainer.php" />
+        <option value="$PROJECT_DIR$/admin/common/admin.php" />
+        <option value="$PROJECT_DIR$/admin/index.php" />
+        <option value="$PROJECT_DIR$/admin/templates/login.tpl" />
+        <option value="$PROJECT_DIR$/admin/common/Admin.php" />
+        <option value="$PROJECT_DIR$/admin/templates/admin.tpl" />
       </list>
     </option>
   </component>
@@ -156,7 +225,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -176,17 +244,125 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kernel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -200,6 +376,12 @@
       <option name="PORT" value="5005" />
       <method>
         <option name="BuildArtifacts" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit">
+      <method>
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -236,13 +418,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list size="0" />
-    <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
       <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <method>
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
+    <list size="0" />
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -261,7 +460,7 @@
     <option name="DETECT_NESTED_COPIES" value="false" />
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <configuration useDefault="true">C:\Documents and Settings\Alexey\Application Data\Subversion</configuration>
+    <configuration useDefault="true">C:\Users\Alexey\AppData\Roaming\Subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
     <supportedVersion>125</supportedVersion>
   </component>
@@ -269,16 +468,16 @@
     <option name="myMappingRoots">
       <list>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="C:\htdocs\php5\my2" />
-          <option name="myCopyRoot" value="C:\htdocs\php5\my2" />
+          <option name="myVcsRoot" value="C:\htdocs\my2" />
+          <option name="myCopyRoot" value="C:\htdocs\my2" />
         </SvnCopyRootSimple>
       </list>
     </option>
     <option name="myMoreRealMappingRoots">
       <list>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="C:\htdocs\php5\my2" />
-          <option name="myCopyRoot" value="C:\htdocs\php5\my2" />
+          <option name="myVcsRoot" value="C:\htdocs\my2" />
+          <option name="myCopyRoot" value="C:\htdocs\my2" />
         </SvnCopyRootSimple>
       </list>
     </option>
@@ -292,22 +491,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1288" height="1002" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32906976" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280543" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24960254" sideWeight="0.6627907" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24668275" sideWeight="0.66402715" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32918552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -344,13 +544,130 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/kernel/smarty.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/common/tabelement.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="55" selection-start="1181" selection-end="1193" vertical-scroll-proportion="0.84993696">
+        <state line="34" column="13" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1270633721210" expanded="true" signature="159:6175" placeholder="..." />
+            <marker date="1270633721210" expanded="true" signature="6134:6173" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/modules/base/basecategories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="28" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/modules/base/baseitems.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="22" selection-start="1160" selection-end="1160" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/modules/base/module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="28" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/common/TabContainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="47" selection-start="1016" selection-end="1016" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="16" selection-start="223" selection-end="223" vertical-scroll-proportion="-4.76">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/login.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="741" selection-end="741" vertical-scroll-proportion="-14.96">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="10" selection-start="744" selection-end="744" vertical-scroll-proportion="-10.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/admin.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="18" selection-start="37" selection-end="37" vertical-scroll-proportion="-0.68">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/common/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="30" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.203125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <UIState>
+          <splitter-proportions>
+            <SplitterProportionsDataImpl>
+              <option name="proportions">
+                <list>
+                  <option value="0.2" />
+                </list>
+              </option>
+            </SplitterProportionsDataImpl>
+          </splitter-proportions>
+          <settings />
+        </UIState>
+      </state>
+      <state key="Copyright.UI">
+        <UIState>
+          <splitter-proportions>
+            <SplitterProportionsDataImpl />
+          </splitter-proportions>
+        </UIState>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <UIState>
+          <splitter-proportions>
+            <SplitterProportionsDataImpl>
+              <option name="proportions">
+                <list>
+                  <option value="0.2" />
+                </list>
+              </option>
+            </SplitterProportionsDataImpl>
+          </splitter-proportions>
+        </UIState>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <UIState>
+          <splitter-proportions>
+            <SplitterProportionsDataImpl />
+          </splitter-proportions>
+          <settings />
+        </UIState>
+      </state>
+    </states>
   </component>
 </project>
 

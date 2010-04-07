@@ -1,16 +1,14 @@
 <?php
 
-class AdminForm{
+class TabContainer{
 
 	private static $tabs = array();
 	private static $tabCounter = 0;
 	
-	public static function addTab($obj){
+	public static function add($obj){
 		self::$tabs[self::$tabCounter] = array(
 						"name"		=> $obj->getName(),
 						"value"		=> $obj->getTabContent(),
-						"menu"		=> $obj->getMenu(),
-						"filter"	=> $obj->getFilter()
 						);
         self::$tabCounter++;
 	}
@@ -25,8 +23,10 @@ class AdminForm{
 		return implode(",",$names);
 	}
 	
-	public static function showTabs($module){
+	public static function show(){
         global $smarty,$language;
+
+        $module = $_GET['mod'];
 
 		$smarty->assign("module", $module);
 		$smarty->assign("tabs", self::$tabs);
