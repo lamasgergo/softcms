@@ -31,6 +31,8 @@ class TabElement implements ITabElement{
     private $table;
 
     public $moduleName;
+
+    protected $templatePath;
 	
 	function __construct(){
 
@@ -47,17 +49,10 @@ class TabElement implements ITabElement{
     }
 
     function getValue(){}
+
     function formData($form,$id=""){}
 
-	function getMenu(){
-		$menu_items = array('add','change','delete');
-		foreach ($menu_items as $item){
-            $this->smarty->assign("menu_".strtolower($this->name)."_".$item, Locale::get("menu_".strtolower($this->name)."_".$item));
-		}
-		return $this->smarty->fetch($this->templatePath.'/menu/menu.tpl',null,$this->language);
-	}
-	
-
+    
 	function checkRequiredFields($data){
 		if (isset($data["RequiredFields"]) && !empty($data["RequiredFields"])){
 			$data["RequiredFields"] = preg_replace("/\s+/", "", $data["RequiredFields"]);

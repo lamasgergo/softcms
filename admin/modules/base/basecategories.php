@@ -4,8 +4,6 @@ require_once (dirname(__FILE__)."/baseitems.php");
 
 class BaseCategories extends TabElement {
 
-    private $items;
-
     private $type = 'article';
 
     private $fields = array('ID', 'UserID', 'Type', 'ParentID', 'Lang', 'Name', 'Description', 'Published', 'LoginRequired');
@@ -17,19 +15,11 @@ class BaseCategories extends TabElement {
         $this->name = __CLASS__;
         parent::__construct();
 
-        $this->setClassprivates();
-
-            // set common module path
-
-            // set template and ajax privates
-        $this->setTemplateprivates();
+        $this->templatePath = dirname(__FILE__).'/templates/items/';
+        
+        $this->setTemplateVars();
 
         $this->table = DB_PREFIX . 'data_categories';
-    }
-
-    function setClassprivates() {
-        $this->sort_table_fields = "false,'S'";
-        $this->tpl_path = dirname(__FILE__).'/templates/categories/';
     }
 
     function getName() {
@@ -37,24 +27,23 @@ class BaseCategories extends TabElement {
     }
 
     //set common template privates
-    function setTemplateprivates() {
+    function setTemplateVars() {
         $this->smarty->assign("module", $this->moduleName);
         $this->smarty->assign("component", $this->getName());
-        $this->smarty->assign("sort_table_fields", $this->sort_table_fields);
     }
 
 
     function getTreeValues($parent_id = 0, $ret = array(), $depth = 0) {
         $depth++;
         $sql = "SELECT * FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND Lang='" . $this->language . "' ORDER BY ID";
-        $res = $this->db->Execute($sql);
-        if ($res && $res->RecordCount() > 0) {
-            while (!$res->EOF) {
+        $rs = $this->db->Execute($sql);
+        if ($rs && $rs->RecordCount() > 0) {
+            while (!$rs->EOF) {
                 $depth_str = '';
                 for ($i = 0; $i < $depth; $i++) $depth_str .= '-';
-                $ret[] = $res->fields;
-                $ret = $this->getTreeValues($res->fields["ID"], $ret, $depth);
-                $res->MoveNext();
+                $ret[] = $rs->fields;
+                $ret = $this->getTreeValues($rs->fields["ID"], $ret, $depth);
+                $rs->MoveNext();
             }
         }
         return $ret;
@@ -63,7 +52,7 @@ class BaseCategories extends TabElement {
     /* show module items*/
     function getValue() {
         $this->smarty->assign("items_arr", $this->getTreeValues());
-        return $this->smarty->fetch($this->tpl_path . '/table.tpl', null, $this->language);
+        return $this->smarty->fetch($this->templatePath . '/table.tpl', null, $this->language);
     }
 
 
@@ -85,10 +74,10 @@ class BaseCategories extends TabElement {
 
         if (!empty($id)) {
             $sql = $this->db->prepare("SELECT * FROM " . $this->table . " WHERE ID='" . $id . "'");
-            $res = $this->db->Execute($sql);
-            if ($res && $res->RecordCount() > 0) {
+            $rs = $this->db->Execute($sql);
+            if ($rs && $rs->RecordCount() > 0) {
 
-                $values = $res->getArray();
+                $values = $rs->getArray();
                 $this->smarty->assign("items_arr", $values);
 
             } else $this->smarty->assign("items_arr", array());
@@ -106,7 +95,7 @@ class BaseCategories extends TabElement {
             $this->smarty->assign("form", $form);
             $this->smarty->assign("module", $this->moduleName);
             $this->smarty->assign("component", $this->getName());
-            $file = $this->smarty->fetch($this->tpl_path . '/form.tpl', null, $this->language);
+            $file = $this->smarty->fetch($this->templatePath . '/form.tpl', null, $this->language);
         }
         return $file;
     }
@@ -184,15 +173,15 @@ class BaseCategories extends TabElement {
         } else
             $Lang_sql = "AND Lang='" . $user->EditLang . "'";
         $sql = $this->db->prepare("SELECT * FROM " . DB_PREFIX . "cnt_category WHERE ParentID='" . $id . "' " . $userid_sql . " AND ID<>'" . $cur_id . "' " . $Lang_sql . " ORDER BY Name ASC");
-        $res = $this->db->Execute($sql);
-        if ($res && $res->RecordCount() > 0) {
-            while (! $res->EOF) {
+        $rs = $this->db->Execute($sql);
+        if ($rs && $rs->RecordCount() > 0) {
+            while (! $rs->EOF) {
                 $depth_value = "";
                 for ($i = 1; $i < $depth; $i ++)
                     $depth_value .= '-';
-                $row[] = array($res->fields["ID"], $depth_value, $res->fields["Name"]);
-                $row = $this->get_category_row_options($res->fields["ID"], $cur_id, $Lang, $userid, $depth, $row);
-                $res->MoveNext();
+                $row[] = array($rs->fields["ID"], $depth_value, $rs->fields["Name"]);
+                $row = $this->get_category_row_options($rs->fields["ID"], $cur_id, $Lang, $userid, $depth, $row);
+                $rs->MoveNext();
             }
         }
         return $row;

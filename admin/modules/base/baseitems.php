@@ -53,7 +53,7 @@ class BaseItems extends TabElement {
 
 		parent::__construct();
 		
-		$this->setClassVars();
+		$this->templatePath = dirname(__FILE__).'/templates/items/';
 		
 		// set template and ajax vars
 		$this->setTemplateVars();
@@ -61,10 +61,6 @@ class BaseItems extends TabElement {
 		$this->table = DB_PREFIX.'data';
 	}
 	
-    function setClassVars(){
-	    $this->sort_table_fields = "false,'S'";
-	    $this->tpl_path = dirname(__FILE__).'/templates/items/';
-	}
 	
 	function getName(){
 		return strtolower(__CLASS__);                    
@@ -72,7 +68,7 @@ class BaseItems extends TabElement {
 	
 	//set common template vars
 	function setTemplateVars() {
-        $this->smarty->assign("module", $this->mod_name);
+        $this->smarty->assign("module", $this->moduleName);
         $this->smarty->assign("component", $this->getName());
         $this->smarty->assign("sort_table_fields", $this->sort_table_fields);
     }
@@ -85,18 +81,18 @@ class BaseItems extends TabElement {
 	/* show module items*/
 	function getValue(){
 	    $sql = $this->db->prepare("SELECT * FROM ".$this->table." WHERE Lang='".$this->language."' ORDER BY ID ASC");
-	    $res = $this->db->Execute($sql);
-	    if ($res && $res->RecordCount() > 0){
-	        $this->smarty->assign("items_arr", $res->getArray());
+	    $rs = $this->db->Execute($sql);
+	    if ($rs && $rs->RecordCount() > 0){
+	        $this->smarty->assign("items_arr", $rs->getArray());
 	    } else { 
 	        $this->smarty->assign("items_arr", array());
 	    }
-	    return $this->smarty->fetch($this->tpl_path.'/table.tpl', null, $this->language);
+	    return $this->smarty->fetch($this->templatePath.'/table.tpl', null, $this->language);
 	}	
 	
     function formData($form,$id=""){
         // ParentID
-        $categories = new BaseCategories($this->mod_name);
+        $categories = new BaseCategories($this->moduleName);
         $parent_arr = $categories->getTreeListByParent(0);
         $parent_ids = array();
         $parent_names = array();
@@ -109,10 +105,10 @@ class BaseItems extends TabElement {
 	    
 		if (!empty($id)){
 			$sql = $this->db->prepare("SELECT * FROM " . $this->table . " WHERE ID='".$id."'");
-			$res = $this->db->Execute($sql);
-			if ($res && $res->RecordCount() > 0){
+			$rs = $this->db->Execute($sql);
+			if ($rs && $rs->RecordCount() > 0){
 				
-				$values = $res->getArray();
+				$values = $rs->getArray();
 				$this->smarty->assign("items_arr",$values);
 				
 			} else $this->smarty->assign("items_arr",array());
@@ -127,9 +123,9 @@ class BaseItems extends TabElement {
         if (check_rights($form)) {
             $this->formData($form, $id);
             $this->smarty->assign("form", $form);
-            $this->smarty->assign("module", $this->mod_name);
+            $this->smarty->assign("module", $this->moduleName);
             $this->smarty->assign("component", $this->getName());
-            $file = $this->smarty->fetch($this->tpl_path . '/form.tpl', null, $this->language);
+            $file = $this->smarty->fetch($this->templatePath . '/form.tpl', null, $this->language);
         }
         return $file;
     }
@@ -178,7 +174,7 @@ class BaseItems extends TabElement {
         $ids = $this->deleteRecursive($data);
         if (count($ids) > 0) {
             $msg = $this->lang[$this->getName() . "_delete_suc"];
-            $items = new BaseItems($this->mod_name);
+            $items = new BaseItems($this->moduleName);
             $items->delete($ids);
             $result = true;
         } else {

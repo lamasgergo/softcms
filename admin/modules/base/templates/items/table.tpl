@@ -32,6 +32,3 @@
     </table>
     </div>
     </form>
-    <script type="text/javascript">
-      initTableWidget('myTable',"100%","480",Array({$sort_table_fields}));
-    </script>

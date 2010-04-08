@@ -1,22 +1,22 @@
 <?php
-session_start();
-include_once dirname(__FILE__).'/../../kernel/Settings.php';
-include_once(dirname(__FILE__)."/../../kernel/ObjectRegistry.php");
+require_once dirname(__FILE__).'/../../kernel/Settings.php';
+require_once dirname(__FILE__)."/../../kernel/ObjectRegistry.php";
 Settings::loadFS();
-include_once(dirname(__FILE__)."/../../kernel/adodb.php");
+require_once(dirname(__FILE__)."/../../kernel/adodb.php");
+session_start();
 ObjectRegistry::getInstance()->set('db', $db);
 Settings::load();
 define('DB_PREFIX', Settings::get('database_prefix'));
 
 
 
-include_once(dirname(__FILE__)."/../../kernel/languageService.php");
-include_once(dirname(__FILE__)."/../../kernel/locale.php");
+require_once(dirname(__FILE__)."/../../kernel/languageService.php");
+require_once(dirname(__FILE__)."/../../kernel/locale.php");
 
-include_once(dirname(__FILE__)."/../../kernel/smarty.php");
-include_once(dirname(__FILE__)."/../../kernel/User.php");
-include_once(dirname(__FILE__)."/../common/Access.php");
-include_once(dirname(__FILE__)."/../common/functions.php");
+require_once(dirname(__FILE__)."/../../kernel/smarty.php");
+require_once(dirname(__FILE__)."/../../kernel/User.php");
+require_once(dirname(__FILE__)."/../common/Access.php");
+require_once(dirname(__FILE__)."/../common/functions.php");
 
 $smarty->template_dir  = $_SERVER['DOCUMENT_ROOT'].'/admin/templates';
 ObjectRegistry::getInstance()->set('smarty', $smarty);
