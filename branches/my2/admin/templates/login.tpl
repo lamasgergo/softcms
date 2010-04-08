@@ -1,7 +1,7 @@
 <div class="loginForm">
     <div class="login">
-        ##ERROR_MESSAGE##
 
+        {$error}
         <form method="POST" class="niceform">
         <fieldset>                            
         <legend>{lang autorization}:</legend>

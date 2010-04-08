@@ -378,6 +378,26 @@ ENGINE = MyISAM
 DEFAULT CHARACTER SET = utf8;
 
 
+-- -----------------------------------------------------
+-- Table `my2`.`bs_sessions2`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `my2`.`bs_sessions2` ;
+
+CREATE  TABLE IF NOT EXISTS `my2`.`bs_sessions2` (
+  `sesskey` VARCHAR(64) NOT NULL DEFAULT '' ,
+  `expiry` DATETIME NOT NULL ,
+  `expireref` VARCHAR(250) NULL DEFAULT '' ,
+  `created` DATETIME NOT NULL ,
+  `modified` DATETIME NOT NULL ,
+  `sessdata` LONGTEXT NULL ,
+  PRIMARY KEY (`sesskey`) ,
+  INDEX `sess2_expiry` (`expiry` ASC) ,
+  INDEX `sess2_expireref` (`expireref` ASC) )
+ENGINE = MyISAM
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -416,6 +436,7 @@ COMMIT;
 SET AUTOCOMMIT=0;
 INSERT INTO `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) VALUES (NULL, 'content', 'base', '1');
 INSERT INTO `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) VALUES (NULL, 'users', 'base', '1');
+INSERT INTO `my2`.`bs_modules` (`ID`, `Name`, `ModGroup`, `Active`) VALUES (NULL, 'base', 'base', '1');
 
 COMMIT;
 
