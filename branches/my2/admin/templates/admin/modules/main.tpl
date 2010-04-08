@@ -1,6 +1,3 @@
-<script type="text/javascript" src="{$js}/sort_table.js"></script>
-<link type="text/css" rel="StyleSheet" href="{$css}/sort_table.css" />
-
 <div id="backend">
 	<ul>
 	  {foreach from=$tabs item=tab}
