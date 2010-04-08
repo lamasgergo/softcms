@@ -2,12 +2,14 @@
 
 class Admin {
     private $modules = array();
+    private $modulesData = array();
     private $modulesPath = '/admin/modules/';
 
     private $db;
     private $smarty;
     private $user;
     private $lang;
+    private $error;
 
     function __construct() {
         $this->db = ObjectRegistry::getInstance()->get('db');
@@ -17,7 +19,9 @@ class Admin {
         $this->getModules();
 
         if (isset($_POST['login']) && isset($_POST['password'])){
-            $this->user->login($_POST['login'], $_POST['password']);
+            if (!$this->user->login($_POST['login'], $_POST['password'])){
+                $this->error = Locale::get("login_failed");
+            }
         }
     }
 
@@ -25,14 +29,18 @@ class Admin {
         $sql = $this->db->Prepare("SELECT * FROM " . DB_PREFIX . "modules WHERE Active='1' ORDER BY ModGroup DESC, ID ASC");
         $res = $this->db->Execute($sql);
         if ($res && $res->RecordCount() > 0) {
-            $this->modules = $res->getArray();
+            $this->modulesData = $res->getArray();
+            foreach ($this->modulesData as $data){
+                $this->modules[] = $data['Name'];
+            }
         }
 
         return $this->modules;
     }
 
     function setTemplateVars() {
-        $this->smarty->assign("modules", $this->modules);
+        $this->smarty->assign("error", $this->error);
+        $this->smarty->assign("modules", $this->modulesData);
         $this->smarty->assign("langList", LanguageService::getInstance()->getAll());
         $this->smarty->assign("user", User::getInstance()->getData());
     }
@@ -45,6 +53,7 @@ class Admin {
         if (isset($module) && in_array($module, $this->modules) && file_exists($modulePath)) {
             if (Access::check($module, 'show')) {
                 include_once($modulePath);
+                $data = TabContainer::show();
             }
         } else {
             $data = $this->smarty->fetch('admin/dashboard.tpl', null, $this->lang);
