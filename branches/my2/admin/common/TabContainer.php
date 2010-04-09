@@ -26,7 +26,7 @@ class TabContainer{
 	public static function show(){
         global $smarty,$language;
 
-        $module = $_GET['mod'];
+        $module = $_GET[Settings::get('modules_varname')];
 
 		$smarty->assign("module", $module);
 		$smarty->assign("tabs", self::$tabs);

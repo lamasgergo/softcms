@@ -4,15 +4,15 @@ require_once (dirname(__FILE__)."/baseitems.php");
 
 class BaseCategories extends TabElement {
 
-    private $type = 'article';
+    protected $type = 'article';
 
-    private $fields = array('ID', 'UserID', 'Type', 'ParentID', 'Lang', 'Name', 'Description', 'Published', 'LoginRequired');
+    protected $fields = array('ID', 'UserID', 'Type', 'ParentID', 'Lang', 'Name', 'Description', 'Published', 'LoginRequired');
 
-    private $requiredFields = array('Name');
+    protected $requiredFields = array('Name');
 
     function __construct() {
         global $form;
-        $this->name = __CLASS__;
+        
         parent::__construct();
 
         $this->templatePath = dirname(__FILE__).'/templates/categories/';
@@ -98,24 +98,10 @@ class BaseCategories extends TabElement {
         return $file;
     }
 
-//    function prepareData($data){
-//        if (!isset($data['Published'])) $data['Published'] = 0;
-//        $data['UserID'] = $this->user->id;
-//        $data['Type'] = $this->type;
-//        $data['Lang'] = $this->language;
-//        $values = array();
-//        foreach ($this->fields as $item){
-//            if ($item=='ID'){
-//                if (!empty($data[$item])) $values[$item] = mysql_real_escape_string($data[$item]);
-//            } else $values[$item] = mysql_real_escape_string($data[$item]);
-//        }
-//        return $values;
-//    }
-
-    function basecategories_add($data) {
+    function add($data) {
         $result = true;
         if ($this->checkRequiredFields($data)) {
-            if ($this->add($data)) {
+            if ($this->addQuery($data)) {
                 $msg = Locale::get($this->getName() . "_add_suc");
             } else {
                 $msg = Locale::get($this->getName() . "_add_err");
@@ -128,10 +114,10 @@ class BaseCategories extends TabElement {
         return array($result, $msg);
     }
 
-    function basecategories_change($data) {
+    function change($data) {
         $result = true;
         if ($this->checkRequiredFields($data)) {
-            if ($this->change($data)) {
+            if ($this->changeQuery($data)) {
                 $msg = Locale::get($this->getName() . "_change_suc");
             } else {
                 $result = false;
@@ -145,7 +131,7 @@ class BaseCategories extends TabElement {
         return array($result, $msg);
     }
 
-    function basecategories_delete($data) {
+    function delete($data) {
         $ids = $this->deleteRecursive($data);
         if (count($ids) > 0) {
             $msg = Locale::get($this->getName() . "_delete_suc");
