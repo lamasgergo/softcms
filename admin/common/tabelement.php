@@ -40,8 +40,10 @@ class TabElement implements ITabElement{
 		$this->user = $obReg->get('user');
 		$this->smarty = $obReg->get('smarty');
 		$this->db = $obReg->get('db');
-		
+
+        $this->moduleName = $this->getName();
 		$this->language = $this->user->get('EditLang');
+        $this->setTemplateVars();
 	}
 
     function getName() {

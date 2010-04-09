@@ -15,9 +15,7 @@ class BaseCategories extends TabElement {
         $this->name = __CLASS__;
         parent::__construct();
 
-        $this->templatePath = dirname(__FILE__).'/templates/items/';
-        
-        $this->setTemplateVars();
+        $this->templatePath = dirname(__FILE__).'/templates/categories/';
 
         $this->table = DB_PREFIX . 'data_categories';
     }
@@ -87,14 +85,14 @@ class BaseCategories extends TabElement {
         }
     }
 
-    function basecategories_form($form, $id = "") {
+    function showForm($form, $id = "") {
         $file = '';
+        
         if (Access::check($this->moduleName, $form)) {
             $this->formData($form, $id);
             $this->smarty->assign("required", implode(",", $this->requiredFields));
             $this->smarty->assign("form", $form);
-            $this->smarty->assign("module", $this->moduleName);
-            $this->smarty->assign("component", $this->getName());
+            $this->setTemplateVars();
             $file = $this->smarty->fetch($this->templatePath . '/form.tpl', null, $this->language);
         }
         return $file;

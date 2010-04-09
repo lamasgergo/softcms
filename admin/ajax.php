@@ -1,11 +1,10 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "/config/config.php");
-include_once($_SERVER['DOCUMENT_ROOT'] . "/admin/common/init.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/kernel/init.php");
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/admin/common/tabelement.php');
 
-$user = User::getInstance();
+$user = ObjectRegistry::getInstance()->get('user');
 if (!$user->isAuth()) die();
 
 $class = '';
@@ -15,7 +14,9 @@ $id = '';
 $action = '';
 $response = '';
 
-if (isset($_GET[MODULE])) $module = trim(urldecode($_GET[MODULE]));
+$moduleVarName = Settings::get('modules_varname');
+
+if (isset($_GET[$moduleVarName])) $module = trim(urldecode($_GET[$moduleVarName]));
 if (isset($_GET['class'])) $class = trim(urldecode($_GET['class']));
 if (isset($_GET['method'])) $method = trim(urldecode($_GET['method']));
 if (isset($_GET['action'])) $action = trim(urldecode($_GET['action']));
@@ -27,7 +28,7 @@ if (!$module || !$class || !file_exists($classPath)) die();
 if (Access::check($module, 'show')) {
     include_once($classPath);
     $ajax = new $class($module);
-
+    
     if (isset($_POST) && count($_POST) > 0) {
         $response = $ajax->$method($_POST);
     } else {
