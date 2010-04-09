@@ -55,9 +55,6 @@ class BaseItems extends TabElement {
 		
 		$this->templatePath = dirname(__FILE__).'/templates/items/';
 		
-		// set template and ajax vars
-		$this->setTemplateVars();
-		
 		$this->table = DB_PREFIX.'data';
 	}
 	
@@ -70,7 +67,6 @@ class BaseItems extends TabElement {
 	function setTemplateVars() {
         $this->smarty->assign("module", $this->moduleName);
         $this->smarty->assign("component", $this->getName());
-        $this->smarty->assign("sort_table_fields", $this->sort_table_fields);
     }
 	
 	function getTabContent(){
@@ -118,13 +114,13 @@ class BaseItems extends TabElement {
 		}
 	}
 	
-    function baseitems_form($form, $id = "") {
+    function showForm($form, $id = "") {
         $file = '';
-        if (check_rights($form)) {
+        if (Access::check($this->moduleName, $form)) {
             $this->formData($form, $id);
+            $this->smarty->assign("required", implode(",", $this->requiredFields));
             $this->smarty->assign("form", $form);
-            $this->smarty->assign("module", $this->moduleName);
-            $this->smarty->assign("component", $this->getName());
+            $this->setTemplateVars();
             $file = $this->smarty->fetch($this->templatePath . '/form.tpl', null, $this->language);
         }
         return $file;

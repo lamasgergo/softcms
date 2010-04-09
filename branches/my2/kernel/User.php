@@ -13,12 +13,12 @@ class User {
     public function __construct() {
         $obReg = ObjectRegistry::getInstance();
         $this->db = $obReg->get('db');
-        $this->id = $this->getSession();
+        $this->restoreSession();
         $this->getDetail();
     }
 
 
-    public static function getInstance(){
+    public static function getInstance() {
         if (!isset(self::$instance)) {
             self::$instance = new User();
         }
@@ -26,14 +26,14 @@ class User {
     }
 
 
-    public function login($login, $password, $backend=false){
+    public function login($login, $password, $backend = false) {
         $this->backend = $backend;
 
         $passwd = crypt($password, CRYPT_MD5);
-        
+
         $query = $this->db->prepare("SELECT ID, Login, Published, `Group` FROM " . DB_PREFIX . "users WHERE Login='" . $login . "' AND Password='" . $passwd . "' AND Published='1'");
         if ($this->backend) {
-            $query .= " AND `Group` IN ('".implode("','", $this->backend_groups)."')";
+            $query .= " AND `Group` IN ('" . implode("','", $this->backend_groups) . "')";
         }
         $res = $this->db->Execute($query);
         if ($res && $res->RecordCount() > 0) {
@@ -43,7 +43,7 @@ class User {
         }
     }
 
-    private function getDetail(){
+    private function getDetail() {
         $query = $this->db->prepare("SELECT `ID`, `Login`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang` FROM " . DB_PREFIX . "users WHERE ID='" . $this->id . "'");
         $res = $this->db->Execute($query);
         if ($res && $res->RecordCount() > 0) {
@@ -57,15 +57,15 @@ class User {
         $this->backend = (bool) $val;
     }
 
-    private function getSession(){
-        if (isset( $_SESSION[self::$USER_SESSION_PREFIX . "id"])){
-            return  $_SESSION[self::$USER_SESSION_PREFIX . "id"];
+    private function restoreSession() {
+        if (isset($_SESSION[self::$USER_SESSION_PREFIX . "id"])) {
+            return $this->id = $_SESSION[self::$USER_SESSION_PREFIX . "id"];
         }
         return null;
     }
 
     private function setSession() {
-        if (isset($this->id) && $this->id > 0){
+        if (isset($this->id) && $this->id > 0) {
             $_SESSION[self::$USER_SESSION_PREFIX . "id"] = $this->id;
         }
     }
@@ -76,21 +76,22 @@ class User {
     }
 
     public function logout() {
-        unset($_SESSION[self::$USER_SESSION_PREFIX . "id"]);
-        session_unregister($_SESSION[self::$USER_SESSION_PREFIX . "id"]);
+        if (isset($_SESSION[self::$USER_SESSION_PREFIX . "id"])) {
+            unset($_SESSION[self::$USER_SESSION_PREFIX . "id"]);
+        }
     }
 
-    public function isAdmin(){
-        if ($this->get('Group')=='administrators') return true;
+    public function isAdmin() {
+        if ($this->get('Group') == 'administrators') return true;
         return false;
     }
 
-    public function get($param){
+    public function get($param) {
         if (isset($this->data[$param])) return $this->data[$param];
         return '';
     }
 
-    public function getData(){
+    public function getData() {
         return $this->data;
     }
 }

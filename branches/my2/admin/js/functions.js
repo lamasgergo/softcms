@@ -33,7 +33,7 @@ function formPanels(form){
 
 function send_form(formId, module, component, method, tabLocked){
 
-    var url = '/admin/ajax/index.php?mod='+module+'&class='+component+'&method='+method;
+    var url = '/admin/ajax.php?mod='+module+'&class='+component+'&method='+method;
     if (!tabLocked) tabLocked = false;
     $.ajax({
         type: "POST",

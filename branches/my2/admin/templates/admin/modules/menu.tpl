@@ -29,7 +29,7 @@
 		});
 
         if (ids.length > 0){
-            var link = '/admin/ajax/index.php?mod='+module+'&class='+component+'&method='+component+'_delete';
+            var link = '/admin/ajax.php?mod='+module+'&class='+component+'&method=delete';
             self.module = module;
             self.component = component;
             $.ajax({
