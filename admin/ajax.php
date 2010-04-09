@@ -1,11 +1,11 @@
 <?php
-
+ini_set('display_errors', 1);
 include_once($_SERVER['DOCUMENT_ROOT'] . "/kernel/init.php");
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/admin/common/tabelement.php');
 
 $user = ObjectRegistry::getInstance()->get('user');
-if (!$user->isAuth()) die();
+if (!$user->isAuth()) die('Have no rights');
 
 $class = '';
 $module = '';
@@ -23,18 +23,20 @@ if (isset($_GET['action'])) $action = trim(urldecode($_GET['action']));
 if (isset($_GET['id'])) $id = intval(urldecode($_GET['id']));
 
 $classPath = $_SERVER['DOCUMENT_ROOT'] . "/admin/modules/" . strtolower($module) . "/" . strtolower($class) . ".php";
-if (!$module || !$class || !file_exists($classPath)) die();
+if (!$module || !$class || !file_exists($classPath)) die('File not found');
 
 if (Access::check($module, 'show')) {
     include_once($classPath);
-    $ajax = new $class($module);
-    
-    if (isset($_POST) && count($_POST) > 0) {
-        $response = $ajax->$method($_POST);
-    } else {
-        $response = $ajax->$method($action, $id);
-    }
-
+    if (class_exists($class)){
+        $ajax = new $class($module);
+        if (method_exists($ajax, $method)){
+            if (isset($_POST) && count($_POST) > 0) {
+                $response = $ajax->$method($_POST);
+            } else {
+                $response = $ajax->$method($action, $id);
+            }
+        } else die('Method not exists');
+    } else die('Class not exists');
 }
 
 if (is_string($response)){

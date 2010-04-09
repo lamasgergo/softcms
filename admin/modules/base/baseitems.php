@@ -5,53 +5,15 @@ require_once (dirname(__FILE__)."/basecategories.php");
 
 class BaseItems extends TabElement {
     
-	/* Name of a Tab Element */
-	var $name;
+    protected $table;
 
-	/* Body of a Tab Element */
-	var $value;
+    protected $type = 'article';
 
-	/* Action menu for Tab Element */
-	var $menu;
-
-	/* Data Filter for Tab Element */
-	var $filter;
-
-	/* Name of a DIV where Tab Element will parsed */
-	var $visual_div_name;
-
-	/* Smarty object */
-	var $smarty;
-
-	/* Lang array with localization vars */
-	var $lang;
-
-	/* Var with lang ID for smarty templates engine */
-	var $language;
-
-	/* Main module name */
-	var $moduleName;
-
-    var $table;
-
-	/* JS sortable params:
-	 * false 	: don't sort
-	 * 'S'		: string sorting
-	 * 'N'		: numeric sorting
-	 * 
-	 * example: false,'S','N',false,'S','S'
-	*/
-	var $sort_table_fields;
-
-    var $type = 'article';
-
-    var $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID');
+    protected $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID');
 	
 	function __construct(){
-	    global $form;
-		$this->name=__CLASS__;
 
-		parent::__construct();
+        parent::__construct();
 		
 		$this->templatePath = dirname(__FILE__).'/templates/items/';
 		

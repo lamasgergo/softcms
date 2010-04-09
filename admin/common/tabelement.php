@@ -22,13 +22,13 @@ class TabElement implements ITabElement{
 	private $user;
 
     /* data type*/
-    private $type;
+    protected $type;
 
-    private $fields = array();
+    protected $fields = array();
 
-    private $requiredFields = array();
+    protected $requiredFields = array();
 
-    private $table;
+    protected $table;
 
     public $moduleName;
 
@@ -41,7 +41,7 @@ class TabElement implements ITabElement{
 		$this->smarty = $obReg->get('smarty');
 		$this->db = $obReg->get('db');
 
-        $this->moduleName = $this->getName();
+        $this->moduleName = $_GET[Settings::get('modules_varname')];
 		$this->language = $this->user->get('EditLang');
         $this->setTemplateVars();
 	}
@@ -119,21 +119,25 @@ class TabElement implements ITabElement{
 
     function prepareData($data){
         if (!isset($data['Published'])) $data['Published'] = 0;
-        $data['UserID'] = $this->user->id;
+        $data['UserID'] = $this->user->get('ID');
         $data['Type'] = $this->type;
         $data['Lang'] = $this->language;
         $values = array();
         foreach ($this->fields as $item){
             if ($item=='ID'){
                 if (!empty($data[$item])) $values[$item] = mysql_real_escape_string($data[$item]);
-            } else $values[$item] = mysql_real_escape_string($data[$item]);
+            } else {
+				if (!empty($data[$item])){
+					$values[$item] = mysql_real_escape_string($data[$item]);
+				}
+			}
         }
         return $values;
     }
 
-    function add($data){
+    function addQuery($data){
         $data = $this->prepareData($data);
-        $sql = $this->db->prepare("INSERT INTO " . $this->table . "(
+        $sql = $this->db->Prepare("INSERT INTO " . $this->table . "(
             `" . implode('`,`', array_keys($data)) . "`
             ) VALUES (
             '" . implode("','", array_values($data)) . "'
@@ -142,13 +146,13 @@ class TabElement implements ITabElement{
         return false;
     }
 
-    function change($data){
+    function changeQuery($data){
         $data = $this->prepareData($data);
         $upd = array();
         foreach ($data as $field=>$value){
             $upd[] = "`".$field."` = '".$value."'";
         }
-        $sql = $this->db->prepare("UPDATE " . $this->table . " SET ".implode(",", $upd)." WHERE ID='".$data['ID']."'");
+        $sql = $this->db->Prepare("UPDATE " . $this->table . " SET ".implode(",", $upd)." WHERE ID='".$data['ID']."'");
         if ($this->db->Execute($sql)) return true;
         return false;
     }
@@ -159,7 +163,7 @@ class TabElement implements ITabElement{
 
         if (count($ids) <= 0) return array();
 
-        $sql = $this->db->prepare("DELETE FROM " . $this->table . " WHERE id IN ('" . implode("','", $ids) . "')");
+        $sql = $this->db->Prepare("DELETE FROM " . $this->table . " WHERE id IN ('" . implode("','", $ids) . "')");
         $res = $this->db->Execute($sql);
         if ($res){
             return $ids;

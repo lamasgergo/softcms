@@ -12,7 +12,7 @@ function refreshTabTable(module, component, tabLocked) {
 
     var selected = $("#backend").data('selected.tabs');
 
-    var link = '/admin/ajax/index.php?mod=' + module + '&class=' + component + '&method=getTabContent';
+    var link = '/admin/ajax.php?mod=' + module + '&class=' + component + '&method=getTabContent';
 
     $.get(link, function(data) {
         $('#tab_' + component).find('#grid').empty();
@@ -30,7 +30,7 @@ function addTab(title, action, module, component, id) {
         removeDynamicTabs();
     }
     lastIndex = $('#backend').tabs('length');
-    var link = '/admin/ajax/index.php?mod=' + module + '&class=' + component + '&method=' + component + '_form&action=' + action;
+    var link = '/admin/ajax.php?mod=' + module + '&class=' + component + '&method=showForm&action=' + action;
     if (id) link += "&id=" + id;
 
     $('#backend').tabs("add", link, title);

@@ -52,9 +52,9 @@
         <input type="hidden" id="ID" name="ID" value="{$items_arr[0].ID}">
         <input type="hidden" id="tab_name" name="tab_name" value="{$tab_name}">
         {if $form=='change'}
-            <input type="submit" name="{$component}_apply" value="{'button_apply'|lang}" class="form_but" onclick="send_form('EXForm', '{$module}', '{$component}', '{$component}_{$form}', true); return false;">
+            <input type="submit" name="{$component}_apply" value="{'button_apply'|lang}" class="form_but" onclick="send_form('EXForm', '{$module}', '{$component}', '{$form}', true); return false;">
         {/if}
-        <input type="submit" name="{$component}_vendors" value="{'button_'|cat:$form|lang}" class="form_but" onclick="send_form('EXForm', '{$module}', '{$component}', '{$component}_{$form}'); return false;">
+        <input type="submit" name="{$component}_vendors" value="{'button_'|cat:$form|lang}" class="form_but" onclick="send_form('EXForm', '{$module}', '{$component}', '{$form}'); return false;">
     </fieldset>
 </div>
 </form>
