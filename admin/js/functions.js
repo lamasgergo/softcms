@@ -74,42 +74,10 @@ function initEditor(item, toolbar){
     });
 }
 
-//function initEditorFull(item){
-//        $(item).fck({
-//            path: "/admin/source/editors/FCKEditor/",
-//            config: {
-//                CustomConfigurationsPath: "/admin/source/editors/FCKEditor/sconfig.js",
-//                Width: 650,
-//                Height: 400,
-//                AutoDetectLanguage: true,
-//                DefaultLanguage: 'ru'
-//            }
-//
-//        });
-//}
-//
-//function initEditorLite(item){
-//        $(item).fck({
-//            path: "/admin/source/editors/FCKEditor/",
-//            config: {
-//                CustomConfigurationsPath: "/admin/source/editors/FCKEditor/sconfig.js",
-//                ToolbarSet : 'Short',
-//                Width: 650,
-//                Height: 300,
-//                AutoDetectLanguage: true,
-//                DefaultLanguage: 'ru'
-//            }
-//
-//        });
-//}
-//
-//function EditorSubmit(){
-//        this.UpdateEditorFormValue = function()
-//        {
-//                for ( i = 0; i < parent.frames.length; ++i )
-//                        if ( parent.frames[i].FCK )
-//                                parent.frames[i].FCK.UpdateLinkedField();
-//        }
-//}
-//// instantiate the class
-//var EditorSubmit = new EditorSubmit();
+function initGrid(){
+    tableToGrid('.grid',{
+        height: 'auto'
+//        pager: $('#gridPager')
+    });
+    $(".grid").navGrid(".gridPager",{});
+}

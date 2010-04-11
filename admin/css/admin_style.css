@@ -34,3 +34,7 @@ a:link, a:hover, a:visited {
     color: black;
     text-decoration: none;
 }
+
+.tableContainer {
+    height: 100%;
+}

@@ -1,3 +1,7 @@
+<link rel="stylesheet" type="text/css" href="/admin/js/jqGrid/css/ui.jqgrid.css" media="screen" />
+<script type="text/javascript"  src="/admin/js/jqGrid/js/jquery.jqGrid.min.js"></script>
+{*<script type="text/javascript"  src="/admin/js/jqGrid/src/grid.base.js"></script>*}
+{*<script type="text/javascript"  src="/admin/js/jqGrid/src/grid.tbltogrid.js"></script>*}
 <div id="backend">
 	<ul>
 	  {foreach from=$tabs item=tab}
@@ -24,6 +28,9 @@
     load: function(event, ui){
         form_skining(ui.panel);
         NFInit();
+    },
+    show: function(){
+       initGrid(); 
     }
   });
 
