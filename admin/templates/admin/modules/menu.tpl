@@ -51,6 +51,6 @@
 </script>
 {/literal}
 
-<a id="addButton" onClick="showAddForm('{$module}','{$tab.name}');" href='#'><img src="{$images}/menu/add.gif" border="0" /></a>
-<a id="changeButton" onClick="showChangeForm('{$module}','{$tab.name}');" href='#'><img src="{$images}/menu/change.gif" border="0" /></a>
-<a id="deleteButton}" onClick="showDeleteForm('{$module}','{$tab.name}');" href='#'><img src="{$images}/menu/del.gif" border="0" /></a>
+<a id="addButton" onClick="showAddForm('{$module}','{$tab.name}');" href='#'><img src="/admin/images/menu/add.png" border="0" /></a>
+<a id="changeButton" onClick="showChangeForm('{$module}','{$tab.name}');" href='#'><img src="/admin/images/menu/change.png" border="0" /></a>
+<a id="deleteButton}" onClick="showDeleteForm('{$module}','{$tab.name}');" href='#'><img src="/admin/images/menu/delete.png" border="0" /></a>

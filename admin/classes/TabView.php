@@ -1,6 +1,6 @@
 <?php
 
-class TabContainer{
+class TabView{
 
 	private static $tabs = array();
 	private static $tabCounter = 0;

@@ -21,6 +21,8 @@ class Admin {
         if (isset($_POST['login']) && isset($_POST['password'])){
             if (!$this->user->login($_POST['login'], $_POST['password'])){
                 $this->error = Locale::get("login_failed");
+            } else {
+                header('Location: '.$_SERVER['REQUEST_URI']);
             }
         }
     }
@@ -49,11 +51,13 @@ class Admin {
     function loadModule(){
         $moduleVarName = Settings::get('modules_varname');
         $module = $_GET[$moduleVarName];
+        if (!$module) return false;
+        
         $modulePath = $_SERVER['DOCUMENT_ROOT'].$this->modulesPath.'/'. $module . "/module.php";
         if (isset($module) && in_array($module, $this->modules) && file_exists($modulePath)) {
             if (Access::check($module, 'show')) {
                 include_once($modulePath);
-                $data = TabContainer::show();
+                $data = TabView::show();
             }
         } else {
             $data = $this->smarty->fetch('admin/dashboard.tpl', null, $this->lang);
