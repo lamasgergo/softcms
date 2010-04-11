@@ -46,6 +46,12 @@ class TabElement implements ITabElement{
         $this->setTemplateVars();
 	}
 
+    //set common template privates
+    function setTemplateVars() {
+        $this->smarty->assign("module", $this->moduleName);
+        $this->smarty->assign("component", $this->getName());
+    }
+
     function getName() {
         return strtolower(__CLASS__);
     }
@@ -99,16 +105,16 @@ class TabElement implements ITabElement{
 		return true;
 	}
 
-	function getOptions($sql_str, $sql_fields=array(), $assign=array()){
+	function getOptions($query_str, $query_fields=array(), $assign=array()){
 	    $ids = array();
 		$names = array();
-	    if (!empty($sql_str) && count($assign)!=0 && count($sql_fields)!=0){
-    		$sql = $this->db->Prepare($sql_str);
-    		$res = $this->db->Execute($sql);
+	    if (!empty($query_str) && count($assign)!=0 && count($query_fields)!=0){
+    		$query = $this->db->Prepare($query_str);
+    		$res = $this->db->Execute($query);
     		if ($res && $res->RecordCount() > 0){
     			while (!$res->EOF){
-    				$ids[] = $res->fields[$sql_fields[0]];
-    				$names[] = $res->fields[$sql_fields[1]];
+    				$ids[] = $res->fields[$query_fields[0]];
+    				$names[] = $res->fields[$query_fields[1]];
     				$res->MoveNext();
     			}
     		}
@@ -135,58 +141,55 @@ class TabElement implements ITabElement{
         return $values;
     }
 
-    function addQuery($data){
+    function add($data){
         $data = $this->prepareData($data);
-        $sql = $this->db->Prepare("INSERT INTO " . $this->table . "(
+        $query = $this->db->Prepare("INSERT INTO " . $this->table . "(
             `" . implode('`,`', array_keys($data)) . "`
             ) VALUES (
             '" . implode("','", array_values($data)) . "'
             )");
-        if ($this->db->Execute($sql)) return true;
+        if ($this->db->Execute($query)) return true;
         return false;
     }
 
-    function changeQuery($data){
+    function change($data){
         $data = $this->prepareData($data);
         $upd = array();
         foreach ($data as $field=>$value){
             $upd[] = "`".$field."` = '".$value."'";
         }
-        $sql = $this->db->Prepare("UPDATE " . $this->table . " SET ".implode(",", $upd)." WHERE ID='".$data['ID']."'");
-        if ($this->db->Execute($sql)) return true;
+        $query = $this->db->Prepare("UPDATE " . $this->table . " SET ".implode(",", $upd)." WHERE ID='".$data['ID']."'");
+        if ($this->db->Execute($query)) return true;
         return false;
     }
 
-    function delete($ids){
+    function delete($ids, $recursive = false){
         if (!is_array($ids) && preg_match("/[\d\,\s]+/", $ids)) $ids = explode(',', $ids);
         $ids = array_unique($ids);
 
         if (count($ids) <= 0) return array();
+         
+        if ($recursive==true){
+            $delete = array();
+            foreach ($ids as $id) {
+                $delete[] = array('id' => $id);
+                $delete = array_merge_recursive($this->getTreeListByParent($id), $delete);
+            }
+            $ids = array();
+            foreach($delete as $item){
+                $ids[] = $item['id'];
+            }
+            $ids = array_unique($ids);
+        }
 
-        $sql = $this->db->Prepare("DELETE FROM " . $this->table . " WHERE id IN ('" . implode("','", $ids) . "')");
-        $res = $this->db->Execute($sql);
+        
+        $query = $this->db->Prepare("DELETE FROM {$this->table} WHERE id IN ('" . implode("','", $ids) . "')");
+        $res = $this->db->Execute($query);
         if ($res){
             return $ids;
         } else return array();
     }
 
-    function deleteRecursive($data){
-        $ids = explode(',', $data['ids']);
-        $ids = array_unique($ids);
-
-        if (count($ids) <= 0) return array();
-        
-        $delete = array();
-        foreach ($ids as $id) {
-            $delete[] = array('id' => $id);
-            $delete = array_merge_recursive($this->getTreeListByParent($id), $delete);
-        }
-        $ids = array();
-        foreach($delete as $item){
-            $ids[] = $item['id'];
-        }
-        return $this->delete($ids);
-    }
 
     function setType($type){
         $this->type = $type;
@@ -196,8 +199,8 @@ class TabElement implements ITabElement{
         if (isset($this->fields) && !in_array('ParentID', $this->fields)) return array();
 
         $depth++;
-        $sql = "SELECT ID, Name FROM {$this->table} WHERE ParentID='{$parent_id}' AND Lang='{$this->language}' ORDER BY ID";
-        $res = $this->db->Execute($sql);
+        $query = "SELECT ID, Name FROM `{$this->table}` WHERE ParentID='{$parent_id}' AND Lang='{$this->language}' ORDER BY ID";
+        $res = $this->db->Execute($query);
         if ($res && $res->RecordCount() > 0) {
             while (!$res->EOF) {
                 $depth_str = '';

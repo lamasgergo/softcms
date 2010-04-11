@@ -5,8 +5,6 @@ require_once (dirname(__FILE__)."/basecategories.php");
 
 class BaseItems extends TabElement {
     
-    protected $table;
-
     protected $type = 'article';
 
     protected $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID');
@@ -38,10 +36,10 @@ class BaseItems extends TabElement {
 	
 	/* show module items*/
 	function getValue(){
-	    $sql = $this->db->prepare("SELECT * FROM ".$this->table." WHERE Lang='".$this->language."' ORDER BY ID ASC");
-	    $rs = $this->db->Execute($sql);
+	    $query = $this->db->Prepare("SELECT * FROM `{$this->table}` WHERE Lang='{$this->language}' ORDER BY ID ASC");
+	    $rs = $this->db->Execute($query);
 	    if ($rs && $rs->RecordCount() > 0){
-	        $this->smarty->assign("items_arr", $rs->getArray());
+	        $this->smarty->assign("items_arr", $rs->GetArray());
 	    } else { 
 	        $this->smarty->assign("items_arr", array());
 	    }
@@ -62,11 +60,11 @@ class BaseItems extends TabElement {
         $this->smarty->assign("category_names",$parent_names);
 	    
 		if (!empty($id)){
-			$sql = $this->db->prepare("SELECT * FROM " . $this->table . " WHERE ID='".$id."'");
-			$rs = $this->db->Execute($sql);
+			$query = $this->db->Prepare("SELECT * FROM `{$this->table}` WHERE ID='{$id}'");
+			$rs = $this->db->Execute($query);
 			if ($rs && $rs->RecordCount() > 0){
 				
-				$values = $rs->getArray();
+				$values = $rs->GetArray();
 				$this->smarty->assign("items_arr",$values);
 				
 			} else $this->smarty->assign("items_arr",array());
@@ -95,17 +93,17 @@ class BaseItems extends TabElement {
         return parent::prepareData($data);
     }
 
-    function baseitems_add($data) {
+    function add($data) {
         $result = true;
         if ($this->checkRequiredFields($data)) {
-            if ($this->add($data)) {
-                $msg = $this->lang[$this->getName() . "_add_suc"];
+            if (parent::add($data)) {
+                $msg = Locale::get($this->getName() . "_add_suc");
             } else {
-                $msg = $this->lang[$this->getName() . "_add_err"];
+                $msg =Locale::get($this->getName() . "_add_err");
                 $result = false;
             }
         } else {
-            $msg = $this->lang["requered_data_absent"];
+            $msg = Locale::get("requered_data_absent");
             $result = false;
         }
         return array($result, $msg);
@@ -115,28 +113,28 @@ class BaseItems extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if ($this->change($data)) {
-                $msg = $this->lang[$this->getName() . "_change_suc"];
+                $msg = Locale::get($this->getName() . "_change_suc");
             } else {
                 $result = false;
-                $msg = $this->lang[$this->getName() . "_change_err"];
+                $msg = Locale::get($this->getName() . "_change_err");
             }
         } else {
             $result = false;
-            $msg = $this->lang["requered_data_absent"];
+            $msg = Locale::get("requered_data_absent");
         }
 
         return array($result, $msg);
     }
 
     function baseitems_delete($data) {
-        $ids = $this->deleteRecursive($data);
+        $ids = parent::delete($data);
         if (count($ids) > 0) {
-            $msg = $this->lang[$this->getName() . "_delete_suc"];
+            $msg = Locale::get($this->getName() . "_delete_suc");
             $items = new BaseItems($this->moduleName);
             $items->delete($ids);
             $result = true;
         } else {
-            $msg = $this->lang[$this->getName() . "_delete_err"];
+            $msg = Locale::get($this->getName() . "_delete_err");
             $result = false;
         }
 

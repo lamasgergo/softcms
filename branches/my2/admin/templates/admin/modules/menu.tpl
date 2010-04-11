@@ -8,8 +8,9 @@
 	};
 
 	function showChangeForm(module, component){
-//		var val = $("#"+component+"Grid").getGridParam("selrow");
-        var val = $('div[id^=tab_]:visible').find('input[name^=actionid_]:checked').val();
+		var val = $("#"+component+"Grid").getGridParam('selrow');
+		alert(val);
+//        var val = $('div[id^=tab_]:visible').find('input[name^=actionid_]:checked').val();
 		val = $.trim(val);
 		if (val!='' && val!='undefined'){
 			var title = '{/literal}{$module|cat:"_change"|lang}{literal}';
@@ -22,11 +23,13 @@
 
 	var ids = new Array();
 	function showDeleteForm(module, component){
-		
-//		$("#"+component+"Table").find("input:checked").each(function(){
-        $('div[id^=tab_]:visible').find('input[name^=actionid_]:checked').each(function(){        
-			ids.push($(this).val());
+
+        var ids = new Array();
+
+        $("#"+component+"Grid").find('tr[aria-selected=true]').each(function(){
+			ids.push($(this).attr('id'));
 		});
+
 
         if (ids.length > 0){
             var link = '/admin/ajax.php?mod='+module+'&class='+component+'&method=delete';

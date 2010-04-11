@@ -12,8 +12,6 @@ class BaseCategories extends TabElement {
     protected $requiredFields = array('Name');
 
     function __construct() {
-        global $form;
-        
         parent::__construct();
 
         $this->templatePath = dirname(__FILE__).'/templates/categories/';
@@ -25,17 +23,11 @@ class BaseCategories extends TabElement {
         return strtolower(__CLASS__);
     }
 
-    //set common template privates
-    function setTemplateVars() {
-        $this->smarty->assign("module", $this->moduleName);
-        $this->smarty->assign("component", $this->getName());
-    }
-
 
     function getTreeValues($parent_id = 0, $ret = array(), $depth = 0) {
         $depth++;
-        $sql = "SELECT * FROM " . $this->table . " WHERE ParentID='" . $parent_id . "' AND Lang='" . $this->language . "' ORDER BY ID";
-        $rs = $this->db->Execute($sql);
+        $query = "SELECT * FROM `{$this->table}` WHERE ParentID='{$parent_id}' AND Lang='{$this->language}' ORDER BY ID";
+        $rs = $this->db->Execute($query);
         if ($rs && $rs->RecordCount() > 0) {
             while (!$rs->EOF) {
                 $depth_str = '';
@@ -72,11 +64,11 @@ class BaseCategories extends TabElement {
         $this->smarty->assign("parent_names", $parent_names);
 
         if (!empty($id)) {
-            $sql = $this->db->prepare("SELECT * FROM " . $this->table . " WHERE ID='" . $id . "'");
-            $rs = $this->db->Execute($sql);
+            $query = $this->db->Prepare("SELECT * FROM `{$this->table}` WHERE ID='{$id}'");
+            $rs = $this->db->Execute($query);
             if ($rs && $rs->RecordCount() > 0) {
 
-                $values = $rs->getArray();
+                $values = $rs->GetArray();
                 $this->smarty->assign("items_arr", $values);
 
             } else $this->smarty->assign("items_arr", array());
@@ -102,7 +94,7 @@ class BaseCategories extends TabElement {
     function add($data) {
         $result = true;
         if ($this->checkRequiredFields($data)) {
-            if ($this->addQuery($data)) {
+            if (parent::add($data)) {
                 $msg = Locale::get($this->getName() . "_add_suc");
             } else {
                 $msg = Locale::get($this->getName() . "_add_err");
@@ -118,7 +110,7 @@ class BaseCategories extends TabElement {
     function change($data) {
         $result = true;
         if ($this->checkRequiredFields($data)) {
-            if ($this->changeQuery($data)) {
+            if (parent::change($data)) {
                 $msg = Locale::get($this->getName() . "_change_suc");
             } else {
                 $result = false;
@@ -133,7 +125,7 @@ class BaseCategories extends TabElement {
     }
 
     function delete($data) {
-        $ids = $this->deleteRecursive($data);
+        $ids = parent::delete($data, true);
         if (count($ids) > 0) {
             $msg = Locale::get($this->getName() . "_delete_suc");
             $items = new BaseItems($this->moduleName);
@@ -147,44 +139,7 @@ class BaseCategories extends TabElement {
         return array($result, $msg);
     }
 
-    function get_category_row_options($id, $cur_id = 0, $Lang = 0, $userid = '', $depth = 0, $row = array()) {
-        $depth ++;
-        if ($userid != '' && $userid != 0) {
-            $userid_sql = " AND UserID='" . $userid . "' ";
-        } else
-            $userid_sql = '';
-        if ($Lang != 0) {
-            $Lang_sql = " AND Lang='" . $Lang . "' ";
-        } else
-            $Lang_sql = "AND Lang='" . $user->EditLang . "'";
-        $sql = $this->db->prepare("SELECT * FROM " . DB_PREFIX . "cnt_category WHERE ParentID='" . $id . "' " . $userid_sql . " AND ID<>'" . $cur_id . "' " . $Lang_sql . " ORDER BY Name ASC");
-        $rs = $this->db->Execute($sql);
-        if ($rs && $rs->RecordCount() > 0) {
-            while (! $rs->EOF) {
-                $depth_value = "";
-                for ($i = 1; $i < $depth; $i ++)
-                    $depth_value .= '-';
-                $row[] = array($rs->fields["ID"], $depth_value, $rs->fields["Name"]);
-                $row = $this->get_category_row_options($rs->fields["ID"], $cur_id, $Lang, $userid, $depth, $row);
-                $rs->MoveNext();
-            }
-        }
-        return $row;
-    }
 
-    function categories_showCategories($Lang, $cur_id = 0) {
-        $def_value = Locale::get("select_default_name");
-        $options = '<select name="ParentID" id="ParentID">';
-        $options .= '<option value="0">' . $def_value . '</option>';
-        $objResponse = new xajaxResponse();
-        $cat = $this->get_category_row_options(0, $cur_id, 0, $Lang);
-        for ($i = 0; $i < count($cat); $i ++) {
-            $options .= '<option value="' . $cat[$i][0] . '">' . $cat[$i][1] . $cat[$i][2] . '</option>';
-        }
-        $options .= '</select>';
-        $objResponse->addAssign('ParentIDDiv', 'innerHTML', $options);
-        return $objResponse->getXML();
-    }
 }
 
 ?>

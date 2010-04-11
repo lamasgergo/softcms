@@ -17,6 +17,7 @@ function refreshTabTable(module, component, tabLocked) {
     $.get(link, function(data) {
         $('#tab_' + component).find('#grid').empty();
         $('#tab_' + component).find('#grid').html(data);
+        initGrid();
     });
 
 

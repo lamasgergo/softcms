@@ -1,22 +1,24 @@
     <form method="post" action="javascript:return false;" name="{$component}">
       {$component}
-    <div class="widget_tableDiv">
-    <table id="myTable">
+    <div class="tableContainer">
+    <table id="{$component}Grid" class="grid">
       <thead>
         <tr>
-          <td>{$component|cat:"_action"|lang}</td>
-		  <td>{$component|cat:"_ID"|lang}</td>
-          <td>{$component|cat:"_Title"|lang}</td>
-          <td>{$component|cat:"_CategoryID"|lang}</td>
-          <td>{$component|cat:"_Published"|lang}</td>
-          <td>{$component|cat:"_Updated"|lang}</td>
-          <td>{$component|cat:"_Lang"|lang}</td>
+          <th>{$component|cat:"_action"|lang}</th>
+		  <th>{$component|cat:"_ID"|lang}</th>
+          <th>{$component|cat:"_Title"|lang}</th>
+          <th>{$component|cat:"_CategoryID"|lang}</th>
+          <th>{$component|cat:"_Published"|lang}</th>
+          <th>{$component|cat:"_Updated"|lang}</th>
+          <th>{$component|cat:"_Lang"|lang}</th>
         </tr>
       </thead>
-      <tbody class="scrollingContent">
+      <tbody>
       {foreach from=$items_arr item=item}
         <tr>
-          <td style="height:20px;"><input type="checkbox" name="actionid_{$item.ID}" value="{$item.ID}"></td>
+          <td>
+            <input type="checkbox" name="actionid_{$item.ID}" value="{$item.ID}">
+          </td>
 		  <td>{$item.ID}</td>
           <td>{$item.Title}</td>
           <td>{$item.CategoryID|default:"&nbsp;"}</td>
@@ -30,5 +32,6 @@
       {/foreach}
       </tbody>
     </table>
+    <div class="gridPager"></div>
     </div>
     </form>
