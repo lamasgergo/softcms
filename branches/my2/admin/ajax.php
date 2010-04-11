@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 include_once($_SERVER['DOCUMENT_ROOT'] . "/kernel/init.php");
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/admin/common/tabelement.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/admin/classes/tabelement.php');
 
 $user = ObjectRegistry::getInstance()->get('user');
 if (!$user->isAuth()) die('Have no rights');

@@ -1,6 +1,6 @@
 <?php
 
-require_once (dirname(__FILE__)."/../../common/tabelement.php");
+require_once (dirname(__FILE__)."/../../classes/tabelement.php");
 require_once (dirname(__FILE__)."/basecategories.php");
 
 class BaseItems extends TabElement {

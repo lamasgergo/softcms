@@ -40,7 +40,9 @@ class User {
             $this->id = $res->fields['ID'];
             $this->getDetail();
             $this->setSession();
+            return true;
         }
+        return false;
     }
 
     private function getDetail() {
