@@ -109,10 +109,10 @@ class BaseItems extends TabElement {
         return array($result, $msg);
     }
 
-    function baseitems_change($data) {
+    function change($data) {
         $result = true;
         if ($this->checkRequiredFields($data)) {
-            if ($this->change($data)) {
+            if (parent::change($data)) {
                 $msg = Locale::get($this->getName() . "_change_suc");
             } else {
                 $result = false;
@@ -126,7 +126,7 @@ class BaseItems extends TabElement {
         return array($result, $msg);
     }
 
-    function baseitems_delete($data) {
+    function delete($data) {
         $ids = parent::delete($data);
         if (count($ids) > 0) {
             $msg = Locale::get($this->getName() . "_delete_suc");
