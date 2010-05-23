@@ -17,6 +17,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/kernel/smarty.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/kernel/User.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/kernel/Access.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/kernel/functions.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/kernel/Translit.php");
 
 $smarty->template_dir  = $_SERVER['DOCUMENT_ROOT'].'/admin/templates';
 ObjectRegistry::getInstance()->set('smarty', $smarty);

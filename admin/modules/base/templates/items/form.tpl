@@ -1,10 +1,17 @@
 <form id="EXForm" onsubmit="return false;" class="niceform">
-<input type="hidden"	id="RequiredFields" name="RequiredFields" value="Title, CategoryID">
+<input type="hidden"	id="RequiredFields" name="RequiredFields" value="{$required}">
 
 <div class="left wider">
     <fieldset>
         <legend>{$component|cat:"_Content"|lang}</legend>
         
+        <dl>
+            <dt><label for="Url">{$component|cat:"_Url"|lang}</label></dt>
+            <dd>
+                   <input type="text" id="Url" name="Url" value="{$items_arr[0].Url}">
+            </dd>
+        </dl>
+
         <dl>
             <dt><label for="Title">{$component|cat:"_Title"|lang}</label></dt>
             <dd>

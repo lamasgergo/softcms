@@ -121,6 +121,7 @@ CREATE  TABLE IF NOT EXISTS `my2`.`bs_data_categories` (
   `Published` INT(3) NULL DEFAULT '0' ,
   `Modified` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
   `LoginRequired` TINYINT(3) UNSIGNED NULL DEFAULT '0' ,
+  `Url` VARCHAR(255) NOT NULL DEFAULT '' ,
   PRIMARY KEY (`ID`) ,
   INDEX `fk_bs_data_categories_bs_users1` (`UserID` ASC) ,
   CONSTRAINT `fk_bs_data_categories_bs_users1`
@@ -193,6 +194,7 @@ CREATE  TABLE IF NOT EXISTS `my2`.`bs_data` (
   `LoginRequired` TINYINT(3) UNSIGNED NULL DEFAULT '0' ,
   `ViewCount` INT UNSIGNED NULL DEFAULT '0' ,
   `ImageGroupID` INT UNSIGNED NULL DEFAULT '0' ,
+  `Url` VARCHAR(255) NOT NULL DEFAULT '' ,
   PRIMARY KEY (`ID`) ,
   FULLTEXT INDEX `search` (`Title` ASC, `Content` ASC, `Teaser` ASC) ,
   INDEX `fk_bs_data_bs_data_categories` (`CategoryID` ASC) ,

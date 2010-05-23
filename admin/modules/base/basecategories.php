@@ -7,7 +7,7 @@ class BaseCategories extends TabElement {
 
     protected $type = 'article';
 
-    protected $fields = array('ID', 'UserID', 'Type', 'ParentID', 'Lang', 'Name', 'Description', 'Published', 'LoginRequired');
+    protected $fields = array('ID', 'UserID', 'Type', 'ParentID', 'Lang', 'Name', 'Description', 'Published', 'LoginRequired', 'Url');
 
     protected $requiredFields = array('Name');
 
@@ -89,6 +89,38 @@ class BaseCategories extends TabElement {
             $file = $this->smarty->fetch($this->templatePath . '/form.tpl', null, $this->language);
         }
         return $file;
+    }
+
+    function getUrlByData($data){
+        $url = '/';
+        if (isset($data['ParentID']) && !empty($data['ParentID'])){
+            $query = $this->db->Prepare("SELECT Url FROM `{$this->table}` WHERE ID='{$data['ParentID']}'");
+            $rs = $this->db->Execute($query);
+            if ($rs && $rs->RecordCount() > 0){
+                $url = $rs->fields['Url'];
+            }
+        }
+        $url .= '/'.Translit::encode($data['Url']);
+        $url = preg_replace('/\/+/uis', '/', $url);
+        $uniq = false;
+        $append = 1;
+        while (!$uniq){
+            $query = $this->db->Prepare("SELECT ID FROM `{$this->table}` WHERE Url='{$url}'");
+            $rs = $this->db->Execute($query);
+            if ($rs && $rs->RecordCount() > 0){
+                $append++;
+                $url = $url.$append;
+            } else $uniq = true;
+        }
+        return $url;
+    }
+
+    function prepareData($data){
+        if (!isset($data['Url']) || empty($data['Url'])){
+            $data['Url'] = $data['Name'];
+            $data['Url'] = $this->getUrlByData($data);
+        }
+        return parent::prepareData($data);
     }
 
     function add($data) {

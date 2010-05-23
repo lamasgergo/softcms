@@ -7,8 +7,10 @@ class BaseItems extends TabElement {
     
     protected $type = 'article';
 
-    protected $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID');
-	
+    protected $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID', 'Url');
+
+    protected $requiredFields = array('Title', 'CategoryID');
+
 	function __construct(){
 
         parent::__construct();
@@ -90,6 +92,7 @@ class BaseItems extends TabElement {
         $data['LoginRequired'] = (int)$data['LoginRequired'];
         $data['ViewCount'] = (int)$data['LoginRequired'];
         $data['ImageGroupID'] = (int)$data['ImageGroupID'];
+        if (!isset($data['Url']) || empty($data['Url'])) $data['Url'] = Translit::encode($data['Title']);
         return parent::prepareData($data);
     }
 
