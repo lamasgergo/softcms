@@ -32,6 +32,6 @@
     {*</table>*}
     {*<div class="gridPager"></div>*}
     {*</div>*}
-    {grid}
+    {grid module=$module class=$component data=$items_arr}
     </form>
 

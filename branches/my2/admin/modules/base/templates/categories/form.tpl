@@ -6,6 +6,12 @@
     <fieldset>
         <legend>{$component|cat:"_Content"|lang}</legend>
         <dl>
+            <dt><label for="Url">{$component|cat:"_Url"|lang}</label></dt>
+            <dd>
+                   <input type="text" id="Url" name="Url" value="{$items_arr[0].Url}">
+            </dd>
+        </dl>
+        <dl>
             <dt><label for="Name">{$component|cat:"_Name"|lang}</label></dt>
             <dd><input type="text" id="Name" name="Name" value="{$items_arr[0].Name}" class="form_item"></dd>
         </dl>
