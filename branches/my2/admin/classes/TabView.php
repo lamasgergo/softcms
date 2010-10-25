@@ -17,7 +17,7 @@ class TabView{
         global $locale;
 		$names = array();
 		foreach (self::$tabs as $tab){
-            $tabName = Locale::get($module."_".strtolower($tab["name"]));
+            $tabName = Locale::get($tab["name"], $module);
 			array_push($names,"'".$tabName."'");
 		}
 		return implode(",",$names);

@@ -9,6 +9,8 @@ class BaseItems extends TabElement {
 
     protected $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID', 'Url');
 
+    protected $gridFields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Published', 'LoginRequired', 'ViewCount', 'Url');
+
     protected $requiredFields = array('Title', 'CategoryID');
 
 	function __construct(){
@@ -31,22 +33,23 @@ class BaseItems extends TabElement {
         $this->smarty->assign("component", $this->getName());
     }
 	
-	function getTabContent(){
-		return $this->getValue();	
-	}
-	
-	
 	/* show module items*/
 	function getValue(){
 	    $query = $this->db->Prepare("SELECT * FROM `{$this->table}` WHERE Lang='{$this->language}' ORDER BY ID ASC");
+//        echo $query."<br>";
 	    $rs = $this->db->Execute($query);
 	    if ($rs && $rs->RecordCount() > 0){
-	        $this->smarty->assign("items_arr", $rs->GetArray());
+	        return $rs->GetArray();
 	    } else { 
-	        $this->smarty->assign("items_arr", array());
+	        return array();
 	    }
-	    return $this->smarty->fetch($this->templatePath.'/table.tpl', null, $this->language);
-	}	
+	}
+
+    function getTabContent() {
+//        $this->smarty->assign("items_arr", $this->getValue());
+        $this->smarty->assign("classObj", $this);
+        return $this->smarty->fetch($this->templatePath . '/table.tpl', null, $this->language);
+    }
 	
     function formData($form,$id=""){
         // ParentID
@@ -89,10 +92,10 @@ class BaseItems extends TabElement {
     }
 
     function prepareData($data){
-        $data['LoginRequired'] = (int)$data['LoginRequired'];
-        $data['ViewCount'] = (int)$data['LoginRequired'];
-        $data['ImageGroupID'] = (int)$data['ImageGroupID'];
-        if (!isset($data['Url']) || empty($data['Url'])) $data['Url'] = Translit::encode($data['Title']);
+        $data['LoginRequired'] = isset($data['LoginRequired']) ? (int)$data['LoginRequired'] : 0;
+//        $data['ViewCount'] = (int)$data['LoginRequired'];
+        $data['ImageGroupID'] = isset($data['ImageGroupID']) ? (int)$data['ImageGroupID'] : 0;
+        if (!isset($data['Url']) || empty($data['Url'])) $data['Url'] = Translit::makeUrl($data['Title']);
         return parent::prepareData($data);
     }
 
@@ -100,13 +103,13 @@ class BaseItems extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if (parent::add($data)) {
-                $msg = Locale::get($this->getName() . "_add_suc");
+                $msg = Locale::get("Added successfully", $this->getName());
             } else {
-                $msg =Locale::get($this->getName() . "_add_err");
+                $msg = Locale::get("Error adding", $this->getName());
                 $result = false;
             }
         } else {
-            $msg = Locale::get("requered_data_absent");
+            $msg = Locale::get("Requered data absent");
             $result = false;
         }
         return array($result, $msg);
@@ -116,14 +119,14 @@ class BaseItems extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if (parent::change($data)) {
-                $msg = Locale::get($this->getName() . "_change_suc");
+                $msg = Locale::get("Changed successfully", $this->getName());
             } else {
                 $result = false;
-                $msg = Locale::get($this->getName() . "_change_err");
+                $msg = Locale::get("Error changing", $this->getName());
             }
         } else {
             $result = false;
-            $msg = Locale::get("requered_data_absent");
+            $msg = Locale::get("Requered data absent");
         }
 
         return array($result, $msg);
@@ -132,12 +135,12 @@ class BaseItems extends TabElement {
     function delete($data) {
         $ids = parent::delete($data);
         if (count($ids) > 0) {
-            $msg = Locale::get($this->getName() . "_delete_suc");
+            $msg = Locale::get("Deleted successfully", $this->getName());
             $items = new BaseItems($this->moduleName);
             $items->delete($ids);
             $result = true;
         } else {
-            $msg = Locale::get($this->getName() . "_delete_err");
+            $msg = Locale::get("Error deleting", $this->getName());
             $result = false;
         }
 

@@ -8,14 +8,14 @@
 				    <img border="0" height="32" src="/admin/modules/{$module.Name}/images/{$module.Name}32x32.png" />
 				    </div>
 				    <div>
-					{$module.Name|lang|replace:"<br>":" "}
+					{$module.Name|lang:'ADMIN_MENU'|replace:"<br>":" "}
 					</div>
 				</div>
 			</a>
           {/foreach}
 	</div>
 
-	<div class="user">({$user.Name})&nbsp;<a href="/admin/logout.php" style="color:black;">{lang logout}</a></div>
+	<div class="user">({$user.Name})&nbsp;<a href="/admin/logout.php" style="color:black;">{"Logout"|lang}</a></div>
     <div class="lang">
 	    <select onChange='change_edit_lang(this.value);'>
 		{foreach from=$langList key=lang item=lang_desc}

@@ -1,7 +1,5 @@
 function form_skining(form){
     markRequired(form);
-//    formPanels(form);
-//    $("select, input:checkbox, input:radio, input:file, input:text").uniform();
 }
 
 function markRequired(form){
@@ -9,7 +7,7 @@ function markRequired(form){
     var fields = req.split(',');
     for (var i in fields){
         var field = $.trim(fields[i]);
-        $(form).find('[name='+field+']').css('border-left', '2px solid red');
+        $(form).find('[name='+field+']').addClass('required');
     }
 
 }
@@ -61,12 +59,14 @@ function initEditor(item, toolbar){
 
     var edHeight = '200px';
 
-    if (toolbar=='Full') {
+    if (!toolbar){
+        toolbar = 'Basic';
+    }
+    if (toolbar=='Basic') {
         edHeight = '500px';
     }
 
     $( '#' + item ).ckeditor(function() { /* callback code */ }, {
-        skin : 'office2003',
         toolbar: toolbar,
         width: '100%',
         height: edHeight,
@@ -76,7 +76,8 @@ function initEditor(item, toolbar){
 
 function initGrid(){
     tableToGrid('.grid',{
-        height: 'auto'
+        height: 'auto',
+        multiselect: true
 //        pager: $('#gridPager')
     });
     $(".grid").navGrid(".gridPager",{});

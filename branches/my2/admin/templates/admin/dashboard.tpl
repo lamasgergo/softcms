@@ -4,7 +4,7 @@
       {assign var="mod_group" value=""}
       {foreach from=$modules item=module}
         {if $mod_group<>$module.ModGroup}
-            <li><a href="#{$module.ModGroup}">{$module.ModGroup|lang}</a></li>
+            <li><a href="#{$module.ModGroup}">{$module.ModGroup|lang:'ADMIN_MENU'}</a></li>
             {assign var="mod_group" value=$module.ModGroup}
         {/if}
       {/foreach}
@@ -23,8 +23,9 @@
 
         <div class="icon">
             <a href="/admin/index.php?mod={$module.Name}">
-                    <img border="0" src="/admin/modules/{$module.Name}/images/{$module.Name}.png" /><br>
-               {$module.Name|lang}
+                    <img border="0" width="128" src="/admin/modules/{$module.Name}/images/{$module.Name}128x128.png" />
+                    <br>
+               {$module.Name|lang:'ADMIN_MENU'}
             </a>
         </div>
       {/foreach}

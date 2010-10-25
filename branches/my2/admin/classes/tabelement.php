@@ -26,9 +26,13 @@ class TabElement implements ITabElement{
 
     protected $fields = array();
 
+    protected $gridFields = array();
+
     protected $requiredFields = array();
 
     protected $table;
+
+    protected $whSkipParams = array('page', 'mod');
 
     public $moduleName;
 
@@ -219,6 +223,28 @@ class TabElement implements ITabElement{
 
     function getTabContent() {
         return $this->getValue();
+    }
+
+    function getGridFields(){
+        return $this->gridFields;
+    }
+
+    function whCond($cond=array()){
+        if (empty($cond)) $cond = $_GET;
+        $wh = array();
+        foreach ($cond as $key=>$value){
+            if (!empty($value) && !in_array(strtolower($key), $this->whSkipParams)){
+                foreach ($this->gridFields as $name){
+                    if (strtolower($key)==strtolower($name)){
+                        $wh[] = "`".$name."`='".mysql_real_escape_string($value)."'";
+                    }
+                }
+            }
+        }
+
+        $wh = implode(' AND ', $wh);
+
+        return $wh;
     }
 }
 ?>
