@@ -459,3 +459,15 @@ INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('navigation_limit', '4
 INSERT INTO `my2`.`bs_settings` (`Name`, `Value`) VALUES ('modules_varname', 'mod');
 
 COMMIT;
+
+
+CREATE TABLE `my2`.`bs_vocabulary` (
+  `idvocabulary` bigint(21) unsigned NOT NULL AUTO_INCREMENT,
+  `Key` varchar(255) DEFAULT NULL,
+  `Context` varchar(50) DEFAULT NULL,
+  `Value` text,
+  `Lang` char(4) DEFAULT 'en',
+  PRIMARY KEY (`idvocabulary`),
+  UNIQUE KEY `key` (`Key`,`Context`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
