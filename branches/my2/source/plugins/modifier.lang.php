@@ -1,6 +1,6 @@
 <?php
-function smarty_modifier_lang($string)
+function smarty_modifier_lang($string, $context='')
 {
-  return Locale::get($string); 
+  return Locale::get($string, $context);
 }
 ?>

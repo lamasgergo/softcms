@@ -26,7 +26,8 @@ global $lang;
 
   preg_match_all('/\#\#\#([\w\d\_\-]+)\#\#\#/iu',$tpl,$res);
   for ($i=0;$i<count($res[1]);$i++) {
-      $tpl = preg_replace('/\#\#\#'.$res[1][$i].'\#\#\#/iu', Locale::get($res[1][$i]), $tpl);
+      //TODO: think how realize this
+      $tpl = preg_replace('/\#\#\#'.$res[1][$i].'\#\#\#/iu', 'TO DO '.Locale::get($res[1][$i]), $tpl);
   }
 
   return $tpl;
