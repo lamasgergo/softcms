@@ -30,4 +30,11 @@ class Translit {
         return $string;
     }
 
+    function makeUrl($string){
+        $string = self::encode($string);
+        $string = preg_replace('/\s/uis', '_', $string);
+        $string = preg_replace('/[^\w\d\/\_]/uis', '', $string);
+        $string = preg_replace('/\/+/uis', '/', $string);
+        return $string;
+    }
 }
