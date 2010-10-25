@@ -3,20 +3,19 @@
 <script>
 
 	function showAddForm(module, component){
-		var title = '{/literal}{$module|cat:"_add"|lang}{literal}';
+		var title = '{/literal}{"Add"|lang:$module}{literal}';
 		addTab(title, 'add', module, component);
 	};
 
 	function showChangeForm(module, component){
 		var val = $("#"+component+"Grid").getGridParam('selrow');
-		alert(val);
 //        var val = $('div[id^=tab_]:visible').find('input[name^=actionid_]:checked').val();
 		val = $.trim(val);
 		if (val!='' && val!='undefined'){
-			var title = '{/literal}{$module|cat:"_change"|lang}{literal}';
+			var title = '{/literal}{"Change"|lang:$module}{literal}';
 			addTab(title, 'change', module, component, val);
 		} else {
-			alert('{/literal}{'check_item_first'|lang}{literal}');
+			alert('{/literal}{'Please check item first'|lang}{literal}');
 		}
 	};
 	

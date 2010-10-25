@@ -9,6 +9,8 @@ class BaseCategories extends TabElement {
 
     protected $fields = array('ID', 'UserID', 'Type', 'ParentID', 'Lang', 'Name', 'Description', 'Published', 'LoginRequired', 'Url');
 
+    protected $gridFields = array('ID', 'UserID', 'Type', 'ParentID', 'Lang', 'Name', 'Description', 'Published', 'LoginRequired', 'Url');
+
     protected $requiredFields = array('Name');
 
     function __construct() {
@@ -26,12 +28,13 @@ class BaseCategories extends TabElement {
 
     function getTreeValues($parent_id = 0, $ret = array(), $depth = 0) {
         $depth++;
-        $query = "SELECT * FROM `{$this->table}` WHERE ParentID='{$parent_id}' AND Lang='{$this->language}' ORDER BY ID";
+        $wh = $this->whCond();
+        if (!empty($wh)) $wh = ' AND '.$wh;
+        $query = "SELECT * FROM `{$this->table}` WHERE ParentID='{$parent_id}' AND Lang='{$this->language}' {$wh} ORDER BY ID";
+//        echo $query."<br>";
         $rs = $this->db->Execute($query);
         if ($rs && $rs->RecordCount() > 0) {
             while (!$rs->EOF) {
-                $depth_str = '';
-                for ($i = 0; $i < $depth; $i++) $depth_str .= '-';
                 $ret[] = $rs->fields;
                 $ret = $this->getTreeValues($rs->fields["ID"], $ret, $depth);
                 $rs->MoveNext();
@@ -42,7 +45,12 @@ class BaseCategories extends TabElement {
 
     /* show module items*/
     function getValue() {
-        $this->smarty->assign("items_arr", $this->getTreeValues());
+        return $this->getTreeValues();
+    }
+
+    function getTabContent() {
+//        $this->smarty->assign("items_arr", $this->getValue());
+        $this->smarty->assign("classObj", $this);
         return $this->smarty->fetch($this->templatePath . '/table.tpl', null, $this->language);
     }
 
@@ -100,8 +108,7 @@ class BaseCategories extends TabElement {
                 $url = $rs->fields['Url'];
             }
         }
-        $url .= '/'.Translit::encode($data['Url']);
-        $url = preg_replace('/\/+/uis', '/', $url);
+        $url .= '/'.Translit::makeUrl($data['Url']);
         $uniq = false;
         $append = 1;
         while (!$uniq){
@@ -127,13 +134,13 @@ class BaseCategories extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if (parent::add($data)) {
-                $msg = Locale::get($this->getName() . "_add_suc");
+                $msg = Locale::get("Added successfully", $this->getName());
             } else {
-                $msg = Locale::get($this->getName() . "_add_err");
+                $msg = Locale::get("Error adding", $this->getName());
                 $result = false;
             }
         } else {
-            $msg = Locale::get("requered_data_absent");
+            $msg = Locale::get("Requered data absent");
             $result = false;
         }
         return array($result, $msg);
@@ -143,14 +150,14 @@ class BaseCategories extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if (parent::change($data)) {
-                $msg = Locale::get($this->getName() . "_change_suc");
+                $msg = Locale::get("Changed successfully", $this->getName());
             } else {
                 $result = false;
-                $msg = Locale::get($this->getName() . "_change_err");
+                $msg = Locale::get("Error changing", $this->getName());
             }
         } else {
             $result = false;
-            $msg = Locale::get("requered_data_absent");
+            $msg = Locale::get("Requered data absent");
         }
 
         return array($result, $msg);
@@ -159,12 +166,12 @@ class BaseCategories extends TabElement {
     function delete($data) {
         $ids = parent::delete($data, true);
         if (count($ids) > 0) {
-            $msg = Locale::get($this->getName() . "_delete_suc");
+            $msg = Locale::get("Deleted successfully", $this->getName());
             $items = new BaseItems($this->moduleName);
             $items->delete($ids);
             $result = true;
         } else {
-            $msg = Locale::get($this->getName() . "_delete_err");
+            $msg = Locale::get("Error deleting", $this->getName());
             $result = false;
         }
 

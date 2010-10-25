@@ -20,7 +20,7 @@ class Admin {
 
         if (isset($_POST['login']) && isset($_POST['password'])){
             if (!$this->user->login($_POST['login'], $_POST['password'])){
-                $this->error = Locale::get("login_failed");
+                $this->error = Locale::get("login_failed", 'ADMIN');
             } else {
                 header('Location: '.$_SERVER['REQUEST_URI']);
             }
@@ -50,9 +50,11 @@ class Admin {
 
     function loadModule(){
         $moduleVarName = Settings::get('modules_varname');
-        $module = $_GET[$moduleVarName];
-        if (!$module) return false;
-        
+        $module = 'dashboard';
+        if (isset($_GET[$moduleVarName]) && !empty($_GET[$moduleVarName])){
+            $module = $_GET[$moduleVarName];
+        }
+
         $modulePath = $_SERVER['DOCUMENT_ROOT'].$this->modulesPath.'/'. $module . "/module.php";
         if (isset($module) && in_array($module, $this->modules) && file_exists($modulePath)) {
             if (Access::check($module, 'show')) {

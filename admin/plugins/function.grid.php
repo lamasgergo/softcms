@@ -3,9 +3,12 @@
 function smarty_function_grid($params){
 
 
-    $class = $params['class'];
-    $module = $params['module'];
-    $method = 'getValue';
+    $classObj = $params['classObj'];
+    
+    $module = $classObj->getName();
+
+    $data = $classObj->getValue();
+
 /*
     $classPath = $_SERVER['DOCUMENT_ROOT'] . "/admin/modules/" . strtolower($module) . "/" . strtolower($class) . ".php";
     
@@ -21,31 +24,41 @@ function smarty_function_grid($params){
         } else die('Class not exists');
     }
 */
-$data = $params['data'];
+//$data = $params['data'];
 
 $colNames = array();
 $colModel = array();
-foreach ($data[0] as $name=>$value){
-    $colNames[] = Locale::get($class."_".$name);
-    $sorttype = 'text';
-    if ((int)($value) > 0) $sorttype = 'int';
-    if (preg_match("/\d{2,4}[\.\-]+\d{2}[\.\-]+\d{2,4}/", $value)) $sorttype = 'date';
-    $colModel[] = array(
-        'name'  => $name,
-        'index' => $name,
-        'sorttype' => $sorttype
-        );
+
+$fields = $classObj->getGridFields();
+
+if ($fields){
+    foreach ($fields as $i=>$name){
+        $colNames[] = Locale::get($name, $module);
+        $sorttype = 'text';
+        $value = '';
+        if (isset($data[0])){
+            $value = $data[0][$name];
+        }
+        if ((int)($value) > 0) $sorttype = 'int';
+        if (preg_match("/\d{2,4}[\.\-]+\d{2}[\.\-]+\d{2,4}/", $value)) $sorttype = 'date';
+        $colModel[] = array(
+            'name'  => $name,
+            'index' => $name,
+            'sorttype' => $sorttype
+            );
+    }
 }
 $colNamesJS = json_encode($colNames);
 $colModelJS = json_encode($colModel);
 
-$html = '<table id="list" class="scroll">';
+$html = "<table id='{$module}Grid' class='scroll'>";
 foreach ($data as $i=>$row){
-    $html .= '<tr>';
-    foreach ($row as $cell){
+    $html .= '<tr id="'.$row['ID'].'" class="ui-widget-content jqgrow ui-row-ltr" role="row">';
+    foreach ($row as $name=>$cell){
+        if (!in_array($name, $fields)) continue;
         $html .= '<td>';
         $html .= $cell;
-        $html .= '</td>';
+        $html .= '&nbsp;</td>';
     }
     $html .= '</tr>';
 }
@@ -53,25 +66,26 @@ $html .= '</table>';
 
 $html .=<<<HTML
 
-<div id="pager" class="scroll" style="text-align:center;"></div>
+<div id="{$module}GridPager"></div>
 
 <script>
 jQuery(document).ready(function(){
         var lastSel;
-        jQuery("#list").jqGrid({
+        $("#{$module}Grid").jqGrid({
             datatype: 'html',
             colNames: {$colNamesJS},
             colModel : {$colModelJS},
-            pager: jQuery('#pager'),
+            pager: '#{$module}GridPager',
             rowNum:5,
-            rowList:[2,5,10,30],
+            rowList:[2,5,10,15,30,50],
             viewrecords: true,
             imgpath: 'themes/basic/images',
-            caption: 'base categories',
+            caption: '{$module}',
+            height: 'auto',
             ondblClickRow: function(id) {
                 if (id && id != lastSel) {
-                    jQuery("#list").restoreRow(lastSel);
-                    jQuery("#list").editRow(id, true);
+                    $("#{$module}Grid").restoreRow(lastSel);
+                    $("#{$module}Grid").editRow(id, true);
                     lastSel = id;
                 }
             },
