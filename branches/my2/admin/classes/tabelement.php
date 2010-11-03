@@ -37,7 +37,12 @@ class TabElement implements ITabElement{
     public $moduleName;
 
     protected $templatePath;
-	
+
+    public $paging = true;
+    public $perPage = 25;
+    public $page = 0;
+    public $totalRecords = 0;
+
 	function __construct(){
 
         $obReg = ObjectRegistry::getInstance();
@@ -48,6 +53,7 @@ class TabElement implements ITabElement{
         $this->moduleName = $_GET[Settings::get('modules_varname')];
 		$this->language = $this->user->get('EditLang');
         $this->setTemplateVars();
+        $this->setNavigationVars();
 	}
 
     //set common template privates
@@ -60,7 +66,85 @@ class TabElement implements ITabElement{
         return strtolower(__CLASS__);
     }
 
-    function getValue(){}
+    function getQuery(){
+        $query = "SELECT ";
+        if ($this->paging){
+            $query .= "SQL_CALC_FOUND_ROWS ";
+        }
+        if (count($this->fields) > 0){
+            $query .= '`'.implode('`,`', $this->fields).'`';
+        } else{
+            $query .= '*';
+        }
+        $query .= " FROM {$this->table} ";
+        if ($this->paging){
+            $startFrom = $this->page*$this->perPage;
+            $query .= " LIMIT {$startFrom}, {$this->perPage}";
+        }
+        return $query;
+    }
+
+    function getValue(){
+        $query = $this->getQuery();
+        $query = $this->db->Prepare($query);
+//        echo $query."<br>";
+	    $rs = $this->db->Execute($query);
+        if ($this->paging){
+            $totalQuery = $this->db->Prepare("SELECT FOUND_ROWS() as total");
+            $totalRS = $this->db->Execute($totalQuery);
+            if ($totalRS && $totalRS->RecordCount() > 0){
+                $this->totalRecords = $totalRS->fields['total'];
+            }
+        }
+	    if ($rs && $rs->RecordCount() > 0){
+	        return $rs->GetArray();
+	    } else {
+	        return array();
+	    }
+    }
+
+    function setNavigationVars(){
+        if (isset($_GET['page'])){
+            $this->setPage($_GET['page']);
+        }
+        if (isset($_GET['rows'])){
+            $this->setPerPage($_GET['rows']);
+        }
+    }
+
+    function setPage($page=0){
+        $page = (int)$page;
+        if ($page > 0){
+            $this->page = $page - 1;
+        } else {
+            $this->page = 0;
+        }
+
+    }
+
+    function setPerPage($perPage=0){
+        $perPage = (int)$perPage;
+        if ($perPage > 0){
+            $this->perPage = $perPage;
+        }
+
+    }
+
+    function getCurrentPage(){
+        return $this->page + 1;
+    }
+
+    function jqGridData(){
+        $rows = $this->getValue();
+        foreach ($rows as $i=>$row){
+            $responce->rows[$i]['cell'] = array_values($row);
+            $responce->rows[$i]['id'] = array_shift($row);
+        }
+        $responce->page = $this->getCurrentPage();
+        $responce->total = ceil($this->totalRecords / $this->perPage);
+        $responce->records = $this->totalRecords;
+        return $responce;
+    }
 
     function formData($form,$id=""){}
 
