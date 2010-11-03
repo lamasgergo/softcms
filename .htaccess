@@ -1,4 +1,8 @@
+Options +Indexes
+Options +FollowSymlinks
+
 RewriteEngine on
+
 
 #RewriteCond %{REQUEST_URI}  ^/admin [NC]
 #RewriteCond %{REQUEST_FILENAME} !-f
@@ -20,3 +24,6 @@ RewriteEngine on
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteRule ^.*admin/(.*)$ /admin/index.php?mod=$1 [L,QSA]
+
+
+
