@@ -33,17 +33,6 @@ class BaseItems extends TabElement {
         $this->smarty->assign("component", $this->getName());
     }
 	
-	/* show module items*/
-	function getValue(){
-	    $query = $this->db->Prepare("SELECT * FROM `{$this->table}` WHERE Lang='{$this->language}' ORDER BY ID ASC");
-//        echo $query."<br>";
-	    $rs = $this->db->Execute($query);
-	    if ($rs && $rs->RecordCount() > 0){
-	        return $rs->GetArray();
-	    } else { 
-	        return array();
-	    }
-	}
 
     function getTabContent() {
 //        $this->smarty->assign("items_arr", $this->getValue());

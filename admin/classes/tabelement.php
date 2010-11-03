@@ -50,6 +50,10 @@ class TabElement implements ITabElement{
 		$this->smarty = $obReg->get('smarty');
 		$this->db = $obReg->get('db');
 
+        if (empty($this->gridFields)){
+            $this->gridFields = $this->fields;
+        }
+
         $this->moduleName = $_GET[Settings::get('modules_varname')];
 		$this->language = $this->user->get('EditLang');
         $this->setTemplateVars();
@@ -66,6 +70,18 @@ class TabElement implements ITabElement{
         return strtolower(__CLASS__);
     }
 
+    function getConditions(){
+        $where = '';
+        $whereArr = array();
+        if ($this->language){
+            $whereArr[] = "lang='{$this->language}'";
+        }
+        if (count($whereArr) > 0){
+            $where = " WHERE ".implode(" AND ", $whereArr);
+        }
+        return $where;
+    }
+
     function getQuery(){
         $query = "SELECT ";
         if ($this->paging){
@@ -77,6 +93,7 @@ class TabElement implements ITabElement{
             $query .= '*';
         }
         $query .= " FROM {$this->table} ";
+        $query .= $this->getConditions();
         if ($this->paging){
             $startFrom = $this->page*$this->perPage;
             $query .= " LIMIT {$startFrom}, {$this->perPage}";
@@ -87,7 +104,7 @@ class TabElement implements ITabElement{
     function getValue(){
         $query = $this->getQuery();
         $query = $this->db->Prepare($query);
-//        echo $query."<br>";
+//echo $query."<br>";
 	    $rs = $this->db->Execute($query);
         if ($this->paging){
             $totalQuery = $this->db->Prepare("SELECT FOUND_ROWS() as total");

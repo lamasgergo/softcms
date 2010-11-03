@@ -44,9 +44,9 @@ class BaseCategories extends TabElement {
     }
 
     /* show module items*/
-//    function getValue() {
-//        return $this->getTreeValues();
-//    }
+    function getValue() {
+        return $this->getTreeValues();
+    }
 
     function getTabContent() {
 //        $this->smarty->assign("items_arr", $this->getValue());
