@@ -45,7 +45,7 @@ $html =<<<HTML
 jQuery(document).ready(function(){
         var lastSel;
         $("#{$module}Grid").jqGrid({
-            url: '/admin/ajax.php?class={$module}&mod=base&method=jqGridData',
+            url: '/admin/ajax.php?class={$module}&mod={$classObj->moduleName}&method=jqGridData',
             datatype: 'json',
             colNames: {$colNamesJS},
             colModel : {$colModelJS},
