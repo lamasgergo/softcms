@@ -35,7 +35,7 @@ class TabView{
 
         $main_tpl = $module.'/main.tpl';
 
-        if (!file_exists($smarty->template_exists($main_tpl))){
+        if (!file_exists($smarty->templateExists($main_tpl))){
             $main_tpl = 'admin/modules/main.tpl';
         }
 

@@ -122,6 +122,13 @@ div.form{
     width: 100%;
 }
 
+div.center {
+    width: 100%;
+    float: left;
+    padding: 2px;
+    clear: right;
+}
+
 div.left {
     float: left;
     width: 50%;
@@ -138,7 +145,7 @@ div.right {
 div.action {
     padding: 4px 0;
     float: right;
-    width: 49%;
+    width: 100%;
 }
 
 dt.line {

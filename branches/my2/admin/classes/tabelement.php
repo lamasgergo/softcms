@@ -263,7 +263,7 @@ class TabElement implements ITabElement{
         foreach ($data as $field=>$value){
             $upd[] = "`".$field."` = '".$value."'";
         }
-        $query = $this->db->Prepare("UPDATE " . $this->table . " SET ".implode(",", $upd)." WHERE ID='".$data['ID']."'");
+        echo $query = $this->db->Prepare("UPDATE " . $this->table . " SET ".implode(",", $upd)." WHERE ID='".$data['ID']."'");
         if ($this->db->Execute($query)) return true;
         return false;
     }
