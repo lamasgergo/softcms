@@ -32,9 +32,10 @@ class Translit {
 
     function makeUrl($string){
         $string = self::encode($string);
-        $string = preg_replace('/\s/uis', '_', $string);
-        $string = preg_replace('/[^\w\d\/\_]/uis', '', $string);
+        $string = preg_replace('/\s/uis', '-', $string);
+        $string = preg_replace('/[^\w\d\/\_-]/uis', '', $string);
         $string = preg_replace('/\/+/uis', '/', $string);
+        $string = strtolower($string);
         return $string;
     }
 }
