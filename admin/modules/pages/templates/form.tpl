@@ -1,4 +1,4 @@
-<div class="form div60_40">
+<div class="form">
 <form id="EXForm" onsubmit="return false;">
 <input type="hidden"	id="RequiredFields" name="RequiredFields" value="{$required}">
 <div class="action">
@@ -14,126 +14,63 @@
 </div>
 <div class="left">
     <fieldset>
-        <legend>{"Content"|lang:$component}</legend>
+        <legend>{"General"|lang:$component}</legend>
         
         <dl>
-            <dt><label for="Url">{"Url"|lang:$component}</label></dt>
+            <dt><label for="SEOName">{"SEOName"|lang:$component}</label></dt>
             <dd>
-                   <input type="text" id="Url" name="Url" value="{$items_arr[0].Url}">
+                   <input type="text" id="SEOName" name="SEOName" value="{$items_arr[0].SEOName}">
             </dd>
         </dl>
 
         <dl>
-            <dt><label for="Title">{"Title"|lang:$component}</label></dt>
+            <dt><label for="Name">{"Name"|lang:$component}</label></dt>
             <dd>
-                   <input type="text" id="Title" name="Title" value="{$items_arr[0].Title}">
+                   <input type="text" id="Name" name="Name" value="{$items_arr[0].Name}">
             </dd>
         </dl>
-
-        <dl class="line">
-            <dt><label for="Content">{"Content"|lang:$component}</label></dt>
-            <dd>
-                <div>
-                    <textarea id="Content" name="Content" class="wysiwyg">{$items_arr[0].Content}</textarea>
-                </div>                    
-            </dd>
-        </dl>
-
-        <dl class="line">
-            <dt><a href="javascript:void(0);" onclick="$('dl:has(#Teaser)').show();">{"Show Teaser"|lang:$component}</a></dt>
-        </dl>
-
-        <dl class="line" style="display:none;">
-            <dt><label for="Teaser">{$component|cat:"Teaser"|lang:$component}</label></dt>
-            <dd>
-                <div>
-                    <textarea id="Teaser" name="Teaser" class="wysiwygLite">{$items_arr[0].Teaser}</textarea>
-                </div>
-            </dd>
-        </dl>
-    </fieldset>
-</fieldset>
-</div>
-<div class="right">
-    <fieldset>
-        <legend>{"General"|lang:$component}</legend>
 
         <dl>
-            <dt><label for="CategoryID">{"CategoryID"|lang:$component}</label></dt>
+            <dt><label for="Module">{"Module"|lang:$component}</label></dt>
             <dd>
-                <select name="CategoryID" id="CategoryID" >
+                <select name="Module" id="Module" >
                     <option value="0">{"-- Select --"|lang}</option>
-                    {html_options values=$category_ids selected=$items_arr[0].CategoryID output=$category_names}
+                    {html_options values=$modules selected=$items_arr[0].Module output=$modules}
                 </select>
             </dd>
         </dl>
 
         <dl>
-            <dt><label for="Published">{"Published"|lang:$component}</label></dt>
+            <dt><label for="ModuleAttr">{"ModuleAttr"|lang:$component}</label></dt>
             <dd>
-                {if $items_arr[0].Published eq "1"}{assign var="pub_ch" value="checked"}{else}{assign var="pub_ch" value=""}{/if}
-                <input type="checkbox" id="Published" name="Published" value="1" {$pub_ch}>
+                   <input type="text" id="ModuleAttr" name="ModuleAttr" value="{$items_arr[0].ModuleAttr}">
             </dd>
         </dl>
 
         <dl>
-            <dt><label for="LoginRequired">{"LoginRequired"|lang:$component}</label></dt>
+            <dt><label for="InMenu">{"InMenu"|lang:$component}</label></dt>
             <dd>
-                {if $items_arr[0].LoginRequired eq "1"}{assign var="LoginRequired_ch" value="checked"}{else}{assign var="LoginRequired_ch" value=""}{/if}
-                <input type="checkbox" id="LoginRequired" name="LoginRequired" value="1" {$LoginRequired_ch}>
-            </dd>
-        </dl>
-
-
-        <dl>
-            <dt><label for="LoginRequired">{"LoginRequired"|lang:$component}</label></dt>
-            <dd>
-                {if $items_arr[0].LoginRequired eq "1"}{assign var="LoginRequired_ch" value="checked"}{else}{assign var="LoginRequired_ch" value=""}{/if}
-                <input type="checkbox" id="LoginRequired" name="LoginRequired" value="1" {$LoginRequired_ch}>
+                {if $items_arr[0].InMenu eq "1"}{assign var="InMenu_ch" value="checked"}{else}{assign var="InMenu_ch" value=""}{/if}
+                <input type="checkbox" id="InMenu" name="InMenu" value="1" {$InMenu_ch}>
             </dd>
         </dl>
     </fieldset>
+</div>
+<div class="right">
     <fieldset>
-        <legend>{"Meta"|lang:$component}</legend>
+        <legend>{"Attributes"|lang:$component}</legend>
 
         <dl>
-            <dt><label for="MetaTitle">{"MetaTitle"|lang:$component}</label></dt>
+            <dt><label for="ID">{"Module"|lang:$component}</label></dt>
             <dd>
-                <input type="text" id="MetaTitle" name="MetaTitle" value="{$items_arr[0].MetaTitle}" />
+                <select name="Module" id="Module" >
+                    <option value="0">{"-- Select --"|lang}</option>
+                    {html_options values=$modules selected=$items_arr[0].Module output=$modules}
+                </select>
             </dd>
         </dl>
 
-        <dl>
-            <dt><label for="MetaKeywords">{"MetaKeywords"|lang:$component}</label></dt>
-            <dd>
-                <textarea id="MetaKeywords" name="MetaKeywords">{$items_arr[0].MetaKeywords}</textarea>
-            </dd>
-        </dl>
-
-
-        <dl>
-            <dt><label for="MetaDescription">{"MetaDescription"|lang:$component}</label></dt>
-            <dd>
-                <input type="text" id="MetaDescription" name="MetaDescription" value="{$items_arr[0].MetaDescription}" />
-            </dd>
-        </dl>
-
-
-        <dl>
-            <dt><label for="MetaAlt">{"MetaAlt"|lang:$component}</label></dt>
-            <dd>
-                <input type="text" id="MetaAlt" name="MetaAlt" value="{$items_arr[0].MetaAlt}" />
-            </dd>
-        </dl>
     </fieldset>
 </div>
 </form>
 </div>
-        {literal}
-        <script type="text/javascript">
-            $(document).ready(function(){
-                initEditor('Content');
-                initEditor('Teaser', 'Lite');
-            });
-        </script>
-        {/literal}

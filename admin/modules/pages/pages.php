@@ -6,9 +6,9 @@ class Pages extends TabElement {
     
     protected $type = 'pages';
 
-    protected $fields = array('ID', 'SEOName', 'Name', 'Lang', 'Module', 'InMenu');
+    protected $fields = array('ID', 'SEOName', 'Name', 'Lang', 'Module', 'ModuleAttr', 'InMenu');
 
-    protected $requiredFields = array('SEOName', 'Name');
+    protected $requiredFields = array('Name', 'Module');
 
 	function __construct(){
 
@@ -42,18 +42,8 @@ class Pages extends TabElement {
     }
 	
     function formData($form,$id=""){
-        // ParentID
-        $categories = new BaseCategories($this->moduleName);
-        $parent_arr = $categories->getTreeListByParent(0);
-        $parent_ids = array();
-        $parent_names = array();
-        foreach ($parent_arr as $parent){
-        	$parent_ids[] = $parent["id"];
-        	$parent_names[] = $parent["name"];
-        }
-        $this->smarty->assign("category_ids",$parent_ids);
-        $this->smarty->assign("category_names",$parent_names);
-	    
+        $this->getOptions("SELECT ID, Name FROM ".DB_PREFIX."modules WHERE Active='1'", array("ID", "Name"), array("modules_ids", "modules"));
+
 		if (!empty($id)){
 			$query = $this->db->Prepare("SELECT * FROM `{$this->table}` WHERE ID='{$id}'");
 			$rs = $this->db->Execute($query);
@@ -82,10 +72,8 @@ class Pages extends TabElement {
     }
 
     function prepareData($data){
-        $data['LoginRequired'] = isset($data['LoginRequired']) ? (int)$data['LoginRequired'] : 0;
-//        $data['ViewCount'] = (int)$data['LoginRequired'];
-        $data['ImageGroupID'] = isset($data['ImageGroupID']) ? (int)$data['ImageGroupID'] : 0;
-        if (!isset($data['Url']) || empty($data['Url'])) $data['Url'] = Translit::makeUrl($data['Title']);
+        $data['InMenu'] = isset($data['InMenu']) ? (int)$data['InMenu'] : 0;
+        if (!isset($data['SEOName']) || empty($data['SEOName'])) $data['SEOName'] = Translit::makeUrl($data['Name']);
         return parent::prepareData($data);
     }
 
