@@ -6,7 +6,7 @@ class Settings{
     private static $configFile  = '/settings.php';
 
     public static function load(){
-        $db = ObjectRegistry::getInstance()->get('db');
+        global $db;
         $query = $db->prepare("SELECT `Name`, `Value` FROM ".self::get('database_prefix').self::$table);
         $res = $db->Execute($query);
         if ($res && $res->RecordCount() > 0){

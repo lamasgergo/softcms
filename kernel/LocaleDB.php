@@ -5,7 +5,7 @@ class LocaleDB {
 
     function __construct(){
         $lang = Settings::get('default_lang');
-        $user = ObjectRegistry::getInstance()->get('user');
+        $user = User::getInstance();
         if ($user){
             $lang = $user->get('EditLang');
         }
@@ -13,8 +13,8 @@ class LocaleDB {
     }
 
     public static function get($key, $context='DEFAULT'){
+        global $db;
         $value = $key;
-        $db = ObjectRegistry::getInstance()->get('db');
         $lang = self::$lang;
         $query = $db->Prepare("SELECT `Value` FROM ".DB_PREFIX.self::$table." WHERE `Key`='{$key}' AND `Context`='{$context}' AND `Lang`='{$lang}'");
         $res = $db->Execute($query);

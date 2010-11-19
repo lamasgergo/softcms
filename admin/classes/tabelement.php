@@ -44,11 +44,10 @@ class TabElement implements ITabElement{
     public $totalRecords = 0;
 
 	function __construct(){
-
-        $obReg = ObjectRegistry::getInstance();
-		$this->user = $obReg->get('user');
-		$this->smarty = $obReg->get('smarty');
-		$this->db = $obReg->get('db');
+        global $db, $smarty, $user;
+        $this->user = User::getInstance();
+		$this->smarty = $smarty;
+		$this->db = $db;
 
         if (empty($this->gridFields)){
             $this->gridFields = $this->fields;

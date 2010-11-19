@@ -8,7 +8,8 @@ class LanguageService{
     private $db;
 
     public function __construct(){
-        $this->db = ObjectRegistry::getInstance()->get('db');
+        global $db;
+        $this->db = $db;
         $this->load();
     }
 

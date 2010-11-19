@@ -12,9 +12,10 @@ class Admin {
     private $error;
 
     function __construct() {
-        $this->db = ObjectRegistry::getInstance()->get('db');
-        $this->smarty = ObjectRegistry::getInstance()->get('smarty');
-        $this->user = ObjectRegistry::getInstance()->get('user');
+        global $db, $smarty;
+        $this->db = $db;
+        $this->smarty = $smarty;
+        $this->user = User::getInstance();
         $this->lang = $this->user->get('EditLang');
         $this->getModules();
 

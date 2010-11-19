@@ -2,9 +2,8 @@
 class Access {
 
     public static function check($module, $action) {
-        $obReg = ObjectRegistry::getInstance();
-        $db = $obReg->get('db');
-        $user = $obReg->get('user');
+        global $db;
+        $user = User::getInstance();
         
         $module = strtolower($module);
         $action = strtolower($action);

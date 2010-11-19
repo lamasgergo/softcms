@@ -1,10 +1,11 @@
 <?php
 ini_set('display_errors', 1);
-include_once($_SERVER['DOCUMENT_ROOT'] . "/kernel/init.php");
+include_once(dirname(__FILE__).'/../' . "/kernel/init.php");
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/admin/classes/tabelement.php');
+require_once(dirname(__FILE__) . '/classes/tabelement.php');
 
-$user = ObjectRegistry::getInstance()->get('user');
+//$user = ObjectRegistry::getInstance()->get('user');
+$user = User::getInstance();
 if (!$user->isAuth()) die('Have no rights');
 
 $class = '';
