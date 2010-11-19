@@ -9,6 +9,7 @@ $smarty->template_dir  = $_SERVER['DOCUMENT_ROOT'].Settings::get('smarty_templat
 $smarty->compile_dir   = $_SERVER['DOCUMENT_ROOT'].Settings::get('smarty_compiled_dir');
 $smarty->plugins_dir[] = $_SERVER['DOCUMENT_ROOT'].Settings::get('smarty_plugins_dir');
 $smarty->plugins_dir[] = $_SERVER['DOCUMENT_ROOT'].'/admin/plugins';
+$smarty->plugins_dir[] = $_SERVER['DOCUMENT_ROOT'].'/source/plugins';
 $smarty->caching       = Settings::get('smarty_caching');
 $smarty->trusted_dir   = $_SERVER['DOCUMENT_ROOT'].Settings::get('smarty_compiled_dir');
 
