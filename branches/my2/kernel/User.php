@@ -10,9 +10,9 @@ class User {
 
     private static $USER_SESSION_PREFIX = 'my_';
 
-    public function __construct() {
-        $obReg = ObjectRegistry::getInstance();
-        $this->db = $obReg->get('db');
+    private function __construct() {
+        global $db;
+        $this->db = $db;
         $this->restoreSession();
         $this->getDetail();
     }

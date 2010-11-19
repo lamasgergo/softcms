@@ -12,12 +12,12 @@ RewriteRule ^admin/(.*)$ /admin/index.php?mod=$1 [L,QSA]
 RewriteCond %{REQUEST_URI}  !^/admin [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^.]*)$ /_handler.php [L,QSA]
+RewriteRule ^([^.]*)$ /index.php [L,QSA]
 
 #RewriteCond %{REQUEST_URI}  !^/admin [NC]
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteRule ^([^.]*)\.html$ /_handler.php [L,QSA]
+#RewriteRule ^([^.]*)\.html$ /index.php [L,QSA]
 
 
 #RewriteCond %{REQUEST_URI}  ^/admin [NC]

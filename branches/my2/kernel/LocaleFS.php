@@ -7,7 +7,7 @@ class LocaleFS extends Locale{
 
     function __construct(){
         $lang = Settings::get('default_lang');
-        $user = ObjectRegistry::getInstance()->get('user');
+        $user = User::getInstance();
         if ($user){
             $lang = $user->get('EditLang');
         }
