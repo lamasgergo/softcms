@@ -7,9 +7,9 @@ error_reporting(2039);
 include_once(dirname(__FILE__).'/kernel/Settings.php');
 Settings::loadFS();
 include_once(dirname(__FILE__)."/kernel/adodb.php");
+Settings::load();
 include_once(dirname(__FILE__)."/kernel/smarty.php");
 session_start();
-Settings::load();
 define('DB_PREFIX', Settings::get('database_prefix'));
 include_once(dirname(__FILE__)."/kernel/Modules.php");
 include_once(dirname(__FILE__)."/kernel/Base.php");
@@ -27,5 +27,7 @@ if ($rs && $rs->RecordCount() > 0){
         $dataObj = new $module();
         $dataObj->show();
     }
+} else {
+    $smarty->display("index.tpl");
 }
 ?>
