@@ -1,2 +1,3 @@
 123<br />
-{$this.getDetail}
+
+{include file="theme.tpl"}

@@ -47,6 +47,7 @@ class Base {
         if ($rs && $rs->RecordCount() > 0){
             $this->data = $rs->fields;
         }
+        return $this->data;
     }
 
     public function show($template=''){

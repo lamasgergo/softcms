@@ -11,7 +11,7 @@ class Settings{
         $res = $db->Execute($query);
         if ($res && $res->RecordCount() > 0){
             while (!$res->EOF){
-                self::$settings[$res->fields['Name']] = $res->fields['Value'];
+                self::set($res->fields['Name'], $res->fields['Value']);
                 $res->MoveNext();
             }
         }
@@ -25,6 +25,9 @@ class Settings{
         } else {
             header('Location: /install/');
             exit();
+        }
+        foreach ($settings as $key=>$value){
+            self::set($key, $value);
         }
         return self::$settings = $settings;
     }
