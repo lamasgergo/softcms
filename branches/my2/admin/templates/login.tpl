@@ -7,11 +7,11 @@
         <legend>{"Autorization"|lang:"LOGIN"}:</legend>
         <dl>
         	<dt><label for="login">{"Login"|lang:"LOGIN"}:</label></dt>
-            <dd><input type="text" name="login" value="{$login}"></dd>
+            <dd><input type="text" name="login" value="{$login|default:''}"></dd>
         </dl>
         <dl>
         	<dt><label for="password">{"Password"|lang:"LOGIN"}:</label></dt>
-            <dd><input type="password" name="password" value="{$password}"></dd>
+            <dd><input type="password" name="password" value="{$password|default:''}"></dd>
         </dl>
         </fieldset>
         <fieldset class="action">

@@ -44,7 +44,7 @@ class BaseCategories extends TabElement {
     }
 
     /* show module items*/
-    function getValue() {
+    function getData() {
         return $this->getTreeValues();
     }
 

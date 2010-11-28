@@ -3,24 +3,33 @@ class Base {
 
     protected $db;
     protected $smarty;
-    public $type = __CLASS__;
-    public $table;
+    protected $type = __CLASS__;
+    protected $table;
 
     protected $primaryKey = 'ID';
     protected $id;
 
-    protected $data;
+    public $data;
 
-    public $language;
+    protected $language;
+    private $user;
+
+    public $paging = true;
+    public $perPage = 0;
+    public $page = 0;
+    public $totalRecords = 0;
 
     public function __construct(){
         global $db, $smarty;
 
         $this->db = $db;
         $this->smarty = $smarty;
+        $this->user = User::getInstance();
         $this->type = $this->getName();
 
-        $this->language = 'ru';
+        $this->language = Settings::get('default_lang');
+        $this->perPage = Settings::get('navigation_perPage');
+
 
         $this->templatePath = realpath(dirname(__FILE__)."/../design/{$this->getName()}/");
 
@@ -35,25 +44,104 @@ class Base {
         $id = (int)$id;
         if (!empty($id)){
             $this->id = $id;
+            $this->paging = false;
         }
     }
 
-    public function getDetail($id=''){
-        if (empty($id)) $id = $this->id;
-        if (empty($id)) return false;
-        $id = $this->db->escape($id);
-        $query = $this->db->Prepare("SELECT * FROM {$this->table} WHERE `{$this->primaryKey}`='{$id}'");
-        $rs = $this->db->Execute($query);
-        if ($rs && $rs->RecordCount() > 0){
-            $this->data = $rs->fields;
+    function getConditions(){
+        $whereArr = array();
+        if ($this->id){
+            $whereArr[] = "`$this->primaryKey`='{$this->id}'";
         }
+        if ($this->language){
+            $whereArr[] = "lang='{$this->language}'";
+        }
+        return $whereArr;
+    }
+
+    function getWhere(){
+        $whereArr = $this->getConditions();
+        if (count($whereArr) > 0){
+            $where = " WHERE ".implode(" AND ", $whereArr);
+        }
+        return $where;
+    }
+
+    function getQuery(){
+        $query = "SELECT ";
+        if ($this->paging){
+            $query .= "SQL_CALC_FOUND_ROWS ";
+        }
+        if (count($this->fields) > 0){
+            $query .= '`'.implode('`,`', $this->fields).'`';
+        } else{
+            $query .= '*';
+        }
+        $query .= " FROM {$this->table} ";
+        $query .= $this->getWhere();
+        if ($this->paging){
+            $startFrom = $this->page*$this->perPage;
+            $query .= " LIMIT {$startFrom}, {$this->perPage}";
+        }
+        return $query;
+    }
+
+    function setNavigationVars(){
+        if (isset($_GET['page'])){
+            $this->setPage($_GET['page']);
+        }
+        if (isset($_GET['rows'])){
+            $this->setPerPage($_GET['rows']);
+        }
+    }
+
+    function setPage($page=0){
+        $page = (int)$page;
+        if ($page > 0){
+            $this->page = $page - 1;
+        } else {
+            $this->page = 0;
+        }
+
+    }
+
+    function setPerPage($perPage=0){
+        $perPage = (int)$perPage;
+        if ($perPage > 0){
+            $this->perPage = $perPage;
+        }
+
+    }
+
+    function getCurrentPage(){
+        return $this->page + 1;
+    }
+
+    function getData($id=''){
+        $this->data = array();
+        $id = (int)$id;
+        if (!empty($id)) $this->setID($id);
+        $query = $this->getQuery();
+        $query = $this->db->Prepare($query);
+echo $query."<br>";
+	    $rs = $this->db->Execute($query);
+        if ($this->paging){
+            $totalQuery = $this->db->Prepare("SELECT FOUND_ROWS() as total");
+            $totalRS = $this->db->Execute($totalQuery);
+            if ($totalRS && $totalRS->RecordCount() > 0){
+                $this->totalRecords = $totalRS->fields['total'];
+            }
+        }
+	    if ($rs && $rs->RecordCount() > 0){
+            if (!empty($id)){
+                $this->data = $rs->fields;
+            } else {
+                $this->data = $rs->GetArray();
+            }
+
+	    }
         return $this->data;
     }
 
-    public function show($template=''){
-        if (empty($template)) $template = "index";
-        $this->smarty->assignByRef('this', $this);
-        $this->smarty->display($this->templatePath."/$template.tpl", null, $this->language);
-    }
 }
 ?>

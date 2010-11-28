@@ -14,9 +14,10 @@ function smarty_function_obj($params, $template)
     $name = $params['name'];
 
     $root = realpath(dirname(__FILE__).'/../../');
-    include_once($root."/modules/{$class}/{$class}.php");
+    require_once($root."/modules/{$class}/{$class}.php");
 
-    $$name = new $class();
-    $template->register_object($name, $$name);
+    $obj = new $class();
+
+    $template->assign($name, $obj);
 }
 ?>

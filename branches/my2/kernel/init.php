@@ -1,6 +1,5 @@
 <?php
 require_once(dirname(__FILE__).'/Settings.php');
-require_once(dirname(__FILE__)."/ObjectRegistry.php");
 Settings::loadFS();
 require_once(dirname(__FILE__)."/adodb.php");
 session_start();
