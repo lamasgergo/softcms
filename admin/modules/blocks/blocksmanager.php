@@ -83,7 +83,7 @@ class BlocksManager extends TabElement{
 	}
 	
 	function getTabContent(){
-		return $this->getValue();	
+		return $this->getData();
 	}
 	
 	
@@ -91,7 +91,7 @@ class BlocksManager extends TabElement{
 	
 	
 	/* show module items*/
-	function getValue(){
+	function getData(){
 	    $items = array();
 	    $sql = $this->db->prepare("SELECT * FROM ".DB_PREFIX."blocks WHERE langID='".$this->user->edit_lang_id."'");
 	    $res = $this->db->Execute($sql);
@@ -279,7 +279,7 @@ class BlocksManager extends TabElement{
 		$this->setClassVars();
 		$this->setTemplateVars();		
 		$objResponse->addScriptCall("showTab","dhtmlgoodies_tabView1",$tab_id);
-		$objResponse->addAssign($this->visual_div_name,'innerHTML',$this->getValue());
+		$objResponse->addAssign($this->visual_div_name,'innerHTML',$this->getData());
 		$objResponse->addScriptCall("initTableWidget","myTable","100%","480","Array(".$this->sort_table_fields.")");
 		return $objResponse->getXML();
 	}

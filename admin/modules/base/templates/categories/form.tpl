@@ -17,20 +17,20 @@
         <dl>
             <dt><label for="Url">{"Url"|lang:$component}</label></dt>
             <dd>
-                   <input type="text" id="Url" name="Url" value="{$items_arr[0].Url}">
+                   <input type="text" id="Url" name="Url" value="{$items_arr[0].Url|default:''}">
             </dd>
         </dl>
         <dl>
             <dt><label for="Name">{"Name"|lang:$component}</label></dt>
-            <dd><input type="text" id="Name" name="Name" value="{$items_arr[0].Name}" class="form_item"></dd>
+            <dd><input type="text" id="Name" name="Name" value="{$items_arr[0].Name|default:''}" class="form_item"></dd>
         </dl>
         <dl class="line">
             <dt><label for="Description">{"Description"|lang:$component}</label></dt>
             <dd>
                 <div>
-                    <textarea id="Description" name="Description">{$items_arr[0].Description}</textarea>
+                    <textarea id="Description" name="Description">{$items_arr[0].Description|default:''}</textarea>
                 </div>
-            </dd>                          Т
+            </dd>
         </dl>
     </fieldset>
 </div>
@@ -40,7 +40,7 @@
         <dl>
             <dt><label for="Published">{"Published"|lang:$component}</label></dt>
             <dd>
-                {if $items_arr[0].Published eq "1"}{assign var="pub_ch" value="checked"}{else}{assign var="pub_ch" value=""}{/if}
+                {if $items_arr[0].Published|default:'1' eq "1"}{assign var="pub_ch" value="checked"}{else}{assign var="pub_ch" value=""}{/if}
                 <input type="checkbox" id="Published" name="Published" value="1" {$pub_ch}>
             </dd>
         </dl>
@@ -49,14 +49,14 @@
             <dd>
                 <select name="ParentID" id="ParentID">
                     <option value="0">{"-- Select --"|lang}</option>
-                    {html_options values=$parent_ids selected=$items_arr[0].ParentID output=$parent_names}
+                    {html_options values=$parent_ids selected=$items_arr[0].ParentID|default:'' output=$parent_names}
                 </select>
             </dd>
         </dl>
         <dl>
             <dt><label for="LoginRequired">{"LoginRequired"|lang:$component}</label></dt>
             <dd>
-                {if $items_arr[0].LoginRequired eq "1"}{assign var="LoginRequired_ch" value="checked"}{else}{assign var="LoginRequired_ch" value=""}{/if}
+                {if $items_arr[0].LoginRequired|default:'0' eq "1"}{assign var="LoginRequired_ch" value="checked"}{else}{assign var="LoginRequired_ch" value=""}{/if}
                 <input type="checkbox" id="LoginRequired" name="LoginRequired" value="1" {$LoginRequired_ch}>
             </dd>
         </dl>

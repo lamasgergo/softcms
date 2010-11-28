@@ -11,23 +11,30 @@ Settings::load();
 include_once(dirname(__FILE__)."/kernel/smarty.php");
 session_start();
 define('DB_PREFIX', Settings::get('database_prefix'));
+include_once(dirname(__FILE__)."/kernel/User.php");
 include_once(dirname(__FILE__)."/kernel/Modules.php");
-include_once(dirname(__FILE__)."/kernel/Base.php");
+
+$language = Settings::get('default_lang');
 
 $request = $_SERVER['REQUEST_URI'];
 
 $url = mysql_real_escape_string(trim($request,'/'));
+$urlArr = explode("/", $url);
+if (count($urlArr) )
+$query = $db->Prepare("SELECT Type, ID FROM ".DB_PREFIX."data_categories WHERE Url='{$url}'");
 $query = $db->Prepare("SELECT Type, ID FROM ".DB_PREFIX."data WHERE Url='{$url}'");
 $rs = $db->Execute($query);
 if ($rs && $rs->RecordCount() > 0){
     $module = $rs->fields['Type'];
     if (Modules::check($module)){
-        $modulePath = dirname(__FILE__)."/modules/{$module}/{$module}.php";
-        include_once($modulePath);
-        $dataObj = new $module();
-        $dataObj->show();
+        $smarty->assign('id', $rs->fields['ID']);
+        if ($smarty->templateExists("{$module}/{$url}.tpl")){
+            $smarty->display("{$module}/{$url}.tpl", null, $language);
+        } else {
+            $smarty->display("{$module}/index.tpl", null, $language);
+        }
     }
 } else {
-    $smarty->display("index.tpl");
+    $smarty->display("index.tpl", null, $language);
 }
 ?>

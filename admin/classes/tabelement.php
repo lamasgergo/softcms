@@ -1,11 +1,13 @@
 <?php
+require_once dirname(__FILE__).'/../../kernel/Base.php';
+
 interface ITabElement{
-    function getValue();
+    function getData();
     function formData($form, $id="");
     function getName();
 }
 
-class TabElement implements ITabElement{
+class TabElement extends Base implements ITabElement{
 	/* Name of a Tab Element */
 	private $name;
 
@@ -38,17 +40,9 @@ class TabElement implements ITabElement{
 
     protected $templatePath;
 
-    public $paging = true;
-    public $perPage = 25;
-    public $page = 0;
-    public $totalRecords = 0;
-
 	function __construct(){
-        global $db, $smarty, $user;
+        parent::__construct();
         $this->user = User::getInstance();
-		$this->smarty = $smarty;
-		$this->db = $db;
-
         if (empty($this->gridFields)){
             $this->gridFields = $this->fields;
         }
@@ -69,89 +63,8 @@ class TabElement implements ITabElement{
         return strtolower(__CLASS__);
     }
 
-    function getConditions(){
-        $where = '';
-        $whereArr = array();
-        if ($this->language){
-            $whereArr[] = "lang='{$this->language}'";
-        }
-        if (count($whereArr) > 0){
-            $where = " WHERE ".implode(" AND ", $whereArr);
-        }
-        return $where;
-    }
-
-    function getQuery(){
-        $query = "SELECT ";
-        if ($this->paging){
-            $query .= "SQL_CALC_FOUND_ROWS ";
-        }
-        if (count($this->fields) > 0){
-            $query .= '`'.implode('`,`', $this->fields).'`';
-        } else{
-            $query .= '*';
-        }
-        $query .= " FROM {$this->table} ";
-        $query .= $this->getConditions();
-        if ($this->paging){
-            $startFrom = $this->page*$this->perPage;
-            $query .= " LIMIT {$startFrom}, {$this->perPage}";
-        }
-        return $query;
-    }
-
-    function getValue(){
-        $query = $this->getQuery();
-        $query = $this->db->Prepare($query);
-//echo $query."<br>";
-	    $rs = $this->db->Execute($query);
-        if ($this->paging){
-            $totalQuery = $this->db->Prepare("SELECT FOUND_ROWS() as total");
-            $totalRS = $this->db->Execute($totalQuery);
-            if ($totalRS && $totalRS->RecordCount() > 0){
-                $this->totalRecords = $totalRS->fields['total'];
-            }
-        }
-	    if ($rs && $rs->RecordCount() > 0){
-	        return $rs->GetArray();
-	    } else {
-	        return array();
-	    }
-    }
-
-    function setNavigationVars(){
-        if (isset($_GET['page'])){
-            $this->setPage($_GET['page']);
-        }
-        if (isset($_GET['rows'])){
-            $this->setPerPage($_GET['rows']);
-        }
-    }
-
-    function setPage($page=0){
-        $page = (int)$page;
-        if ($page > 0){
-            $this->page = $page - 1;
-        } else {
-            $this->page = 0;
-        }
-
-    }
-
-    function setPerPage($perPage=0){
-        $perPage = (int)$perPage;
-        if ($perPage > 0){
-            $this->perPage = $perPage;
-        }
-
-    }
-
-    function getCurrentPage(){
-        return $this->page + 1;
-    }
-
     function jqGridData(){
-        $rows = $this->getValue();
+        $rows = $this->getData();
         foreach ($rows as $i=>$row){
             $responce->rows[$i]['cell'] = array_values($row);
             $responce->rows[$i]['id'] = array_shift($row);
@@ -322,7 +235,7 @@ class TabElement implements ITabElement{
     }
 
     function getTabContent() {
-        return $this->getValue();
+        return $this->getData();
     }
 
     function getGridFields(){
