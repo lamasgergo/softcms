@@ -8,7 +8,7 @@
  * Purpose:  creates object
  * -------------------------------------------------------------
  */
-function smarty_function_obj($params, $template)
+function smarty_function_new($params, $template)
 {
     $class = strtolower($params['class']);
     $name = $params['name'];

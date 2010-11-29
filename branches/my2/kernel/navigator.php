@@ -44,7 +44,7 @@ class Navigator{
 
 		if ($page > 1) {
 			$spage = $this->page-1;
-			$this->smarty->assign("startLink",LinkHelper::getStaticLink($link.$spage));
+			$this->smarty->assign("startLink",PageHelper::getStaticLink($link.$spage));
 		}
 		$arr = array();
 		if ($stop_loop==0){
@@ -55,7 +55,7 @@ class Navigator{
         		if ($i==$page){
         			$arr[] = '<b>'.$i.'</b>';
         		} else {
-          			$arr[] = '<a class="navLink" style="position:relative;" href="'.LinkHelper::getStaticLink($link.($i-1)).'">'.$i.'</a>';
+          			$arr[] = '<a class="navLink" style="position:relative;" href="'.PageHelper::getStaticLink($link.($i-1)).'">'.$i.'</a>';
         		}
       		}
 			//return list
@@ -63,7 +63,7 @@ class Navigator{
 		$this->smarty->assign("nav_arr",$arr);
 		if ($page < $total_pages) {
 			$spage = $this->page+1;
-			$this->smarty->assign("endLink",LinkHelper::getStaticLink($link.$spage));
+			$this->smarty->assign("endLink",PageHelper::getStaticLink($link.$spage));
 		}
 	}
 	

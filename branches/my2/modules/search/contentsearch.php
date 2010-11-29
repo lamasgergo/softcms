@@ -69,7 +69,7 @@ class SearchContent{
 
   function getPath(){
 		$path = array();
-		$path[]  = array('Name'=>$this->lang['search'], 'LinkPath'=> LinkHelper::getLink('/index.php?mod=search'));
+		$path[]  = array('Name'=>$this->lang['search'], 'LinkPath'=> PageHelper::getLink('/index.php?mod=search'));
 		return $path;
 	}
   

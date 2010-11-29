@@ -1,35 +1,20 @@
 <?php
 $_SERVER['DOCUMENT_ROOT'] = realpath(dirname(__FILE__));
 
-include_once($_SERVER['DOCUMENT_ROOT']."/config/config.php");
-include_once(__PATH__."/kernel/adodb.php");
-include_once(__PATH__."/kernel/smarty.php");
-include_once(__PATH__."/kernel/mod_rewrite.php");
+include_once(dirname(__FILE__)."/kernel/PageHelper.php");
 
-
-$path = ModRewrite::clearPath($_SERVER['REQUEST_URI']);
-
-$languages = $langService->getLanguages();
-
-if (in_array($path[0], $languages)){
-	$lang = array_shift($path);
-	$langService->setLanguage($lang);
+$path = PageHelper::clearPath($_SERVER['REQUEST_URI']);
+if (!strpos($path, "?")){
+    $path = explode("/", $path);
+    if (count($path) > 0){
+        if ($path[count($path)-2]=='page'){
+            $page = array_pop($path);
+            $pageVar = array_pop($path);
+            $_GET[$pageVar] = $page;
+        }
+        $_SERVER['REQUEST_URI'] = '/'.implode("/",$path);
+    }
 }
 
-$path = ModRewrite::checkMenuUrl($path, $lang);
-
-if ($path[count($path)-2]=='page'){
-	$page = array_pop($path);
-	$_GET[array_pop($path)] = $page;
-}
-
-if (count($path)>0){
-	$_GET[MODULE] = array_shift($path);
-	$_GET['static_path'] = implode("/", $path);
-	
-	while(count($path)>0){
-		$_GET[array_shift($path)] = array_shift($path);
-	}
-}
-require_once('./index.php');
+require_once(dirname(__FILE__).'/index.php');
 ?>
