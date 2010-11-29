@@ -12,7 +12,7 @@ RewriteRule ^admin/(.*)$ /admin/index.php?mod=$1 [L,QSA]
 RewriteCond %{REQUEST_URI}  !^/admin [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^.]*)$ /index.php [L,QSA]
+RewriteRule ^([^.]*)$ /_handler.php [L,QSA]
 
 #RewriteCond %{REQUEST_URI}  !^/admin [NC]
 #RewriteCond %{REQUEST_FILENAME} !-f

@@ -77,7 +77,7 @@ class CartModule{
 	
 	function getPath(){
 		$path = array();
-		$path[]  = array('Name'=>$this->lang['cart'], 'LinkPath'=> LinkHelper::getLink('/index.php?mod=checkout'));
+		$path[]  = array('Name'=>$this->lang['cart'], 'LinkPath'=> PageHelper::getLink('/index.php?mod=checkout'));
 		return $path;
 	}
 	

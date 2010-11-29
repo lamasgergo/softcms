@@ -128,7 +128,7 @@ class MenuTree{
 			return '/'.$link_alias;
 		} 
 		if ($link!='#'){
-			return LinkHelper::getStaticLink($link.'&menuId='.$id);
+			return PageHelper::getStaticLink($link.'&menuId='.$id);
 		} 
 		return $link;
 		 

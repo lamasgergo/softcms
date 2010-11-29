@@ -13,7 +13,29 @@
     <settings />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="304ce2b7-0d32-43cd-ae78-fdbdc6b6fbdb" name="Default" comment="" />
+    <list default="true" readonly="true" id="304ce2b7-0d32-43cd-ae78-fdbdc6b6fbdb" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/pager" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/pager/simple.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kernel/Meta.php" />
+      <change type="DELETED" beforePath="C:\htdocs\my2\kernel\mod_rewrite.php" afterPath="" />
+      <change type="MOVED" beforePath="C:\htdocs\my2\modules\helpers\LinkHelper.php" afterPath="$PROJECT_DIR$/kernel/PageHelper.php" />
+      <change type="MOVED" beforePath="C:\htdocs\my2\source\plugins\function.obj.php" afterPath="$PROJECT_DIR$/source/plugins/function.new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_handler.php" afterPath="$PROJECT_DIR$/_handler.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/article/index.tpl" afterPath="$PROJECT_DIR$/design/article/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/index.tpl" afterPath="$PROJECT_DIR$/design/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/design/theme.tpl" afterPath="$PROJECT_DIR$/design/theme.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kernel/catalognavigator.php" afterPath="$PROJECT_DIR$/kernel/catalognavigator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kernel/navigator.php" afterPath="$PROJECT_DIR$/kernel/navigator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/cart/cart.class.php" afterPath="$PROJECT_DIR$/modules/cart/cart.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/catalog_menu/menu.class.php" afterPath="$PROJECT_DIR$/modules/catalog_menu/menu.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/map/map.class.php" afterPath="$PROJECT_DIR$/modules/map/map.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/menu/menu.class.php" afterPath="$PROJECT_DIR$/modules/menu/menu.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/menu_tree/menu.class.php" afterPath="$PROJECT_DIR$/modules/menu_tree/menu.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/search/catalogsearch.php" afterPath="$PROJECT_DIR$/modules/search/catalogsearch.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/search/contentsearch.php" afterPath="$PROJECT_DIR$/modules/search/contentsearch.php" />
+    </list>
     <ignored path="my2.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -83,46 +105,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="index.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/design/index.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="7" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simple.tpl" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/design/pager/simple.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="10" selection-start="84" selection-end="352" vertical-scroll-proportion="0.20588236">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="31" selection-start="369" selection-end="377" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_handler.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_handler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="16" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageHelper.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/PageHelper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="19" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="50" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0">
+            <state line="23" column="16" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Base.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kernel/Base.php">
+      <file leaf-file-name="Meta.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/Meta.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="34" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="init.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kernel/init.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="36" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="smarty.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kernel/smarty.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="59" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.tpl" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/design/article/index.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="77" selection-start="27" selection-end="27" vertical-scroll-proportion="0.029411765">
+            <state line="28" column="30" selection-start="714" selection-end="714" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -131,25 +171,16 @@
       <file leaf-file-name="article.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/article/article.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="16" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
+            <state line="3" column="22" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Modules.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kernel/Modules.php">
+      <file leaf-file-name="Base.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel/Base.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="12" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="basecategories.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/modules/base/basecategories.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="30" selection-start="1713" selection-end="1713" vertical-scroll-proportion="0.0">
+            <state line="19" column="24" selection-start="321" selection-end="334" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -176,22 +207,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/admin/classes/admin.php" />
-        <option value="$PROJECT_DIR$/admin/classes/tabelement.php" />
-        <option value="$PROJECT_DIR$/kernel/Access.php" />
-        <option value="$PROJECT_DIR$/kernel/LanguageService.php" />
-        <option value="$PROJECT_DIR$/kernel/LocaleDB.php" />
-        <option value="$PROJECT_DIR$/kernel/LocaleFS.php" />
-        <option value="$PROJECT_DIR$/kernel/User.php" />
-        <option value="$PROJECT_DIR$/kernel/init.php" />
-        <option value="$PROJECT_DIR$/admin/logout.php" />
-        <option value="$PROJECT_DIR$/kernel/Modules.php" />
-        <option value="$PROJECT_DIR$/modules/content/content.php" />
-        <option value="$PROJECT_DIR$/modules/article/article.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/kernel/smarty.php" />
         <option value="$PROJECT_DIR$/kernel/Base.php" />
+        <option value="$PROJECT_DIR$/source/plugins/function.obj.php" />
         <option value="$PROJECT_DIR$/design/article/index.tpl" />
+        <option value="$PROJECT_DIR$/design/metaData.tpl" />
+        <option value="$PROJECT_DIR$/modules/article/article.php" />
+        <option value="$PROJECT_DIR$/kernel/Meta.php" />
+        <option value="$PROJECT_DIR$/design/theme.tpl" />
+        <option value="$PROJECT_DIR$/modules/helpers/LinkHelper.php" />
+        <option value="$PROJECT_DIR$/design/index.tpl" />
+        <option value="$PROJECT_DIR$/modules/helpers/PageHelper.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/kernel/mod_rewrite.php" />
+        <option value="$PROJECT_DIR$/kernel/PageHelper.php" />
+        <option value="$PROJECT_DIR$/_handler.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/design/pager/simple.tpl" />
       </list>
     </option>
   </component>
@@ -260,8 +291,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Favorites" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -305,11 +336,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="kernel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adodb" />
+              <option name="myItemId" value="design" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -327,7 +354,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="article" />
+              <option name="myItemId" value="pager" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -349,8 +376,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -495,10 +522,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1036" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992035" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2821388" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2821388" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969843" sideWeight="0.67235494" order="1" side_tool="false" content_ui="tabs" />
@@ -511,6 +537,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32764506" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992035" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -530,7 +557,7 @@
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="new idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="templates now rules" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -548,111 +575,110 @@
     <MESSAGE value="tupic with pages" />
     <MESSAGE value="remove ObjectRegistry" />
     <MESSAGE value="new idea" />
+    <MESSAGE value="test" />
+    <MESSAGE value="templates now rules" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/kernel/Access.php">
+    <entry file="file://$PROJECT_DIR$/source/plugins/function.new.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="27" selection-start="49" selection-end="49" vertical-scroll-proportion="0.08629441">
+        <state line="10" column="28" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/content/content.php">
+    <entry file="file://$PROJECT_DIR$/source/plugins/compiler.lang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="26" selection-start="121" selection-end="121" vertical-scroll-proportion="0.11258278" />
+        <state line="24" column="14" selection-start="747" selection-end="747" vertical-scroll-proportion="0.07981221" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/classes/tabelement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="4" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/adodb/adodb.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2595" column="13" selection-start="75583" selection-end="75583" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/LanguageService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="27" selection-start="330" selection-end="330" vertical-scroll-proportion="0.29929578" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/classes/admin.php">
+    <entry file="file://$PROJECT_DIR$/source/plugins/postfilter.lang.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/index.php">
+    <entry file="file://$PROJECT_DIR$/design/theme.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="44" selection-start="207" selection-end="207" vertical-scroll-proportion="0.099765256" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/smarty/Smarty.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="366" column="20" selection-start="13667" selection-end="13667" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="50" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/Base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="34" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="36" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/smarty.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="59" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/article/article.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="16" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel/Modules.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="12" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/modules/base/basecategories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="30" selection-start="1713" selection-end="1713" vertical-scroll-proportion="0.0">
+        <state line="18" column="19" selection-start="759" selection-end="759" vertical-scroll-proportion="-11.769231">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/design/article/index.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="77" selection-start="27" selection-end="27" vertical-scroll-proportion="0.029411765">
+        <state line="6" column="20" selection-start="221" selection-end="221" vertical-scroll-proportion="-3.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/navigator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="28" selection-start="816" selection-end="821" vertical-scroll-proportion="0.32159624">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/design/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="7" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="31" selection-start="369" selection-end="377" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/Meta.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="30" selection-start="714" selection-end="714" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/article/article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="22" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="24" selection-start="321" selection-end="334" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel/PageHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="19" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="16" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_handler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/design/pager/simple.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="10" selection-start="84" selection-end="352" vertical-scroll-proportion="0.20588236">
           <folding />
         </state>
       </provider>

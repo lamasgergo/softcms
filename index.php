@@ -13,6 +13,7 @@ session_start();
 define('DB_PREFIX', Settings::get('database_prefix'));
 include_once(dirname(__FILE__)."/kernel/User.php");
 include_once(dirname(__FILE__)."/kernel/Modules.php");
+include_once(dirname(__FILE__)."/kernel/Meta.php");
 
 $language = Settings::get('default_lang');
 
@@ -28,6 +29,7 @@ if ($rs && $rs->RecordCount() > 0){
     $module = $rs->fields['Type'];
     if (Modules::check($module)){
         $smarty->assign('id', $rs->fields['ID']);
+        Meta::setMetaByID($rs->fields['ID']);
         if ($smarty->templateExists("{$module}/{$url}.tpl")){
             $smarty->display("{$module}/{$url}.tpl", null, $language);
         } else {
