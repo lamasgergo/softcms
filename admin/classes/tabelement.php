@@ -23,11 +23,6 @@ class TabElement extends Base implements ITabElement{
 	/* user object */
 	private $user;
 
-    /* data type*/
-    protected $type;
-
-    protected $fields = array();
-
     protected $gridFields = array();
 
     protected $requiredFields = array();
@@ -175,7 +170,7 @@ class TabElement extends Base implements ITabElement{
         foreach ($data as $field=>$value){
             $upd[] = "`".$field."` = '".$value."'";
         }
-        echo $query = $this->db->Prepare("UPDATE " . $this->table . " SET ".implode(",", $upd)." WHERE ID='".$data['ID']."'");
+        $query = $this->db->Prepare("UPDATE " . $this->table . " SET ".implode(",", $upd)." WHERE ID='".$data['ID']."'");
         if ($this->db->Execute($query)) return true;
         return false;
     }
@@ -216,7 +211,7 @@ class TabElement extends Base implements ITabElement{
         if (isset($this->fields) && !in_array('ParentID', $this->fields)) return array();
 
         $depth++;
-        $query = "SELECT ID, Name FROM `{$this->table}` WHERE ParentID='{$parent_id}' AND Lang='{$this->language}' ORDER BY ID";
+        $query = "SELECT ID, Name FROM `{$this->table}` WHERE Type='{$this->type}' AND ParentID='{$parent_id}' AND Lang='{$this->language}' ORDER BY ID";
         $res = $this->db->Execute($query);
         if ($res && $res->RecordCount() > 0) {
             while (!$res->EOF) {
