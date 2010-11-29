@@ -5,6 +5,8 @@ class Base {
     protected $smarty;
     protected $type = __CLASS__;
     protected $table;
+    protected $fields = array();
+    protected $joins = array();
 
     protected $primaryKey = 'ID';
     protected $id;
@@ -25,7 +27,7 @@ class Base {
         $this->db = $db;
         $this->smarty = $smarty;
         $this->user = User::getInstance();
-        $this->type = $this->getName();
+//        $this->type = $this->getName();
 
         $this->language = Settings::get('default_lang');
         $this->perPage = Settings::get('navigation_perPage');
@@ -40,6 +42,10 @@ class Base {
         return strtolower($this->type);
     }
 
+    protected function getType(){
+        return $this->type;
+    }
+
     public function setID($id=''){
         $id = (int)$id;
         if (!empty($id)){
@@ -50,6 +56,7 @@ class Base {
 
     function getConditions(){
         $whereArr = array();
+        $whereArr[] = "`Type`='{$this->type}'";
         if ($this->id){
             $whereArr[] = "`$this->primaryKey`='{$this->id}'";
         }
@@ -78,11 +85,15 @@ class Base {
             $query .= '*';
         }
         $query .= " FROM {$this->table} ";
+        if (count($this->joins) > 0){
+            $query .= implode(' ', $this->joins);
+        }
         $query .= $this->getWhere();
         if ($this->paging){
             $startFrom = $this->page*$this->perPage;
             $query .= " LIMIT {$startFrom}, {$this->perPage}";
         }
+//echo $query;
         return $query;
     }
 
@@ -123,7 +134,7 @@ class Base {
         if (!empty($id)) $this->setID($id);
         $query = $this->getQuery();
         $query = $this->db->Prepare($query);
-echo $query."<br>";
+//echo $query."<br>";
 	    $rs = $this->db->Execute($query);
         if ($this->paging){
             $totalQuery = $this->db->Prepare("SELECT FOUND_ROWS() as total");

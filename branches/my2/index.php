@@ -14,6 +14,7 @@ define('DB_PREFIX', Settings::get('database_prefix'));
 include_once(dirname(__FILE__)."/kernel/User.php");
 include_once(dirname(__FILE__)."/kernel/Modules.php");
 include_once(dirname(__FILE__)."/kernel/Meta.php");
+include_once(dirname(__FILE__)."/kernel/PageHelper.php");
 
 $language = Settings::get('default_lang');
 
