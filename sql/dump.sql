@@ -144,7 +144,7 @@ CREATE TABLE `bs_data` (
 
 LOCK TABLES `bs_data` WRITE;
 /*!40000 ALTER TABLE `bs_data` DISABLE KEYS */;
-INSERT INTO `bs_data` VALUES (1,'article',16,6,'ru','test','123',NULL,'1','2010-05-27 11:38:09',NULL,NULL,NULL,NULL,0,0,0,'test'),(2,'article',16,21237,'ru','хрень','123',NULL,'1','2010-09-16 15:17:04',NULL,NULL,NULL,NULL,0,0,0,'hren__'),(3,'article',16,21237,'ru','хрень какая-то :)','123 :)',NULL,'1','2010-09-16 15:18:53',':)',':)',':)',':)',0,0,0,'hren___kakayato_');
+INSERT INTO `bs_data` VALUES (1,'article',16,6,'ru','test','123',NULL,'1','2010-05-27 11:38:09','test alt','test keywords','test title','test description',0,0,0,'test'),(2,'article',16,21237,'ru','хрень','123',NULL,'1','2010-09-16 15:17:04',NULL,NULL,NULL,NULL,0,0,0,'hren__'),(3,'article',16,21237,'ru','хрень какая-то :)','123 :)',NULL,'1','2010-09-16 15:18:53',':)',':)',':)',':)',0,0,0,'hren___kakayato_');
 /*!40000 ALTER TABLE `bs_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -429,7 +429,7 @@ CREATE TABLE `bs_sessions2` (
 
 LOCK TABLES `bs_sessions2` WRITE;
 /*!40000 ALTER TABLE `bs_sessions2` DISABLE KEYS */;
-INSERT INTO `bs_sessions2` VALUES ('pedjc5f66hbt3dtcm8ltfk6d35','2010-11-28 14:13:03','','2010-11-28 12:21:12','2010-11-28 13:49:03','my_id%7Cs%3A2%3A%2216%22%3B'),('e6sedcvhi4vuace2ap7st82mn0','2010-11-19 19:14:56','','2010-11-19 17:49:27','2010-11-19 18:50:56','');
+INSERT INTO `bs_sessions2` VALUES ('pedjc5f66hbt3dtcm8ltfk6d35','2010-11-28 14:13:03','','2010-11-28 12:21:12','2010-11-28 13:49:03','my_id%7Cs%3A2%3A%2216%22%3B'),('uggcr9njo41h0ecvpv0il95ig3','2010-11-29 15:18:27','','2010-11-29 14:54:19','2010-11-29 14:54:27','my_id%7Cs%3A2%3A%2216%22%3B'),('e6sedcvhi4vuace2ap7st82mn0','2010-11-19 19:14:56','','2010-11-19 17:49:27','2010-11-19 18:50:56','');
 /*!40000 ALTER TABLE `bs_sessions2` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,7 +454,7 @@ CREATE TABLE `bs_settings` (
 
 LOCK TABLES `bs_settings` WRITE;
 /*!40000 ALTER TABLE `bs_settings` DISABLE KEYS */;
-INSERT INTO `bs_settings` VALUES ('smarty_templates_dir','/design','templates: design dir'),('smarty_compiled_dir','/source/templates_c','templates: compile dir'),('smarty_plugins_dir','/source/plugins','templates: user plugins dir'),('smarty_caching','0','templates: use caching'),('default_lang','ru','default language'),('session_prefix','BS_','session prefix'),('upload_directory','/files','directory for uploading files'),('upload_tmp_directory','/files/tmp','temporary directory'),('navigation_perPage','4','show items per page'),('modules_varname','mod','_GET variable that define module name'),('theme','','current theme');
+INSERT INTO `bs_settings` VALUES ('smarty_templates_dir','/design','templates: design dir'),('smarty_compiled_dir','/source/templates_c','templates: compile dir'),('smarty_plugins_dir','/source/plugins','templates: user plugins dir'),('smarty_caching','0','templates: use caching'),('default_lang','ru','default language'),('session_prefix','BS_','session prefix'),('upload_directory','/files','directory for uploading files'),('upload_tmp_directory','/files/tmp','temporary directory'),('navigation_perPage','2','show items per page'),('modules_varname','mod','_GET variable that define module name'),('theme','','current theme'),('meta_title','Test site','Default page title'),('meta_description','Test description','Default page description'),('meta_keywords','test, site, keywords','Default page keywords'),('meta_alt','test alt','Default page alt'),('rewrite_urls','true','Use user friendly links (mod_rewrite)');
 /*!40000 ALTER TABLE `bs_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -615,4 +615,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-11-28 16:01:56
+-- Dump completed on 2010-11-29 15:26:03
