@@ -50,6 +50,9 @@ class Images extends Items {
     }
 
     function change($data) {
+        var_dump($_POST);
+        var_dump($_FILES);
+        die();
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if (parent::change($data)) {
@@ -81,6 +84,16 @@ class Images extends Items {
         return array($result, $msg);
     }
 
-    
+    function Upload(){
+        $filename = basename($_FILES['src']['name']);
+        if (move_uploaded_file($_FILES['src']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/files/' . $filename)) {
+            $data = array('filename' => $filename);
+            $data = array('src' => '/files/'.$filename);
+        } else {
+            $data = array('error' => 'Failed to save');
+        }
+//        header('Content-type: text/html');
+        return json_encode($data);
+    }
 }
 ?>
