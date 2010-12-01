@@ -1,13 +1,8 @@
 <?php
 require_once dirname(__FILE__).'/../../kernel/Base.php';
 
-interface ITabElement{
-    function getData();
-    function formData($form, $id="");
-    function getName();
-}
 
-class TabElement extends Base implements ITabElement{
+class TabElement extends Base{
 	/* Name of a Tab Element */
 	private $name;
 
@@ -59,7 +54,7 @@ class TabElement extends Base implements ITabElement{
     }
 
     function jqGridData(){
-        $rows = $this->getData();
+        $rows = $this->getData('', $this->gridFields);
         foreach ($rows as $i=>$row){
             $responce->rows[$i]['cell'] = array_values($row);
             $responce->rows[$i]['id'] = array_shift($row);
@@ -72,7 +67,6 @@ class TabElement extends Base implements ITabElement{
 
     function formData($form,$id=""){}
 
-    
 	function checkRequiredFields($data){
 		if (isset($data["RequiredFields"]) && !empty($data["RequiredFields"])){
 			$data["RequiredFields"] = preg_replace("/\s+/", "", $data["RequiredFields"]);
@@ -237,7 +231,7 @@ class TabElement extends Base implements ITabElement{
         return $this->gridFields;
     }
 
-    function whCond($cond=array()){
+    function prepareConditions($cond=array()){
         if (empty($cond)) $cond = $_GET;
         $wh = array();
         foreach ($cond as $key=>$value){

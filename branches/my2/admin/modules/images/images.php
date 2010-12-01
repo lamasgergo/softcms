@@ -12,7 +12,6 @@ class Images extends Items {
 
         $this->templatePath = dirname(__FILE__).'/templates/items/';
 
-        $this->joins[] = 'LEFT JOIN '.DB_PREFIX.'images ON (DataID=ID)';
 	}
 	
 	

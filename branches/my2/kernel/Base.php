@@ -59,6 +59,7 @@ class Base {
         $whereArr[] = "`Type`='{$this->type}'";
         if ($this->id){
             $whereArr[] = "`$this->primaryKey`='{$this->id}'";
+            $this->paging = false;
         }
         if ($this->language){
             $whereArr[] = "lang='{$this->language}'";
@@ -74,15 +75,23 @@ class Base {
         return $where;
     }
 
-    function getQuery(){
+    function getQuery($fields=''){
         $query = "SELECT ";
         if ($this->paging){
             $query .= "SQL_CALC_FOUND_ROWS ";
         }
-        if (count($this->fields) > 0){
-            $query .= '`'.implode('`,`', $this->fields).'`';
-        } else{
-            $query .= '*';
+        if (!empty($fields)){
+            if (is_array($fields)){
+                $query .= '`'.implode('`,`', $fields).'`';
+            } else {
+                $query .= $fields;
+            }
+        } else {
+            if (count($this->fields) > 0){
+                $query .= '`'.implode('`,`', $this->fields).'`';
+            } else{
+                $query .= '*';
+            }
         }
         $query .= " FROM {$this->table} ";
         if (count($this->joins) > 0){
@@ -128,11 +137,11 @@ class Base {
         return $this->page + 1;
     }
 
-    function getData($id=''){
+    function getData($id='', $fields=''){
         $this->data = array();
         $id = (int)$id;
         if (!empty($id)) $this->setID($id);
-        $query = $this->getQuery();
+        $query = $this->getQuery($fields);
         $query = $this->db->Prepare($query);
 //echo $query."<br>";
 	    $rs = $this->db->Execute($query);

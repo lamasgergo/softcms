@@ -28,9 +28,9 @@ class Categories extends TabElement {
 
     function getTreeValues($parent_id = 0, $ret = array(), $depth = 0) {
         $depth++;
-        $wh = $this->whCond();
+        $wh = $this->prepareConditions();
         if (!empty($wh)) $wh = ' AND '.$wh;
-        $query = "SELECT * FROM `{$this->table}` WHERE Type='{$this->type}' AND ParentID='{$parent_id}' AND Lang='{$this->language}' {$wh} ORDER BY ID";
+        $query = "SELECT `".implode("`,`", $this->gridFields)."` FROM `{$this->table}` WHERE Type='{$this->type}' AND ParentID='{$parent_id}' AND Lang='{$this->language}' {$wh} ORDER BY ID";
 //        echo $query."<br>";
         $rs = $this->db->Execute($query);
         if ($rs && $rs->RecordCount() > 0) {

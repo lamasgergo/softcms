@@ -15,7 +15,6 @@ $colNames = array();
 $colModel = array();
 
 $fields = $classObj->getGridFields();
-
 if ($fields){
     foreach ($fields as $i=>$name){
         $colNames[] = Locale::get($name, $module);

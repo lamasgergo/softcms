@@ -136,7 +136,6 @@
     <fieldset>
         <legend>{"Files"|lang:$component}</legend>
         <div class="filesContainer">
-            <img src="/files/1879-160.jpg" alt="" />
         </div>
     </fieldset>
 </div>

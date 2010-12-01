@@ -55,7 +55,8 @@ class Items extends TabElement {
         $this->smarty->assign("category_names",$parent_names);
 	    
 		if (!empty($id)){
-			$query = $this->db->Prepare("SELECT * FROM `{$this->table}` WHERE ID='{$id}'");
+            $this->id = $id;
+			echo $query = $this->getQuery();
 			$rs = $this->db->Execute($query);
 			if ($rs && $rs->RecordCount() > 0){
 				
