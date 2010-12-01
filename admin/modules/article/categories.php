@@ -140,7 +140,7 @@ class Categories extends TabElement {
         $ids = parent::delete($data, true);
         if (count($ids) > 0) {
             $msg = Locale::get("Deleted successfully", $this->getName());
-            $items = new Items($this->moduleName);
+            $items = new Users($this->moduleName);
             $items->delete($ids);
             $result = true;
         } else {

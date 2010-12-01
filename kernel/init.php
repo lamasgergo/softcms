@@ -16,6 +16,7 @@ require_once(dirname(__FILE__)."/User.php");
 require_once(dirname(__FILE__)."/Access.php");
 require_once(dirname(__FILE__)."/functions.php");
 require_once(dirname(__FILE__)."/Translit.php");
+require_once(dirname(__FILE__)."/Log.php");
 
 $smarty->template_dir  = $_SERVER['DOCUMENT_ROOT'].'/admin/templates';
 

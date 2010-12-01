@@ -12,7 +12,7 @@ class Admin {
     private $error;
 
     function __construct() {
-        global $db, $smarty;
+        global $db, $smarty, $debugInfo;
         $this->db = $db;
         $this->smarty = $smarty;
         $this->user = User::getInstance();
@@ -75,7 +75,6 @@ class Admin {
             $template = 'admin.tpl';
             $this->loadModule();
         }
-
         return $this->smarty->fetch($template, null, $this->lang);
     }
 

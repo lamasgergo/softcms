@@ -2,7 +2,7 @@
 
 require_once (dirname(__FILE__)."/../../modules/article/items.php");
 
-class Images extends Items {
+class Images extends Users {
 
     protected $type = 'images';
     protected $tmpStorePath = '/files/tmp/';
@@ -73,7 +73,7 @@ class Images extends Items {
         $ids = parent::delete($data);
         if (count($ids) > 0) {
             $msg = Locale::get("Deleted successfully", $this->getName());
-            $items = new Items($this->moduleName);
+            $items = new Users($this->moduleName);
             $items->delete($ids);
             $result = true;
         } else {

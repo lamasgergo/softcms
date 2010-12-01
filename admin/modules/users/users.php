@@ -1,25 +1,28 @@
 <?php
 
 require_once (dirname(__FILE__)."/../../classes/tabelement.php");
-require_once (dirname(__FILE__) . "/categories.php");
 
-class Items extends TabElement {
+class Users extends TabElement {
     
-    protected $type = 'article';
+    protected $type = 'users';
 
-    protected $fields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Content', 'Teaser', 'Published', 'MetaAlt', 'MetaKeywords', 'MetaTitle', 'MetaDescription', 'LoginRequired', 'ViewCount', 'ImageGroupID', 'Url');
+    protected $dependsOnType = false;
 
-    protected $gridFields = array('ID', 'Type', 'UserID', 'CategoryID', 'Lang', 'Title', 'Published', 'LoginRequired', 'ViewCount', 'Url');
+    protected $fields = array('ID', 'Login', 'Password', 'Lang', 'Group', 'Name', 'Email', 'Published', 'EditLang');
 
-    protected $requiredFields = array('Title', 'CategoryID');
+    protected $gridFields = array('ID', 'Login', 'Lang', 'Group', 'Name', 'Familyname', 'Email', 'Published', 'EditLang');
+
+    protected $requiredFields = array('Login', 'Password', 'Lang', 'Group', 'Name', 'Email', 'Published', 'EditLang');
 
 	function __construct(){
 
         parent::__construct();
 		
-		$this->templatePath = dirname(__FILE__).'/templates/items/';
+		$this->templatePath = dirname(__FILE__).'/templates/users/';
 		
-		$this->table = DB_PREFIX.'data';
+		$this->table = DB_PREFIX.'users';
+
+        $this->joins[] = " LEFT JOIN ".DB_PREFIX."users_data USING(ID)";
 	}
 	
 	
@@ -41,26 +44,12 @@ class Items extends TabElement {
     }
 
     function prepareFormData($id=""){
-        // ParentID
-        $categories = new Categories();
-        $categories->setType($this->type);
-        $parent_arr = $categories->getTreeListByParent(0);
-        $parent_ids = array();
-        $parent_names = array();
-        foreach ($parent_arr as $parent){
-        	$parent_ids[] = $parent["id"];
-        	$parent_names[] = $parent["name"];
-        }
-        $this->smarty->assign("category_ids",$parent_ids);
-        $this->smarty->assign("category_names",$parent_names);
-
-
 	}
 	
     function prepareData($data){
-        $data['LoginRequired'] = isset($data['LoginRequired']) ? (int)$data['LoginRequired'] : 0;
-//        $data['ViewCount'] = (int)$data['LoginRequired'];
-        if (!isset($data['Url']) || empty($data['Url'])) $data['Url'] = Translit::makeUrl($data['Title']);
+//        $data['LoginRequired'] = isset($data['LoginRequired']) ? (int)$data['LoginRequired'] : 0;
+////        $data['ViewCount'] = (int)$data['LoginRequired'];
+//        if (!isset($data['Url']) || empty($data['Url'])) $data['Url'] = Translit::makeUrl($data['Title']);
         return parent::prepareData($data);
     }
 
