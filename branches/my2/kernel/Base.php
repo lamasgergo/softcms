@@ -1,9 +1,9 @@
 <?php
 class Base {
-
     protected $db;
     protected $smarty;
     protected $type = __CLASS__;
+    protected $dependsOnType = true;
     protected $table;
     protected $fieldsOnly = false; //Use only $fields in query
     protected $fields = array();
@@ -25,12 +25,15 @@ class Base {
     public $orderBy = 'ID';
     public $orderDest = 'DESC';
 
+    private $log;
+
     public function __construct(){
         global $db, $smarty;
 
         $this->db = $db;
         $this->smarty = $smarty;
         $this->user = User::getInstance();
+        $this->log = Log::getInstance();
 //        $this->type = $this->getName();
 
         $this->language = Settings::get('default_lang');
@@ -60,7 +63,9 @@ class Base {
 
     function getConditions(){
         $whereArr = array();
-        $whereArr[] = "`Type`='{$this->type}'";
+        if ($this->dependsOnType){
+            $whereArr[] = "`Type`='{$this->type}'";
+        }
         if ($this->id){
             $whereArr[] = "`$this->primaryKey`='{$this->id}'";
             $this->paging = false;
@@ -103,12 +108,15 @@ class Base {
             $query .= implode(' ', $this->joins);
         }
         $query .= $where;
-        $query .= " ORDER BY ".$this->orderBy.' '.$this->orderDest;
+        if (!$this->id){
+            $query .= " ORDER BY ".$this->orderBy.' '.$this->orderDest;
+        }
         if ($this->paging){
             $startFrom = $this->page*$this->perPage;
             $query .= " LIMIT {$startFrom}, {$this->perPage}";
         }
 //echo $query;
+        $this->log->add($query);
         return $query;
     }
 

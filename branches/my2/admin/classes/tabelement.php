@@ -93,6 +93,7 @@ class TabElement extends Base{
 			$this->smarty->assign("items_arr",array());
 			$this->smarty->assign("after_checked","checked");
 		}
+        $this->smarty->assign("debug", Log::getInstance()->get());
     }
 
     function showForm($form, $id = "") {
