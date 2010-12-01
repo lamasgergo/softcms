@@ -40,7 +40,6 @@ class TabElement extends Base{
         $this->moduleName = $_GET[Settings::get('modules_varname')];
 		$this->language = $this->user->get('EditLang');
         $this->setTemplateVars();
-        $this->setNavigationVars();
 	}
 
     //set common template privates
@@ -54,18 +53,59 @@ class TabElement extends Base{
     }
 
     function jqGridData(){
-        $rows = $this->getData('', $this->gridFields);
+        $grid = clone $this;
+        if (($perPage = (int)$_GET['rows'])){
+            $grid->setPerPage($perPage);
+        }
+
+        $orderBy = $_GET['sidx'];
+        $orderDest = $_GET['sord'];
+        if (!empty($orderBy)){
+            $grid->setOrder($orderBy, $orderDest);
+        }
+
+        $rows = $grid->getData('', $grid->gridFields);
         foreach ($rows as $i=>$row){
             $responce->rows[$i]['cell'] = array_values($row);
             $responce->rows[$i]['id'] = array_shift($row);
         }
-        $responce->page = $this->getCurrentPage();
-        $responce->total = ceil($this->totalRecords / $this->perPage);
-        $responce->records = $this->totalRecords;
+        $responce->page = $grid->getCurrentPage();
+        $responce->total = ceil($grid->totalRecords / $grid->perPage);
+        $responce->records = $grid->totalRecords;
         return $responce;
     }
 
-    function formData($form,$id=""){}
+    function prepareFormData($id=''){}
+
+    function formData($id=""){
+        $this->prepareFormData($id);
+        if (!empty($id)){
+            $this->id = $id;
+			$query = $this->getQuery();
+			$rs = $this->db->Execute($query);
+			if ($rs && $rs->RecordCount() > 0){
+
+				$values = $rs->GetArray();
+				$this->smarty->assign("items_arr",$values);
+
+			} else $this->smarty->assign("items_arr",array());
+		} else {
+			$this->smarty->assign("items_arr",array());
+			$this->smarty->assign("after_checked","checked");
+		}
+    }
+
+    function showForm($form, $id = "") {
+        $file = '';
+        if (Access::check($this->moduleName, $form)) {
+            $this->formData($id);
+            $this->smarty->assign("required", implode(",", $this->requiredFields));
+            $this->smarty->assign("form", $form);
+            $this->setTemplateVars();
+            $file = $this->smarty->fetch($this->templatePath . '/form.tpl', null, $this->language);
+        }
+        return $file;
+    }
 
 	function checkRequiredFields($data){
 		if (isset($data["RequiredFields"]) && !empty($data["RequiredFields"])){

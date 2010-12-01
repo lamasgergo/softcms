@@ -5,6 +5,7 @@ class Base {
     protected $smarty;
     protected $type = __CLASS__;
     protected $table;
+    protected $fieldsOnly = false; //Use only $fields in query
     protected $fields = array();
     protected $joins = array();
 
@@ -20,6 +21,9 @@ class Base {
     public $perPage = 0;
     public $page = 0;
     public $totalRecords = 0;
+
+    public $orderBy = 'ID';
+    public $orderDest = 'DESC';
 
     public function __construct(){
         global $db, $smarty;
@@ -38,11 +42,11 @@ class Base {
         $this->table = DB_PREFIX . 'data';
     }
 
-    protected function getName(){
+    public function getName(){
         return strtolower($this->type);
     }
 
-    protected function getType(){
+    public function getType(){
         return $this->type;
     }
 
@@ -76,6 +80,7 @@ class Base {
     }
 
     function getQuery($fields=''){
+        $where = $this->getWhere();
         $query = "SELECT ";
         if ($this->paging){
             $query .= "SQL_CALC_FOUND_ROWS ";
@@ -87,7 +92,7 @@ class Base {
                 $query .= $fields;
             }
         } else {
-            if (count($this->fields) > 0){
+            if ($this->fieldsOnly){
                 $query .= '`'.implode('`,`', $this->fields).'`';
             } else{
                 $query .= '*';
@@ -97,22 +102,14 @@ class Base {
         if (count($this->joins) > 0){
             $query .= implode(' ', $this->joins);
         }
-        $query .= $this->getWhere();
+        $query .= $where;
+        $query .= " ORDER BY ".$this->orderBy.' '.$this->orderDest;
         if ($this->paging){
             $startFrom = $this->page*$this->perPage;
             $query .= " LIMIT {$startFrom}, {$this->perPage}";
         }
 //echo $query;
         return $query;
-    }
-
-    function setNavigationVars(){
-        if (isset($_GET['page'])){
-            $this->setPage($_GET['page']);
-        }
-        if (isset($_GET['rows'])){
-            $this->setPerPage($_GET['rows']);
-        }
     }
 
     function setPage($page=0){
@@ -135,6 +132,11 @@ class Base {
 
     function getCurrentPage(){
         return $this->page + 1;
+    }
+
+    function setOrder($field, $dest='ASC'){
+        $this->orderBy = $field;
+        $this->orderDest = $dest;
     }
 
     function getData($id='', $fields=''){

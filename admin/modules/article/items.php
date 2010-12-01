@@ -39,8 +39,8 @@ class Items extends TabElement {
         $this->smarty->assign("classObj", $this);
         return $this->smarty->fetch($this->templatePath . '/table.tpl', null, $this->language);
     }
-	
-    function formData($form,$id=""){
+
+    function prepareFormData($id=""){
         // ParentID
         $categories = new Categories();
         $categories->setType($this->type);
@@ -53,35 +53,10 @@ class Items extends TabElement {
         }
         $this->smarty->assign("category_ids",$parent_ids);
         $this->smarty->assign("category_names",$parent_names);
-	    
-		if (!empty($id)){
-            $this->id = $id;
-			echo $query = $this->getQuery();
-			$rs = $this->db->Execute($query);
-			if ($rs && $rs->RecordCount() > 0){
-				
-				$values = $rs->GetArray();
-				$this->smarty->assign("items_arr",$values);
-				
-			} else $this->smarty->assign("items_arr",array());
-		} else {
-			$this->smarty->assign("items_arr",array());
-			$this->smarty->assign("after_checked","checked");
-		}
+
+
 	}
 	
-    function showForm($form, $id = "") {
-        $file = '';
-        if (Access::check($this->moduleName, $form)) {
-            $this->formData($form, $id);
-            $this->smarty->assign("required", implode(",", $this->requiredFields));
-            $this->smarty->assign("form", $form);
-            $this->setTemplateVars();
-            $file = $this->smarty->fetch($this->templatePath . '/form.tpl', null, $this->language);
-        }
-        return $file;
-    }
-
     function prepareData($data){
         $data['LoginRequired'] = isset($data['LoginRequired']) ? (int)$data['LoginRequired'] : 0;
 //        $data['ViewCount'] = (int)$data['LoginRequired'];

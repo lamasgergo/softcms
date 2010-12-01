@@ -90,6 +90,20 @@
             </fieldset>
 
             <fieldset>
+                <legend>{"Upload files"|lang:$component}</legend>
+                <label for="src">{"Select file"|lang:$component}</label>
+                <input type="file" id="src" name="src"/>
+            </fieldset>
+            <fieldset>
+                <legend>{"Files"|lang:$component}</legend>
+                <div class="filesContainer">
+                    {foreach $images_src as $src}
+                    <img src="{$src}" alt="" class="image_preview"/>
+                    {/foreach}
+                </div>
+            </fieldset>
+
+            <fieldset>
                 <legend>{"Meta"|lang:$component}</legend>
 
                 <dl>
@@ -124,21 +138,6 @@
             </fieldset>
     </form>
 </div>
-<div class="left">
-    <form id="upload_form" method="post" enctype="multipart/form-data">
-
-        <fieldset>
-            <legend>{"Upload files"|lang:$component}</legend>
-            <label for="src">{"Select file"|lang:$component}</label>
-            <input type="file" id="src" name="src"/>
-        </fieldset>
-    </form>
-    <fieldset>
-        <legend>{"Files"|lang:$component}</legend>
-        <div class="filesContainer">
-        </div>
-    </fieldset>
-</div>
 
 {literal}
 <script type="text/javascript">
@@ -149,7 +148,8 @@
         $('input[type=file]').change(function() {
             $(this).upload('/admin/ajax.php?mod={/literal}{$module}{literal}&class={/literal}{$component}{literal}&method=Upload', function(res) {
                 if (res['src']){
-                    $('<img src="'+res['src']+'" />').appendTo($('.filesContainer'));
+                    $('<img src="'+res['src']+'" class="image_preview" />').appendTo($('.filesContainer'));
+                    $('<input type="hidden" name="src[]" value="'+res['src']+'" />').appendTo($('.filesContainer'));
                 }
                 var msg = "{/literal}{'File uploaded'|lang:$component}{literal}";
                 alert(msg);

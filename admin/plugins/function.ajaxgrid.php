@@ -5,7 +5,8 @@ function smarty_function_ajaxgrid($params){
 
     $classObj = $params['classObj'];
     
-    $module = $classObj->getName();
+    $component = $classObj->getName();
+    $module = $classObj->getType();
 
 //    $data = $classObj->getValue();
 
@@ -17,7 +18,7 @@ $colModel = array();
 $fields = $classObj->getGridFields();
 if ($fields){
     foreach ($fields as $i=>$name){
-        $colNames[] = Locale::get($name, $module);
+        $colNames[] = Locale::get($name, $component);
         $sorttype = 'text';
 //        $value = '';
 //        if (isset($data[0])){
@@ -36,33 +37,43 @@ $colNamesJS = json_encode($colNames);
 $colModelJS = json_encode($colModel);
 
 
+$changeTabTitle = Locale::get("Change", $component);
+
 $html =<<<HTML
-<table id='{$module}Grid' class='scroll'></table>
-<div id="{$module}GridPager"></div>
+<table id='{$component}Grid' class='scroll'></table>
+<div id="{$component}GridPager"></div>
 
 <script>
 jQuery(document).ready(function(){
         var lastSel;
-        $("#{$module}Grid").jqGrid({
-            url: '/admin/ajax.php?class={$module}&mod={$classObj->moduleName}&method=jqGridData',
+        $("#{$component}Grid").jqGrid({
+            url: '/admin/ajax.php?class={$component}&mod={$classObj->moduleName}&method=jqGridData',
             datatype: 'json',
             colNames: {$colNamesJS},
             colModel : {$colModelJS},
-            pager: '#{$module}GridPager',
+            pager: '#{$component}GridPager',
             rowNum:5,
             rowList:[2,5,10,15,30,50],
             viewrecords: true,
             imgpath: 'themes/basic/images',
-            caption: '{$module}',
+            caption: '{$component}',
             height: 'auto',
+            sortorder: 'DESC',
             ondblClickRow: function(id) {
                 if (id && id != lastSel) {
-                    $("#{$module}Grid").restoreRow(lastSel);
-                    $("#{$module}Grid").editRow(id, true);
+                    var title = '$changeTabTitle';
+			        addTab(title, 'change', '{$module}', '{$component}', id);
                     lastSel = id;
                 }
             },
         });
+//        jQuery("#{$component}Grid").jqGrid('navGrid','#{$component}GridPager',
+//            {}, //options
+//            {height:280,reloadAfterSubmit:false}, // edit options
+//            {height:280,reloadAfterSubmit:false}, // add options
+//            {reloadAfterSubmit:false}, // del options
+//            {} // search options
+//        );
     });
 </script>
 HTML;
