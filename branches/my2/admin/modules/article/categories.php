@@ -28,9 +28,8 @@ class Categories extends TabElement {
 
     function getTreeValues($parent_id = 0, $ret = array(), $depth = 0) {
         $depth++;
-        $wh = $this->prepareConditions();
-        if (!empty($wh)) $wh = ' AND '.$wh;
-        $query = "SELECT `".implode("`,`", $this->gridFields)."` FROM `{$this->table}` WHERE Type='{$this->type}' AND ParentID='{$parent_id}' AND Lang='{$this->language}' {$wh} ORDER BY ID";
+        $wh = $this->getWhere();
+        $query = "SELECT `".implode("`,`", $this->gridFields)."` FROM `{$this->table}` {$wh} ORDER BY {$this->orderBy} {$this->orderDest}";
 //        echo $query."<br>";
         $rs = $this->db->Execute($query);
         if ($rs && $rs->RecordCount() > 0) {
@@ -44,9 +43,9 @@ class Categories extends TabElement {
     }
 
     /* show module items*/
-    function getData() {
-        return $this->getTreeValues();
-    }
+//    function getData() {
+//        return $this->getTreeValues();
+//    }
 
     function getTabContent() {
 //        $this->smarty->assign("items_arr", $this->getValue());
@@ -55,7 +54,7 @@ class Categories extends TabElement {
     }
 
 
-    function formData($form, $id = "") {
+    function prepareFormData($id = "") {
         //Lang
         #$blocks_sql = "SELECT ID, Description FROM ".DB_PREFIX."lang";
         #$this->getOptions($blocks_sql,array('ID','Description'), array('lang_ids','lang_names'));
@@ -70,37 +69,11 @@ class Categories extends TabElement {
         }
         $this->smarty->assign("parent_ids", $parent_ids);
         $this->smarty->assign("parent_names", $parent_names);
-
-        if (!empty($id)) {
-            $query = $this->db->Prepare("SELECT * FROM `{$this->table}` WHERE ID='{$id}'");
-            $rs = $this->db->Execute($query);
-            if ($rs && $rs->RecordCount() > 0) {
-
-                $values = $rs->GetArray();
-                $this->smarty->assign("items_arr", $values);
-
-            } else $this->smarty->assign("items_arr", array());
-        } else {
-            $this->smarty->assign("items_arr", array());
-            $this->smarty->assign("after_checked", "checked");
-        }
     }
 
-    function showForm($form, $id = "") {
-        $file = '';
-        
-        if (Access::check($this->moduleName, $form)) {
-            $this->formData($form, $id);
-            $this->smarty->assign("required", implode(",", $this->requiredFields));
-            $this->smarty->assign("form", $form);
-            $this->setTemplateVars();
-            $file = $this->smarty->fetch($this->templatePath . '/form.tpl', null, $this->language);
-        }
-        return $file;
-    }
 
     function getUrlByData($data){
-        $url = '/';
+        $url = '';
         if (isset($data['ParentID']) && !empty($data['ParentID'])){
             $query = $this->db->Prepare("SELECT Url FROM `{$this->table}` WHERE ID='{$data['ParentID']}'");
             $rs = $this->db->Execute($query);
@@ -108,7 +81,7 @@ class Categories extends TabElement {
                 $url = $rs->fields['Url'];
             }
         }
-        $url .= '/'.Translit::makeUrl($data['Url']);
+        $url = Translit::makeUrl($data['Url']);
         $uniq = false;
         $append = 1;
         while (!$uniq){
