@@ -145,8 +145,8 @@ class Images extends Items {
     }
 
     function prepareFormData($id=""){
-        $images_query = "SELECT * FROM ".DB_PREFIX."images WHERE DataID='{$id}'";
-        $this->getOptions($images_query, array('Src', 'Src'), array('images_src', 'images_src2'));
+        $images_query = "SELECT Src FROM ".DB_PREFIX."images WHERE DataID='{$id}'";
+        $this->getOptions($images_query, 'images_src');
 		parent::prepareFormData($id);
 	}
 }
