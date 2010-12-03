@@ -2,7 +2,7 @@
 
 require_once (dirname(__FILE__)."/../../modules/article/items.php");
 
-class Images extends Users {
+class Images extends Items {
 
     protected $type = 'images';
     protected $tmpStorePath = '/files/tmp/';
@@ -13,7 +13,7 @@ class Images extends Users {
         parent::__construct();
 
         $this->templatePath = dirname(__FILE__).'/templates/items/';
-
+        $this->smarty->addTemplateDir($this->templatePath);
 	}
 	
 	
@@ -145,7 +145,7 @@ class Images extends Users {
     }
 
     function prepareFormData($id=""){
-        echo $images_query = "SELECT * FROM ".DB_PREFIX."images WHERE DataID='{$id}'";
+        $images_query = "SELECT * FROM ".DB_PREFIX."images WHERE DataID='{$id}'";
         $this->getOptions($images_query, array('Src', 'Src'), array('images_src', 'images_src2'));
 		parent::prepareFormData($id);
 	}

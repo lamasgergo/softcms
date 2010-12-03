@@ -19,7 +19,8 @@ class Users extends TabElement {
         parent::__construct();
 		
 		$this->templatePath = dirname(__FILE__).'/templates/users/';
-		
+        $this->smarty->addTemplateDir($this->templatePath);
+
 		$this->table = DB_PREFIX.'users';
 
         $this->joins[] = " LEFT JOIN ".DB_PREFIX."users_data USING(ID)";
@@ -44,6 +45,12 @@ class Users extends TabElement {
     }
 
     function prepareFormData($id=""){
+        $langs = LanguageService::getInstance()->getAll();
+        $this->smarty->assign("langs", $langs);
+
+        $groups_query = "SELECT Name FROM ".DB_PREFIX."users_groups";
+        $this->getOptions($groups_query, array('Name', 'Name'), array('group_ids', 'group_names'));
+		parent::prepareFormData($id);
 	}
 	
     function prepareData($data){
@@ -101,6 +108,6 @@ class Users extends TabElement {
         return array($result, $msg);
     }
 
-    
+
 }
 ?>
