@@ -61,14 +61,11 @@ class Categories extends TabElement {
 
         // ParentID
         $parent_arr = $this->getTreeListByParent(0);
-        $parent_ids = array();
-        $parent_names = array();
+        $cats = array();
         foreach ($parent_arr as $parent) {
-            $parent_ids[] = $parent["id"];
-            $parent_names[] = $parent["name"];
+            $cats[$parent["id"]] = $parent["name"];
         }
-        $this->smarty->assign("parent_ids", $parent_ids);
-        $this->smarty->assign("parent_names", $parent_names);
+        $this->smarty->assign("categories", $cats);
     }
 
 

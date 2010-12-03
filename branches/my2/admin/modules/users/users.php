@@ -49,7 +49,7 @@ class Users extends TabElement {
         $this->smarty->assign("langs", $langs);
 
         $groups_query = "SELECT Name FROM ".DB_PREFIX."users_groups";
-        $this->getOptions($groups_query, array('Name', 'Name'), array('group_ids', 'group_names'));
+        $this->getOptions($groups_query, 'groups');
 		parent::prepareFormData($id);
 	}
 	

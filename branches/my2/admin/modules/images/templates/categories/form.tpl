@@ -49,7 +49,7 @@
             <dd>
                 <select name="ParentID" id="ParentID">
                     <option value="0">{"-- Select --"|lang}</option>
-                    {html_options values=$parent_ids selected=$items_arr[0].ParentID|default:'' output=$parent_names}
+                    {html_options options=$categories selected=$items_arr[0].ParentID|default:''}
                 </select>
             </dd>
         </dl>

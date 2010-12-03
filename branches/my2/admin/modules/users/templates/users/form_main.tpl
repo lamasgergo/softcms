@@ -40,7 +40,7 @@
             <dd>
                 <select name="Group" id="Group">
                     <option value="">{"-- Select --"|lang}</option>
-                    {html_options values=$group_ids selected=$items_arr[0].Group|default:'' output=$group_names}
+                    {html_options options=$groups selected=$items_arr[0].Group|default:''}
                 </select>
             </dd>
         </dl>

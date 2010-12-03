@@ -63,7 +63,7 @@
             <dd>
                 <select name="CategoryID" id="CategoryID" >
                     <option value="0">{"-- Select --"|lang}</option>
-                    {html_options values=$category_ids selected=$items_arr[0].CategoryID|default:'' output=$category_names}
+                    {html_options options=$categories selected=$items_arr[0].CategoryID|default:''}
                 </select>
             </dd>
         </dl>

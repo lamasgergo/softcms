@@ -152,22 +152,24 @@ class TabElement extends Base{
 		return true;
 	}
 
-	function getOptions($query_str, $query_fields=array(), $assign=array()){
-	    $ids = array();
-		$names = array();
-	    if (!empty($query_str) && count($assign)!=0 && count($query_fields)!=0){
+	function getOptions($query_str, $assign=''){
+        $results = array();
+	    if (!empty($query_str) && !empty($assign)){
     		$query = $this->db->Prepare($query_str);
     		$res = $this->db->Execute($query);
     		if ($res && $res->RecordCount() > 0){
     			while (!$res->EOF){
-    				$ids[] = $res->fields[$query_fields[0]];
-    				$names[] = $res->fields[$query_fields[1]];
-    				$res->MoveNext();
-    			}
+                    $keys = array_keys($res->fields);
+                    if(count($keys)>=2){
+                        $results[$res->fields[$keys[0]]] = $res->fields[$keys[1]];
+                    } else {
+                        $results[$res->fields[$keys[0]]] = $res->fields[$keys[0]];
+                    }
+                    $res->MoveNext();
+                }
     		}
 	    }
-	    $this->smarty->assign($assign[0],$ids);
-    	$this->smarty->assign($assign[1],$names);
+        $this->smarty->assign($assign, $results);
 	}
 
     function prepareData($data){
