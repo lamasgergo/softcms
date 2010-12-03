@@ -39,8 +39,34 @@ a:link, a:hover, a:visited {
     height: 100%;
 }
 
-.image_preview{
+.filesContainer{
+}
+
+.filesContainer .image_preview{
     max-width: 160px;
     max-height: 120px;
     margin: 3px 10px;
+}
+
+.filesContainer div{
+    float: left;
+    text-align: center;
+}
+
+.filesContainer div a{
+    text-decoration: none;
+}
+
+.filesContainer div img{
+    border: none;
+}
+
+.ui-tabs-nav{
+    height: 27px;
+}
+
+.tabs div.tab_content{
+    display: inline-block;
+    overflow: hidden;
+    width: 99%;
 }
