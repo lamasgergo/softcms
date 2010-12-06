@@ -55,7 +55,12 @@ class Images extends Items {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if (parent::change($data)) {
-                $this->saveUploaded($data['ID'], $data['src']);
+                if (isset($data['src'])){
+                    $this->saveUploaded($data['ID'], $data['src']);
+                }
+                if (isset($data['removeSrc'])){
+                    $this->removeUploaded($data['ID'], $data['removeSrc']);
+                }
                 $msg = Locale::get("Changed successfully", $this->getName());
             } else {
                 $result = false;
@@ -106,19 +111,24 @@ class Images extends Items {
     function saveUploaded($DataID, $files=array()){
         if (empty($files)) return false;
 
-        $storePath = $_SERVER['DOCUMENT_ROOT'] . $this->storePath;
-        $tmpStorePath = $_SERVER['DOCUMENT_ROOT'] . $this->tmpStorePath;
+        $storePath = $this->storePath . '/'. $DataID . '/';
 
-        if (!file_exists($storePath)){
-            @mkdir($storePath);
-            @chmod($storePath, 0777);
+        if (!file_exists($_SERVER['DOCUMENT_ROOT'] . $this->storePath)){
+            @mkdir($_SERVER['DOCUMENT_ROOT'] . $this->storePath);
+            @chmod($_SERVER['DOCUMENT_ROOT'] . $this->storePath, 0777);
+        }
+
+        if (!file_exists($_SERVER['DOCUMENT_ROOT'] . $storePath)){
+            @mkdir($_SERVER['DOCUMENT_ROOT'] . $storePath);
+            @chmod($_SERVER['DOCUMENT_ROOT'] . $storePath, 0777);
         }
 
         if (is_array($files)){
             $result = true;
             foreach ($files as $file){
                 if (file_exists($_SERVER['DOCUMENT_ROOT'] . $file)){
-                    $newFile = str_replace($this->tmpStorePath, $this->storePath, $file);
+                    $newFile = str_replace($this->tmpStorePath, $storePath, $file);
+                    $newFile = preg_replace("/\/+/", '/', $newFile);
                     if (@copy($_SERVER['DOCUMENT_ROOT'] . $file, $_SERVER['DOCUMENT_ROOT'] . $newFile)){
                         @unlink($_SERVER['DOCUMENT_ROOT'] . $file);
                         $file = $newFile;
@@ -130,7 +140,8 @@ class Images extends Items {
             return $result;
         } else {
             if (file_exists($_SERVER['DOCUMENT_ROOT'] . $files)){
-                $newFile = str_replace($this->tmpStorePath, $this->storePath, $files);
+                $newFile = str_replace($this->tmpStorePath, $storePath, $files);
+                $newFile = preg_replace("/\/+/", '/', $newFile);
                 if (@copy($_SERVER['DOCUMENT_ROOT'] . $files, $_SERVER['DOCUMENT_ROOT'] . $newFile)){
                     @unlink($_SERVER['DOCUMENT_ROOT'] . $files);
                     $files = $newFile;
@@ -149,5 +160,34 @@ class Images extends Items {
         $this->getOptions($images_query, 'images_src');
 		parent::prepareFormData($id);
 	}
+
+    function removeFile($src){
+        $file = $_SERVER['DOCUMENT_ROOT'] . $src;
+        $result = false;
+        if (file_exists($file)){
+            if (@unlink($file)){
+                $result = true;
+            }
+        }
+        return $result;
+    }
+
+    function removeUploaded($DataID, $files=array()){
+        if (empty($files)) return false;
+        if (is_array($files)){
+            foreach($files as $file){
+                if ($this->removeFile($file)){
+                    $query = $this->db->Prepare("DELETE FROM ".DB_PREFIX."images WHERE DataID='{$DataID}' AND Src='{$file}'");
+                    $this->db->Execute($query);
+                }
+            }
+        } else {
+            $this->removeFile($files);
+            $query = $this->db->Prepare("DELETE FROM ".DB_PREFIX."images WHERE DataID='{$DataID}' AND Src='{$files}'");
+            $this->db->Execute($query);
+        }
+
+        return true;
+    }
 }
 ?>

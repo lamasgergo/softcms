@@ -19,6 +19,8 @@ class Admin {
         $this->lang = $this->user->get('EditLang');
         $this->getModules();
 
+        $this->smarty->addTemplateDir($_SERVER['DOCUMENT_ROOT'].'/admin/templates/');
+
         if (isset($_POST['login']) && isset($_POST['password'])){
             if (!$this->user->login($_POST['login'], $_POST['password'])){
                 $this->error = Locale::get("login_failed", 'ADMIN');
