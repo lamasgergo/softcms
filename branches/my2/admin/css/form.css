@@ -19,7 +19,8 @@ fieldset {
 /*input, textarea, select {font:12px/12px Arial, Helvetica, sans-serif; padding:0;}*/
 fieldset.action {
     text-align: right;
-    background-color: #C5DBEC;
+    /*background-color: #C5DBEC;*/
+    background: url("/source/js/jquery/themes/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png") repeat-x scroll 50% 50% #5C9CCC
 }
 
 legend {

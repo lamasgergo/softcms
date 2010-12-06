@@ -5,10 +5,7 @@
     <fieldset class="action">
         <input type="hidden" id="ID" name="ID" value="{$items_arr[0].ID}">
         <input type="hidden" id="tab_name" name="tab_name" value="{$tab_name}">
-        {if $form=='change'}
-            <input type="submit" name="{$component}_apply" value="{'Apply'|lang}" onclick="send_form('EXForm', '{$module}', '{$component}', '{$form}', true); return false;">
-        {/if}
-        <input type="submit" name="{$component}_vendors" value="{'Save'|lang}" onclick="send_form('EXForm', '{$module}', '{$component}', '{$form}'); return false;">
+        {include file="/admin/buttons/save_apply.tpl"}
     </fieldset>
 </div>
 <div class="left">
