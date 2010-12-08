@@ -17,13 +17,7 @@ BODY {
 .content {
     font-weight: normal;
     color: #7d7d7d;
-}
-
-.contentTitle {
-    font-size: 14px;
-    font-weight: bold;
-    color: #7d7d7d;
-    text-align: center;
+    padding: 15px;
 }
 
 a, a:link, a:hover, a:visited {
@@ -32,38 +26,10 @@ a, a:link, a:hover, a:visited {
     text-decoration: none;
 }
 
-.tableContainer {
-    height: 100%;
-}
-
-.filesContainer{
-}
-
-.filesContainer .image_preview{
-    max-width: 160px;
-    max-height: 120px;
-    margin: 3px 10px;
-}
-
-.filesContainer .image{
-    float: left;
-    text-align: center;
-    position: relative;
-}
-
-.filesContainer .image a{
-    text-decoration: none;
-}
-
-.filesContainer .image img{
-    border: none;
-}
-
-.filesContainer .image .actions{
-    display: none;
-    position: absolute;
-    bottom: 0;
-    right: 16px;
+#grid td,
+#grid th{
+    font-family: Tahoma, Verdana;
+    font-size: 12px;
 }
 
 .ui-tabs-nav{
@@ -74,7 +40,4 @@ a, a:link, a:hover, a:visited {
     display: inline-block;
     overflow: hidden;
     width: 99%;
-}
-
-.button_apply{
 }
