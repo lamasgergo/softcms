@@ -1,14 +1,4 @@
-*{
-    font-family: Verdana, Tahoma;
-    font-size: 12px;
-}
-
-body{
-    font-family: Verdana, Tahoma;
-    font-size: 12px;
-}
-
-fieldset {
+.form fieldset {
     font-size: 12px;
     border: 1px solid #C5DBEC;
     -moz-border-radius: 7px;
@@ -17,160 +7,161 @@ fieldset {
 }
 
 /*input, textarea, select {font:12px/12px Arial, Helvetica, sans-serif; padding:0;}*/
-fieldset.action {
+.form fieldset.action {
     text-align: right;
     /*background-color: #C5DBEC;*/
     background: url("/js/jquery/themes/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png") repeat-x scroll 50% 50% #5C9CCC
 }
 
-legend {
+.form legend {
     font-size: 11px;
     font-weight: normal;
     color: #7d7d7d;
     padding: 0 10px;
 }
 
-label {
+.form label {
     font-size: 11px;
     font-weight: bold;
     color: #666;
 }
 
-label.opt {
+.form label.opt {
     font-weight: normal;
 }
 
-dl {
+.form dl {
     clear: both;
     margin: 5px 0;
 }
 
-dt {
+.form dt {
     float: left;
     text-align: left;
     margin: 5px;
     width: 35%;
 }
 
-dd {
+.form dd {
     float: left;
     margin: 5px;
     width: 60%;
 }
 
-dd input{
+.form dd input{
     width: 99%;
 }
 
-#footer {
+.form #footer {
     font-size: 11px;
 }
 
-form {
+.form form {
     font-size: 12px;
 }
 
-hr {
+.form hr {
     height: 1px;
     width: 80%;
 }
 
-.form_but {
+.form .form_but {
     height: 25px;
 }
 
-ul {
+.form ul {
     color: green;
 }
 
-li {
+.form li {
     color: red;
     text-shadow: #7d7d7d;
 }
 
 
-label.required {
+.form label.required {
     font-size: 11px;
     font-weight: normal;
     color: red;
 }
 
-input,
-select,
-textarea,
-button{
+.form input,
+.form select,
+.form textarea,
+.form button{
     border: 1px solid #C5DAED;
     border-top: 1px solid #ABADB3;
     color: #000000;
 }
 
-input.required,
-select.required,
-option.required,
-textarea.required
+.form input.required,
+.form select.required,
+.form option.required,
+.form textarea.required
 {
     border-left: 2px solid red;
 }
 
-textarea {
+.form textarea {
     min-height: 120px;
     width: 99%;
 }
 
-div.form{
+.form div.form{
     clear: both;
     display: inline-block;
     width: 100%;
 }
 
-div.center {
+.form div.center {
     width: 100%;
     float: left;
     padding: 2px;
     clear: right;
 }
 
-div.left {
+.form div.left {
     float: left;
     width: 50%;
     padding: 2px;
     clear: right;
 }
 
-div.right {
+.form div.right {
     float: right;
     width: 49%;
     padding: 2px;
 }
 
-div.action {
+.form div.action {
     padding: 4px 0;
     width: 100%;
 }
 
-dt.line {
+.form dt.line {
     width: 100%;
     text-align: left;
 }
 
-.div60_40{
+.form .div60_40{
     width: 100%;
 }
 
-.div60_40 div.left{
+.form .div60_40 div.left{
     width: 60%;
 }
 
-.div60_40 div.right{
+.form .div60_40 div.right{
     width: 39%;
 }
 
-.line dt{
+.form .line dt{
     width: 100%;
     margin: 0;
     padding: 5px;
 }
-.line dd{
+
+.form .line dd{
     width: 100%;
     margin: 0;
     padding: 5px;
