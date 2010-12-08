@@ -39,6 +39,10 @@ class TabElement extends Base{
 
         $this->moduleName = $_GET[Settings::get('modules_varname')];
 		$this->language = $this->user->get('EditLang');
+
+        $this->templatePath = realpath(dirname(__FILE__).'/../templates/admin/modules/');
+        $this->smarty->addTemplateDir($this->templatePath);
+
         $this->setTemplateVars();
 	}
 

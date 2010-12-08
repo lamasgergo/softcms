@@ -17,7 +17,7 @@
                 <div style="clear: left;"></div>
                 </div>
             {/if}
-            <div id="{$module.ModGroup}" style="border: 1px solid;">
+            <div id="{$module.ModGroup}">
             {assign var="mod_group" value=$module.ModGroup}
         {/if}
 
