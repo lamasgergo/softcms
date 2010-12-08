@@ -15,7 +15,7 @@
 			var title = '{/literal}{"Change"|lang:$module}{literal}';
 			addTab(title, 'change', module, component, val);
 		} else {
-			alert('{/literal}{'Please check item first'|lang}{literal}');
+			showNotice('{/literal}{'Please check item first'|lang}{literal}');
 		}
 	};
 	
@@ -41,7 +41,7 @@
                 success: function(response){
                     eval('var response = '+response+';');
                     if(typeof response =='object' || typeof response =='array'){
-                        alert(response[1]);
+                        showNotice(response[1]);
                         refreshTabTable(self.module, self.component, true);
                     }
                 }

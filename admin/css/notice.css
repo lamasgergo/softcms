@@ -1,0 +1,23 @@
+.notice{
+    position: absolute;
+    top: 10px;
+    left: 10%;
+    right: 10%;
+    min-height: 50px;
+    border: 2px solid #faebd7;
+    background: #FFFFFF url("/admin/images/other/warning.png") 10px 50% no-repeat;
+}
+
+.notice .text{
+    position: relative;
+    margin: 10px 10px 10px 80px;
+}
+
+.notice .text .delete{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent url("/admin/images/other/delete.png") 0 0 no-repeat;
+    height: 16px;
+    width: 16px;
+}

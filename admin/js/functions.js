@@ -41,7 +41,7 @@ function send_form(formId, module, component, method, tabLocked){
             if (!response) return;
             eval('var response = '+response+';');
             if(typeof response =='object' || typeof response =='array'){
-                alert(response[1]);
+                showNotice(response[1]);
                 result = response[0];
             } 
             if (result){
@@ -103,4 +103,27 @@ function removeFile(src, module, component){
     });
 */
     $('img[src="'+src+'"]').parent().parent().replaceWith($('<input type="hidden" name="removeSrc[]" value="'+src+'"/>'));
+}
+
+function showNotice(message){
+    var msg = $('<div></div>').addClass('notice ui-corner-all');
+    var text = $('<div></div>').addClass('text').html(message).appendTo(msg);
+
+    $('<div class="delete"></div>').appendTo(text).click(function(){
+        var current = $(this).parent().parent();
+        $(document).find('.notice').each(function(){
+            $(this).css('top', parseInt($(this).css('top')) - parseInt(current.height()) - 10);
+        });
+        current.remove();
+    });
+
+    var last = $('.notice:last');
+    var top = parseInt(last.css('top'));
+    if (top && !isNaN(top)){
+        msg.css('top', top+last.height() + 10);
+    } else {
+        msg.css('top', 10);
+    }
+
+    msg.appendTo('body');
 }

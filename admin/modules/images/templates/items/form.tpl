@@ -56,7 +56,7 @@
                     $('<input type="hidden" name="src[]" value="'+res['src']+'" />').appendTo($('.filesContainer'));
                 }
                 var msg = "{/literal}{'File uploaded'|lang:$component}{literal}";
-                alert(msg);
+                showNotice(msg);
             }, 'json');
         });
 

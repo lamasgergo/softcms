@@ -4,6 +4,7 @@
 @import "form.css";
 @import "top_menu.css";
 @import "dashboard.css";
+@import "notice.css";
 
 BODY {
     font-family: Tahoma, Verdana;
