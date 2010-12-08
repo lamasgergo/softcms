@@ -1,4 +1,4 @@
-<script type="text/javascript" src="/source/js/jquery/plugins/fileuploader/jquery.upload-1.0.2.js"></script>
+<script type="text/javascript" src="/js/jquery/plugins/fileuploader/jquery.upload-1.0.2.js"></script>
 <div class="form div60_40">
     <form id="EXForm" onsubmit="return false;">
         <input type="hidden" id="RequiredFields" name="RequiredFields" value="{$required}">
