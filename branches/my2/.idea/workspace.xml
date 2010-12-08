@@ -14,299 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="304ce2b7-0d32-43cd-ae78-fdbdc6b6fbdb" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\dhtmlgoodies_calendar.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\image-slideshow-5.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\dropdown.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\dropdown.limited.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\dropdown.linear.columnar.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\dropdown.linear.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\dropdown.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\dropdown.upward.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\dropdown.vertical.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\dropdown.vertical.rtl.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\_template\default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\adobe.com\default.advanced.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\adobe.com\default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\adobe.com\helper.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\default.advanced.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\default.linear.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\default.ultimate.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\default.ultimate.linear.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\helper.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\default.ultimate.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\default.ultimate.linear.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\default.ultimate.upward.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\helper.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\default.advanced.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\helper.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\default.advanced.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\default.ultimate.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\helper.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\nvidia.com\default.advanced.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\nvidia.com\default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\nvidia.com\helper.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\default.advanced.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\helper.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\jquery.dropdown.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\changelog.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\bestpractice\index.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\bestpractice\jcarousel.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\bestpractice\jcarousel.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\bestpractice\jcarousel_ajax.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\bestpractice\jcarousel_functions.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\dynamic_ajax.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\dynamic_ajax.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\dynamic_ajax_php.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\dynamic_ajax_php.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\dynamic_flickr_api.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\dynamic_flickr_api.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\dynamic_flickr_feed.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\dynamic_flickr_feed.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\dynamic_javascript.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\special_circular.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\special_easing.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\special_flexible.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\special_textscroller.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\special_textscroller.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\special_thickbox.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\static_auto.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\static_callbacks.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\static_controls.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\static_multiple.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\static_simple.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\static_start.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\static_vertical.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\index.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\lib\jquery.jcarousel.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\lib\jquery.jcarousel.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\lib\jquery.jcarousel.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\lib\thickbox\thickbox.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\lib\thickbox\thickbox.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\skins\diesel\credits.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\skins\diesel\skin.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\style.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jdMenu\ChangeLog.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jdMenu\jdMenu.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jdMenu\jquery.bgiframe.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jdMenu\jquery.dimensions.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jdMenu\jquery.jdMenu.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jdMenu\jquery.jdMenu.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jdMenu\jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jdMenu\jquery.positionBy.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\niceforms-default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\niceforms.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\niceforms.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\dump.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\gears_init.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\jquery.plupload.queue.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\jquery.plupload.single.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\plupload.browserplus.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\plupload.flash.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\plupload.full.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\plupload.gears.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\plupload.html5.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\plupload.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\plupload.silverlight.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\src\jquery.plupload.queue.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\src\jquery.plupload.single.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\src\plupload.browserplus.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\src\plupload.flash.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\src\plupload.gears.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\src\plupload.html5.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\src\plupload.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\src\plupload.silverlight.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\upload.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\uniform\css\uniform.default.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\uniform\jquery.uniform.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\uniform\jquery.uniform.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.accordion.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.all.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.autocomplete.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.base.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.button.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.core.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.datepicker.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.progressbar.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.resizable.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.slider.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.tabs.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\jquery.ui.theme.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jsProgressBarHandler.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\prototype.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\sort_table.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\tab-view.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\xajax.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\xajax_uncompressed.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\_template\images" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\_template" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\adobe.com\images\dropdown_pane.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\adobe.com\images\dropdown_pane_8bit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\adobe.com\images\favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\adobe.com\images\grad1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\adobe.com\images\icon.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\adobe.com\images" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\adobe.com" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\grad1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\grad2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\nav-arrow-down-white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\nav-arrow-down.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\nav-arrow-left-white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\nav-arrow-left.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\nav-arrow-right-white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\nav-arrow-right.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\nav-arrow-top-white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\nav-arrow-top.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images\pattern1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default\images" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\default" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\icon.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-down-on.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-down-open.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-down.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-left-on.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-left-open.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-left.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-right-on.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-right-open.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-right.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-up-on.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-up-open.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\nav-arrow-up.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\pattern1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\pattern2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images\pattern3.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com\images" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\flickr.com" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\grad1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\grad2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\logo_lwis.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\nav-arrow-down-white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\nav-arrow-down.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\nav-arrow-left-white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\nav-arrow-left.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\nav-arrow-right-white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\nav-arrow-right.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\nav-arrow-top-white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\nav-arrow-top.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\pattern1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images\pattern2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity\images" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\lwis.celebrity" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\images\comnav-arrowon.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\images\comnav-arrowover.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\images\comnav-arrowover2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\images\favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\images\grad1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\images\icon.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\images\nav-arrow-right.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\images\nav-arrow-right2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\images\nav-sub-press.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com\images" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\mtv.com" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\nvidia.com\images\favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\nvidia.com\images\grad1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\nvidia.com\images\icon.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\nvidia.com\images" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\nvidia.com" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\bg_search-field.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\box1-bottom.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\box1-bottom2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\box1-outwards-top-right.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\box1-top-left.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\box1-top-right.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\box1-top.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\btn_search.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\icon.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\logo_lwis.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\nav-arrow-down-green.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\nav-arrow-down.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\nav-arrow-left.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\nav-arrow-right-green.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\nav-arrow-right.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\nav-arrow-top.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images\sun.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com\images" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes\vimeo.com" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css\themes" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown\css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\dropDown" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\bestpractice\jcarousel_loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\bestpractice\jcarousel_next.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\examples\bestpractice\jcarousel_prev.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/jcarousel/examples/bestpractice" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/jcarousel/examples" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\images\arrow-down.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\images\arrow-up.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\images\loading-small.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\images\loading-thickbox.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\images\loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/jcarousel/images" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\lib\thickbox" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\lib" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\skins\diesel\next-horizontal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\skins\diesel\next-vertical.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\skins\diesel\prev-horizontal.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\jcarousel\skins\diesel\prev-vertical.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/jcarousel/skins/diesel" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/jcarousel/skins" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/jcarousel" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/jdMenu" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\0.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\button-left.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\button-right.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\button.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\checkbox.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\file.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\input-left.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\input-right.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\input.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\radio.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\select-left.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\select-right.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\textarea-bl.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\textarea-br.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\textarea-l-off.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\textarea-l-over.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\textarea-r-off.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\textarea-r-over.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\textarea-tl.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\img\textarea-tr.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/niceforms/img" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\niceforms\nf-standard-blue.psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/niceforms" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\plupload.flash.swf" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\plupload\plupload.silverlight.xap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/plupload/src" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/plupload" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/uniform/css" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\plugins\uniform\images\sprite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/uniform/images" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/plugins/uniform" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-anim_basic_16x16.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-bg_glass_75_dadada_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-icons_2e83ff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-icons_454545_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-icons_888888_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\htdocs\my2\js\jquery\themes\base\images\ui-icons_cd0a0a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/themes/base/images" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery/themes/base" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/images/other/apply.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/images/other/delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/images/other/warning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/images/other" />
     </list>
     <ignored path="my2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -581,6 +292,136 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="article" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="other" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -784,7 +625,7 @@
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove not used" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
