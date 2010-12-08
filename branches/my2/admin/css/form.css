@@ -20,7 +20,7 @@ fieldset {
 fieldset.action {
     text-align: right;
     /*background-color: #C5DBEC;*/
-    background: url("/source/js/jquery/themes/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png") repeat-x scroll 50% 50% #5C9CCC
+    background: url("/js/jquery/themes/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png") repeat-x scroll 50% 50% #5C9CCC
 }
 
 legend {

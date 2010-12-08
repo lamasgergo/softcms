@@ -1,5 +1,5 @@
 <div id="menu_top">
-	<div class="item"><a href="/admin/"><img src="/source/images/icons/home.png" border="0"></a></div>
+	<div class="item"><a href="/admin/"><img src="/admin/icons/home.png" border="0"></a></div>
 	<div class="top_menu">
           {foreach from=$modules item=module}
             <a href="index.php?mod={$module.Name}">

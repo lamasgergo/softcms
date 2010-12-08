@@ -9,7 +9,7 @@
     <meta name="keywords" content="{Meta::getKeywords()}"/>
     <meta name="description" content="{Meta::getDescription()}"/>
 
-    <script type="text/javascript" src="/source/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery.js"></script>
 </head>
 
 <body>
