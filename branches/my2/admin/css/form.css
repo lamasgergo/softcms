@@ -32,7 +32,7 @@
 
 .form dl {
     clear: both;
-    margin: 5px 0;
+    margin: 5px 5px 5px 0;
 }
 
 .form dt {
@@ -122,14 +122,14 @@
 
 .form div.left {
     float: left;
-    width: 50%;
+    width: 60%;
     padding: 2px;
     clear: right;
 }
 
 .form div.right {
     float: right;
-    width: 49%;
+    width: 39%;
     padding: 2px;
 }
 
@@ -165,4 +165,34 @@
     width: 100%;
     margin: 0;
     padding: 5px;
+}
+
+.form .filesContainer{
+}
+
+.form .filesContainer .image_preview{
+    max-width: 160px;
+    max-height: 120px;
+    margin: 3px 10px;
+}
+
+.form .filesContainer .image{
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.form .filesContainer .image a{
+    text-decoration: none;
+}
+
+.form .filesContainer .image img{
+    border: none;
+}
+
+.form .filesContainer .image .actions{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 16px;
 }

@@ -58,6 +58,7 @@ jQuery(document).ready(function(){
             imgpath: 'themes/basic/images',
             caption: '{$component}',
             height: 'auto',
+            width: $('#backend .ui-tabs-panel').width(),
             sortorder: 'DESC',
             ondblClickRow: function(id) {
                 if (id && id != lastSel) {

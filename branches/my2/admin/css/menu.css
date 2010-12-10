@@ -1,10 +1,4 @@
 
-.header {
-    background-color: #2E2E2E;
-    height: 80px;
-    position: relative;
-}
-
 .header .menu {
     display: block;
     position: absolute;
@@ -39,4 +33,16 @@
     bottom: 5px;
     right: 10px;
     color: #FFFFFF;
+}
+
+.left .menu{
+    list-style: none;
+}
+.left .menu li{
+    margin: 5px 3px;
+    padding: 5px;
+    text-align: center;
+}
+.left .menu li a{
+
 }

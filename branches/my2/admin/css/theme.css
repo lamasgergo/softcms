@@ -1,0 +1,24 @@
+.header {
+    background-color: #2E2E2E;
+    height: 80px;
+    position: relative;
+}
+
+.main{
+    clear: both;
+    margin-left: 170px;
+}
+
+.main > .content {
+    float: left;
+    margin: 10px;
+    width: 98%;
+}
+
+.main > .left{
+    clear: left;
+    float: left;
+    position: relative;
+    width: 150px;
+    margin: 10px 10px 10px -160px;
+}
