@@ -74,34 +74,8 @@ function initEditor(item, toolbar){
     });
 }
 
-function initGrid(){
-    tableToGrid('.grid',{
-        height: 'auto',
-        multiselect: true
-//        pager: $('#gridPager')
-    });
-    $(".grid").navGrid(".gridPager",{});
-}
 
 function removeFile(src, module, component){
-/*
-    var url = '/admin/ajax.php?mod='+module+'&class='+component+'&method=removeFile';
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: {'src': src},
-        success: function(response){
-            if (!response) return;
-            eval('var response = '+response+';');
-            if(typeof response =='object' || typeof response =='array'){
-                if (response[0]==true){
-                    $('img[src="'+src+'"]').parent('.image').remove();
-                }
-                alert(response[1]);
-            }
-        }
-    });
-*/
     $('img[src="'+src+'"]').parent().parent().replaceWith($('<input type="hidden" name="removeSrc[]" value="'+src+'"/>'));
 }
 

@@ -38,9 +38,9 @@
             show: function(event, ui){
                 $(ui.panel).find('.image').each(function(){
                     $(this).hover(function(){
-                        $(this).parent().parent().find('.actions').show();
+                        $(this).find('.actions').show();
                     }, function(){
-                        $(this).parent().parent().find('.actions').hide();
+                        $(this).find('.actions').hide();
                     });
                 });
             }
