@@ -12,7 +12,7 @@ class Users extends TabElement {
 
     protected $gridFields = array('ID', 'Login', 'Lang', 'Group', 'Name', 'Familyname', 'Email', 'Published', 'EditLang');
 
-    protected $requiredFields = array('Login', 'Password', 'Lang', 'Group', 'Name', 'Email', 'Published', 'EditLang');
+    protected $requiredFields = array('Login', 'Lang', 'Group', 'Name', 'Email', 'Published', 'EditLang');
 
 	function __construct(){
 
@@ -54,7 +54,7 @@ class Users extends TabElement {
 	}
 	
     function prepareData($data){
-//        $data['LoginRequired'] = isset($data['LoginRequired']) ? (int)$data['LoginRequired'] : 0;
+//        $data['Published'] = isset($data['Published']) ? (int)$data['Published'] : 0;
 ////        $data['ViewCount'] = (int)$data['LoginRequired'];
 //        if (!isset($data['Url']) || empty($data['Url'])) $data['Url'] = Translit::makeUrl($data['Title']);
         return parent::prepareData($data);

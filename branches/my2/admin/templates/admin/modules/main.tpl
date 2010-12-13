@@ -23,7 +23,11 @@
 {literal}
 <script type="text/javascript">
 
-  $('#backend').tabs();
+  $('#backend').tabs({
+      load: function(event, ui){
+          markRequired(ui.panel);
+      }
+  });
 
 </script>
 {/literal}

@@ -1,6 +1,3 @@
-function form_skining(form){
-    markRequired(form);
-}
 
 function markRequired(form){
     var req = $(form).find('#RequiredFields').val();

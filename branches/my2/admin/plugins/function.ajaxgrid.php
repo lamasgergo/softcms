@@ -61,11 +61,9 @@ jQuery(document).ready(function(){
             width: $('#backend .ui-tabs-panel').width(),
             sortorder: 'DESC',
             ondblClickRow: function(id) {
-                if (id && id != lastSel) {
                     var title = '$changeTabTitle';
 			        addTab(title, 'change', '{$module}', '{$component}', id);
                     lastSel = id;
-                }
             },
         });
 //        jQuery("#{$component}Grid").jqGrid('navGrid','#{$component}GridPager',
