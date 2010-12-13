@@ -14,6 +14,7 @@ class TabElement extends Base{
 
 	/* current language */
 	protected $language;
+    protected $allowedLanguages = array();
 
 	/* user object */
 	private $user;
@@ -39,6 +40,7 @@ class TabElement extends Base{
 
         $this->moduleName = $_GET[Settings::get('modules_varname')];
 		$this->language = $this->user->get('EditLang');
+        $this->allowedLanguages = Access::getAllowedLanguages($this->moduleName, 'show');
 
         $this->templatePath = realpath(dirname(__FILE__).'/../templates/admin/modules/');
         $this->smarty->addTemplateDir($this->templatePath);
@@ -54,6 +56,23 @@ class TabElement extends Base{
 
     function getName() {
         return strtolower(__CLASS__);
+    }
+
+    function getConditions(){
+        $whereArr = array();
+        if ($this->dependsOnType){
+            $whereArr[] = "`Type`='{$this->type}'";
+        }
+        if ($this->id){
+            $whereArr[] = "`$this->primaryKey`='{$this->id}'";
+            $this->paging = false;
+        }
+        if (!empty($this->allowedLanguages)){
+            $langs = implode("','", $this->allowedLanguages);
+            $whereArr[] = "lang IN ('{$langs}')";
+        }
+
+        return $whereArr;
     }
 
     function jqGridData(){
@@ -113,6 +132,7 @@ class TabElement extends Base{
     }
 
 	function checkRequiredFields($data){
+        $data = $this->prepareData($data);
 		if (isset($data["RequiredFields"]) && !empty($data["RequiredFields"])){
 			$data["RequiredFields"] = preg_replace("/\s+/", "", $data["RequiredFields"]);
 			$fields = explode(",",$data["RequiredFields"]);
@@ -125,30 +145,32 @@ class TabElement extends Base{
 							return false;
 						}
 						*/
-						if (is_array($data[$field])){
-							if (!isset($data[$field][0])){
-								return false;
-							}
-						} else {
-							if (isset($data[$field])){
-								if (is_numeric($data[$field]) && $data[$field]==0){
-									return false;
-								}
-								if (is_string($data[$field]) && $data[$field]==''){
-									return false;
-								}
-								/*
-								if ($data[$field]=='' || $data[$field]==0){
-									echo $field.' '.$data[$field];
-									return false;
-								}
-								*/
-							} else {
-								print_r($data);
-								echo $field.' '.$data[$field];
-								return false;
-							}
-						}
+                        if (isset($data[$field])){
+                            if (is_array($data[$field])){
+                                if (!isset($data[$field][0])){
+                                    return false;
+                                }
+                            } else {
+                                if (isset($data[$field])){
+                                    if (is_numeric($data[$field]) && $data[$field]==0){
+                                        return false;
+                                    }
+                                    if (is_string($data[$field]) && $data[$field]==''){
+                                        return false;
+                                    }
+                                    /*
+                                         if ($data[$field]=='' || $data[$field]==0){
+                                             echo $field.' '.$data[$field];
+                                             return false;
+                                         }
+                                         */
+                                } else {
+                                    print_r($data);
+                                    echo $field.' '.$data[$field];
+                                    return false;
+                                }
+                            }
+                        }
 					}
 				}
 			}
@@ -177,19 +199,33 @@ class TabElement extends Base{
 	}
 
     function prepareData($data){
-        if (!isset($data['Published'])) $data['Published'] = 0;
-        $data['UserID'] = $this->user->get('ID');
-        $data['Type'] = $this->type;
-        $data['Lang'] = $this->language;
+
+        if (!isset($data['Published']) && in_array('Published', $this->fields)){
+            $data['Published'] = 0;
+        }
+        if (!isset($data['UserID']) && in_array('UserID', $this->fields)){
+            $data['UserID'] = $this->user->get('ID');
+        }
+        if (!isset($data['Type']) && in_array('Type', $this->fields)){
+            $data['Type'] = $this->type;
+        }
+        if (!isset($data['Lang']) && in_array('Lang', $this->fields)){
+            $data['Lang'] = $this->language;
+        }
         $values = array();
-        foreach ($this->fields as $item){
-            if ($item=='ID'){
-                if (!empty($data[$item])) $values[$item] = mysql_real_escape_string($data[$item]);
-            } else {
-				if (!empty($data[$item])){
-					$values[$item] = mysql_real_escape_string($data[$item]);
-				}
-			}
+        foreach ($this->fields as $field){
+            if (isset($data[$field])){
+                $value = trim($data[$field]);
+                if (strtolower($field)=='id'){
+                    if ($value!=''){
+                        $values[$field] = mysql_real_escape_string($value);
+                    }
+                } else {
+                    if ($value != ''){
+                        $values[$field] = mysql_real_escape_string($value);
+                    }
+                }
+            }
         }
         return $values;
     }

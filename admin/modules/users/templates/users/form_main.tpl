@@ -16,14 +16,14 @@
             </dd>
         </dl>
 
-        <dl class="line">
+        <dl>
             <dt><label for="Name">{"Name"|lang:$component}</label></dt>
             <dd>
                 <input type="text" id="Name" name="Name" value="{$items_arr[0].Name|default:''}">
             </dd>
         </dl>
 
-        <dl class="line">
+        <dl>
             <dt><label for="Email">{"Email"|lang:$component}</label></dt>
             <dd>
                 <input type="text" id="Email" name="Email" value="{$items_arr[0].Email|default:''}">
@@ -48,8 +48,7 @@
         <dl>
             <dt><label for="Published">{"Published"|lang:$component}</label></dt>
             <dd>
-                {if $items_arr[0].Published|default:'1' eq "1"}{assign var="pub_ch" value="checked"}{else}{assign var="pub_ch" value=""}{/if}
-                <input type="checkbox" id="Published" name="Published" value="1" {$pub_ch}>
+                {html_checkbox name="Published" id="Published" selected=$items_arr[0].Published value="1" default="0"}
             </dd>
         </dl>
 
