@@ -108,6 +108,10 @@ class Users extends TabElement {
         return array($result, $msg);
     }
 
-
+    function changeEditLang($data){
+        $this->language = $data['lang'];
+        $user = User::getInstance();
+        return $user->set('EditLang', $this->language);
+    }
 }
 ?>

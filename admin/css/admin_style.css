@@ -6,6 +6,7 @@
 @import "menu.css";
 @import "dashboard.css";
 @import "notice.css";
+@import "toolbar.css";
 
 BODY {
     font-family: Tahoma, Verdana;

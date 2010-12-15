@@ -56,3 +56,17 @@ function changeFormCallback(module, component, tabLocked) {
 function deleteFormCallback(module, component) {
     refreshTabTable(module, component, true);
 }
+
+$('select[name=editLang]').change(function(){
+    var url = '/admin/ajax.php?mod=users&class=users&method=changeEditLang';
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: {'lang': $(this).val()},
+        success: function(response){
+            if (response){
+                location.href=location.href;
+            }
+        }
+    });
+});
