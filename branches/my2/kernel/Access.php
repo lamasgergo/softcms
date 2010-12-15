@@ -39,6 +39,16 @@ class Access {
         }
         return $result;
     }
+
+    public static function getAllowedLanguagesList($module, $action){
+        $languages = LanguageService::getInstance()->getAll();
+        $allowed = self::getAllowedLanguages($module, $action);
+        $result = array();
+        foreach ($allowed as $lang){
+            $result[$lang] = $languages[$lang];
+        }
+        return $result;
+    }
 }
 
 ?>

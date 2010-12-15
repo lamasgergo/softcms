@@ -14,7 +14,6 @@ class TabElement extends Base{
 
 	/* current language */
 	protected $language;
-    protected $allowedLanguages = array();
 
 	/* user object */
 	private $user;
@@ -40,7 +39,6 @@ class TabElement extends Base{
 
         $this->moduleName = $_GET[Settings::get('modules_varname')];
 		$this->language = $this->user->get('EditLang');
-        $this->allowedLanguages = Access::getAllowedLanguages($this->moduleName, 'show');
 
         $this->templatePath = realpath(dirname(__FILE__).'/../templates/admin/modules/');
         $this->smarty->addTemplateDir($this->templatePath);
@@ -58,22 +56,6 @@ class TabElement extends Base{
         return strtolower(__CLASS__);
     }
 
-    function getConditions(){
-        $whereArr = array();
-        if ($this->dependsOnType){
-            $whereArr[] = "`Type`='{$this->type}'";
-        }
-        if ($this->id){
-            $whereArr[] = "`$this->primaryKey`='{$this->id}'";
-            $this->paging = false;
-        }
-        if (!empty($this->allowedLanguages)){
-            $langs = implode("','", $this->allowedLanguages);
-            $whereArr[] = "lang IN ('{$langs}')";
-        }
-
-        return $whereArr;
-    }
 
     function jqGridData(){
         $grid = clone $this;

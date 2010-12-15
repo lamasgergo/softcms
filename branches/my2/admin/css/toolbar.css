@@ -1,0 +1,17 @@
+.toolbar{
+    display: block;
+    clear: both;
+    height: 27px;
+    margin: 4px 0;
+}
+
+.toolbar .actions{
+    float: left;
+    padding: 2px 5px;
+}
+
+.toolbar .language{
+    float: right;
+    margin: 3px 0px;
+    padding: 3px
+}

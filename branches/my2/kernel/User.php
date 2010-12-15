@@ -7,12 +7,14 @@ class User {
     private $data;
     private $id;
     private static $instance;
+    private $table;
 
     private static $USER_SESSION_PREFIX = 'my_';
 
     private function __construct() {
         global $db;
         $this->db = $db;
+        $this->table = DB_PREFIX . 'users';
         $this->restoreSession();
         $this->getDetail();
     }
@@ -31,7 +33,7 @@ class User {
 
         $passwd = crypt($password, CRYPT_MD5);
 
-        $query = $this->db->prepare("SELECT ID, Login, Published, `Group` FROM " . DB_PREFIX . "users WHERE Login='" . $login . "' AND Password='" . $passwd . "' AND Published='1'");
+        $query = $this->db->prepare("SELECT ID, Login, Published, `Group` FROM {$this->table} WHERE Login='{$login}' AND Password='{$passwd}' AND Published='1'");
         if ($this->backend) {
             $query .= " AND `Group` IN ('" . implode("','", $this->backend_groups) . "')";
         }
@@ -46,10 +48,10 @@ class User {
     }
 
     private function getDetail() {
-        $query = $this->db->prepare("SELECT `ID`, `Login`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang` FROM " . DB_PREFIX . "users WHERE ID='" . $this->id . "'");
+        $query = $this->db->prepare("SELECT `ID`, `Login`, `Lang`, `Group`, `Name`, `Email`, `Published`, `EditLang` FROM {$this->table} WHERE ID='{$this->id}'");
         $res = $this->db->Execute($query);
         if ($res && $res->RecordCount() > 0) {
-            $data = $res->getArray();
+            $data = $res->GetArray();
             if (!isset($data[0])) $data[0] = array();
             $this->data = $data[0];
         }
@@ -95,6 +97,17 @@ class User {
 
     public function getData() {
         return $this->data;
+    }
+
+    public function set($param, $value) {
+        $this->data[$param]=$value;
+        $param = $this->db->escape($param);
+        $value = $this->db->escape($value);
+        $query = $this->db->Prepare("UPDATE {$this->table} SET `$param`='{$value}' WHERE ID='{$this->id}'");
+        if ($this->db->Execute($query)){
+            return true;
+        }
+        return false;
     }
 }
 
