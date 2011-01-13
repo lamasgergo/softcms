@@ -1,8 +1,8 @@
 <?php
-include_once(dirname(__FILE__) . '/adodb/adodb.inc.php');
-include_once(dirname(__FILE__) . '/adodb/drivers/adodb-mysql.inc.php');
+include_once(dirname(__FILE__) . '/../lib/vendor/adodb/adodb.inc.php');
+include_once(dirname(__FILE__) . '/../lib/vendor/adodb/drivers/adodb-mysql.inc.php');
 //require_once(dirname(__FILE__) . '/adodb/adodb-active-record.inc.php');
-require_once(dirname(__FILE__) . '/adodb/session/adodb-session2.php');
+require_once(dirname(__FILE__) . '/../lib/vendor/adodb/session/adodb-session2.php');
 
 //$db = ADONewConnection(Settings::get('driver'));
 $db = new ADODB_mysql();
