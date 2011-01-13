@@ -1,6 +1,7 @@
 <?php
 
 require_once (dirname(__FILE__)."/../../classes/tabelement.php");
+require_once (dirname(__FILE__)."/UsersAdditional.php");
 
 class Users extends TabElement {
     
@@ -10,7 +11,7 @@ class Users extends TabElement {
 
     protected $fields = array('ID', 'Login', 'Password', 'Lang', 'Group', 'Name', 'Email', 'Published', 'EditLang');
 
-    protected $gridFields = array('ID', 'Login', 'Lang', 'Group', 'Name', 'Familyname', 'Email', 'Published', 'EditLang');
+    protected $gridFields = array('ID', 'Login', 'Lang', 'Group', 'Name');
 
     protected $requiredFields = array('Login', 'Lang', 'Group', 'Name', 'Email', 'Published', 'EditLang');
 
@@ -23,7 +24,7 @@ class Users extends TabElement {
 
 		$this->table = DB_PREFIX.'users';
 
-        $this->joins[] = " LEFT JOIN ".DB_PREFIX."users_data USING(ID)";
+//        $this->joins[] = " LEFT JOIN ".DB_PREFIX."users_data USING(ID)";
 	}
 	
 	
@@ -41,18 +42,21 @@ class Users extends TabElement {
     function getTabContent() {
 //        $this->smarty->assign("items_arr", $this->getValue());
         $this->smarty->assign("classObj", $this);
-        return $this->smarty->fetch('table.tpl', null, $this->language);
+        return $this->smarty->fetch($this->tableTemplate, null, $this->language);
     }
 
-    function prepareFormData($id=""){
+    function prepareFormData($id="", $action=''){
         $langs = LanguageService::getInstance()->getAll();
         $this->smarty->assign("langs", $langs);
+
+        $users_data = new UsersAdditional();
+        $this->smarty->assign("additional_form", $users_data->showForm($action, $id));
 
         $groups_query = "SELECT Name FROM ".DB_PREFIX."users_groups";
         $this->getOptions($groups_query, 'groups');
 		parent::prepareFormData($id);
 	}
-	
+
     function prepareData($data){
 //        $data['Published'] = isset($data['Published']) ? (int)$data['Published'] : 0;
 ////        $data['ViewCount'] = (int)$data['LoginRequired'];
@@ -64,6 +68,8 @@ class Users extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if (parent::add($data)) {
+                $users_data = new UsersAdditional();
+                $users_data->add($data);
                 $msg = Locale::get("Added successfully", $this->getName());
             } else {
                 $msg = Locale::get("Error adding", $this->getName());
@@ -80,6 +86,8 @@ class Users extends TabElement {
         $result = true;
         if ($this->checkRequiredFields($data)) {
             if (parent::change($data)) {
+                $users_data = new UsersAdditional();
+                $users_data->change($data);
                 $msg = Locale::get("Changed successfully", $this->getName());
             } else {
                 $result = false;

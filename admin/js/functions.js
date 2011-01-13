@@ -1,11 +1,13 @@
 
 function markRequired(form){
-    var req = $(form).find('#RequiredFields').val();
-    var fields = req.split(',');
-    for (var i in fields){
-        var field = $.trim(fields[i]);
-        $(form).find('[name='+field+']').addClass('required');
-    }
+    $(form).find('input[name^=RequiredFields]').each(function(){
+        var req = $(this).val();
+        var fields = req.split(',');
+        for (var i in fields){
+            var field = $.trim(fields[i]);
+            $(form).find('[name='+field+']').addClass('required');
+        }
+    });
 
 }
 
