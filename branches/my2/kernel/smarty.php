@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__)."/smarty/Smarty.class.php");
+require_once(dirname(__FILE__)."/../lib/vendor/smarty/Smarty.class.php");
 include_once(dirname(__FILE__).'/Settings.php');
 
 $smarty = new Smarty();
