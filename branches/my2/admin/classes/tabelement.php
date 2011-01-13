@@ -29,6 +29,8 @@ class TabElement extends Base{
     public $moduleName;
 
     protected $templatePath;
+    protected $tableTemplate = 'table.tpl';
+    protected $formTemplate = 'form.tpl';
 
 	function __construct(){
         parent::__construct();
@@ -56,7 +58,6 @@ class TabElement extends Base{
         return strtolower(__CLASS__);
     }
 
-
     function jqGridData(){
         $grid = clone $this;
         if (($perPage = (int)$_GET['rows'])){
@@ -82,16 +83,26 @@ class TabElement extends Base{
 
     function prepareFormData($id=''){}
 
-    function formData($id=""){
-        $this->prepareFormData($id);
+    function formData($id="", $action=''){
+        $this->prepareFormData($id, $action);
         if (!empty($id)){
             $this->id = $id;
 			$query = $this->getQuery();
 			$rs = $this->db->Execute($query);
+            $types = array();
 			if ($rs && $rs->RecordCount() > 0){
-
-				$values = $rs->GetArray();
-				$this->smarty->assign("items_arr",$values);
+                while (!$rs->EOF){
+                    if (empty($types)){
+                        for ($i=0; $i<$rs->FieldCount(); $i++){
+                            $field = $rs->FetchField($i);
+                            $types[$field->name] = $rs->MetaType($field);
+                        }
+                    }
+				    $values[] = $rs->fields;
+                    $rs->MoveNext();
+                }
+				$this->smarty->assign("items_arr", $values);
+				$this->smarty->assign("field_types", htmlspecialchars(json_encode($types)));
 
 			} else $this->smarty->assign("items_arr",array());
 		} else {
@@ -104,19 +115,31 @@ class TabElement extends Base{
     function showForm($form, $id = "") {
         $file = '';
         if (Access::check($this->moduleName, $form)) {
-            $this->formData($id);
+            $this->formData($id,$form);
             $this->smarty->assign("required", implode(",", $this->requiredFields));
             $this->smarty->assign("form", $form);
             $this->setTemplateVars();
-            $file = $this->smarty->fetch($this->templatePath . '/form.tpl', null, $this->language);
+            $file = $this->smarty->fetch($this->formTemplate, null, $this->language);
         }
         return $file;
+    }
+
+    function checkByTypes($data){
+        $field_types = json_decode(stripslashes($data["FieldsInfo"]));
+        if (is_array($field_types)){
+            foreach ($field_types as $i=>$item){
+
+            }
+        }
     }
 
 	function checkRequiredFields($data){
         $data = $this->prepareData($data);
 		if (isset($data["RequiredFields"]) && !empty($data["RequiredFields"])){
 			$data["RequiredFields"] = preg_replace("/\s+/", "", $data["RequiredFields"]);
+            if (isset($data["FieldsInfo"]) && !empty($data["FieldsInfo"])){
+                return $this->checkByTypes($data);
+            }
 			$fields = explode(",",$data["RequiredFields"]);
 			if (is_array($fields)){
 				if (count($fields) > 0){
@@ -194,31 +217,27 @@ class TabElement extends Base{
         if (!isset($data['Lang']) && in_array('Lang', $this->fields)){
             $data['Lang'] = $this->language;
         }
-        $values = array();
-        foreach ($this->fields as $field){
-            if (isset($data[$field])){
-                $value = trim($data[$field]);
-                if (strtolower($field)=='id'){
+
+        foreach ($data as $name=>$value){
+            if (isset($data[$name]) && !is_array($data[$name])){
+                $value = trim($value);
+                if (strtolower($name)=='id'){
                     if ($value!=''){
-                        $values[$field] = mysql_real_escape_string($value);
+                        $data[$name] = mysql_real_escape_string($value);
                     }
                 } else {
                     if ($value != ''){
-                        $values[$field] = mysql_real_escape_string($value);
+                        $data[$name] = mysql_real_escape_string($value);
                     }
                 }
             }
         }
-        return $values;
+        return $data;
     }
 
     function add($data){
         $data = $this->prepareData($data);
-        $query = $this->db->Prepare("INSERT INTO " . $this->table . "(
-            `" . implode('`,`', array_keys($data)) . "`
-            ) VALUES (
-            '" . implode("','", array_values($data)) . "'
-            )");
+        $query = $this->db->GetInsertSQL();
         if ($this->db->Execute($query)) return true;
         return false;
     }

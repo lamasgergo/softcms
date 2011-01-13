@@ -63,15 +63,16 @@ class Base {
 
     function getConditions(){
         $whereArr = array();
-        if ($this->dependsOnType){
-            $whereArr[] = "`Type`='{$this->type}'";
-        }
         if ($this->id){
             $whereArr[] = "`$this->primaryKey`='{$this->id}'";
             $this->paging = false;
-        }
-        if ($this->language){
-            $whereArr[] = "lang='{$this->language}'";
+        } else {
+            if ($this->dependsOnType){
+                $whereArr[] = "`Type`='{$this->type}'";
+            }
+            if ($this->language){
+                $whereArr[] = "lang='{$this->language}'";
+            }
         }
         return $whereArr;
     }

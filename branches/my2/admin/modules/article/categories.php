@@ -50,7 +50,7 @@ class Categories extends TabElement {
     function getTabContent() {
 //        $this->smarty->assign("items_arr", $this->getValue());
         $this->smarty->assign("classObj", $this);
-        return $this->smarty->fetch('table.tpl', null, $this->language);
+        return $this->smarty->fetch($this->tableTemplate, null, $this->language);
     }
 
 

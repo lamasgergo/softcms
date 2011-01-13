@@ -1,7 +1,5 @@
 <div class="form div60_40">
     <form id="EXForm" onsubmit="return false;">
-        <input type="hidden" id="RequiredFields" name="RequiredFields" value="{$required}">
-
         <div class="action">
             <fieldset class="action">
                 <input type="hidden" id="ID" name="ID" value="{$items_arr[0].ID}">
@@ -20,7 +18,7 @@
                 {include file="form_main.tpl"}
             </div>
             <div id="subtab_additional" class="tab_content">
-                {include file="form_additional.tpl"}
+                {$additional_form}
             </div>
         </div>
 

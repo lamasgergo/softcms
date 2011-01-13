@@ -1,3 +1,5 @@
+<input type="hidden" id="RequiredFields" name="RequiredFields[]" value="{$required}">
+<input type="hidden" name="FieldsInfo[]" value="{$field_types}">
 <div class="left">
     <fieldset>
         <legend>{"Accound data"|lang:$component}</legend>
