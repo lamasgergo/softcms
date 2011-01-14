@@ -3,7 +3,7 @@ session_start();
 header("Content-type: text/xml; charset=utf-8");
 
 include_once("config/config.php");
-include_once(__PATH__."/kernel/adodb.php");
+include_once(__PATH__."/kernel/DB.php");
 include_once(__PATH__."/kernel/smarty.php");
 include_once(__PATH__."/kernel/lang.php");
 include_once(__PATH__."/kernel/User.php");

@@ -1,16 +1,9 @@
 <?php
-class Base {
-    protected $db;
+class Base extends DBModel{
     protected $smarty;
     protected $type = __CLASS__;
     protected $dependsOnType = true;
-    protected $table;
-    protected $fieldsOnly = false; //Use only $fields in query
-    protected $fields = array();
-    protected $joins = array();
 
-    protected $primaryKey = 'ID';
-    protected $id;
 
     public $data;
 
@@ -28,9 +21,10 @@ class Base {
     private $log;
 
     public function __construct(){
-        global $db, $smarty;
+        global $smarty;
 
-        $this->db = $db;
+        $this->table = $this->tablePrefix . 'data';
+
         $this->smarty = $smarty;
         $this->user = User::getInstance();
         $this->log = Log::getInstance();
@@ -42,7 +36,6 @@ class Base {
 
         $this->templatePath = realpath(dirname(__FILE__)."/../design/{$this->getName()}/");
 
-        $this->table = DB_PREFIX . 'data';
     }
 
     public function getName(){
