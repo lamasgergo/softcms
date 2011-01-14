@@ -1,10 +1,9 @@
 <?php
 require_once(dirname(__FILE__).'/Settings.php');
 Settings::loadFS();
-require_once(dirname(__FILE__)."/adodb.php");
+require_once(dirname(__FILE__) . "/DB.php");
 session_start();
 Settings::load();
-define('DB_PREFIX', Settings::get('database_prefix'));
 
 
 

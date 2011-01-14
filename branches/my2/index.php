@@ -6,7 +6,7 @@ error_reporting(2039);
 
 include_once(dirname(__FILE__).'/kernel/Settings.php');
 Settings::loadFS();
-include_once(dirname(__FILE__)."/kernel/adodb.php");
+include_once(dirname(__FILE__) . "/kernel/DB.php");
 Settings::load();
 include_once(dirname(__FILE__)."/kernel/smarty.php");
 session_start();
