@@ -1,0 +1,3 @@
+hello:
+    pattern:  /user/:name
+    defaults: { _controller: UserBundle:User:index }
