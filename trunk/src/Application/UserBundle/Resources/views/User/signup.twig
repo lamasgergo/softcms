@@ -1,0 +1,14 @@
+{% extends "UserBundle::layout.twig" %}
+
+{% block content %}
+{% trans 'Registration' %}
+
+<form action="#" method="post">
+    {{ form|render_errors }}
+
+    <!-- Display the form fields -->
+
+    {{ form|render }}
+    <input type="submit"/>
+</form>
+{% endblock %}

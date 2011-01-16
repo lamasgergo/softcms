@@ -1,3 +1,10 @@
-hello:
+user:
     pattern:  /user/:name
+    defaults: { _controller: UserBundle:User:detail }
+users:
+    pattern:  /user
     defaults: { _controller: UserBundle:User:index }
+
+signup:
+    pattern: /signup
+    defaults: { _controller: UserBundle:User:signup }

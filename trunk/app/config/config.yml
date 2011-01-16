@@ -5,8 +5,9 @@ app.config:
     router:        { resource: "%kernel.root_dir%/config/routing.yml" }
     validation:    { enabled: true, annotations: true }
     templating:    {} #assets_version: SomeVersionScheme
+    translator:    { fallback: en }
     session:
-        default_locale: en
+        default_locale: ru
         lifetime:       3600
         auto_start:     true
 
@@ -24,6 +25,9 @@ doctrine.dbal:
     password: null
     event_manager_class:  Doctrine\Common\EventManager
     configuration_class:  Doctrine\DBAL\Configuration
+    wrapper_class:        ~
+    options:              []
+
 doctrine.orm: ~
 
 ## Swiftmailer Configuration

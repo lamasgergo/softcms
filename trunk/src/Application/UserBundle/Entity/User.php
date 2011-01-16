@@ -16,12 +16,33 @@ class User {
     /**
      * @orm:Column(type="string", length="255")
      */
-    protected $email;
+    public $email;
+
+    /**
+     * @orm:Column
+     */
+    public $password;
 
     /**
      * @orm:Column(type="string", length="255")
      */
-    protected $name;
+    public $name;
+
+    /**
+     * @orm:Column(type="string", length="255", nullable=true)
+     */
+    public $surname;
+
+    /**
+     * @orm:Column(type="string", length="255", nullable=true)
+     */
+    public $pantronymic;
+
+    /**
+     * @orm:OneToOne(targetEntity="UserType")
+     * @JoinColumn(name="type_id", referencedColumnName="id")
+     */
+    private $type;
 
     /**
      * @orm:Column(type="datetime")
@@ -30,5 +51,13 @@ class User {
 
     public function __construct() {
         $this->createdAt = new \DateTime();
+    }
+
+    public function getId(){
+        return $this->id;
+    }
+
+    public function getType(){
+        return $this->id;
     }
 }

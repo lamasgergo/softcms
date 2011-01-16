@@ -1,0 +1,8 @@
+Application\HelloBundle\User:
+    properties:
+        email:
+            - NotBlank: ~
+            - Email: ~
+        name:
+            - NotBlank: ~
+            - MinLength: 3
