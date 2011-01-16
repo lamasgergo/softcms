@@ -5,6 +5,6 @@ users:
     pattern:  /user
     defaults: { _controller: UserBundle:User:index }
 
-signup:
-    pattern: /signup
-    defaults: { _controller: UserBundle:User:signup }
+register:
+    pattern: /register
+    defaults: { _controller: UserBundle:User:register }

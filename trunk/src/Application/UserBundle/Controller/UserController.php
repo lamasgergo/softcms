@@ -34,7 +34,7 @@ class UserController extends Controller {
         // return $this->render('UserBundle:User:index.php', array('name' => $name));
     }
 
-    public function signupAction() {
+    public function registerAction() {
         $conn = $this->get('database_connection');
         $registration = new Registration();
         $registration->user = new User();
@@ -71,7 +71,7 @@ class UserController extends Controller {
             }
         }
 
-        return $this->render('UserBundle:User:signup.twig', array(
+        return $this->render('UserBundle:User:register.twig', array(
             'form' => $form
         ));
     }
