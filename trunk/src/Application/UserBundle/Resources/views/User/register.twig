@@ -1,6 +1,7 @@
 {% extends "UserBundle::layout.twig" %}
 
 {%block head%}
+    <link href="{% asset 'css/registration.css' %}" rel="stylesheet" type="text/css"/>
     <link href="{% asset 'css/wizard.css' %}" rel="stylesheet" type="text/css"/>
     <script src="{% asset 'js/jquery/tools/jquery.tools.min.js' %}"></script>
     <script src="{% asset 'js/wizard.js' %}"></script>
@@ -27,33 +28,41 @@
             <div class="page">
 
                 <h2>
-					<strong>Step 1: </strong> jQuery Tools Account
-					<em>Please enter your login information:</em>
+					<b>{% trans 'Step' %} 1:</b>
+					<em>{% trans 'Please enter your login information'%}:</em>
 				</h2>
 
                 <ul>
-                    <!-- email -->
-
                     <li class="required">
                         {{ form.user.email|render_label }}
                         {{ form.user.email|render }}
                         {{ form.user.email|render_errors }}
                     </li>
 
-                    <!-- username -->
+                    <li class="required double password">
+                        <div class="password">
+                            {{ form.user.password.first|render_label }}
+                            {{ form.user.password.first|render }}
+                            {{ form.user.password.first|render_errors }}
+                        </div>
+                        <div class="password">
+                            {{ form.user.password.second|render_label }}
+                            {{ form.user.password.second|render }}
+                            {{ form.user.password.second|render_errors }}
+                        </div>
+                        <div class="clr"></div>
+                    </li>
+
                     <li>
                         {{ form.user.name|render_label }}
                         {{ form.user.name|render }}
                         {{ form.user.name|render_errors }}
                     </li>
 
-                    <!-- password -->
-                    <li class="required double">
-
-                        {{ form.user.password|render_label }}
-                        {{ form.user.password|render }}
-                        {{ form.user.password|render_errors }}
-
+                    <li>
+                        {{ form.user.type|render_label }}
+                        {{ form.user.type|render }}
+                        {{ form.user.type|render_errors }}
                     </li>
 
                     <li>
@@ -85,6 +94,11 @@
                         {{ form.userdata.address|render }}
                         {{ form.userdata.address|render_errors }}
                     </li>
+                    <li>
+                        {{ form.userdata.address2|render_label }}
+                        {{ form.userdata.address2|render }}
+                        {{ form.userdata.address2|render_errors }}
+                    </li>
                     <li class="clearfix">
 						<button type="button" class="prev" style="float:left">&laquo; Back</button>
 						<button type="button" class="next right">Proceed &raquo;</button>
@@ -97,6 +111,7 @@
                 <ul>
                     <li class="clearfix">
                         <button type="button" class="prev" style="float:left">&laquo; Back</button>
+                        <input type="submit" />
                     </li>
 
                     <br clear="all" />
@@ -104,12 +119,6 @@
             </div>
         </div>
     </div>
-    {#{ form|render_errors  }#}
-
-    <!-- Display the form fields -->
-
-    {#{ form|render }#}
     {{ form|render_hidden }}
-    <input type="submit" />
 </form>
 {% endblock %}

@@ -70,13 +70,14 @@ class UserController extends Controller {
         $addressGroup->add(new TextField('country'));
         $addressGroup->add(new TextField('city'));
         $addressGroup->add(new TextareaField('address'));
+        $addressGroup->add(new TextareaField('address2'));
         $form->add($addressGroup);
 
         if ('POST' === $this->get('request')->getMethod()) {
             $form->bind($this->get('request')->request->get('registration'));
 
             if ($form->isValid()) {
-                $registration->process();
+                die('Good');
             }
         }
 

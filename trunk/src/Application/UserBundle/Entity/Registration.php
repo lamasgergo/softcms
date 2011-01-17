@@ -10,7 +10,6 @@ class Registration{
     public $termsAccepted = false;
 
     public function process(){
-        
     }
 
 }
