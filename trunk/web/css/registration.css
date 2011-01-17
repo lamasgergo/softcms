@@ -1,0 +1,10 @@
+.register{}
+
+.register .password div{
+    float: left;
+    width: 50%;
+}
+
+.register .clr{
+    clear: both;
+}

@@ -2,7 +2,7 @@
     jQuery.fn.wizard = function(options) {
         var defaults = {
             containerClassName: 'wizard',
-            pageClassName : 'page',
+            pageSelector : '.page',
             drawerSelector: '#drawer',
             stepsSelector: '.steps',
             nextButtonSelector: 'button.next',
@@ -27,7 +27,7 @@
                 if (api.getIndex() < i) {
 
                     // 1. get current page
-                    var page = root.find(opts.pageClassName).eq(api.getIndex()),
+                    var page = root.find(opts.pageSelector).eq(api.getIndex()),
 
                         // 2. .. and all required fields inside the page
                             inputs = page.find(".required :input").removeClass("error"),
