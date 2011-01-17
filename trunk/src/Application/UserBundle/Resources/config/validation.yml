@@ -1,8 +1,13 @@
-Application\HelloBundle\User:
+Application\UserBundle\User:
     properties:
         email:
-            - NotBlank: ~
-            - Email: ~
+            - NotNull: ~
         name:
-            - NotBlank: ~
-            - MinLength: 3
+            - NotNull: ~
+
+Application\UserBundle\Registration:
+    properties:
+        email:
+            - NotNull: ~
+        name:
+            - NotNull: ~

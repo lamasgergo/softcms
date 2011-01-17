@@ -15,6 +15,8 @@ class User {
 
     /**
      * @orm:Column(type="string", length="255")
+     * @validation:NotBlank()
+     * @validation:Email
      */
     public $email;
 
@@ -42,7 +44,7 @@ class User {
      * @orm:OneToOne(targetEntity="UserType")
      * @JoinColumn(name="type_id", referencedColumnName="id")
      */
-    private $type;
+    public $type;
 
     /**
      * @orm:Column(type="datetime")

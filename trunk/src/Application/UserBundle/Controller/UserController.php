@@ -14,6 +14,7 @@ use Symfony\Component\Form\IntegerField;
 use Symfony\Component\Form\CheckboxField;
 use Symfony\Component\Form\FieldGroup;
 use Symfony\Component\Form\ChoiceField;
+use Symfony\Component\Form\RepeatedField;
 
 class UserController extends Controller {
     public function indexAction() {
@@ -35,15 +36,13 @@ class UserController extends Controller {
     }
 
     public function registerAction() {
-        $conn = $this->get('database_connection');
         $registration = new Registration();
         $registration->user = new User();
 
         $form = new Form('registration', $registration, $this->get('validator'));
-        $form->add(new CheckboxField('termsAccepted'));
-
         $group = new FieldGroup('user');
         $group->add(new TextField('email'));
+        $group->add(new RepeatedField( new TextField('password') ));
         $group->add(new TextField('name'));
         $group->add(new TextField('surname'));
         $group->add(new TextField('pantronymic'));
@@ -63,6 +62,8 @@ class UserController extends Controller {
 
         $form->add($group);
 
+        $form->add(new CheckboxField('termsAccepted'));
+
         if ('POST' === $this->get('request')->getMethod()) {
             $form->bind($this->get('request')->request->get('registration'));
 
@@ -73,6 +74,7 @@ class UserController extends Controller {
 
         return $this->render('UserBundle:User:register.twig', array(
             'form' => $form
+
         ));
     }
 }
