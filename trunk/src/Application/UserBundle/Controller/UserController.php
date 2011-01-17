@@ -74,7 +74,6 @@ class UserController extends Controller {
 
         return $this->render('UserBundle:User:register.twig', array(
             'form' => $form
-
         ));
     }
 }

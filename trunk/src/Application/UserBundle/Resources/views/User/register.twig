@@ -4,11 +4,45 @@
 {% trans 'Registration' %}
 
 <form method="post">
-    {{ form|render_errors  }}
+
+
+    <div class="register">
+        <ul id="steps">
+            <li><b>1. {% trans 'Create Account'%}</b></li>
+            <li><b>2. {% trans 'Contact information'%}</b></li>
+            <li><b>3. {% trans 'Finalize'%}</b></li>
+        </ul>
+        <div class="items">
+            <div class="page">
+                <div>
+                    {{ form.user.email|render_label }}
+                    {{ form.user.email|render }}
+                </div>
+                <div>
+                    {{ form.user.name|render_label }}
+                    {{ form.user.name|render }}
+                    {{ form.user.name|render_errors }}
+                </div>
+                <div>
+                    {{ form.termsAccepted|render_label }}
+                    {{ form.termsAccepted|render }}
+                    {{ form.termsAccepted|render_errors }}
+                </div>
+            </div>
+            <div class="page">
+
+            </div>
+            <div class="page">
+
+            </div>
+        </div>
+    </div>
+    {#{ form|render_errors  }#}
 
     <!-- Display the form fields -->
 
-    {{ form|render }}
-    <input type="submit"/>
+    {#{ form|render }#}
+    {{ form|render_hidden }}
+    <input type="submit" />
 </form>
 {% endblock %}

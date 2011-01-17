@@ -5,7 +5,7 @@ app.config:
     router:        { resource: "%kernel.root_dir%/config/routing.yml" }
     validation:
         enabled: true
-#        annotations: true
+        annotations: true
     templating:    {} #assets_version: SomeVersionScheme
     translator:    { fallback: en }
     session:

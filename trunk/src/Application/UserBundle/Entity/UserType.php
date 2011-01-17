@@ -15,6 +15,7 @@ class UserType {
 
     /**
      * @orm:Column
+     * @validation:NotBlank()
      */
     public $name;
 }

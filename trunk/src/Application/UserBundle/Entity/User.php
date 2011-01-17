@@ -22,16 +22,21 @@ class User {
 
     /**
      * @orm:Column
+     * @validation:NotBlank()
+     * @validation:MinLength(5)
      */
     public $password;
 
     /**
      * @orm:Column(type="string", length="255")
+     * @validation:NotBlank()
+     * @validation:MinLength(3)
      */
     public $name;
 
     /**
      * @orm:Column(type="string", length="255", nullable=true)
+     * @validation:NotBlank()
      */
     public $surname;
 
@@ -43,6 +48,7 @@ class User {
     /**
      * @orm:OneToOne(targetEntity="UserType")
      * @JoinColumn(name="type_id", referencedColumnName="id")
+     * @validation:NotBlank()
      */
     public $type;
 
