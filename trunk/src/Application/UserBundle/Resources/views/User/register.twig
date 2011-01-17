@@ -1,5 +1,16 @@
 {% extends "UserBundle::layout.twig" %}
 
+{%block head%}
+    <link href="{% asset 'css/wizard.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="{% asset 'js/jquery/tools/jquery.tools.min.js' %}"></script>
+    <script src="{% asset 'js/wizard.js' %}"></script>
+    <script>
+        $().ready(function(){
+            $('.register').wizard();
+        });
+    </script>
+{%endblock head%}
+
 {% block content %}
 {% trans 'Registration' %}
 
@@ -7,33 +18,89 @@
 
 
     <div class="register">
-        <ul id="steps">
+        <ul class="steps">
             <li><b>1. {% trans 'Create Account'%}</b></li>
             <li><b>2. {% trans 'Contact information'%}</b></li>
             <li><b>3. {% trans 'Finalize'%}</b></li>
         </ul>
         <div class="items">
             <div class="page">
-                <div>
-                    {{ form.user.email|render_label }}
-                    {{ form.user.email|render }}
-                </div>
-                <div>
-                    {{ form.user.name|render_label }}
-                    {{ form.user.name|render }}
-                    {{ form.user.name|render_errors }}
-                </div>
-                <div>
-                    {{ form.termsAccepted|render_label }}
-                    {{ form.termsAccepted|render }}
-                    {{ form.termsAccepted|render_errors }}
-                </div>
-            </div>
-            <div class="page">
+
+                <h2>
+					<strong>Step 1: </strong> jQuery Tools Account
+					<em>Please enter your login information:</em>
+				</h2>
+
+                <ul>
+                    <!-- email -->
+
+                    <li class="required">
+                        {{ form.user.email|render_label }}
+                        {{ form.user.email|render }}
+                        {{ form.user.email|render_errors }}
+                    </li>
+
+                    <!-- username -->
+                    <li>
+                        {{ form.user.name|render_label }}
+                        {{ form.user.name|render }}
+                        {{ form.user.name|render_errors }}
+                    </li>
+
+                    <!-- password -->
+                    <li class="required double">
+
+                        {{ form.user.password|render_label }}
+                        {{ form.user.password|render }}
+                        {{ form.user.password|render_errors }}
+
+                    </li>
+
+                    <li>
+                        {{ form.termsAccepted|render_label }}
+                        {{ form.termsAccepted|render }}
+                        {{ form.termsAccepted|render_errors }}
+                    </li>
+
+                    <li class="clearfix">
+                        <button type="button" class="next right">Proceed &raquo;</button>
+                    </li>
+                </ul>
 
             </div>
             <div class="page">
+                <ul>
+                    <li>
+                        {{ form.userdata.country|render_label }}
+                        {{ form.userdata.country|render }}
+                        {{ form.userdata.country|render_errors }}
+                    </li>
+                    <li>
+                        {{ form.userdata.city|render_label }}
+                        {{ form.userdata.city|render }}
+                        {{ form.userdata.city|render_errors }}
+                    </li>
+                    <li>
+                        {{ form.userdata.address|render_label }}
+                        {{ form.userdata.address|render }}
+                        {{ form.userdata.address|render_errors }}
+                    </li>
+                    <li class="clearfix">
+						<button type="button" class="prev" style="float:left">&laquo; Back</button>
+						<button type="button" class="next right">Proceed &raquo;</button>
+					</li>
 
+					<br clear="all" />
+                </ul>
+            </div>
+            <div class="page">
+                <ul>
+                    <li class="clearfix">
+                        <button type="button" class="prev" style="float:left">&laquo; Back</button>
+                    </li>
+
+                    <br clear="all" />
+                </ul>
             </div>
         </div>
     </div>
