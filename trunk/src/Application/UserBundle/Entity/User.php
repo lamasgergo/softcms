@@ -46,8 +46,7 @@ class User {
     public $pantronymic;
 
     /**
-     * @orm:OneToOne(targetEntity="UserType")
-     * @JoinColumn(name="type_id", referencedColumnName="id")
+     * @orm:Column(type="integer")
      * @validation:NotBlank()
      */
     public $type;

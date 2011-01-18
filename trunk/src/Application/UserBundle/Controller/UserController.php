@@ -38,18 +38,16 @@ class UserController extends Controller {
     }
 
     public function registerAction() {
-        $registration = new Registration();
-        $registration->user = new User();
+        $registration = new User();
         $registration->userdata = new UserData();
 
         $form = new Form('registration', $registration, $this->get('validator'));
 
-        $commonGroup = new FieldGroup('user');
-        $commonGroup->add(new TextField('email'));
-        $commonGroup->add(new RepeatedField( new TextField('password') ));
-        $commonGroup->add(new TextField('name'));
-        $commonGroup->add(new TextField('surname'));
-        $commonGroup->add(new TextField('pantronymic'));
+        $form->add(new TextField('email'));
+        $form->add(new RepeatedField( new TextField('password') ));
+        $form->add(new TextField('name'));
+        $form->add(new TextField('surname'));
+        $form->add(new TextField('pantronymic'));
 
         $em = $this->get('doctrine.orm.entity_manager');
         $translator = $this->get('translator');
@@ -61,10 +59,7 @@ class UserController extends Controller {
         $types = new ChoiceField('type', array(
             'choices' => $typeChoices
         ));
-        $commonGroup->add($types);
-
-        $form->add(new CheckboxField('termsAccepted'));
-        $form->add($commonGroup);
+        $form->add($types);
 
         $addressGroup = new FieldGroup('userdata');
         $addressGroup->add(new TextField('country'));
@@ -77,7 +72,8 @@ class UserController extends Controller {
             $form->bind($this->get('request')->request->get('registration'));
 
             if ($form->isValid()) {
-                die('Good');
+                $em->persist($form->getData());
+                $em->flush();
             }
         }
 

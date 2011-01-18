@@ -15,6 +15,8 @@ class UserType {
 
     /**
      * @orm:Column
+     * @orm:OneToMany(targetEntity="User")
+     * @JoinColumn(name="id", referencedColumnName="type_id",insertable=false,updatable=false)
      * @validation:NotBlank()
      */
     public $name;

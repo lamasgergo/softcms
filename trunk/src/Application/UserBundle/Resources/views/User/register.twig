@@ -34,42 +34,37 @@
 
                 <ul>
                     <li class="required">
-                        {{ form.user.email|render_label }}
-                        {{ form.user.email|render }}
-                        {{ form.user.email|render_errors }}
+                        {{ form.email|render_label }}
+                        {{ form.email|render }}
+                        {{ form.email|render_errors }}
                     </li>
 
                     <li class="required double password">
                         <div class="password">
-                            {{ form.user.password.first|render_label }}
-                            {{ form.user.password.first|render }}
-                            {{ form.user.password.first|render_errors }}
+                            {{ form.password.first|render_label }}
+                            {{ form.password.first|render }}
+                            {{ form.password.first|render_errors }}
                         </div>
                         <div class="password">
-                            {{ form.user.password.second|render_label }}
-                            {{ form.user.password.second|render }}
-                            {{ form.user.password.second|render_errors }}
+                            {{ form.password.second|render_label }}
+                            {{ form.password.second|render }}
+                            {{ form.password.second|render_errors }}
                         </div>
                         <div class="clr"></div>
                     </li>
 
                     <li>
-                        {{ form.user.name|render_label }}
-                        {{ form.user.name|render }}
-                        {{ form.user.name|render_errors }}
+                        {{ form.name|render_label }}
+                        {{ form.name|render }}
+                        {{ form.name|render_errors }}
                     </li>
 
                     <li>
-                        {{ form.user.type|render_label }}
-                        {{ form.user.type|render }}
-                        {{ form.user.type|render_errors }}
+                        {{ form.type|render_label }}
+                        {{ form.type|render }}
+                        {{ form.type|render_errors }}
                     </li>
 
-                    <li>
-                        {{ form.termsAccepted|render_label }}
-                        {{ form.termsAccepted|render }}
-                        {{ form.termsAccepted|render_errors }}
-                    </li>
 
                     <li class="clearfix">
                         <button type="button" class="next right">Proceed &raquo;</button>
