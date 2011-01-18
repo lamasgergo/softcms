@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<framework xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schemas/frameworkDescriptionVersion1.xsd" name="symfony2" invoke="&quot;$PhpExecutable$&quot; C:\htdocs\test\app\console" alias="s" enabled="true" version="1">
+  <command>
+    <name>help</name>
+    <params>task_name[=null]</params>
+  </command>
+  <command>
+    <name>list</name>
+    <params>namespace[=null]</params>
+  </command>
+  <command>
+    <name>assets:install</name>
+    <params>asset[=null]</params>
+  </command>
+  <command>
+    <name>doctrine:schema:create</name>
+    <params>params[=null]</params>
+  </command>
+  <command>
+    <name>doctrine:schema:update</name>
+    <params>params[=null]</params>
+  </command>
+  <command>
+    <name>doctrine:schema:drop</name>
+    <params>params[=null]</params>
+  </command>
+</framework>
+
