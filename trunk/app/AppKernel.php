@@ -28,7 +28,6 @@ class AppKernel extends Kernel
             // register your bundles
             new Application\HomepageBundle\HomepageBundle(),
             new Application\UserBundle\UserBundle(),
-            new Application\TestBundle\TestBundle(),
         );
 
         if ($this->isDebug()) {

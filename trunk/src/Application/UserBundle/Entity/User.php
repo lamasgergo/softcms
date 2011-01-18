@@ -56,6 +56,9 @@ class User {
      */
     protected $createdAt;
 
+    /** @validation:Valid */
+    public $groupdata;
+
     public function __construct() {
         $this->createdAt = new \DateTime();
     }

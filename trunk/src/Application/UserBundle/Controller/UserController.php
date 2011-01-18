@@ -43,6 +43,7 @@ class UserController extends Controller {
 
         $form = new Form('registration', $registration, $this->get('validator'));
 
+
         $form->add(new TextField('email'));
         $form->add(new RepeatedField( new TextField('password') ));
         $form->add(new TextField('name'));
@@ -70,14 +71,15 @@ class UserController extends Controller {
 
         if ('POST' === $this->get('request')->getMethod()) {
             $form->bind($this->get('request')->request->get('registration'));
-
+ECHO '<PRE>';
+            die(var_dump($form->getData()));
             if ($form->isValid()) {
                 $em->persist($form->getData());
                 $em->flush();
             }
         }
 
-        return $this->render('UserBundle:User:register.twig', array(
+        return $this->render('UserBundle:User:register2.twig', array(
             'form' => $form
         ));
     }

@@ -7,17 +7,18 @@ namespace Application\UserBundle\Entity;
 class UserData {
 
     /**
-     * @orm:id
+     * @orm:Id
      * @orm:Column(type="integer")
      * @orm:GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
 
     /**
+     * @orm:Column(type="integer")
      * @orm:OneToOne(targetEntity="User")
      * @JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $user;
+    public $user_id;
 
     /**
      * @orm:Column(nullable=true)
