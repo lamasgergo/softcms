@@ -33,19 +33,18 @@ doctrine.dbal:
 doctrine.orm: ~
 
 ## Swiftmailer Configuration
-#swiftmailer.config:
-#    transport:  smtp
-#    encryption: ssl
-#    auth_mode:  login
-#    host:       smtp.gmail.com
-#    username:   xxxxxxxx
-#    password:   xxxxxxxx
+swiftmailer.config:
+    transport:  smtp
+    encryption: ssl
+    auth_mode:  login
+    host:       smtp.gmail.com
+    username:   a.diesel@gmail.com
+    password:   ghbrjkmyj
 
 
 security.config:
   providers:
     frontend:
-      entity: { class: SecurityBundle:User, property: email }
     backend:
         password_encoder: sha1
         admin: { password: admin, roles: ['ROLE_USER', 'ROLE_ADMIN'] }
@@ -60,3 +59,8 @@ security.config:
   access_control:
     - { path: /.*, role: ROLE_USER }
     - { path: /admin/.*, role: ROLE_ADMIN }
+
+
+parameters:
+  email.from: a.diesel@gmail.com
+  

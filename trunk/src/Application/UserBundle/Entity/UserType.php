@@ -27,4 +27,5 @@ class UserType {
      * @OneToMany(targetEntity="User", mappedBy="types")
      */
     private $usersByType;
+
 }

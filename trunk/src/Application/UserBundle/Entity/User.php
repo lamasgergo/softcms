@@ -57,6 +57,12 @@ class User{
      * @orm:JoinColumn(name="id", referencedColumnName="id")
      */
     public $data;
+
+    /**
+     * @var bool
+     * $orm:Column(type="tinyint(1)")
+     */
+    public $published = false;
     
     /**
      * @orm:Column(type="datetime")
@@ -83,6 +89,12 @@ class User{
         return $this->email;
     }
 
+    public function getPassword(){
+        return $this->password;
+    }
 
+    public function register(){
+        
+    }
 }
 

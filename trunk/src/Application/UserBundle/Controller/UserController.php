@@ -89,6 +89,7 @@ class UserController extends Controller {
             if ($form->isValid()) {
                 $em->persist($form->getData());
                 $em->flush();
+                $this->sendRegistrationEmail();
             }
         }
 
