@@ -20,4 +20,11 @@ class UserType {
      * @validation:NotBlank()
      */
     public $name;
+
+
+    /**
+     * @var usersByType
+     * @OneToMany(targetEntity="User", mappedBy="types")
+     */
+    private $usersByType;
 }

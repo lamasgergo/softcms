@@ -9,16 +9,9 @@ class UserData {
     /**
      * @orm:Id
      * @orm:Column(type="integer")
-     * @orm:GeneratedValue(strategy="IDENTITY")
+     * @orm:GeneratedValue
      */
-    protected $id;
-
-    /**
-     * @orm:Column(type="integer")
-     * @orm:OneToOne(targetEntity="User")
-     * @JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    public $user_id;
+    private $id;
 
     /**
      * @orm:Column(nullable=true)
@@ -40,6 +33,15 @@ class UserData {
      */
     public $address2;
 
+
+    public function getUser_id(){
+        return $this->user_id;
+    }
+
+    public function setUser_id(User $user){
+        $id = $user->getId();
+        $this->id = $id;
+    }
 
     public function getId(){
         return $this->id;

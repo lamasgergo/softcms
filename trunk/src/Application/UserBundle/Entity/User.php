@@ -3,29 +3,30 @@ namespace Application\UserBundle\Entity;
 
 /**
  * @orm:Entity
+ * @orm:table(name="Users")
  */
-class User {
+class User{
 
     /**
      * @orm:Id
      * @orm:Column(type="integer")
-     * @orm:GeneratedValue(strategy="IDENTITY")
+     * @orm:GeneratedValue
      */
-    protected $id;
+    private $id;
 
     /**
-     * @orm:Column(type="string", length="255")
+     * @orm:Column(type="string", length="255", unique="true")
      * @validation:NotBlank()
      * @validation:Email
      */
-    public $email;
+    private $email;
 
     /**
      * @orm:Column
      * @validation:NotBlank()
      * @validation:MinLength(5)
      */
-    public $password;
+    private $password;
 
     /**
      * @orm:Column(type="string", length="255")
@@ -52,9 +53,20 @@ class User {
     public $type;
 
     /**
+     * @orm:OneToOne(targetEntity="UserData", cascade={"persist", "remove", "merge"}, mappedBy="personal")
+     * @orm:JoinColumn(name="id", referencedColumnName="id")
+     */
+    public $data;
+    
+    /**
      * @orm:Column(type="datetime")
      */
     protected $createdAt;
+
+    /**
+     * @validation:AssertTrue(message="Please accept the terms and conditions")
+     */
+    public $termsAccepted = false;
 
     /** @validation:Valid */
     public $groupdata;
@@ -67,7 +79,10 @@ class User {
         return $this->id;
     }
 
-    public function getType(){
-        return $this->id;
+    public function getEmail(){
+        return $this->email;
     }
+
+
 }
+

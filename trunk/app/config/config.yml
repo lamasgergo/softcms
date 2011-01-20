@@ -40,3 +40,23 @@ doctrine.orm: ~
 #    host:       smtp.gmail.com
 #    username:   xxxxxxxx
 #    password:   xxxxxxxx
+
+
+security.config:
+  providers:
+    frontend:
+      entity: { class: SecurityBundle:User, property: email }
+    backend:
+        password_encoder: sha1
+        admin: { password: admin, roles: ['ROLE_USER', 'ROLE_ADMIN'] }
+  firewalls:
+    backend:
+      pattern: /admin/.*
+      form-login: true
+    frontend:
+      pattern:    /my/.*
+      form-login: true
+      logout:     true
+  access_control:
+    - { path: /.*, role: ROLE_USER }
+    - { path: /admin/.*, role: ROLE_ADMIN }
