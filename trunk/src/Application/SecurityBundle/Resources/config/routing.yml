@@ -1,3 +1,11 @@
-login:
+_security_login:
   pattern: /login
-  defaults: { _controller: SecurityBundle:User:login }
+  defaults: { _controller: SecurityBundle:Security:login }
+
+_security_check:
+  pattern: /login_check
+  defaults: { _controller: SecurityBundle:Security:login }
+
+my:
+  pattern: /my
+  defaults: { _controller: HomepageBundle:Home:index }
