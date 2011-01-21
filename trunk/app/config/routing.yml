@@ -7,3 +7,6 @@ hello:
 
 user:
     resource: UserBundle/Resources/config/routing.yml
+
+security:
+    resource: SecurityBundle/Resources/config/routing.yml
