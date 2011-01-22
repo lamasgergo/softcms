@@ -1,13 +1,14 @@
 <?php
 namespace Application\SecurityBundle\Entity;
 
+use Application\UserBundle\Entity\User as UserBase;
 use Symfony\Component\Security\User\AccountInterface;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Security\User\UserProviderInterface;
 /**
  * @Entity(repositoryClass="SecurityBundle:UserRepository")
  */
-class User implements AccountInterface {
+class User extends UserBase implements AccountInterface {
 
 
     function __toString() {
@@ -25,13 +26,11 @@ class User implements AccountInterface {
     }
 
     function getSalt() {
-        die('123');
-        return '';
+        return $this->id;
     }
 
     function getUsername() {
-        die('123');
-        return $this->user;
+        return $this->email;
     }
 
     function eraseCredentials() {

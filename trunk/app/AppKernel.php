@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new Application\HomepageBundle\HomepageBundle(),
             new Application\UserBundle\UserBundle(),
             new Application\SecurityBundle\SecurityBundle(),
+            new Application\CompanyBundle\CompanyBundle(),
         );
 
         if ($this->isDebug()) {

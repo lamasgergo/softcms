@@ -32,11 +32,11 @@ class UserController extends Controller {
         // return $this->render('UserBundle:User:index.php', array('name' => $name));
     }
 
-    public function detailAction($name) {
-        return $this->render('UserBundle:User:detail.twig', array('name' => $name));
-
-        // render a PHP template instead
-        // return $this->render('UserBundle:User:index.php', array('name' => $name));
+    public function detailAction($id) {
+        $em = $this->get("doctrine.orm.entity_manager");
+        $user = new User();
+        $user = $em->find("UserBundle:User", $id);
+        return $this->render('UserBundle:User:detail.twig', array('user' => $user));
     }
 
     protected function userForm($object=null){
@@ -89,7 +89,7 @@ class UserController extends Controller {
             if ($form->isValid()) {
                 $em->persist($form->getData());
                 $em->flush();
-                $this->sendRegistrationEmail();
+//                $this->sendRegistrationEmail();
             }
         }
 

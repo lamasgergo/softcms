@@ -1,12 +1,10 @@
-users:
-    pattern:  /user/:name
-    defaults: { _controller: UserBundle:User:detail }
-
-    pattern:  /users
-    defaults: { _controller: UserBundle:User:index }
-
-    pattern:  /user/edit/:id
+user_edit:
+    pattern:  /edit/:id
     defaults: { _controller: UserBundle:User:edit }
+
+user_detail:
+  pattern:  /show/:id
+  defaults: { _controller: UserBundle:User:detail }
 
 register:
     pattern: /register
