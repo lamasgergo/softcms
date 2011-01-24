@@ -21,5 +21,12 @@ class UserType {
      */
     public $name;
 
+    /**
+     * @var users
+     * @orm:OneToMany(targetEntity="User", mappedBy="types")
+     */
+    private $users;
+
+    
 
 }

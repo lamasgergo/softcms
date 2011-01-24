@@ -34,87 +34,53 @@ class User{
      * @validation:NotBlank()
      * @validation:MinLength(3)
      */
-    public $name;
+    private $name;
 
     /**
      * @orm:Column(type="string", length="255")
      * @validation:NotBlank()
      * @validation:MinLength(3)
      */
-    public $surname;
+    private $surname;
 
     /**
      * @orm:Column(type="string", length="255", nullable=true)
      */
-    public $pantronymic;
+    private $pantronymic;
 
     /**
-     * @orm:OnoToOne(targetEntity="UserType", mappedBy="name")
+     * @orm:ManyToOne(targetEntity="UserType", inversedBy="users")
+     * @orm:JoinColumn(name="type_id", referencedColumnName="id")
      */
-    public $type;
-
-    /**
-     * @orm:ManyToMany(targetEntity="UserType")
-     * @orm:JoinTable(name="UserType")
-     */
-    public $types;
+    private $types;
 
     /**
      * @orm:OneToOne(targetEntity="UserData", cascade={"persist", "remove", "merge"}, mappedBy="address")
      * @orm:JoinColumn(name="id", referencedColumnName="id")
      */
-    public $address;
+    private $address;
 
     /**
      * @var bool
      * $orm:Column(type="tinyint(1)")
      */
-    public $published = false;
+    private $published = false;
     
     /**
      * @orm:Column(type="datetime")
      */
-    protected $createdAt;
+    private $createdAt;
 
     /**
      * @validation:AssertTrue(message="Please accept the terms and conditions")
      */
     public $termsAccepted = false;
 
-    /** @validation:Valid */
-    public $data;
-
     public function __construct() {
         $this->createdAt = new \DateTime();
         $this->types = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    public function getId(){
-        return $this->id;
-    }
-
-    public function getEmail(){
-        return $this->email;
-    }
-
-    public function setEmail($email){
-        $this->email = $email;
-    }
-
-    public function getPassword(){
-        return $this->password;
-    }
-
-    public function setPassword($password){
-        $this->password = $password;
-    }
-
-    public function register(){
-        
-    }
-
-    public function getTypes(){
-        return $this->types;
-    }
+    
 }
 
