@@ -14,36 +14,57 @@ class UserData {
     private $id;
 
     /**
-     * @orm:Column(nullable=true)
+     * @orm:OneToOne(targetEntity="User", inversedBy="address")
+     * @orm:JoinColumn(name="user_id", referencedColumnName="id")
      */
-    public $country;
+    private $user;
 
     /**
      * @orm:Column(nullable=true)
      */
-    public $city;
+    private $country;
 
     /**
      * @orm:Column(nullable=true)
      */
-    public $address;
+    private $city;
 
     /**
      * @orm:Column(nullable=true)
      */
-    public $address2;
+    private $address;
 
 
-    public function getUser_id(){
-        return $this->user_id;
+
+    public function getId() {
+        return $this->id;
     }
 
-    public function setUser_id(User $user){
-        $id = $user->getId();
+    public function setId($id) {
         $this->id = $id;
     }
 
-    public function getId(){
-        return $this->id;
+    public function getCountry() {
+        return $this->country;
+    }
+
+    public function setCountry($country) {
+        $this->country = $country;
+    }
+
+    public function getCity() {
+        return $this->city;
+    }
+
+    public function setCity($city) {
+        $this->city = $city;
+    }
+
+    public function getAddress() {
+        return $this->address;
+    }
+
+    public function setAddress($address) {
+        $this->address = $address;
     }
 }

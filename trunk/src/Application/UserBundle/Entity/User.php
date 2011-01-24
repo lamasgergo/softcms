@@ -3,7 +3,7 @@ namespace Application\UserBundle\Entity;
 
 
 /**
- * @orm:Entity
+ * @orm:Entity(repositoryClass="Application\UserBundle\Entity\UserRepository")
  * @orm:table(name="Users")
  */
 class User{
@@ -55,8 +55,7 @@ class User{
     private $types;
 
     /**
-     * @orm:OneToOne(targetEntity="UserData", cascade={"persist", "remove", "merge"}, mappedBy="address")
-     * @orm:JoinColumn(name="id", referencedColumnName="id")
+     * @orm:OneToOne(targetEntity="UserData", mappedBy="user")
      */
     private $address;
 
@@ -78,7 +77,6 @@ class User{
 
     public function __construct() {
         $this->createdAt = new \DateTime();
-        $this->types = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getId() {
@@ -154,5 +152,14 @@ class User{
     }
 
 
+}
+
+use Doctrine\ORM\EntityRepository;
+
+class UserRepository extends EntityRepository{
+
+    public function findAll(){
+        return $this->_em->createQuery("SELECT u FROM UserBundle:User u ORDER BY u.cratedAt DESC")->getResult();
+    }
 }
 

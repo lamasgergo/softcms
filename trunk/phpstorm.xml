@@ -14,15 +14,41 @@
   </command>
   <command>
     <name>doctrine:schema:create</name>
-    <params>params[=null]</params>
+    <params>--force[=null] --dump-sql[=null]</params>
+  </command>
+  <command>
+    <name>doctrine:schema:create</name>
+    <params>--force[=null] --dump-sql[=null]</params>
   </command>
   <command>
     <name>doctrine:schema:update</name>
-    <params>params[=null]</params>
+    <params>
+        <params>--force[=null] --dump-sql[=null]</params>
+    </params>
   </command>
   <command>
     <name>doctrine:schema:drop</name>
-    <params>params[=null]</params>
+    <params>--force[=null] --dump-sql[=null]</params>
+  </command>
+  <command>
+    <name>doctrine:generate:entities</name>
+    <params></params>
+  </command>
+  <command>
+    <name>doctrine:generate:entity</name>
+    <params>name</params>
+  </command>
+  <command>
+    <name>doctrine:generate:proxies</name>
+    <params></params>
+  </command>
+  <command>
+    <name>doctrine:generate:repositories</name>
+    <params></params>
+  </command>
+  <command>
+    <name>init:bundle</name>
+    <params>name</params>
   </command>
 </framework>
 

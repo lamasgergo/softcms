@@ -6,48 +6,55 @@
 <form method="post">
 
     <h2>
-					<b>{% trans 'Step' %} 1:</b>
-					<em>{% trans 'Please enter your login information'%}:</em>
-				</h2>
+        <b>{% trans 'Please enter your login information'%}:</b>
+    </h2>
 
-                <ul>
-                    <li class="required">
-                        {{ form.email|render_label }}
-                        {{ form.email|render }}
-                        {{ form.email|render_errors }}
-                    </li>
+    <ul>
+        <li class="required">
+            {{ form.email|render_label }}
+            {{ form.email|render }}
+            {{ form.email|render_errors }}
+        </li>
 
-                    <li class="required double password">
-                        <div class="password">
-                            {{ form.password.first|render_label }}
-                            {{ form.password.first|render }}
-                            {{ form.password.first|render_errors }}
-                        </div>
-                        <div class="password">
-                            {{ form.password.second|render_label }}
-                            {{ form.password.second|render }}
-                            {{ form.password.second|render_errors }}
-                        </div>
-                        <div class="clr"></div>
-                    </li>
+        <li class="required double password">
+            <div class="password">
+                {{ form.password.first|render_label }}
+                {{ form.password.first|render }}
+                {{ form.password.first|render_errors }}
+            </div>
+            <div class="password">
+                {{ form.password.second|render_label }}
+                {{ form.password.second|render }}
+                {{ form.password.second|render_errors }}
+            </div>
+            <div class="clr"></div>
+        </li>
 
-                    <li>
-                        {{ form.name|render_label }}
-                        {{ form.name|render }}
-                        {{ form.name|render_errors }}
-                    </li>
+        <li>
+            {{ form.name|render_label }}
+            {{ form.name|render }}
+            {{ form.name|render_errors }}
+        </li>
 
-                    <li>
-                        {{ form.type|render_label }}
-                        {{ form.type|render }}
-                        {{ form.type|render_errors }}
-                    </li>
+        <li>
+            {{ form.surname|render_label }}
+            {{ form.surname|render }}
+            {{ form.surname|render_errors }}
+        </li>
 
+        <li>
+            {{ form.pantronymic|render_label }}
+            {{ form.pantronymic|render }}
+            {{ form.pantronymic|render_errors }}
+        </li>
 
-                    <li class="clearfix">
-                        <button type="button" class="next right">Proceed &raquo;</button>
-                    </li>
-                </ul>
+        <li>
+            {{ form.termsAccepted|render_label }}
+            {{ form.termsAccepted|render }}
+            {{ form.termsAccepted|render_errors }}
+        </li>
+
+    </ul>
 
     <input type="submit">
 </form>

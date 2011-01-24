@@ -39,7 +39,6 @@ class UserController extends Controller {
     }
 
     protected function registerForm(){
-        $em = $this->get('doctrine.orm.entity_manager');
         $user = new User();
 
         $form = new Form('userForm', $user, $this->get('validator'));
@@ -49,13 +48,6 @@ class UserController extends Controller {
         $form->add(new TextField('name'));
         $form->add(new TextField('surname'));
         $form->add(new TextField('pantronymic'));
-
-        $types = $user->getTypes();
-echo '<pre>';
-        die(var_dump($user));
-        $form->add(new ChoiceField('type'), array(
-            'choices' => $types
-        ));
 
         $form->add(new CheckboxField('termsAccepted'));
 
@@ -104,14 +96,39 @@ echo '<pre>';
     public function registerAction() {
         $em = $this->get('doctrine.orm.entity_manager');
         $form = $this->registerForm();
-
         if ('POST' === $this->get('request')->getMethod()) {
+
+            $user = new User();
+            $user->setName('test1');
+            $user->setEmail('test1@test.com');
+            $user->setSurname('test1');
+            $user->setPassword('test1');
+            $user->termsAccepted = true;
+            $em->persist($user);
+            $em->flush();
+
+            $address = new UserData();
+            $address->setCountry('ua');
+            $address->setCity('ua');
+
+            $em->persist($address);
+            $em->flush();
+
+
+            die();
+
             $form->bind($this->get('request')->request->get('userForm'));
-            if ($form->isValid()) {
+
+            $type = new User();
+            $type->setTypes(1);
+            $address = new UserData();
+            $address->setCountry('test1');
+            $address->setCity('test1');
+                $em->persist($type);
+                $em->persist($address);
                 $em->persist($form->getData());
                 $em->flush();
 //                $this->sendRegistrationEmail();
-            }
         }
 
         return $this->render('UserBundle:User:register.twig', array(
