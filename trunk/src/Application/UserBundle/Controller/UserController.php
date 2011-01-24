@@ -4,19 +4,19 @@ namespace Application\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Application\UserBundle\Entity\User;
-use Application\UserBundle\Entity\UserData;
-use Application\UserBundle\Entity\UserType;
+use Application\UserBundle\Entity\User,
+    Application\UserBundle\Entity\UserData,
+    Application\UserBundle\Entity\UserType;
 
-use Symfony\Component\Form\Form;
-use Symfony\Component\Form\TextField;
-use Symfony\Component\Form\IntegerField;
-use Symfony\Component\Form\CheckboxField;
-use Symfony\Component\Form\FieldGroup;
-use Symfony\Component\Form\ChoiceField;
-use Symfony\Component\Form\RepeatedField;
-use Symfony\Component\Form\TextareaField;
-use Symfony\Component\Form\PasswordField;
+use Symfony\Component\Form\Form,
+    Symfony\Component\Form\TextField,
+    Symfony\Component\Form\IntegerField,
+    Symfony\Component\Form\CheckboxField,
+    Symfony\Component\Form\FieldGroup,
+    Symfony\Component\Form\ChoiceField,
+    Symfony\Component\Form\RepeatedField,
+    Symfony\Component\Form\TextareaField,
+    Symfony\Component\Form\PasswordField;
 
 class UserController extends Controller {
     public function indexAction() {

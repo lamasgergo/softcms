@@ -81,6 +81,78 @@ class User{
         $this->types = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    public function getEmail() {
+        return $this->email;
+    }
+
+    public function setEmail($email) {
+        $this->email = $email;
+    }
+
+    public function getPassword() {
+        return $this->password;
+    }
+
+    public function setPassword($password) {
+        $this->password = $password;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function getSurname() {
+        return $this->surname;
+    }
+
+    public function setSurname($surname) {
+        $this->surname = $surname;
+    }
+
+    public function getPantronymic() {
+        return $this->pantronymic;
+    }
+
+    public function setPantronymic($pantronymic) {
+        $this->pantronymic = $pantronymic;
+    }
+
+    public function getTypes() {
+        return $this->types;
+    }
+
+    public function setTypes($types) {
+        $this->types = $types;
+    }
+
+    public function getAddress() {
+        return $this->address;
+    }
+
+    public function setAddress($address) {
+        $this->address = $address;
+    }
+
+    public function getPublished() {
+        return $this->published;
+    }
+
+    public function setPublished(boolean $published) {
+        $this->published = $published;
+    }
+
+
 }
 
