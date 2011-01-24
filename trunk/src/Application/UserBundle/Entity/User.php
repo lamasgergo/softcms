@@ -1,6 +1,7 @@
 <?php
 namespace Application\UserBundle\Entity;
 
+
 /**
  * @orm:Entity
  * @orm:table(name="Users")
@@ -36,8 +37,9 @@ class User{
     public $name;
 
     /**
-     * @orm:Column(type="string", length="255", nullable=true)
+     * @orm:Column(type="string", length="255")
      * @validation:NotBlank()
+     * @validation:MinLength(3)
      */
     public $surname;
 
@@ -47,16 +49,21 @@ class User{
     public $pantronymic;
 
     /**
-     * @orm:Column(type="integer")
-     * @validation:NotBlank()
+     * @orm:OnoToOne(targetEntity="UserType", mappedBy="name")
      */
     public $type;
 
     /**
-     * @orm:OneToOne(targetEntity="UserData", cascade={"persist", "remove", "merge"}, mappedBy="personal")
+     * @orm:ManyToMany(targetEntity="UserType")
+     * @orm:JoinTable(name="UserType")
+     */
+    public $types;
+
+    /**
+     * @orm:OneToOne(targetEntity="UserData", cascade={"persist", "remove", "merge"}, mappedBy="address")
      * @orm:JoinColumn(name="id", referencedColumnName="id")
      */
-    public $data;
+    public $address;
 
     /**
      * @var bool
@@ -75,10 +82,11 @@ class User{
     public $termsAccepted = false;
 
     /** @validation:Valid */
-    public $groupdata;
+    public $data;
 
     public function __construct() {
         $this->createdAt = new \DateTime();
+        $this->types = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getId(){
@@ -103,6 +111,10 @@ class User{
 
     public function register(){
         
+    }
+
+    public function getTypes(){
+        return $this->types;
     }
 }
 

@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Application\UserBundle\Entity\User;
 use Application\UserBundle\Entity\UserData;
 use Application\UserBundle\Entity\UserType;
-use Application\UserBundle\Entity\Registration;
 
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\TextField;
@@ -37,6 +36,30 @@ class UserController extends Controller {
         $user = new User();
         $user = $em->find("UserBundle:User", $id);
         return $this->render('UserBundle:User:detail.twig', array('user' => $user));
+    }
+
+    protected function registerForm(){
+        $em = $this->get('doctrine.orm.entity_manager');
+        $user = new User();
+
+        $form = new Form('userForm', $user, $this->get('validator'));
+
+        $form->add(new TextField('email'));
+        $form->add(new RepeatedField( new PasswordField('password') ));
+        $form->add(new TextField('name'));
+        $form->add(new TextField('surname'));
+        $form->add(new TextField('pantronymic'));
+
+        $types = $user->getTypes();
+echo '<pre>';
+        die(var_dump($user));
+        $form->add(new ChoiceField('type'), array(
+            'choices' => $types
+        ));
+
+        $form->add(new CheckboxField('termsAccepted'));
+
+        return $form;
     }
 
     protected function userForm($object=null){
@@ -80,11 +103,9 @@ class UserController extends Controller {
 
     public function registerAction() {
         $em = $this->get('doctrine.orm.entity_manager');
-        $form = $this->userForm();
+        $form = $this->registerForm();
 
         if ('POST' === $this->get('request')->getMethod()) {
-//            $form->setValidationGroups('User');
-//            $form->setValidationGroups('UserData');
             $form->bind($this->get('request')->request->get('userForm'));
             if ($form->isValid()) {
                 $em->persist($form->getData());
@@ -93,7 +114,7 @@ class UserController extends Controller {
             }
         }
 
-        return $this->render('UserBundle:User:register2.twig', array(
+        return $this->render('UserBundle:User:register.twig', array(
             'form' => $form
         ));
     }

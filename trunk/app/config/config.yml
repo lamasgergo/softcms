@@ -21,14 +21,21 @@ twig.config:
 ## Doctrine Configuration
 doctrine.dbal:
     driver:   PDOMySql
-    host:     localhost
-    dbname:   shop
-    user:     root
-    password: null
     event_manager_class:  Doctrine\Common\EventManager
     configuration_class:  Doctrine\DBAL\Configuration
     wrapper_class:        ~
     options:              []
+    connections:
+      default:
+        host:     localhost
+        dbname:   shop
+        user:     root
+        password: null
+      production:
+        host:     localhost
+        dbname:   shop
+        user:     root
+        password: null
 
 doctrine.orm: ~
 

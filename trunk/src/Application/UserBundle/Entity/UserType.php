@@ -15,17 +15,11 @@ class UserType {
 
     /**
      * @orm:Column
-     * @orm:OneToMany(targetEntity="User")
-     * @JoinColumn(name="id", referencedColumnName="type_id",insertable=false,updatable=false)
+     * @orm:OneToOne(targetEntity="User", inversedBy="type")
+     * @JoinColumn(name="id", referencedColumnName="type_id")
      * @validation:NotBlank()
      */
     public $name;
 
-
-    /**
-     * @var usersByType
-     * @OneToMany(targetEntity="User", mappedBy="types")
-     */
-    private $usersByType;
 
 }
