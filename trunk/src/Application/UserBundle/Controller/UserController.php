@@ -93,46 +93,38 @@ class UserController extends Controller {
         return $form;
     }
 
+    public function sendRegistrationEmail(User $user){
+        $mailer = $this->get('mailer');
+        $message = \Swift_Message::newInstance()
+                ->setSubject('Activation')
+                ->setFrom($this->container->getParameter('email.from'))
+                ->setTo($user->getEmail())
+                ->setBody($this->renderView('UserBundle:User:confirmationEmail.twig', array('user'=>$user)))
+        ;
+        $mailer->send($message);
+    }
+
     public function registerAction() {
         $em = $this->get('doctrine.orm.entity_manager');
         $form = $this->registerForm();
+        $result = false;
+        $submited = false;
         if ('POST' === $this->get('request')->getMethod()) {
-
-            $user = new User();
-            $user->setName('test1');
-            $user->setEmail('test1@test.com');
-            $user->setSurname('test1');
-            $user->setPassword('test1');
-            $user->termsAccepted = true;
-            $em->persist($user);
-            $em->flush();
-
-            $address = new UserData();
-            $address->setCountry('ua');
-            $address->setCity('ua');
-
-            $em->persist($address);
-            $em->flush();
-
-
-            die();
-
+            $submited = true;
             $form->bind($this->get('request')->request->get('userForm'));
 
-            $type = new User();
-            $type->setTypes(1);
-            $address = new UserData();
-            $address->setCountry('test1');
-            $address->setCity('test1');
-                $em->persist($type);
-                $em->persist($address);
+            if($form->isValid()){
                 $em->persist($form->getData());
                 $em->flush();
-//                $this->sendRegistrationEmail();
+                $result = true;
+                $this->sendRegistrationEmail($form->getData());
+            }
         }
 
         return $this->render('UserBundle:User:register.twig', array(
-            'form' => $form
+            'form' => $form,
+            'form_submited' => $submited,
+            'form_result' => $result
         ));
     }
 

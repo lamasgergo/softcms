@@ -5,6 +5,17 @@
 
 <form method="post">
 
+    {% if form_submited %}
+        {% if form_result %}
+            {%trans 'Registration successfull. You will recieve confirmation email.' %}
+        {% else %}
+            {% if  form.hasErrors() %}
+            {{form|render_errors}}
+            {% endif %}
+            {%trans 'Registration failed. Please try later.' %}
+        {% endif %}
+    {% endif %}
+
     <h2>
         <b>{% trans 'Please enter your login information'%}:</b>
     </h2>
@@ -56,6 +67,7 @@
 
     </ul>
 
-    <input type="submit">
+    {{form|render_hidden}}
+    <input type="submit" name="register">
 </form>
 {% endblock %}
