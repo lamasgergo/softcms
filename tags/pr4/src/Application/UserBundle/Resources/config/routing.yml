@@ -1,0 +1,11 @@
+user_edit:
+    pattern:  /edit/:id
+    defaults: { _controller: UserBundle:User:edit }
+
+user_detail:
+  pattern:  /show/:id
+  defaults: { _controller: UserBundle:User:detail }
+
+register:
+    pattern: /register
+    defaults: { _controller: UserBundle:User:register }

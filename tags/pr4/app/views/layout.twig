@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% block title %}Hello Application{% endblock %}</title>
+
+    <script src="{% asset 'js/jquery/jquery.js' %}"></script>
+    <link href="{% asset 'css/jquery/jquery-ui.css' %}" rel="stylesheet" type="text/css"/>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<div class="menu">
+    <ul>
+        <li><a href="{% path 'register' %}">{% trans 'Register' %}</a></li>
+    </ul>
+</div>
+<div class="content">{% block content %}{% endblock %}</div>
+<div class="footer">
+    {% block footer %}
+    &copy; Copyright 2011 by <a href="/">you</a>.
+    {% endblock %}
+</div>
+</body>
+</html>

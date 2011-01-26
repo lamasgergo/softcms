@@ -1,0 +1,84 @@
+app.config:
+    charset:       UTF-8
+    error_handler: null
+    csrf_secret:   xxxxxxxxxx
+    router:        { resource: "%kernel.root_dir%/config/routing.yml" }
+    validation:    { enabled: true, annotations: true }
+    templating:    {} #assets_version: SomeVersionScheme
+    translator:    { fallback: en }
+    session:
+        default_locale: ru
+        lifetime:       3600
+        auto_start:     true
+
+# Twig Configuration
+twig.config:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+## Doctrine Configuration
+doctrine.dbal:
+    driver:   PDOMySql
+    event_manager_class:  Doctrine\Common\EventManager
+    configuration_class:  Doctrine\DBAL\Configuration
+    wrapper_class:        ~
+    options:              []
+    connections:
+      default:
+        host:     localhost
+        dbname:   shop
+        user:     root
+        password: null
+      production:
+        host:     localhost
+        dbname:   shop
+        user:     root
+        password: null
+
+doctrine.orm:
+    auto_generate_proxy_classes: %kernel.debug%
+    mappings:
+        UserBundle: ~
+
+## Swiftmailer Configuration
+swiftmailer.config:
+    transport:  smtp
+    encryption: ssl
+    auth_mode:  login
+    host:       smtp.gmail.com
+    username:   a.diesel@gmail.com
+    password:   ghbrjkmyj
+
+
+security.config:
+  providers:
+    users:
+      password_encoder: sha1
+      entity: { class: UserBundle:User, property: email }
+    backend:
+      password_encoder: sha1
+      users:
+        admin: { password: admin, roles: ['ROLE_USER', 'ROLE_ADMIN'] }
+  firewalls:
+    backend:
+      pattern: /admin/.*
+      form-login: true
+      logout:     true
+    my:
+      pattern:    /my/.*
+      form-login: { provider: users }
+      logout:     { path: /logout, target: /login }
+      check_path : /login_check
+      login_path : /login
+    public:
+      pattern: /[^my]{2}.*
+      security: false
+
+  access_control:
+    - { path: /.*, role: ROLE_USER }
+    - { path: /my/.*, role: ROLE_OWNER }
+    - { path: /admin/.*, role: ROLE_ADMIN }
+
+
+parameters:
+  email.from: a.diesel@gmail.com
