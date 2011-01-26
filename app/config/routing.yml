@@ -1,0 +1,19 @@
+homepage:
+    pattern:  /
+    defaults: { _controller: HomepageBundle:Home:index }
+
+hello:
+    resource: HelloBundle/Resources/config/routing.yml
+
+user: { resource: UserBundle/Resources/config/routing.yml, prefix: /user}
+
+my:
+  pattern: /my
+  defaults: { _controller: UserBundle:User:index }
+
+_security_check:
+  pattern: /login_check
+
+_security_login:
+  pattern: /login
+  defaults: { _controller: UserBundle:User:login }
