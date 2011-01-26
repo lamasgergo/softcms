@@ -31,6 +31,11 @@ class User implements AccountInterface{
     private $password;
 
     /**
+     * @orm:Column(length=16)
+     */
+    private $salt;
+
+    /**
      * @orm:Column(type="string", length="255")
      * @validation:NotBlank()
      * @validation:MinLength(3)
@@ -152,13 +157,6 @@ class User implements AccountInterface{
         $this->published = $published;
     }
 
-    function loadUserByUsername($email){
-        $em = $this->get('doctrine.orm.entity_manager');
-        $user = $em->find('UserBundle:User').findByEmail($email);
-        die(var_dump($user));
-        return $user;
-    }
-
     /**
      * Returns a string representation of the User.
      *
@@ -190,7 +188,7 @@ class User implements AccountInterface{
      * @return string The salt
      */
     function getSalt() {
-        // TODO: Implement getSalt() method.
+        return $this->salt;
     }
 
     /**
@@ -213,7 +211,7 @@ class User implements AccountInterface{
      * @return Boolean
      */
     function equals(AccountInterface $account) {
-        // TODO: Implement equals() method.
+        return ($this->getEmail() === $account->getEmail());
     }
 }
 
@@ -254,7 +252,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface{
      * @return AccountInterface
      */
     function loadUserByAccount(AccountInterface $user) {
-        // TODO: Implement loadUserByAccount() method.
+        return $this->loadUserByUsername($user->getEmail());
     }
 }
 

@@ -52,32 +52,25 @@ swiftmailer.config:
 
 security.config:
   providers:
-    users:
+    main:
       password_encoder: sha1
       entity: { class: UserBundle:User, property: email }
-    backend:
-      password_encoder: sha1
-      users:
-        admin: { password: admin, roles: ['ROLE_USER', 'ROLE_ADMIN'] }
+      check_path: /login-check
   firewalls:
-    backend:
-      pattern: /admin/.*
-      form-login: true
-      logout:     true
-    my:
+    restricted:
       pattern:    /my/.*
-      form-login: { provider: users }
-      logout:     { path: /logout, target: /login }
-      check_path : /login_check
-      login_path : /login
+      form-login:
+        check_path: /login-check
     public:
       pattern: /[^my]{2}.*
-      security: false
+      anonymous:  true
+      form_login:
+        check_path: /login-check
+      logout:     true
 
   access_control:
-    - { path: /.*, role: ROLE_USER }
     - { path: /my/.*, role: ROLE_OWNER }
-    - { path: /admin/.*, role: ROLE_ADMIN }
+    - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
 
 parameters:
