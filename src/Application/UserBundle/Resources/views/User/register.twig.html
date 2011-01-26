@@ -1,0 +1,28 @@
+{% extends "UserBundle::layout.twig.html" %}
+
+{% block content %}
+{% trans 'Registration' %}
+
+<form method="post">
+
+    {% if form_submited %}
+        {% if form_result %}
+            {%trans 'Registration successfull. You will recieve confirmation email.' %}
+        {% else %}
+            {% if  form.hasErrors() %}
+            {{form_errors(form)}}
+            {% endif %}
+            {%trans 'Registration failed. Please try later.' %}
+        {% endif %}
+    {% endif %}
+
+    <h2>
+        <b>{% trans 'Please enter your login information'%}:</b>
+    </h2>
+
+    {{form_field(form)}}
+
+    {{form_hidden(form)}}
+    <input type="submit" name="register">
+</form>
+{% endblock %}

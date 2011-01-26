@@ -1,0 +1,73 @@
+{% extends "UserBundle::layout.twig" %}
+
+{% block content %}
+{% trans 'Registration' %}
+
+<form method="post">
+
+    {% if form_submited %}
+        {% if form_result %}
+            {%trans 'Registration successfull. You will recieve confirmation email.' %}
+        {% else %}
+            {% if  form.hasErrors() %}
+            {{form|render_errors}}
+            {% endif %}
+            {%trans 'Registration failed. Please try later.' %}
+        {% endif %}
+    {% endif %}
+
+    <h2>
+        <b>{% trans 'Please enter your login information'%}:</b>
+    </h2>
+
+    <ul>
+        <li class="required">
+            {{ form.email|render_label }}
+            {{ form.email|render }}
+            {{ form.email|render_errors }}
+        </li>
+
+        <li class="required double password">
+            <div class="password">
+                {{ form.password.first|render_label }}
+                {{ form.password.first|render }}
+                {{ form.password.first|render_errors }}
+            </div>
+            <div class="password">
+                {{ form.password.second|render_label }}
+                {{ form.password.second|render }}
+                {{ form.password.second|render_errors }}
+            </div>
+            <div class="clr"></div>
+        </li>
+
+        <li>
+            {{ form.name|render_label }}
+            {{ form.name|render }}
+            {{ form.name|render_errors }}
+        </li>
+
+        <li>
+            {{ form.surname|render_label }}
+            {{ form.surname|render }}
+            {{ form.surname|render_errors }}
+        </li>
+
+        <li>
+            {{ form.pantronymic|render_label }}
+            {{ form.pantronymic|render }}
+            {{ form.pantronymic|render_errors }}
+        </li>
+
+        <li>
+            {{ form.termsAccepted|render_label }}
+            {{ form.termsAccepted|render }}
+            {{ form.termsAccepted|render_errors }}
+        </li>
+
+    </ul>
+
+    {{form|render_hidden}}
+    <input type="submit" name="register">
+</form>
+{% endblock %}
