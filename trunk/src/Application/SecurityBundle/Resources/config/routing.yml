@@ -1,7 +1,0 @@
-login:
-  pattern: /login
-  defaults: { _controller: SecurityBundle:Security:login }
-
-my:
-  pattern: /my
-  defaults: { _controller: HomepageBundle:Home:index }

@@ -3,9 +3,7 @@ app.config:
     error_handler: null
     csrf_secret:   xxxxxxxxxx
     router:        { resource: "%kernel.root_dir%/config/routing.yml" }
-    validation:
-        enabled: true
-        annotations: true
+    validation:    { enabled: true, annotations: true }
     templating:    {} #assets_version: SomeVersionScheme
     translator:    { fallback: en }
     session:
@@ -37,7 +35,10 @@ doctrine.dbal:
         user:     root
         password: null
 
-doctrine.orm: ~
+doctrine.orm:
+    auto_generate_proxy_classes: %kernel.debug%
+    mappings:
+        UserBundle: ~
 
 ## Swiftmailer Configuration
 swiftmailer.config:
@@ -81,4 +82,3 @@ security.config:
 
 parameters:
   email.from: a.diesel@gmail.com
-  

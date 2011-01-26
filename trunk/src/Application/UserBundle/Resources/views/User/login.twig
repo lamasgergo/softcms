@@ -4,13 +4,13 @@
 <div>{{ error }}</div>
 {% endif %}
 
-<form action="{% path('login') %}" method="post">
-    <label for="username">{% trans 'Email' %}:</label>
+<form action="{% path('_security_check') %}" method="post">
+    <label for="username">Username:</label>
     <input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
-    <label for="password">{% trans 'Password' %}:</label>
+    <label for="password">Password:</label>
     <input type="password" id="password" name="_password"/>
 
-    <input type="submit" name="login" value="{% trans 'Login' %}"/>
+    <input type="submit" name="login"/>
 </form>
 {%endblock content%}

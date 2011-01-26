@@ -1,12 +1,13 @@
 <?php
 namespace Application\UserBundle\Entity;
 
-
+use Symfony\Component\Security\User\AccountInterface;
+use Symfony\Component\Security\User\UserProviderInterface;
 /**
  * @orm:Entity(repositoryClass="Application\UserBundle\Entity\UserRepository")
  * @orm:table(name="Users")
  */
-class User{
+class User implements AccountInterface{
 
     /**
      * @orm:Id
@@ -151,15 +152,79 @@ class User{
         $this->published = $published;
     }
 
+    function loadUserByUsername($email){
+        $em = $this->get('doctrine.orm.entity_manager');
+        $user = $em->find('UserBundle:User').findByEmail($email);
+        die(var_dump($user));
+        return $user;
+    }
 
+    /**
+     * Returns a string representation of the User.
+     *
+     * @return string A string return of the User
+     */
+    function __toString() {
+        // TODO: Implement __toString() method.
+    }
+
+    /**
+     * Removes sensitive data from the user.
+     */
+    function eraseCredentials() {
+        // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * Returns the roles granted to the user.
+     *
+     * @return Role[] The user roles
+     */
+    function getRoles() {
+        // TODO: Implement getRoles() method.
+    }
+
+    /**
+     * Returns the salt.
+     *
+     * @return string The salt
+     */
+    function getSalt() {
+        // TODO: Implement getSalt() method.
+    }
+
+    /**
+     * Returns the username used to authenticate the user.
+     *
+     * @return string The username
+     */
+    function getUsername() {
+        return $this->getEmail();
+    }
 }
 
 use Doctrine\ORM\EntityRepository;
 
-class UserRepository extends EntityRepository{
+class UserRepository extends EntityRepository implements UserProviderInterface{
 
     public function findAll(){
         return $this->_em->createQuery("SELECT u FROM UserBundle:User u ORDER BY u.cratedAt DESC")->getResult();
+    }
+
+    /**
+     * Loads the user for the given username.
+     *
+     * This method must throw UsernameNotFoundException if the user is not
+     * found.
+     *
+     * @param  string $username The username
+     *
+     * @return AccountInterface A user instance
+     *
+     * @throws UsernameNotFoundException if the user is not found
+     */
+    function loadUserByUsername($username) {
+        return $this->findOneBy(array('email' => $username));
     }
 }
 
