@@ -27,9 +27,7 @@ class AppKernel extends Kernel
 
             // register your bundles
 //            new Application\HelloBundle\HelloBundle(),
-            new Application\HomepageBundle\HomepageBundle(),
             new Application\UserBundle\UserBundle(),
-            new Application\CompanyBundle\CompanyBundle(),
 
         );
 

@@ -1,203 +1,264 @@
-<?php
+<?php 
+
 namespace Application\UserBundle\Entity;
 
 use Symfony\Component\Security\User\AccountInterface;
-use Symfony\Component\Security\User\UserProviderInterface;
+use Symfony\Component\Security\Encoder\MessageDigestPasswordEncoder;
+
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @orm:Entity(repositoryClass="Application\UserBundle\Entity\UserRepository")
- * @orm:table(name="Users")
+ * @orm:Table(name="user",
+ *     uniqueConstraints={
+ * @orm:UniqueConstraint(name="username_idx", columns={"username"}),
+ * @orm:UniqueConstraint(name="email_idx", columns={"email"})
+ *     }
+ * )
+ * @orm:HasLifecycleCallbacks
  */
-class User implements AccountInterface{
-
+class User implements AccountInterface {
     /**
+     * @orm:Column(name="id", type="integer")
      * @orm:Id
-     * @orm:Column(type="integer")
-     * @orm:GeneratedValue
+     * @orm:GeneratedValue(strategy="AUTO")
+     * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
-     * @orm:Column(type="string", length="255", unique="true")
-     * @validation:NotBlank()
+     * @orm:Column(name="username", type="string", length="32")
+     * @validation:Min(3)
+     * @validation:Max(32)
+     * @validation:NotBlank
+     * @var string
+     */
+    protected $username;
+
+    /**
+     * @orm:Column(name="email", type="string", length="256")
      * @validation:Email
+     * @validation:NotBlank
+     * @var string
      */
-    private $email;
+    protected $email;
 
     /**
-     * @orm:Column
-     * @validation:NotBlank()
-     * @validation:MinLength(5)
+     * @orm:Column(name="salt", type="string", length="32")
+     * @var string
      */
-    private $password;
+    protected $salt;
 
     /**
-     * @orm:Column(length=16)
+     * @orm:Column(name="password", type="string", length="40")
+     * @validation:NotBlank
+     * @var string
      */
-    private $salt;
+    protected $password;
 
     /**
-     * @orm:Column(type="string", length="255")
-     * @validation:NotBlank()
-     * @validation:MinLength(3)
+     * @orm:Column(name="activation_key", type="string", length="32", nullable="true")
+     * @var \DateTime
      */
-    private $name;
+    protected $activationKey;
 
     /**
-     * @orm:Column(type="string", length="255")
-     * @validation:NotBlank()
-     * @validation:MinLength(3)
+     * @orm:Column(name="activation", type="datetime", nullable="true")
+     * @var \DateTime
      */
-    private $surname;
+    protected $activation;
 
     /**
-     * @orm:Column(type="string", length="255", nullable=true)
+     * @orm:Column(name="last_login", type="datetime", nullable="true")
+     * @var \DateTime
      */
-    private $pantronymic;
+    protected $lastLogin;
 
     /**
-     * @orm:ManyToOne(targetEntity="UserType", inversedBy="users")
-     * @orm:JoinColumn(name="type_id", referencedColumnName="id")
+     * @orm:Column(name="created", type="datetime")
+     * @validation:NotBlank
+     * @var \DateTime
      */
-    private $types;
+    protected $created;
 
     /**
-     * @orm:OneToOne(targetEntity="UserData", mappedBy="user")
+     * @orm:Column(name="updated", type="datetime")
+     * @validation:NotBlank
+     * @var \DateTime
      */
-    private $address;
+    protected $updated;
 
     /**
-     * @var bool
-     * $orm:Column(type="tinyint(1)")
+     * Constructor.
      */
-    private $published = false;
-    
-    /**
-     * @orm:Column(type="datetime")
-     */
-    private $createdAt;
-
-    /**
-     * @validation:AssertTrue(message="Please accept the terms and conditions")
-     */
-    public $termsAccepted = false;
-
     public function __construct() {
-        $this->createdAt = new \DateTime();
+        $this->created = $this->updated = new \DateTime('now');
     }
 
+    /**
+     * @return integer
+     */
     public function getId() {
         return $this->id;
     }
 
-    public function setId($id) {
-        $this->id = $id;
+    /**
+     * @return string
+     */
+    public function __toString() {
+        return $this->getUsername();
     }
 
+    /**
+     * @return string
+     */
+    public function getUsername() {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username) {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string
+     */
     public function getEmail() {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     */
     public function setEmail($email) {
         $this->email = $email;
     }
 
+    /**
+     * @return string
+     */
     public function getPassword() {
         return $this->password;
     }
 
+    /**
+     * @param string $password
+     */
     public function setPassword($password) {
+        $encoder = new MessageDigestPasswordEncoder('sha1');
+        $password = $encoder->encodePassword($password, $this->getSalt());
+
         $this->password = $password;
     }
 
-    public function getName() {
-        return $this->name;
-    }
+    /**
+     * @return string
+     */
+    public function getActivationKey() {
+        if (null === $this->activationKey) {
+            $this->activationKey = md5(sprintf(
+                '%s_%d_%s_%f_%s_%d',
+                uniqid(),
+                rand(0, 99999),
+                $this->getUsername(),
+                microtime(true),
+                $this->getEmail(),
+                rand(99999, 999999)
+            ));
+        }
 
-    public function setName($name) {
-        $this->name = $name;
-    }
-
-    public function getSurname() {
-        return $this->surname;
-    }
-
-    public function setSurname($surname) {
-        $this->surname = $surname;
-    }
-
-    public function getPantronymic() {
-        return $this->pantronymic;
-    }
-
-    public function setPantronymic($pantronymic) {
-        $this->pantronymic = $pantronymic;
-    }
-
-    public function getTypes() {
-        return $this->types;
-    }
-
-    public function setTypes($types) {
-        $this->types = $types;
-    }
-
-    public function getAddress() {
-        return $this->address;
-    }
-
-    public function setAddress($address) {
-        $this->address = $address;
-    }
-
-    public function getPublished() {
-        return $this->published;
-    }
-
-    public function setPublished(boolean $published) {
-        $this->published = $published;
+        return $this->activationKey;
     }
 
     /**
-     * Returns a string representation of the User.
-     *
-     * @return string A string return of the User
+     * @return \DateTime
      */
-    function __toString() {
-        // TODO: Implement __toString() method.
+    public function getActivation() {
+        return $this->activation;
     }
 
     /**
-     * Removes sensitive data from the user.
+     * @param \DateTime $activation
      */
-    function eraseCredentials() {
-        // TODO: Implement eraseCredentials() method.
+    public function setActivation(\DateTime $activation) {
+        $this->activation = $activation;
     }
 
     /**
-     * Returns the roles granted to the user.
-     *
-     * @return Role[] The user roles
+     * @return \DateTime
      */
-    function getRoles() {
-        // TODO: Implement getRoles() method.
+    public function isActivated() {
+        return (boolean) $this->activation;
     }
 
     /**
-     * Returns the salt.
-     *
-     * @return string The salt
+     * @return \DateTime
      */
-    function getSalt() {
+    public function getLastLogin() {
+        return $this->lastLogin;
+    }
+
+    /**
+     * @param \DateTime $lastLogin
+     */
+    public function setLastLogin(\DateTime $lastLogin) {
+        $this->lastLogin = $lastLogin;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreated() {
+        return $this->created;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdated() {
+        return $this->updated;
+    }
+
+    /**
+     * @orm:PreUpdate
+     */
+    public function update() {
+        $this->updated = new \DateTime('now');
+    }
+
+    // AccountInterface
+
+    /**
+     * @return string
+     */
+    public function getSalt() {
+        if (null === $this->salt) {
+            $this->salt = md5(sprintf(
+                '%s_%d_%f',
+                uniqid(),
+                rand(0, 99999),
+                microtime(true)
+            ));
+        }
+
         return $this->salt;
     }
 
     /**
-     * Returns the username used to authenticate the user.
-     *
-     * @return string The username
+     * @return array
      */
-    function getUsername() {
-        return $this->getEmail();
+    public function getRoles() {
+        return array('ROLE_USER', 'ROLE_OWNER', 'ROLE_ADMIN');
+    }
+
+    /**
+     * @return void
+     */
+    public function eraseCredentials() {
+        $this->roles = null;
     }
 
     /**
@@ -211,48 +272,22 @@ class User implements AccountInterface{
      * @return Boolean
      */
     function equals(AccountInterface $account) {
-        return ($this->getEmail() === $account->getEmail());
+        if (!$account instanceof User) {
+            return false;
+        }
+
+        if ($this->password !== $account->getPassword()) {
+            return false;
+        }
+
+        if ($this->getSalt() !== $account->getSalt()) {
+            return false;
+        }
+
+        if ($this->username !== $account->getUsername()) {
+            return false;
+        }
+
+        return true;
     }
 }
-
-use Doctrine\ORM\EntityRepository;
-
-class UserRepository extends EntityRepository implements UserProviderInterface{
-
-    public function findAll(){
-        return $this->_em->createQuery("SELECT u FROM UserBundle:User u ORDER BY u.cratedAt DESC")->getResult();
-    }
-
-    /**
-     * Loads the user for the given username.
-     *
-     * This method must throw UsernameNotFoundException if the user is not
-     * found.
-     *
-     * @param  string $username The username
-     *
-     * @return AccountInterface A user instance
-     *
-     * @throws UsernameNotFoundException if the user is not found
-     */
-    function loadUserByUsername($username) {
-        return $this->findOneBy(array('email' => $username));
-    }
-
-    /**
-     * Loads the user for the account interface.
-     *
-     * It is up to the implementation if it decides to reload the user data
-     * from the database, or if it simply merges the passed User into the
-     * identity map of an entity manager.
-     *
-     * @throws UnsupportedAccountException if the account is not supported
-     * @param AccountInterface $user
-     *
-     * @return AccountInterface
-     */
-    function loadUserByAccount(AccountInterface $user) {
-        return $this->loadUserByUsername($user->getEmail());
-    }
-}
-
