@@ -18,27 +18,27 @@ twig.config:
 
 ## Doctrine Configuration
 doctrine.dbal:
-    driver:   PDOMySql
-    event_manager_class:  Doctrine\Common\EventManager
-    configuration_class:  Doctrine\DBAL\Configuration
-    wrapper_class:        ~
-    options:              []
-    connections:
+  driver:   pdo_mysql
+  default_connection: default
+  connections:
       default:
-        host:     localhost
-        dbname:   shop
-        user:     root
-        password: null
-      production:
-        host:     localhost
-        dbname:   shop
-        user:     root
-        password: null
+        dbname: shop
+        user:             root
+        password:         null
+        host:             localhost
 
 doctrine.orm:
-    auto_generate_proxy_classes: %kernel.debug%
-    mappings:
-        UserBundle: ~
+  auto_generate_proxy_classes: %kernel.debug%
+  mappings:
+    UserBundle: ~
+  auto_generate_proxy_classes: true
+  proxy_namespace: Proxies
+  proxy_dir: %kernel.cache_dir%/doctrine/orm/Proxies
+  default_entity_manager: default
+  default_connection: default
+  metadata_cache_driver: array
+  query_cache_driver: array
+  result_cache_driver: array
 
 ## Swiftmailer Configuration
 swiftmailer.config:
