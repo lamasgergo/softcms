@@ -1,3 +1,10 @@
+homepage:
+    pattern:  /
+    defaults: { _controller: FrameworkBundle:Default:index }
+
+hello:
+    resource: HelloBundle/Resources/config/routing.yml
+    
 _security_login:
     pattern: /login
     defaults: { _controller: UserBundle:Security:login }
