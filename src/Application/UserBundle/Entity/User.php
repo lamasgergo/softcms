@@ -28,8 +28,8 @@ class User implements AccountInterface {
 
     /**
      * @orm:Column(name="username", type="string", length="32")
-     * @validation:Min(3)
-     * @validation:Max(32)
+     * @validation:MinLenght(3)
+     * @validation:MinLenght(32)
      * @validation:NotBlank
      * @var string
      */
