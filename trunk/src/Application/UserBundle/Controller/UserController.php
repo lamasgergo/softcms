@@ -1,38 +1,13 @@
 <?php
-
+// Application/UserBundle/Controller/UserController.php
 namespace Application\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Application\UserBundle\Entity\User,
-    Application\UserBundle\Entity\UserData,
-    Application\UserBundle\Entity\UserType;
+use Application\UserBundle\Entity\User;
 
-use Symfony\Component\Form\Form,
-    Symfony\Component\Form\TextField,
-    Symfony\Component\Form\IntegerField,
-    Symfony\Component\Form\CheckboxField,
-    Symfony\Component\Form\FieldGroup,
-    Symfony\Component\Form\ChoiceField,
-    Symfony\Component\Form\RepeatedField,
-    Symfony\Component\Form\TextareaField,
-    Symfony\Component\Form\PasswordField;
-
-use Symfony\Component\Security\SecurityContext;
 
 class UserController extends Controller {
-
-    public function indexAction() {
-
-        $em = $this->get('doctrine.orm.entity_manager');
-        $query = $em->createQuery("SELECT u FROM UserBundle:User u");
-        $query->setMaxResults(10);
-        $users = $query->getResult();
-        return $this->render('UserBundle:User:index.twig.html', array('list' => $users));
-
-        // render a PHP template instead
-        // return $this->render('UserBundle:User:index.php', array('name' => $name));
-    }
 
     public function detailAction($id) {
         $em = $this->get("doctrine.orm.entity_manager");

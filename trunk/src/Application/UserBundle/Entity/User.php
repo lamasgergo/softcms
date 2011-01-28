@@ -1,5 +1,5 @@
 <?php 
-
+// Application/UserBundle/Entity/User.php
 namespace Application\UserBundle\Entity;
 
 use Symfony\Component\Security\User\AccountInterface;
@@ -36,7 +36,7 @@ class User implements AccountInterface {
     protected $username;
 
     /**
-     * @orm:Column(name="email", type="string", length="256")
+     * @orm:Column(name="email", type="string", length="125")
      * @validation:Email
      * @validation:NotBlank
      * @var string
