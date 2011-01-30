@@ -2,17 +2,16 @@
 // Application/UserBundle/Entity/User.php
 namespace Application\UserBundle\Entity;
 
-use Symfony\Component\Security\User\AccountInterface;
-use Symfony\Component\Security\Encoder\MessageDigestPasswordEncoder;
+use Symfony\Component\Security\User\AccountInterface as AccountInterface;
+use Symfony\Component\Security\Encoder\MessageDigestPasswordEncoder as MessageDigestPasswordEncoder;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 
 /**
  * @orm:Entity(repositoryClass="Application\UserBundle\Entity\UserRepository")
  * @orm:Table(name="user",
  *     uniqueConstraints={
- * @orm:UniqueConstraint(name="username_idx", columns={"username"}),
- * @orm:UniqueConstraint(name="email_idx", columns={"email"})
+ *          @orm:UniqueConstraint(name="email_idx", columns={"email"})
  *     }
  * )
  * @orm:HasLifecycleCallbacks
@@ -27,21 +26,30 @@ class User implements AccountInterface {
     protected $id;
 
     /**
-     * @orm:Column(name="username", type="string", length="32")
-     * @validation:MinLenght(3)
-     * @validation:MinLenght(32)
-     * @validation:NotBlank
-     * @var string
-     */
-    protected $username;
-
-    /**
      * @orm:Column(name="email", type="string", length="125")
      * @validation:Email
      * @validation:NotBlank
      * @var string
      */
     protected $email;
+
+    /**
+     * @orm:Column(name="name", type="string", length="255")
+     * @validation:MinLenght(3)
+     * @validation:MinLenght(32)
+     * @validation:NotBlank
+     * @var string
+     */
+    protected $name;
+
+    /**
+     * @orm:Column(name="familyname", type="string", length="255")
+     * @validation:MinLenght(3)
+     * @validation:MinLenght(32)
+     * @validation:NotBlank
+     * @var string
+     */
+    protected $surname;
 
     /**
      * @orm:Column(name="salt", type="string", length="32")
@@ -113,15 +121,9 @@ class User implements AccountInterface {
      * @return string
      */
     public function getUsername() {
-        return $this->username;
+        return $this->email;
     }
 
-    /**
-     * @param string $username
-     */
-    public function setUsername($username) {
-        $this->username = $username;
-    }
 
     /**
      * @return string
@@ -153,6 +155,7 @@ class User implements AccountInterface {
 
         $this->password = $password;
     }
+
 
     /**
      * @return string
@@ -229,6 +232,13 @@ class User implements AccountInterface {
         $this->updated = new \DateTime('now');
     }
 
+    /**
+     * @orm:PrePersist
+     */
+    public function doPersist() {
+        $this->getActivationKey();
+    }
+
     // AccountInterface
 
     /**
@@ -284,10 +294,26 @@ class User implements AccountInterface {
             return false;
         }
 
-        if ($this->username !== $account->getUsername()) {
+        if ($this->email !== $account->getEmail()) {
             return false;
         }
 
         return true;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function getSurname() {
+        return $this->surname;
+    }
+
+    public function setSurname($surname) {
+        $this->surname = $surname;
     }
 }

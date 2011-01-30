@@ -30,8 +30,9 @@ class UserController extends Controller {
 
         $form = new Form('userForm', $user, $this->get('validator'));
 
-        $form->add(new TextField('username'));
         $form->add(new TextField('email'));
+        $form->add(new TextField('name'));
+        $form->add(new TextField('surname'));
         $form->add(new RepeatedField(new PasswordField('password')));
 
         return $form;
@@ -96,6 +97,7 @@ class UserController extends Controller {
             $form->bind($this->get('request')->request->get('userForm'));
 
             if ($form->isValid()) {
+                $user = new User();
                 $em->persist($form->getData());
                 $em->flush();
                 $result = true;

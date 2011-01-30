@@ -54,7 +54,7 @@ security.config:
   providers:
     default:
       password_encoder: sha1
-      entity: { class: UserBundle:User, property: username }
+      entity: { class: UserBundle:User, property: email }
   encoders:
     Application\UserBundle\Entity\User: sha1
   firewalls:
