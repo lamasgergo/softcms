@@ -1,16 +1,16 @@
-{%extends "::layout.twig.html"%}
 {%block content%}
 {% if error %}
 <div>{{ error }}</div>
 {% endif %}
 
 <form action="{{ path('_security_check') }}" method="post">
-    <label for="username">Email:</label>
+    <label for="username">{% trans 'Email' %}:</label>
     <input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
-    <label for="password">Password:</label>
+    <label for="password">{% trans 'Password' %}:</label>
     <input type="password" id="password" name="_password"/>
 
     <input type="submit" name="login"/>
 </form>
+<a href="{{ path('registration') }}">{% trans "Registration" %}</a>
 {%endblock content%}
