@@ -9,9 +9,10 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+<div class="login">
+    {% include "UserBundle:Security:login" %}
+</div>
 <div class="menu">
-    $user = $container->get('security.context')->getUser();
-    {{}}
 </div>
 <div class="content">{% block content %}{% endblock %}</div>
 <div class="footer">

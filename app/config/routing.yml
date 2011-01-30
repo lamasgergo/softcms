@@ -1,6 +1,6 @@
 homepage:
     pattern:  /
-    defaults: { _controller: FrameworkBundle:Default:index }
+    defaults: { _controller: HomeBundle:Home:index }
 
 registration:
     pattern: /registration
