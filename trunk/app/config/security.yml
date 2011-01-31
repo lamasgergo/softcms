@@ -1,0 +1,23 @@
+security.config:
+  providers:
+    default:
+      password_encoder: sha1
+      entity: { class: UserBundle:User, property: email }
+  encoders:
+    Application\UserBundle\Entity\User: sha1
+  firewalls:
+    public:
+      pattern: /.*
+      anonymous: true
+      form_login:
+        provider: default
+        use_referer: true
+      logout: true
+
+  access_control:
+    - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: /my/?.*, role: ROLE_OWNER }
+
+
+security.acl:
+  dbal.connection: default

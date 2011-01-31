@@ -15,3 +15,7 @@ _security_check:
     
 _security_logout:
     pattern: /logout
+
+user:
+  resource: UserBundle/Resources/config/routing.yml
+  prefix:   /user
