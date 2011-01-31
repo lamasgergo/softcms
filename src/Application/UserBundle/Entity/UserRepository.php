@@ -21,7 +21,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface {
      * @return AccountInterface
      */
     function loadUserByAccount(AccountInterface $user) {
-        return $this->_em->find($user, $user->getUsername());
+//        return $this->_em->find($user, $user->getUsername());
 //        return $this->loadUserByUsername($user->getUsername());
     }
 
@@ -37,6 +37,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface {
      * @return AccountInterface
      */
     function loadUserByUsername($username) {
-        return $this->findOneBy(array('email' => $username));
+        die($username);
+//        return $this->findOneBy(array('email' => $username, 'activated' => '1'));
     }
 }

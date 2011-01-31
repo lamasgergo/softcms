@@ -71,10 +71,10 @@ class User implements AccountInterface {
     protected $activationKey;
 
     /**
-     * @orm:Column(name="activation", type="datetime", nullable="true")
-     * @var \DateTime
+     * @orm:Column(name="activated", type="smallint")
+     * @var integer
      */
-    protected $activation;
+    protected $activated = 0;
 
     /**
      * @orm:Column(name="last_login", type="datetime", nullable="true")
@@ -121,7 +121,7 @@ class User implements AccountInterface {
      * @return string
      */
     public function getUsername() {
-        return $this->email;
+        return $this->getEmail();
     }
 
 
@@ -150,10 +150,12 @@ class User implements AccountInterface {
      * @param string $password
      */
     public function setPassword($password) {
-        $encoder = new MessageDigestPasswordEncoder('sha1');
-        $password = $encoder->encodePassword($password, $this->getSalt());
+        if (!empty($password)){
+            $encoder = new MessageDigestPasswordEncoder('sha1');
+            $password = $encoder->encodePassword($password, $this->getSalt());
 
-        $this->password = $password;
+            $this->password = $password;
+        }
     }
 
 
@@ -176,19 +178,6 @@ class User implements AccountInterface {
         return $this->activationKey;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getActivation() {
-        return $this->activation;
-    }
-
-    /**
-     * @param \DateTime $activation
-     */
-    public function setActivation(\DateTime $activation) {
-        $this->activation = $activation;
-    }
 
     /**
      * @return \DateTime
@@ -261,7 +250,7 @@ class User implements AccountInterface {
      * @return array
      */
     public function getRoles() {
-        return array('ROLE_USER', 'ROLE_OWNER', 'ROLE_ADMIN');
+        return array('ROLE_USER', 'ROLE_OWNER');
     }
 
     /**
@@ -315,5 +304,13 @@ class User implements AccountInterface {
 
     public function setSurname($surname) {
         $this->surname = $surname;
+    }
+
+    public function getActivated() {
+        return $this->activated;
+    }
+
+    public function setActivated($activated) {
+        $this->activated = $activated;
     }
 }

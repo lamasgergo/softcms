@@ -1,0 +1,7 @@
+<div class="userMenu">
+    {% trans "Welcome"%}, {{user.name}}
+    <ul>
+        <li><a href="{{ path('_user_info') }}">{% trans 'Edit info'%}</a></li>
+        <li><a href="{{ path('_security_logout') }}">{% trans 'Logout'%}</a></li>
+    </ul>
+</div>
