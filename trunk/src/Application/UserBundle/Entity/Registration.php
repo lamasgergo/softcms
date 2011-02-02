@@ -2,24 +2,24 @@
 namespace Application\UserBundle\Entity;
 use Application\UserBundle\Entity\User;
 
+/**
+ * @orm:Entity
+ * @orm:Table(name="user")
+ */
 class Registration extends User{
 
     /**
-     * @validation:AssertTrue(message = "The token is invalid")
+     * @validation:AssertTrue(message="The captcha is invalid")
      */
     private $captcha;
 
     private $captchaValue;
 
     /**
-     * @validation:AssertTrue(message="Please accept the terms and conditions")
+     * @validation:AssertTrue(message="The captcha is invalid")
      */
     public $termsAccepted = false;
 
-
-    public function isCaptchaValid() {
-        return $this->captcha == $this->getCaptchaValue();
-    }
 
     public function getCaptcha() {
         return $this->captcha;
@@ -35,6 +35,11 @@ class Registration extends User{
 
     public function setCaptchaValue($captchaValue) {
         $this->captchaValue = $captchaValue;
+    }
+
+    public function isCaptcha() {
+        die('123');
+        return $this->captcha == $this->getCaptchaValue();
     }
 }
 ?>

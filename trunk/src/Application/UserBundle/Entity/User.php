@@ -1,5 +1,4 @@
 <?php 
-// Application/UserBundle/Entity/User.php
 namespace Application\UserBundle\Entity;
 
 use Symfony\Component\Security\User\AccountInterface;
