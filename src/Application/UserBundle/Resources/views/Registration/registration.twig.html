@@ -8,26 +8,23 @@
     <div>
         {{ form_label(form.email) }}
         {{ form_field(form.email) }}
-        {{ form_errors(form.email) }}
     </div>
 
     <div>
         {{ form_label(form.name) }}
         {{ form_field(form.name) }}
-        {{ form_errors(form.name) }}
     </div>
 
     <div>
         {{ form_label(form.surname) }}
         {{ form_field(form.surname) }}
-        {{ form_errors(form.surname) }}
     </div>
     <div>
         {{ form_field(form.password) }}
         {{ form_errors(form.password) }}
     </div>
     <div>
-        <label for="userForm_captcha"><img src="{{ path('_captcha') }}" /></label>
+        <img src="{{ path('_captcha') }}" />
         {{ form_field(form.captcha) }}
         {{ form_errors(form.captcha) }}
     </div>

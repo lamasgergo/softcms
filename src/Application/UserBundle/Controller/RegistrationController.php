@@ -53,7 +53,7 @@ class RegistrationController extends Controller {
             $form->bind($this->get('request')->request->get('userForm'));
 
             if ($form->isValid()) {
-                $reg = new Registration;
+//                $reg = new Registration();
                 $em->persist($form->getData());
                 $em->flush();
                 $result = true;
