@@ -2,13 +2,14 @@
 // Application/UserBundle/Entity/User.php
 namespace Application\UserBundle\Entity;
 
-use Symfony\Component\Security\User\AccountInterface as AccountInterface;
-use Symfony\Component\Security\Encoder\MessageDigestPasswordEncoder as MessageDigestPasswordEncoder;
+use Symfony\Component\Security\User\AccountInterface;
+use Symfony\Component\Security\Encoder\MessageDigestPasswordEncoder;
 
-use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @orm:Entity(repositoryClass="Application\UserBundle\Entity\UserRepository")
+ * @orm:MappedSuperclass
  * @orm:Table(name="user",
  *     uniqueConstraints={
  *          @orm:UniqueConstraint(name="email_idx", columns={"email"})

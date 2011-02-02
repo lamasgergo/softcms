@@ -1,0 +1,45 @@
+{%extends ":pages:registration.twig.html"%}
+
+{% block body %}
+
+
+<form method="post">
+
+    <div>
+        {{ form_label(form.email) }}
+        {{ form_field(form.email) }}
+        {{ form_errors(form.email) }}
+    </div>
+
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_field(form.name) }}
+        {{ form_errors(form.name) }}
+    </div>
+
+    <div>
+        {{ form_label(form.surname) }}
+        {{ form_field(form.surname) }}
+        {{ form_errors(form.surname) }}
+    </div>
+    <div>
+        {{ form_field(form.password) }}
+        {{ form_errors(form.password) }}
+    </div>
+    <div>
+        <label for="userForm_captcha"><img src="{{ path('_captcha') }}" /></label>
+        {{ form_field(form.captcha) }}
+        {{ form_errors(form.captcha) }}
+    </div>
+
+    <div>
+        {{ form_field(form.termsAccepted) }}
+        {{ form_label(form.termsAccepted) }}
+        {{ form_errors(form.termsAccepted) }}
+    </div>
+
+    {{ form_hidden(form) }}
+
+    <input type="submit" name="login"/>
+</form>
+{% endblock body %}
