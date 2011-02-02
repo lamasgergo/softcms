@@ -3,17 +3,65 @@ body{
     padding: 0;
 }
 
+.clr{
+    clear: both;
+}
+
 .container{
     border: 1px solid;
-    width: 760px;
+    width: 1004px;
     margin: 0 auto;
     height: 100%;
 }
 
 .header{
     background-color: #f0f8ff;
+    position: relative;
+    width: 100%;
+    clear: both;
+}
+
+.header .logo{
+    float: left;
+    border: 1px solid;
+}
+
+.header .loginMenu{
+    float: right;
+    border: 1px solid;
+}
+
+.body{
+    
+}
+
+.main{
+    clear: both;
+    height: 100%;
+    width: 100%;
+}
+
+.leftCol{
+    float: left;
+    width: 780px;
+    padding: 10px 5px 10px 10px;
+}
+
+.rightCol{
+    float: right;
+    width: 194px;
+    height: 100%;
+    padding: 10px 10px 10px 5px;
+    background-color: #f5f5dc;
 }
 
 .content{
+    
+}
 
+.footer{
+    clear: both;
+    background-color: #ffe4c4;
+    width: 100%;
+    height: 100%;
 }

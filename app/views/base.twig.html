@@ -10,14 +10,24 @@
         <link href="{{ asset('css/base.css') }}" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-    <div class="container">
-        <div class="header">
-            <div>
-                {% render "UserBundle:Security:login" %}
+    <div class="body">
+        <div class="container">
+            <div class="header">
+                <div class="logo">
+                    Logo
+                </div>
+                <div class="rightCol">
+                    {% render "UserBundle:Security:login" %}
+                </div>
+            </div>
+            <div class="main">
+                {% block theme %}{% endblock theme %}
             </div>
         </div>
-        <div class="content">
-            {% block body %}{% endblock %}
+    </div>
+    <div class="footer">
+        <div class="container">
+            Footer
         </div>
     </div>
     </body>

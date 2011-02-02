@@ -4,7 +4,11 @@ homepage:
 
 registration:
     pattern: /registration
-    defaults: { _controller: UserBundle:User:Registration }
+    defaults: { _controller: UserBundle:Registration:Registration }
+
+_captcha:
+    pattern: /_captcha
+    defaults: { _controller: UserBundle:Registration:captcha }
 
 _security_login:
     pattern: /login
