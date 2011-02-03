@@ -16,9 +16,13 @@ class RegistrationController extends Controller {
     protected function registrationForm() {
         $reg = new Registration();
 
-        $reg->setCaptchaValue(rand());
         $session = $this->get('request')->getSession();
-        $session->set('captcha', $reg->getCaptchaValue());
+        if ('POST' !== $this->get('request')->getMethod()) {
+            $reg->setCaptchaValue(rand());
+            $session->set('captcha', $reg->getCaptchaValue());
+        } else {
+            $reg->setCaptchaValue($session->get('captcha'));
+        }
         
 
         $form = new Form('userForm', $reg, $this->get('validator'));

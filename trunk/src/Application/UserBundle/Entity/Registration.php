@@ -6,23 +6,25 @@ use Application\UserBundle\Entity\User;
  * @orm:Entity
  * @orm:Table(name="user")
  */
-class Registration extends User{
+class Registration extends User {
 
     /**
-     * @validation:AssertTrue(message="The captcha is invalid")
+     * @validation:NotNull
      */
     private $captcha;
 
     private $captchaValue;
 
     /**
-     * @validation:AssertTrue(message="The captcha is invalid")
+     * @validation:AssertTrue(message="Please accept the terms and conditions")
      */
     public $termsAccepted = false;
 
-
-    public function getCaptcha() {
-        return $this->captcha;
+    /**
+     * @validation:AssertTrue(message="The captcha is invalid")
+     */
+    public function isCaptcha() {
+        return $this->captcha == $this->getCaptchaValue();
     }
 
     public function setCaptcha($captcha) {
@@ -37,10 +39,7 @@ class Registration extends User{
         $this->captchaValue = $captchaValue;
     }
 
-    public function isCaptcha() {
-        die('123');
-        return $this->captcha == $this->getCaptchaValue();
-    }
 }
+
 ?>
  
