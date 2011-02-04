@@ -36,10 +36,14 @@ class UserRepository extends EntityRepository implements UserProviderInterface {
      * @return AccountInterface
      */
     public function loadUserByUsername($username) {
-        $user = $this->loadUserByUsername($username);
+        return $this->loadUserByEmail($username);
+    }
+
+    public function loadUserByEmail($email){
+        $user = $this->loadUserByUsername($email);
 
         if (null === $user) {
-            throw new UsernameNotFoundException(sprintf('User "%s" not found.', $username));
+            throw new UsernameNotFoundException(sprintf('User "%s" not found.', $email));
         }
 
         return $user;

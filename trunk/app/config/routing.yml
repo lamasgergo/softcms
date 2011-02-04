@@ -8,7 +8,7 @@ registration:
 
 _captcha:
     pattern: /_captcha
-    defaults: { _controller: UserBundle:Registration:captcha }
+    defaults: { _controller: CaptchaBundle:Captcha:captcha }
 
 _security_login:
     pattern: /login

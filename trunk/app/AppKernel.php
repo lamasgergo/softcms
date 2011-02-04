@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new Application\HomeBundle\HomeBundle(),
             new Application\UserBundle\UserBundle(),
 
+            new Bundle\CaptchaBundle\CaptchaBundle(),
         );
 
         if ($this->isDebug()) {
