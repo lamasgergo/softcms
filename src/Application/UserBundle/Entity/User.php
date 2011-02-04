@@ -96,6 +96,9 @@ class User implements AccountInterface {
      */
     protected $updated;
 
+    /** @validation:Valid */
+//    public $address;
+
     /**
      * Constructor.
      */
@@ -180,10 +183,10 @@ class User implements AccountInterface {
 
 
     /**
-     * @return \DateTime
+     * @return boolean
      */
     public function isActivated() {
-        return (boolean) $this->activation;
+        return (boolean)$this->activated;
     }
 
     /**
@@ -313,4 +316,5 @@ class User implements AccountInterface {
     public function setActivated($activated) {
         $this->activated = $activated;
     }
+
 }

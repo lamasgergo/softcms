@@ -12,30 +12,9 @@ use Symfony\Component\Form\Form,
     Symfony\Component\Form\CheckboxField,
     Symfony\Component\Form\HiddenField;
 
+use Bundle\CaptchaBundle\Captcha;
+
 class RegistrationController extends Controller {
-    protected function registrationForm() {
-        $reg = new Registration();
-
-        $session = $this->get('request')->getSession();
-        if ('POST' !== $this->get('request')->getMethod()) {
-            $reg->setCaptchaValue(rand());
-            $session->set('captcha', $reg->getCaptchaValue());
-        } else {
-            $reg->setCaptchaValue($session->get('captcha'));
-        }
-        
-
-        $form = new Form('userForm', $reg, $this->get('validator'));
-
-        $form->add(new TextField('email'));
-        $form->add(new TextField('name'));
-        $form->add(new TextField('surname'));
-        $form->add(new RepeatedField(new PasswordField('password')));
-        $form->add(new TextField('captcha'));
-        $form->add(new CheckboxField('termsAccepted'));
-
-        return $form;
-    }
 
     public function sendRegistrationEmail(User $user) {
         $mailer = $this->get('mailer');
@@ -49,26 +28,36 @@ class RegistrationController extends Controller {
 
     public function RegistrationAction() {
         $em = $this->get('doctrine.orm.entity_manager');
-        $form = $this->registrationForm();
-        $result = false;
-        $submited = false;
+
+        $reg = new Registration();
+
+        $form = new Form('userForm', $reg, $this->get('validator'));
+
+        $form->add(new TextField('email'));
+        $form->add(new TextField('name'));
+        $form->add(new TextField('surname'));
+        $form->add(new RepeatedField(new PasswordField('password')));
+        $form->add(new TextField('captcha'));
+        $form->add(new CheckboxField('termsAccepted'));
+
         if ('POST' === $this->get('request')->getMethod()) {
-            $submited = true;
             $form->bind($this->get('request')->request->get('userForm'));
 
+            $formData = $form->getData();
+
             if ($form->isValid()) {
-//                $reg = new Registration();
-                $em->persist($form->getData());
+                $em->persist($formData);
                 $em->flush();
-                $result = true;
                 //                $this->sendRegistrationEmail($form->getData());
+                $this->forward($this->generateUrl('home'));
+            } else {
+                $captcha = new Captcha();
+                $captcha->setKey('', true);
             }
         }
 
         return $this->render('UserBundle:Registration:registration.twig.html', array(
-            'form' => $form,
-            'form_submited' => $submited,
-            'form_result' => $result
+            'form' => $form
         ));
     }
 

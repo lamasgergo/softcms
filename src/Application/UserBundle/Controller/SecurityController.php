@@ -19,7 +19,13 @@ class SecurityController extends Controller {
         $user_id = 0;
         $user = $securityContext->getUser();
         if (method_exists($user, 'getId')){
-            $user_id = $user->getId();
+            if ($user->isActivated()){
+                $user_id = $user->getId();
+                $user->setLastLogin(new \DateTime());
+                $em = $this->get('doctrine.orm.entity_manager');
+                $em->persist($user);
+                $em->flush();
+            }
         }
         
         if ($user_id > 0){
