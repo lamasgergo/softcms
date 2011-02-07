@@ -3,9 +3,9 @@
 
 @font-face {
     font-family: 'GeorgiaBoldItalic';
-    src: url('../fonts/georgiaz-webfont.eot?') format('eot'),
-         url('../fonts/georgiaz-webfont.woff') format('woff'),
-         url('../fonts/georgiaz-webfont.ttf') format('truetype'),
+    src: url('../fonts/georgia/georgiaz-webfont.eot') format('eot'),
+         url('../fonts/georgia/georgiaz-webfont.woff') format('woff'),
+         url('../fonts/georgia/georgiaz-webfont.ttf') format('truetype'),
          url('../fonts/georgiaz-webfont.svg#webfontRtcOpTNj') format('svg');
     font-weight: normal;
     font-style: normal;
@@ -14,9 +14,9 @@
 
 @font-face {
     font-family: 'GeorgiaItalic';
-    src: url('../fonts/georgiai-webfont.eot?') format('eot'),
-         url('../fonts/georgiai-webfont.woff') format('woff'),
-         url('../fonts/georgiai-webfont.ttf') format('truetype'),
+    src: url('../fonts/georgia/georgiai-webfont.eot') format('eot'),
+         url('../fonts/georgia/georgiai-webfont.woff') format('woff'),
+         url('../fonts/georgia/georgiai-webfont.ttf') format('truetype'),
          url('../fonts/georgiai-webfont.svg#webfontAXFFkjDi') format('svg');
     font-weight: normal;
     font-style: normal;
@@ -25,9 +25,9 @@
 
 @font-face {
     font-family: 'GeorgiaBold';
-    src: url('../fonts/georgiab-webfont.eot?') format('eot'),
-         url('../fonts/georgiab-webfont.woff') format('woff'),
-         url('../fonts/georgiab-webfont.ttf') format('truetype'),
+    src: url('../fonts/georgia/georgiab-webfont.eot') format('eot'),
+         url('../fonts/georgia/georgiab-webfont.woff') format('woff'),
+         url('../fonts/georgia/georgiab-webfont.ttf') format('truetype'),
          url('../fonts/georgiab-webfont.svg#webfontUl0t4Der') format('svg');
     font-weight: normal;
     font-style: normal;
@@ -36,12 +36,68 @@
 
 @font-face {
     font-family: 'GeorgiaRegular';
-    src: url('../fonts/georgia-webfont.eot?') format('eot'),
-         url('../fonts/georgia-webfont.woff') format('woff'),
-         url('../fonts/georgia-webfont.ttf') format('truetype'),
+    src: url('../fonts/georgia/georgia-webfont.eot') format('eot'),
+         url('../fonts/georgia/georgia-webfont.woff') format('woff'),
+         url('../fonts/georgia/georgia-webfont.ttf') format('truetype'),
          url('../fonts/georgia-webfont.svg#webfontsPtCEF9i') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 
+
+@font-face {
+    font-family: 'CenturyGothicItalic';
+    src: url('../fonts/gothic/gothici-webfont.eot?') format('eot'),
+         url('../fonts/gothic/gothici-webfont.woff') format('woff'),
+         url('../fonts/gothic/gothici-webfont.ttf') format('truetype'),
+         url('../fonts/gothic/gothici-webfont.svg#webfontZ9ioDmJb') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CenturyGothicBoldItalic';
+    src: url('../fonts/gothic/gothicbi-webfont.eot?') format('eot'),
+         url('../fonts/gothic/gothicbi-webfont.woff') format('woff'),
+         url('../fonts/gothic/gothicbi-webfont.ttf') format('truetype'),
+         url('../fonts/gothic/gothicbi-webfont.svg#webfontLmIN5Jcb') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CenturyGothicBold';
+    src: url('../fonts/gothic/gothicb-webfont.eot?') format('eot'),
+         url('../fonts/gothic/gothicb-webfont.woff') format('woff'),
+         url('../fonts/gothic/gothicb-webfont.ttf') format('truetype'),
+         url('../fonts/gothic/gothicb-webfont.svg#webfontGlT1nGEA') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CenturyGothicRegular';
+    src: url('../fonts/gothic/gothic-webfont.eot?') format('eot'),
+         url('../fonts/gothic/gothic-webfont.woff') format('woff'),
+         url('../fonts/gothic/gothic-webfont.ttf') format('truetype'),
+         url('../fonts/gothic/gothic-webfont.svg#webfontBAAFsKLf') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'ComicSansMSRegular';
+    src: url('../fonts/comic/comic-webfont.eot?') format('eot'),
+         url('../fonts/comic/comic-webfont.woff') format('woff'),
+         url('../fonts/comic/comic-webfont.ttf') format('truetype'),
+         url('../fonts/comic/comic-webfont.svg#webfontluBKpdZV') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
