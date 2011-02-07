@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}Hello Application{% endblock %}</title>
+        <title>{% block title %}Site name{% endblock %}</title>
 
         <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('js/jquery/jquery-ui.min.js') }}"></script>
@@ -11,23 +11,20 @@
     </head>
     <body>
     <div class="body">
-        <div class="container">
-            <div class="header">
-                <div class="logo">
-                    Logo
-                </div>
-                <div class="rightCol">
-                    {% render "UserBundle:Security:login" %}
-                </div>
+        <header>
+            <div class="container">
+                <h1>
+                    <a href="/">Site name</a>
+                </h1>
             </div>
+        </header>
+        <div class="container">
             <div class="main">
                 {% block theme %}{% endblock theme %}
             </div>
-        </div>
-    </div>
-    <div class="footer">
-        <div class="container">
-            Footer
+            <div class="footer">
+                Footer
+            </div>
         </div>
     </div>
     </body>

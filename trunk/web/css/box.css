@@ -1,0 +1,13 @@
+.box {
+    background-color: #F8F8F8;
+    border: 1px solid #999999;
+    margin: 5px 0;
+    padding: 10px;
+    text-align: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: #666 0px 2px 3px;
+    -moz-box-shadow: #666 0px 2px 3px;
+    box-shadow: #666 0px 2px 3px;
+}

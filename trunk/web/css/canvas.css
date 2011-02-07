@@ -1,0 +1,92 @@
+body{
+    background: #C7CACF url("../images/body_top_grad.png") repeat-x scroll left 75px;
+    /*font: 15px/25px "GeorgiaRegular","Lucida Grande",Lucida,Verdana,sans-serif;*/
+    font: 15px/25px "GeorgiaRegular";
+    /*margin: 0 0 50px;*/
+    /*padding: 0;*/
+}
+
+a:link, a:visited {
+    background: none repeat scroll 0 0 transparent;
+    color: #4888CA;
+}
+a:link {
+}
+a, a:active, a:visited {
+    color: #607890;
+}
+a {
+    background: none repeat scroll 0 0 transparent;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.clr{
+    clear: both;
+}
+
+.error{
+    color: #dc143c;
+}
+
+.container{
+    width: 1004px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+header{
+    width: 100%;
+    height: 75px;
+    background-color: #31333B;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+header h1{
+    bottom: 10px;
+    position: absolute;
+    padding-left: 10px;
+    font-size: 24px;
+}
+
+header h1 a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+
+.body{
+
+}
+
+.main{
+}
+
+.main  h2{
+    color: #1C67AC;
+}
+
+.leftCol{
+    float: left;
+    width: 75%;
+}
+
+.rightCol{
+    float: right;
+    width: 24%;
+    padding-left: 1%;
+    height: 100%;
+}
+
+.content{
+
+}
+
+.footer{
+    clear: both;
+    width: 100%;
+    height: 100%;
+}

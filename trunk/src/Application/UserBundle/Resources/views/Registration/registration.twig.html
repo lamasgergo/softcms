@@ -1,11 +1,11 @@
 {%extends ":pages:registration.twig.html"%}
-{% form_theme form.password 'UserBundle:Registration:password_theme.twig.html' %}
-        
+{% form_theme form 'UserBundle:Registration:form_theme.twig.html' %}
+
 {% block body %}
 
 <form method="post" {{ form_enctype(form) }}>
 
-<table>
+<table class="registration">
     <tr>
         <th>{{ form_label(form.email) }}</th>
         <td>
@@ -55,7 +55,7 @@
     <tr>
         <td></td>
         <td class="submit">
-            <input type="submit" name="submit" value="{% trans 'Register' %}"/>
+            <input class="button" type="submit" name="submit" value="{% trans 'Register' %}"/>
         </td>
     </tr>
 </table>

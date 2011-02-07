@@ -2,9 +2,17 @@
 
 {% block theme %}
 <div class="leftCol">
-    {% block body %}{% endblock %}
+    <div class="box">
+        {% block body %}{% endblock %}
+    </div>
 </div>
 <div class="rightCol">
-    right Col
+    <div class="box">
+        {% render "UserBundle:Security:login" %}
+    </div>
+    <div class="box">
+        {% block rightBlock %}right Col{% endblock %}
+    </div>
 </div>
+<div class="clr"></div>
 {% endblock %}

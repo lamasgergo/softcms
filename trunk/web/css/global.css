@@ -1,0 +1,89 @@
+* {
+    font-size: 100%;
+
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+
+    padding: 0;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+h2, h3, h4, h5 {
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #414040;
+}
+
+.theme_upcase h1,
+.theme_upcase h2,
+.theme_upcase h3,
+.theme_upcase h4,
+.theme_upcase h5 {
+    text-transform: uppercase;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0;
+
+    text-align: left;
+    vertical-align: top;
+
+    border-collapse: collapse;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+ol, ul, li {
+    padding: 0;
+}
+
+code, input, textarea {
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+:link,
+:visited {
+    text-decoration: underline; /*color: #fff;*/
+}
+
+a img, fieldset {
+    border: 0; /*text-decoration: none;*/
+}
+
+b {
+    font-weight: normal;
+}
+
+i {
+    font-style: normal;
+}
+
+/* Global reset (end) */
+/**/
+
+/* Global definitions (begin) */
+/**/
+body {
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+}
