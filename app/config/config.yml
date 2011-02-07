@@ -1,5 +1,6 @@
 imports:
     - { resource: security.yml }
+    - { resource: params.yml }
 
 app.config:
     charset:       UTF-8
@@ -52,7 +53,3 @@ swiftmailer.config:
     username:   a.diesel@gmail.com
     password:   ghbrjkmyj
 
-
-
-parameters:
-  email.from: a.diesel@gmail.com
