@@ -11,7 +11,7 @@ class CaptchaController extends Controller{
         $captcha = new Captcha();
         $image = $captcha->show();
 
-        $response = $this->render('CaptchaBundle::captcha.twig.html', array(
+        $response = $this->render('CaptchaBundle::captcha.html.twig', array(
             'image' => $image
         ));
         return $response;
