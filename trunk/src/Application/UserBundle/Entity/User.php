@@ -1,8 +1,8 @@
 <?php 
 namespace Application\UserBundle\Entity;
 
-use Symfony\Component\Security\User\AccountInterface;
-use Symfony\Component\Security\Encoder\MessageDigestPasswordEncoder;
+use Symfony\Component\Security\Core\User\AccountInterface;
+use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
 use Doctrine\Common\Collections\ArrayCollection;
 

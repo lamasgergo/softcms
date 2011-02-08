@@ -20,7 +20,7 @@ class Registration extends User {
      * @validation:AssertTrue(message="The captcha is invalid")
      */
     public function isCaptchaValid() {
-        return ($this->captcha == $_SESSION[\Bundle\CaptchaBundle\Captcha::keySessionName]);
+        return ($this->captcha == $_SESSION[\Captcha\CaptchaBundle\Captcha::keySessionName]);
     }
 
     public function getCaptcha(){
