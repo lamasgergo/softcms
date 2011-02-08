@@ -1,10 +1,10 @@
 {%extends ":pages:registration.twig.html"%}
-{% form_theme form 'UserBundle:Registration:form_theme.twig.html' %}
+{% form_theme form 'UserBundle:Registration:form_theme.html.twig' %}
 
 {% block body %}
 
 <form method="post" {{ form_enctype(form) }}>
-
+{{ form_hidden(form) }}
 <table class="registration">
     <tr>
         <th>{{ form_label(form.email) }}</th>
@@ -59,8 +59,6 @@
         </td>
     </tr>
 </table>
-    {{ form_hidden(form) }}
-
 </form>
 {% endblock body %}
 

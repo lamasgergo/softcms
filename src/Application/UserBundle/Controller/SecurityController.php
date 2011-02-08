@@ -2,7 +2,7 @@
 namespace Application\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
-Symfony\Component\Security\SecurityContext;
+    Symfony\Component\Security\Core\SecurityContext;
 
 class SecurityController extends Controller {
     public function loginAction() {

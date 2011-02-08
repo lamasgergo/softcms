@@ -1,0 +1,13 @@
+{% extends 'TwigBundle::form.html.twig' %}
+
+{% block errors %}
+{% spaceless %}
+    {% if field.hasErrors %}
+    <ul>
+        {% for error in field.errors %}
+            <li class="error">{% trans error.messageTemplate with error.messageParameters from 'validators' %}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endspaceless %}
+{% endblock errors %}

@@ -2,9 +2,9 @@
 
 namespace Application\UserBundle\Entity;
 
-use Symfony\Component\Security\User\UserProviderInterface;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Doctrine\ORM\EntityRepository;
-use Symfony\Component\Security\User\AccountInterface;
+use Symfony\Component\Security\Core\User\AccountInterface;
 
 class UserRepository extends EntityRepository implements UserProviderInterface {
 
@@ -47,5 +47,16 @@ class UserRepository extends EntityRepository implements UserProviderInterface {
         }
 
         return $user;
+    }
+
+    /**
+     * Whether this provider supports the given user class
+     *
+     * @param string $class
+     *
+     * @return Boolean
+     */
+    function supportsClass($class) {
+        return $class === $this->class;
     }
 }

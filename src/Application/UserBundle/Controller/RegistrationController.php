@@ -5,14 +5,8 @@ namespace Application\UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
     Application\UserBundle\Entity\Registration;
 
-use Symfony\Component\Form\Form,
-    Symfony\Component\Form\TextField,
-    Symfony\Component\Form\RepeatedField,
-    Symfony\Component\Form\PasswordField,
-    Symfony\Component\Form\CheckboxField,
-    Symfony\Component\Form\HiddenField;
-
-use Bundle\CaptchaBundle\Captcha;
+use Application\UserBundle\Forms\RegistrationForm;
+use Captcha\CaptchaBundle\Captcha;
 
 class RegistrationController extends Controller {
 
@@ -29,34 +23,22 @@ class RegistrationController extends Controller {
     public function RegistrationAction() {
         $em = $this->get('doctrine.orm.entity_manager');
 
-        $reg = new Registration();
+        $registrationRequest = new Registration();
+        $form = RegistrationForm::create($this->get('form.context'), 'tezt');
 
-        $form = new Form('userForm', $reg, $this->get('validator'));
+        $form->bind($this->get('request'), $registrationRequest);
 
-        $form->add(new TextField('email'));
-        $form->add(new TextField('name'));
-        $form->add(new TextField('surname'));
-        $form->add(new RepeatedField(new PasswordField('password')));
-        $form->add(new TextField('captcha'));
-        $form->add(new CheckboxField('termsAccepted'));
-
-        if ('POST' === $this->get('request')->getMethod()) {
-            $form->bind($this->get('request')->request->get('userForm'));
-
-            $formData = $form->getData();
-
-            if ($form->isValid()) {
-                $em->persist($formData);
-                $em->flush();
-                //                $this->sendRegistrationEmail($form->getData());
-                $this->forward($this->generateUrl('home'));
-            } else {
-                $captcha = new Captcha();
-                $captcha->setKey('', true);
-            }
+        if ($form->isValid()) {
+            $em->persist($form->getData());
+            $em->flush();
+            //                $this->sendRegistrationEmail($form->getData());
+            $this->forward($this->generateUrl('homepage'));
+        } else {
+            $captcha = new Captcha();
+            $captcha->setKey('', true);
         }
 
-        return $this->render('UserBundle:Registration:registration.twig.html', array(
+        return $this->render('UserBundle:Registration:registration.html.twig', array(
             'form' => $form
         ));
     }
