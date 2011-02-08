@@ -1,15 +1,11 @@
-{% extends ":themes:2column.twig.html" %}
+{% extends ":themes:2column.html.twig" %}
         
 {%block body%}
 {{ app.session.flash('notice') }}
 
 <form method="post" {{ form_enctype(form) }}>
 
-{{ form_errors(form) }}
-
 {{ form_field(form) }}
-
-{{ form_hidden(form) }}
 
 <input type="submit" name="login"/>
 </form>
