@@ -21,5 +21,5 @@ _security_logout:
     pattern: /logout
 
 user:
-  resource: UserBundle/Resources/config/routing.yml
+  resource: @UserBundle/Resources/config/routing.yml
   prefix:   /user

@@ -5,10 +5,12 @@ imports:
 app.config:
     charset:       UTF-8
     error_handler: null
-    csrf_secret:   xxxxxxxxxx
+    csrf_protection:
+        enabled: true
+        secret: xxxxxxxxxx
     router:        { resource: "%kernel.root_dir%/config/routing.yml" }
     validation:    { enabled: true, annotations: true }
-    templating:    {} #assets_version: SomeVersionScheme
+    templating:    { engines: ['twig'] } #assets_version: SomeVersionScheme
     translator:    { fallback: en }
     session:
         default_locale: ru
@@ -22,27 +24,14 @@ twig.config:
 
 ## Doctrine Configuration
 doctrine.dbal:
-  driver:   pdo_mysql
-  default_connection: default
-  connections:
-      default:
-        dbname: shop
-        user:             root
-        password:         null
-        host:             localhost
-
+    dbname:   shop
+    user:     root
+    password: null
+    logging:  %kernel.debug%
 doctrine.orm:
-  auto_generate_proxy_classes: %kernel.debug%
-  mappings:
-    UserBundle: ~
-  auto_generate_proxy_classes: true
-  proxy_namespace: Proxies
-  proxy_dir: %kernel.cache_dir%/doctrine/orm/Proxies
-  default_entity_manager: default
-  default_connection: default
-  metadata_cache_driver: array
-  query_cache_driver: array
-  result_cache_driver: array
+    auto_generate_proxy_classes: %kernel.debug%
+    mappings:
+        UserBundle: ~
 
 ## Swiftmailer Configuration
 swiftmailer.config:
@@ -52,4 +41,3 @@ swiftmailer.config:
     host:       smtp.gmail.com
     username:   a.diesel@gmail.com
     password:   ghbrjkmyj
-

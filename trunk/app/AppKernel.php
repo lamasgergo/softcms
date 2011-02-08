@@ -1,17 +1,10 @@
 <?php
 
-require_once __DIR__.'/../src/autoload.php';
-
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\DependencyInjection\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
-    public function registerRootDir()
-    {
-        return __DIR__;
-    }
-
     public function registerBundles()
     {
         $bundles = array(
@@ -26,10 +19,11 @@ class AppKernel extends Kernel
             //new Symfony\Bundle\DoctrineMongoDBBundle\DoctrineMongoDBBundle(),
 
             // register your bundles
-            new Application\HomeBundle\HomeBundle(),
+//            new Sensio\HelloBundle\HelloBundle(),
             new Application\UserBundle\UserBundle(),
-
-            new Bundle\CaptchaBundle\CaptchaBundle(),
+            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
+            new Captcha\CaptchaBundle\CaptchaBundle(),
+            new Application\HomeBundle\HomeBundle(),
         );
 
         if ($this->isDebug()) {
@@ -39,13 +33,9 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
-    public function registerBundleDirs()
+    public function registerRootDir()
     {
-        return array(
-            'Application'     => __DIR__.'/../src/Application',
-            'Bundle'          => __DIR__.'/../src/Bundle',
-            'Symfony\\Bundle' => __DIR__.'/../src/vendor/symfony/src/Symfony/Bundle',
-        );
+        return __DIR__;
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)
