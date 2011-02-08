@@ -25,11 +25,9 @@ class UserController extends Controller {
         $em = $this->get('doctrine.orm.entity_manager');
 
         $userRequest = new User();
-        $userRequest = $em->getRepository('UserBundle:User')->findBy(array('email'=>'test1@test.com'));
-
         $form = UserDetailsForm::create($this->get('form.context'), 'editUserDetail');
-
         $form->bind($this->get('request'), $userRequest);
+
         if ($form->isValid()) {
             $em->persist($form->getData());
             $em->flush();
