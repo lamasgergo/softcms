@@ -106,11 +106,12 @@ class User implements AccountInterface {
         $this->created = $this->updated = new \DateTime('now');
     }
 
-    /**
-     * @return integer
-     */
     public function getId() {
         return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
     }
 
     /**
@@ -316,5 +317,6 @@ class User implements AccountInterface {
     public function setActivated($activated) {
         $this->activated = $activated;
     }
+
 
 }
