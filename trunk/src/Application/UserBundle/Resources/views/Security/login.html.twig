@@ -1,3 +1,7 @@
+{% extends ":themes:2column.html.twig" %}
+
+
+{%block body%}
 <div class="login">
     <form action="{{ path('_security_check') }}" method="post">
         <table>
@@ -23,3 +27,4 @@
         <li><a href="{{ path('registration') }}">{% trans "Registration" %}</a></li>
     </ul>
 </div>
+{%endblock body%}
