@@ -11,8 +11,7 @@ use Symfony\Component\Form\Form,
 class UserDetailsForm extends Form{
 
     protected function configure(){
-        $this->add(new TextField('email'));
-        $this->add(new RepeatedField(new PasswordField('password'), array('required'=>false)));
+        $this->add(new RepeatedField(new PasswordField('password', array('required'=>false))));
         $this->add(new TextField('name'));
         $this->add(new TextField('surname'));
     }
