@@ -25,8 +25,13 @@ class UserController extends Controller {
         $em = $this->get('doctrine.orm.entity_manager');
 
         $userRequest = new User();
+        $user = $this->getCurrentUser();
         $form = UserDetailsForm::create($this->get('form.context'), 'editUserDetail');
         $form->bind($this->get('request'), $userRequest);
+
+        if ($user){
+            $form->setData($user);
+        }
 
         if ($form->isValid()) {
             $em->persist($form->getData());

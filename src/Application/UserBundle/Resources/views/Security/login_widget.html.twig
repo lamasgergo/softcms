@@ -1,0 +1,22 @@
+<div class="login">
+    <form action="{{ path('_security_check') }}" method="post">
+        <table>
+            <tr>
+                <th><label for="username">{% trans 'Email' %}:</label></th>
+                <td><input type="text" id="username" name="_username" value=""/></td>
+            </tr>
+            <tr>
+                <th><label for="password">{% trans 'Password' %}:</label></th>
+                <td><input type="password" id="password" name="_password"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="submit">
+                    <input class="button" type="submit" name="login" value="{% trans 'Login' %}"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <ul>
+        <li><a href="{{ path('registration') }}">{% trans "Registration" %}</a></li>
+    </ul>
+</div>

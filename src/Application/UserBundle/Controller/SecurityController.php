@@ -16,28 +16,39 @@ class SecurityController extends Controller {
             $error = $this->get('request')->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
         }
 
-        $user_id = 0;
         $user = $securityContext->getUser();
-        if (method_exists($user, 'getId')){
-            if ($user->isActivated()){
-                $user_id = $user->getId();
-                $user->setLastLogin(new \DateTime());
-                $em = $this->get('doctrine.orm.entity_manager');
-                $em->persist($user);
-                $em->flush();
-            }
+        if ($user instanceof \Application\UserBundle\Entity\User){
+            $user->setLastLogin(new \DateTime());
+            $em = $this->get('doctrine.orm.entity_manager');
+            $em->persist($user);
+            $em->flush();
         }
-        
+
+
+        return $this->render('UserBundle:Security:login.html.twig', array(
+            // last username entered by the user
+            'last_username' => $this->get('request')->getSession()->get(SecurityContext::LAST_USERNAME),
+            'error' => $error
+        ));
+    }
+
+    public function loginWidgetAction() {
+
+        $user_id = 0;
+        $securityContext = $this->container->get('security.context');
+
+        $user = $securityContext->getUser();
+        if ($user instanceof \Application\UserBundle\Entity\User){
+//            $user = ;
+            $user_id = $user->getId();
+        }
+
         if ($user_id > 0){
             return $this->render('UserBundle:User:menu.html.twig', array(
                     'user' => $user
                 ));
         } else {
-            return $this->render('UserBundle:User:login.html.twig', array(
-                // last username entered by the user
-                'last_username' => $this->get('request')->getSession()->get(SecurityContext::LAST_USERNAME),
-                'error' => $error
-            ));
+            return $this->render('UserBundle:Security:login_widget.html.twig');
         }
     }
 }
