@@ -3,7 +3,7 @@
 namespace Application\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
-    Application\UserBundle\Entity\Registration;
+    Application\UserBundle\Entity\User;
 
 use Application\UserBundle\Forms\RegistrationForm;
 use Captcha\CaptchaBundle\Captcha;
@@ -23,7 +23,7 @@ class RegistrationController extends Controller {
     public function RegistrationAction() {
         $em = $this->get('doctrine.orm.entity_manager');
 
-        $registrationRequest = new Registration();
+        $registrationRequest = new User();
         $form = RegistrationForm::create($this->get('form.context'), 'registration');
 
         $form->bind($this->get('request'), $registrationRequest);
