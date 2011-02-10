@@ -8,7 +8,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @orm:Entity(repositoryClass="Application\UserBundle\Entity\UserRepository")
- * @orm:MappedSuperclass
  * @orm:Table(name="user",
  *     uniqueConstraints={
  *          @orm:UniqueConstraint(name="email_idx", columns={"email"})
@@ -96,14 +95,28 @@ class User implements AccountInterface {
      */
     protected $updated;
 
+
+    private $captcha;
+
+    /**
+     * @validation:AssertTrue(message="Please accept the terms and conditions")
+     */
+    public $termsAccepted = false;
+
     /** @validation:Valid */
 //    public $address;
+
+    /**
+     * @orm:OneToMany(targetEntity="Application\ContentBundle\Entity\Content", mappedBy="user")
+     */
+    private $content;
 
     /**
      * Constructor.
      */
     public function __construct() {
         $this->created = $this->updated = new \DateTime('now');
+        $this->content = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getId() {
@@ -318,5 +331,27 @@ class User implements AccountInterface {
         $this->activated = $activated;
     }
 
+    public function getCaptcha() {
+        return $this->captcha;
+    }
+
+    public function setCaptcha($captcha) {
+        $this->captcha = $captcha;
+    }
+
+    /**
+     * @validation:AssertTrue(message="The captcha is invalid")
+     */
+    public function isCaptchaValid() {
+        return ($this->captcha == $_SESSION[\Captcha\CaptchaBundle\Captcha::keySessionName]);
+    }
+
+    public function getContent() {
+        return $this->content;
+    }
+
+    public function setContent($content) {
+        $this->content = $content;
+    }
 
 }

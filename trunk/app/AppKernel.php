@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Captcha\CaptchaBundle\CaptchaBundle(),
             new Application\HomeBundle\HomeBundle(),
+            new Application\ContentBundle\ContentBundle(),
         );
 
         if ($this->isDebug()) {
