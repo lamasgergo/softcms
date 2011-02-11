@@ -1,7 +1,10 @@
 <?php
 namespace Application\ContentBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller,
+    Symfony\Component\Security\Acl\Domain\ObjectIdentity,
+    Symfony\Component\Security\Acl\Domain\UserSecurityIdentity,
+    Symfony\Component\Security\Acl\Permission\MaskBuilder;
 
 use Application\ContentBundle\Entity\Content;
 use Application\ContentBundle\Forms\ContentForm;
