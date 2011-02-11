@@ -23,3 +23,7 @@ _security_logout:
 user:
   resource: @UserBundle/Resources/config/routing.yml
   prefix:   /user
+
+content:
+  resource: @ContentBundle/Resources/config/routing.yml
+  prefix:   /content

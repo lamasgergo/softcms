@@ -24,17 +24,19 @@ class RegistrationController extends Controller {
         $em = $this->get('doctrine.orm.entity_manager');
 
         $registrationRequest = new User();
+        $registrationRequest->setTermsAccepted(false);
         $form = RegistrationForm::create($this->get('form.context'), 'registration');
 
         $form->bind($this->get('request'), $registrationRequest);
 
+        $captcha = new Captcha();
         if ($form->isValid()) {
             $em->persist($form->getData());
             $em->flush();
             //                $this->sendRegistrationEmail($form->getData());
-            $this->forward($this->generateUrl('homepage'));
+            $captcha->setKey('', true);
+            return $this->redirect($this->generateUrl('homepage'));
         } else {
-            $captcha = new Captcha();
             $captcha->setKey('', true);
         }
 

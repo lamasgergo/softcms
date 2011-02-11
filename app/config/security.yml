@@ -19,12 +19,19 @@ security.config:
         provider: default
         use_referer: true
       logout: true
+    content:
+      pattern: /content/[create|modify|delete]+
+      form_login:
+        provider: default
+        use_referer: true
+      logout: true
 
   access_control:
     - { path: /my/?.*, role: ROLE_OWNER }
     - { path: /user/edit, role: ROLE_OWNER }
+    - { path: /content/[create|modify|delete]+, role: ROLE_OWNER }
     - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
 
 security.acl:
-  dbal.connection: default
+  connection: default

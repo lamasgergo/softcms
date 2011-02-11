@@ -101,7 +101,7 @@ class User implements AccountInterface {
     /**
      * @validation:AssertTrue(message="Please accept the terms and conditions")
      */
-    public $termsAccepted = false;
+    private $termsAccepted = true;
 
     /** @validation:Valid */
 //    public $address;
@@ -343,7 +343,9 @@ class User implements AccountInterface {
      * @validation:AssertTrue(message="The captcha is invalid")
      */
     public function isCaptchaValid() {
-        return ($this->captcha == $_SESSION[\Captcha\CaptchaBundle\Captcha::keySessionName]);
+        if ($this->captcha){
+            return ($this->captcha == $_SESSION[\Captcha\CaptchaBundle\Captcha::keySessionName]);
+        } else return true;
     }
 
     public function getContent() {
@@ -352,6 +354,14 @@ class User implements AccountInterface {
 
     public function setContent($content) {
         $this->content = $content;
+    }
+
+    public function getTermsAccepted() {
+        return $this->termsAccepted;
+    }
+
+    public function setTermsAccepted($termsAccepted) {
+        $this->termsAccepted = $termsAccepted;
     }
 
 }

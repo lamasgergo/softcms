@@ -1,0 +1,7 @@
+content_create:
+  pattern: /create
+  defaults: { _controller: ContentBundle:Content:Create }
+
+content_modify:
+  pattern: /modify
+  defaults: { _controller: ContentBundle:Content:Modify }
