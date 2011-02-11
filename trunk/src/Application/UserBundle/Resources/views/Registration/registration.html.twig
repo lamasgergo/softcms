@@ -3,9 +3,9 @@
 
 {% block body %}
 
-<form method="post" {{ form_enctype(form) }}>
+<form class="form" method="post" {{ form_enctype(form) }}>
 {{ form_hidden(form) }}
-<table class="registration">
+<table>
     <tr>
         <th>{{ form_label(form.email) }}</th>
         <td>
@@ -35,7 +35,7 @@
         </td>
     </tr>
     <tr>
-        <td></td>
+        <th></th>
         <td>
             {{ form_field(form.termsAccepted) }}
             {{ form_label(form.termsAccepted) }}
@@ -43,9 +43,9 @@
         </td>
     </tr>
     <tr>
-        <td>
+        <th>
             <img src="_captcha"/>
-        </td>
+        </th>
         <td>
             {{ form_field(form.captcha) }}
             {{ form_errors(form.captcha) }}

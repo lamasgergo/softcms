@@ -1,9 +1,10 @@
 {% extends ":themes:2column.html.twig" %}
-        
+{% form_theme form ":forms:basic.html.twig" %}
+
 {%block body%}
 {{ app.session.flash('notice') }}
 
-<form method="post" {{ form_enctype(form) }}>
+<form class="form" method="post" {{ form_enctype(form) }}>
 
 {{ form_field(form) }}
 

@@ -15,9 +15,9 @@ class RegistrationForm extends Form {
         $this->add(new TextField('name'));
         $this->add(new TextField('surname'));
         $this->add(new RepeatedField(new PasswordField('password')));
-        $this->add(new TextField('captcha'));
+        $this->add(new TextField('captcha'), array(
+            'required'  => true
+        ));
         $this->add(new CheckboxField('termsAccepted'));
     }
 }
-
-?>

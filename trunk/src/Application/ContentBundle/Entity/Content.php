@@ -18,10 +18,10 @@ class Content {
      * @orm:Column(name="dataType", type="string", length="255")
      * @var string
      */
-    private $type;
+    private $type = 'content';
 
     /**
-     * @orm:OneToOne(targetEntity="Application\UserBundle\Entity\User", inversedBy="content")
+     * @orm:ManyToOne(targetEntity="Application\UserBundle\Entity\User", inversedBy="content")
      * @orm:JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
