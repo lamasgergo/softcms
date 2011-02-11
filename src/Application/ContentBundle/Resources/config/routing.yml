@@ -3,5 +3,5 @@ content_create:
   defaults: { _controller: ContentBundle:Content:Create }
 
 content_modify:
-  pattern: /modify
+  pattern: /modify/{id}
   defaults: { _controller: ContentBundle:Content:Modify }
