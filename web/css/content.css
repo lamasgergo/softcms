@@ -1,0 +1,18 @@
+.content{
+    
+}
+
+.content .actions{
+    text-align: right;
+    clear: left;
+    display: inline-block;
+    width: 100%;
+}
+
+.content .actions li{
+    float: right;
+}
+
+.content .item .actions{
+    display: none;
+}
