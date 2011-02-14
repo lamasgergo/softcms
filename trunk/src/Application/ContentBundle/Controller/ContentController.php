@@ -49,6 +49,8 @@ class ContentController extends Controller{
             $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_OWNER);
             $acl->insertObjectAce($securityIdentity, $mask);
             $aclProvider->updateAcl($acl);
+
+            return $this->redirect($this->generateUrl('content_index'));
         }
 
         return $this->render("ContentBundle::create.html.twig", array(
@@ -73,10 +75,20 @@ class ContentController extends Controller{
         if ($form->isValid()){
             $em->persist($form->getData());
             $em->flush();
+
+            return $this->redirect($this->generateUrl('content_index'));
         }
 
         return $this->render("ContentBundle::modify.html.twig", array(
             'form' => $form
+        ));
+    }
+
+    public function indexAction(){
+        $em = $this->get("doctrine.orm.entity_manager");
+        $content = $em->getRepository("ContentBundle:Content")->findAll();
+        return $this->render("ContentBundle::index.html.twig", array(
+            'data' => $content
         ));
     }
 }
