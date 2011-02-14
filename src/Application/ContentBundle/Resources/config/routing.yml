@@ -1,3 +1,7 @@
+content_index:
+  pattern: /
+  defaults: { _controller: ContentBundle:Content:Index }
+
 content_create:
   pattern: /create
   defaults: { _controller: ContentBundle:Content:Create }
@@ -5,3 +9,7 @@ content_create:
 content_modify:
   pattern: /modify/{id}
   defaults: { _controller: ContentBundle:Content:Modify }
+
+content_delete:
+  pattern: /delete/{id}
+  defaults: { _controller: ContentBundle:Content:Delete }
