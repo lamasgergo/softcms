@@ -43,11 +43,7 @@ class ContentController extends Controller{
             $securityIdentity = UserSecurityIdentity::fromAccount($user);
 
             // grant owner access
-            $builder = new MaskBuilder();
-            $builder->add('view')->add('edit')->add('delete');
-            $mask = $builder->get();
             $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_OWNER);
-            $acl->insertObjectAce($securityIdentity, $mask);
             $aclProvider->updateAcl($acl);
 
             return $this->redirect($this->generateUrl('content_index'));
@@ -64,7 +60,7 @@ class ContentController extends Controller{
 
         $securityContext = $this->container->get('security.context');
         // check for edit access
-        if (false === $securityContext->vote('EDIT', $content))
+        if (false === $securityContext->vote('EDIT', $content) && !$securityContext->getUser()->isAdmin())
         {
             throw new AccessDeniedException();
         }
@@ -86,7 +82,9 @@ class ContentController extends Controller{
 
     public function indexAction(){
         $em = $this->get("doctrine.orm.entity_manager");
-        $content = $em->getRepository("ContentBundle:Content")->findAll();
+        $securityContext = $this->get("security.context");
+        $user = $securityContext->getUser();
+        $content = $user->getContent();
         return $this->render("ContentBundle::index.html.twig", array(
             'data' => $content
         ));
