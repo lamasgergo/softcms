@@ -39,6 +39,12 @@ class User implements AccountInterface {
      * @validation:NotBlank
      * @var string
      */
+
+    /**
+     * @orm:Column
+     */
+    protected $role = 'ROLE_USER';
+
     protected $name;
 
     /**
@@ -267,14 +273,14 @@ class User implements AccountInterface {
      * @return array
      */
     public function getRoles() {
-        return array('ROLE_USER', 'ROLE_OWNER');
+        return array('ROLE_ADMIN', 'ROLE_USER');
     }
 
     /**
      * @return void
      */
     public function eraseCredentials() {
-        $this->roles = null;
+        $this->role = null;
     }
 
     /**
@@ -300,7 +306,7 @@ class User implements AccountInterface {
             return false;
         }
 
-        if ($this->email !== $account->getEmail()) {
+        if ($this->email !== $account->getUsername()) {
             return false;
         }
 
@@ -364,4 +370,7 @@ class User implements AccountInterface {
         $this->termsAccepted = $termsAccepted;
     }
 
+    public function isAdmin(){
+        return ($this->role=='ROLE_ADMIN');
+    }
 }

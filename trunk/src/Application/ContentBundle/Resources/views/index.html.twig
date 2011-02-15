@@ -1,7 +1,6 @@
 {% extends ":themes:2column.html.twig" %}
 
 {% block body %}
-{% if has_role("ROLE_OWNER") %}
 <script>
     $().ready(function() {
         $(".item").mouseenter(
@@ -12,24 +11,18 @@
         });
     });
 </script>
-{% endif %}
 
 <div class="content">
     <ul class="actions">
-        {% if has_role("ROLE_OWNER") %}
         <li><a href="{{ path('content_create') }}">{% trans "Create" %}</a></li>
-        <li><a href="{{ path('content_create') }}">{% trans "Create2" %}</a></li>
-        {% endif %}
     </ul>
     <div class="clr"></div>
     {% for item in data %}
     <div class="item">
         <h2 class="title">{{ item.title }}</h2>
         <ul class="actions">
-            {% if has_role("ROLE_OWNER") %}
             <li><a href="{{ path('content_modify', {'id': item.id }) }}">{% trans "Modify" %}</a></li>
             <li><a href="{{ path('content_delete', {'id': item.id }) }}">{% trans "Delete" %}</a></li>
-            {% endif %}
         </ul>
         <div class="clr"></div>
         <div class="text">
