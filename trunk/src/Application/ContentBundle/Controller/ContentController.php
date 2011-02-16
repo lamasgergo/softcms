@@ -29,7 +29,6 @@ class ContentController extends Controller{
         $form->bind($this->get('request'), $content);
 
         if ($form->isValid()){
-            $content->setTeaser();
             $em->persist($form->getData());
             $em->flush();
 
@@ -70,7 +69,6 @@ class ContentController extends Controller{
         $form->bind($this->get('request'), $content);
 
         if ($form->isValid()){
-            $content->setTeaser();
             $em->persist($form->getData());
             $em->flush();
 

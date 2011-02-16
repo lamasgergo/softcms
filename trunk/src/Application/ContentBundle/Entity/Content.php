@@ -4,6 +4,7 @@ namespace Application\ContentBundle\Entity;
 /**
  * @orm:Entity
  * @orm:Table(name="content")
+ * @orm:HasLifecycleCallbacks
  */
 class Content {
     /**
@@ -47,6 +48,12 @@ class Content {
     private $content;
 
     /**
+     * @orm:Column(nullable="true")
+     * @var string
+     */
+    private $url;
+
+    /**
      * @orm:Column(name="created", type="datetime")
      * @validation:NotBlank
      * @var \DateTime
@@ -65,6 +72,22 @@ class Content {
      */
     public function __construct() {
         $this->created = $this->updated = new \DateTime('now');
+    }
+
+    /**
+     * @orm:PrePersist
+     */
+    public function doPrePersist() {
+        $this->setTeaser();
+        $this->setUrl();
+    }
+
+    /**
+     * @orm:PreUpdate
+     */
+    public function doPreUpdate() {
+        $this->setTeaser();
+        $this->setUrl();
     }
 
     public function getId() {
@@ -116,6 +139,17 @@ class Content {
 
     public function setUser($user) {
         $this->user = $user;
+    }
+
+    public function getUrl() {
+        return $this->url;
+    }
+
+    public function setUrl($url='') {
+        if (empty($url)){
+            $url = \Utils\Translit::encode($this->title);
+        }
+        $this->url = $url;
     }
 
 }
