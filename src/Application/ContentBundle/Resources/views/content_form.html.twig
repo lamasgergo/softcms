@@ -3,6 +3,7 @@
 
 {% block body %}
 <script src="{{ asset('js/vendor/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('js/vendor/ckeditor/adapters/jquery.js') }}"></script>
 <form method="post" {{ form_enctype(form)}} >
 
 {{ form_field(form)}}
@@ -10,8 +11,8 @@
         <input type="submit">
 </form>
 <script>
-    CKEDITOR.replace( 'content_form_content', {
+    $( 'textarea' ).ckeditor({
         customConfig: '/js/ckeditor/config.js'
-    } );
+    });
 </script>
 {% endblock body %}
