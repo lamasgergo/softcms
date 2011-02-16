@@ -29,11 +29,12 @@ class Content {
     /**
      * @orm:Column
      * @var string
+     * @validation:NotBlank
      */
     private $title;
 
     /**
-     * @orm:Column(type="text")
+     * @orm:Column(type="text", nullable="true")
      * @var string
      */
     private $teaser;
@@ -41,6 +42,7 @@ class Content {
     /**
      * @orm:Column(type="text")
      * @var string
+     * @validation:NotBlank
      */
     private $content;
 
@@ -93,7 +95,10 @@ class Content {
         return $this->teaser;
     }
 
-    public function setTeaser($teaser) {
+    public function setTeaser($teaser='') {
+        if (empty($teaser)){
+            $teaser = \Utils\HTMLCutter::cut($this->content);
+        }
         $this->teaser = $teaser;
     }
 

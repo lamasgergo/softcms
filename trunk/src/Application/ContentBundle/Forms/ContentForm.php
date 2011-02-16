@@ -10,7 +10,6 @@ class ContentForm extends Form{
 
     protected function configure(){
         $this->add(new TextField('title'));
-        $this->add(new TextareaField('teaser'));
         $this->add(new TextareaField('content'));
     }
 }

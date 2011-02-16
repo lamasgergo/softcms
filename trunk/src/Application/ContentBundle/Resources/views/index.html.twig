@@ -5,9 +5,9 @@
     $().ready(function() {
         $(".item").mouseenter(
                 function() {
-                    $(this).find('.actions').show();
+                    $(this).find('.actions li').show();
                 }).mouseleave(function() {
-            $(this).find('.actions').hide();
+            $(this).find('.actions li').hide();
         });
     });
 </script>
@@ -26,9 +26,10 @@
         </ul>
         <div class="clr"></div>
         <div class="text">
-            {{ item.teaser }}
+            {{ item.teaser|raw }}
         </div>
     </div>
     {% endfor %}
 </div>
 {% endblock body %}
+        

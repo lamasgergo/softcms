@@ -25,10 +25,11 @@ class ContentController extends Controller{
         $content->setUser($this->user);
         $content->setType($this->type);
 
-        $form = ContentForm::create($this->get('form.context'), 'content_create');
+        $form = ContentForm::create($this->get('form.context'), 'content_form');
         $form->bind($this->get('request'), $content);
 
         if ($form->isValid()){
+            $content->setTeaser();
             $em->persist($form->getData());
             $em->flush();
 
@@ -49,7 +50,7 @@ class ContentController extends Controller{
             return $this->redirect($this->generateUrl('content_index'));
         }
 
-        return $this->render("ContentBundle::create.html.twig", array(
+        return $this->render("ContentBundle::content_form.html.twig", array(
             'form' => $form
         ));
     }
@@ -65,28 +66,45 @@ class ContentController extends Controller{
             throw new AccessDeniedException();
         }
 
-        $form = ContentForm::create($this->get('form.context'), 'content_create');
+        $form = ContentForm::create($this->get('form.context'), 'content_form');
         $form->bind($this->get('request'), $content);
 
         if ($form->isValid()){
+            $content->setTeaser();
             $em->persist($form->getData());
             $em->flush();
 
             return $this->redirect($this->generateUrl('content_index'));
         }
 
-        return $this->render("ContentBundle::modify.html.twig", array(
+        return $this->render("ContentBundle::content_form.html.twig", array(
             'form' => $form
         ));
     }
 
     public function indexAction(){
-        $em = $this->get("doctrine.orm.entity_manager");
         $securityContext = $this->get("security.context");
         $user = $securityContext->getUser();
         $content = $user->getContent();
         return $this->render("ContentBundle::index.html.twig", array(
             'data' => $content
         ));
+    }
+
+    public function deleteAction($id){
+        $em = $this->get("doctrine.orm.entity_manager");
+        $content = $em->find("ContentBundle:Content", $id);
+
+        $securityContext = $this->container->get('security.context');
+        // check for edit access
+        if (false === $securityContext->vote('DELETE', $content) && !$securityContext->getUser()->isAdmin())
+        {
+            throw new AccessDeniedException();
+        }
+
+        $em->remove($content);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('content_index'));
     }
 }

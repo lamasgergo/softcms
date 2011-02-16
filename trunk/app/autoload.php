@@ -8,6 +8,7 @@ $loader->registerNamespaces(array(
     'Sensio'                         => __DIR__.'/../src',
     'Application'                    => __DIR__.'/../src',
     'Captcha'                        => __DIR__.'/../src',
+    'Utils'                          => __DIR__.'/../src',
     'Doctrine\\Common\\DataFixtures' => __DIR__.'/../vendor/doctrine-data-fixtures/lib',
     'Doctrine\\Common'               => __DIR__.'/../vendor/doctrine-common/lib',
     'Doctrine\\DBAL\\Migrations'     => __DIR__.'/../vendor/doctrine-migrations/lib',

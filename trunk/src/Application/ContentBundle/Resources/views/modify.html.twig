@@ -1,10 +1,6 @@
 {% extends ":themes:2column.html.twig" %}
+{% form_theme form ":forms:basic.html.twig" %}
 
 {% block body %}
-<form method="post" {{ form_enctype(form)}} >
-
-{{ form_field(form)}}
-
-        <input type="submit">
-</form>
+{% include("ContentBundle::content_form.html.twig") %}
 {% endblock body %}
