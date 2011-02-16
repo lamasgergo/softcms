@@ -1,6 +1,6 @@
 {% extends ":themes:2column.html.twig" %}
 {% form_theme form ":forms:basic.html.twig" %}
-        
+
 {% block body %}
 <script src="{{ asset('js/vendor/ckeditor/ckeditor.js') }}"></script>
 <form method="post" {{ form_enctype(form)}} >
@@ -9,5 +9,9 @@
 
         <input type="submit">
 </form>
-
+<script>
+    CKEDITOR.replace( 'content_form_content', {
+        customConfig: '/js/ckeditor/config.js'
+    } );
+</script>
 {% endblock body %}
