@@ -32,6 +32,10 @@ class HTMLCutter{
 
 
     public static function cut($text, $lenght=250){
+        if (strip_tags($text)==$text){
+            $text = mb_substr($text, 0, $lenght);
+            return $text;
+        }
         $text = html_entity_decode($text);
         $text = preg_replace("/".self::$fakeSymb."/", "", $text);
 
