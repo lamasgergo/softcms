@@ -1,3 +1,7 @@
+content_view:
+  pattern: /{id}
+  defaults: { _controller: ContentBundle:Content:View }
+
 content_index:
   pattern: /
   defaults: { _controller: ContentBundle:Content:Index }

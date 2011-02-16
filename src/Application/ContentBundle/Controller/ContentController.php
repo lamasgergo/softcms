@@ -4,8 +4,7 @@ namespace Application\ContentBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
     Symfony\Component\Security\Acl\Domain\ObjectIdentity,
     Symfony\Component\Security\Acl\Domain\UserSecurityIdentity,
-    Symfony\Component\Security\Acl\Permission\MaskBuilder,
-    Symfony\Component\Security\Core\Exception\AccessDeniedException;
+    Symfony\Component\Security\Acl\Permission\MaskBuilder;
 
 use Application\ContentBundle\Entity\Content;
 use Application\ContentBundle\Forms\ContentForm;
@@ -62,7 +61,7 @@ class ContentController extends Controller{
         // check for edit access
         if (false === $securityContext->vote('EDIT', $content) && !$securityContext->getUser()->isAdmin())
         {
-            throw new AccessDeniedException();
+            throw new \Symfony\Component\Security\Core\Exception\AccessDeniedExceptionAccessDeniedException();
         }
 
         $form = ContentForm::create($this->get('form.context'), 'content_form');
@@ -104,5 +103,20 @@ class ContentController extends Controller{
         $em->flush();
 
         return $this->redirect($this->generateUrl('content_index'));
+    }
+
+    public function ViewAction($id){
+        $em = $this->get("doctrine.orm.entity_manager");
+        $content = $em->getRepository("ContentBundle:Content");
+        $data = $content->findOneBy(array("url" => $id));
+        if (!$data){
+            $data = $content->findOneBy(array("Id" => $id));
+        }
+        if (!$data){
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+        return $this->render("ContentBundle::view.html.twig", array(
+            'data' => $data
+        ));
     }
 }
