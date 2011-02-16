@@ -2,17 +2,26 @@
     
 }
 
+.content .item{
+    padding-bottom: 20px;
+}
+
 .content .actions{
     text-align: right;
-    height: 21px;
-    border: 1px solid;
+    height: 18px;
     position: relative;
+    margin: 0;
+    padding: 0;
 }
 
 .content .actions li{
-    margin: 2px 5px;
+    padding: 0;
+    margin: 0 5px;
     float: left;
+    font-size: 12px;
+    height: 16px;
 }
+
 
 .content .item,
 .content .item .title,
@@ -20,6 +29,6 @@
     width: 100%;
 }
 
-.content .item .actions{
+.content .item .actions li{
     display: none;
 }
