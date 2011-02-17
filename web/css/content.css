@@ -12,6 +12,7 @@
     position: relative;
     margin: 0;
     padding: 0;
+    float: right;
 }
 
 .content .actions li{
