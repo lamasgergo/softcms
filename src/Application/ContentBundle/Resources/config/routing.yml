@@ -1,7 +1,3 @@
-content_view:
-  pattern: /{id}
-  defaults: { _controller: ContentBundle:Content:View }
-
 content_index:
   pattern: /
   defaults: { _controller: ContentBundle:Content:Index }
@@ -17,3 +13,7 @@ content_modify:
 content_delete:
   pattern: /delete/{id}
   defaults: { _controller: ContentBundle:Content:Delete }
+
+content_view:
+  pattern: /{id}
+  defaults: { _controller: ContentBundle:Content:View }
