@@ -39,13 +39,13 @@ class User implements AccountInterface {
      * @validation:NotBlank
      * @var string
      */
-
+    protected $name;
+    
     /**
      * @orm:Column
      */
     protected $role = 'ROLE_USER';
 
-    protected $name;
 
     /**
      * @orm:Column(name="familyname", type="string", length="255")
