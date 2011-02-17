@@ -60,7 +60,7 @@ if(!isset($_SESSION)){ session_start();}
  * $uploadpath = '/images/upload/';
  *
  */
-$uploadpath = "/images/upload/"; // absolute path from root to upload folder (DON'T FORGET SLASHES)
+$uploadpath = "/web/images/upload/"; // absolute path from root to upload folder (DON'T FORGET SLASHES)
 
 /*
  * DEFAULT TIMEZONE
@@ -94,7 +94,7 @@ $viewLayout = 'tiles';
  * en.php file and translate the lines after the =>
  *
  */
-$defaultLanguage = 'en';
+$defaultLanguage = 'ru';
 
 /*
  * ALLOWED ACTIONS
