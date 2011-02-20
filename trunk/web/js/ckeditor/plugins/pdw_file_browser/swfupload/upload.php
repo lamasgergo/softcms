@@ -10,7 +10,7 @@
 
 	// Settings
 	$save_path = DOCUMENTROOT . rawurldecode($_POST["uploadpath"]); //The path were we will save the file (getcwd() may not be reliable and should be tested in your environment)
-
+file_put_contents(dirname(__FILE__).'/log.txt', $save_path."\n", FILE_APPEND);
 	$upload_name = "Filedata";
 	
 	// Other variables	
