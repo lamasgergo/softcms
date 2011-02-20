@@ -1,5 +1,11 @@
 <?php
-
+//if(!isset($_SESSION)){ session_start();}
+//
+//if (!isset($_SESSION['IsAuthorizedForUpload']) || $_SESSION['IsAuthorizedForUpload']!=true) {
+//    header("HTTP/1.1 500 Internal Server Error");
+//    HandleError("Forbidden");
+//    exit(0);
+//}
 //	require_once('../config.php');
 /*
  * UPLOAD SETTINGS

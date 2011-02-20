@@ -71,6 +71,7 @@ $sesAttributes = $instance->getAttributes();
 if (!isset($sesAttributes['_security_public'])){
     die("You are not authorized!");
 }
+$_SESSION['IsAuthorizedForUpload'] = true;
 $security = unserialize($sesAttributes['_security_public']);
 $user = $security->getUser();
 $uploadpath = "/web/images/upload/".$user->getId().'/'; // absolute path from root to upload folder (DON'T FORGET SLASHES)
@@ -174,6 +175,21 @@ $editor = isset($_GET["editor"]) ? $_GET["editor"] : ''; // If you want to use t
 //$editor="tinymce";
 //$editor="ckeditor";
 //$editor="standalone";
+
+/*
+ * UPLOAD SETTINGS
+ *
+ */
+// Maximum file size
+$max_file_size_in_bytes = 1048576; // 1MB in bytes
+
+// Characters allowed in the file name (in a Regular Expression format)
+$valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-';
+
+// Allowed file extensions
+// Remove an extension if you don't want to allow those files to be uploaded.
+//$extension_whitelist = "7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpeg,jpg,mid,mov,mp3,mp4,mpc,mpeg,mpg,ods,odt,pdf,png,ppt,pptx,pxd,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,sitd,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vsd,wav,wma,wmv,xls,xlsx,zip";
+$extension_whitelist = "asf,avi,bmp,fla,flv,gif,jpeg,jpg,mov,mpeg,mpg,png,tif,tiff,wmv"; // Images, video and flash only
 
 
 
