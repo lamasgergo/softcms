@@ -3,10 +3,13 @@ namespace Application\ContentBundle\Entity;
 
 /**
  * @orm:Entity
- * @orm:Table(name="content")
+ * @orm:table(name="content")
+ * @orm:InheritanceType("SINGLE_TABLE")
+ * @orm:DiscriminatorColumn(name="dataType", type="string")
+ * @orm:DiscriminatorMap({"article" = "Article", "news" = "News"})
  * @orm:HasLifecycleCallbacks
  */
-class Content {
+abstract class Content {
     /**
      * @orm:Column(name="id", type="integer")
      * @orm:Id
@@ -14,12 +17,6 @@ class Content {
      * @var integer
      */
     private $Id;
-
-    /**
-     * @orm:Column(name="dataType", type="string", length="255")
-     * @var string
-     */
-    private $type = 'content';
 
     /**
      * @orm:ManyToOne(targetEntity="Application\UserBundle\Entity\User", inversedBy="content")
@@ -150,6 +147,22 @@ class Content {
             $url = \Utils\Translit::encode($this->title);
         }
         $this->url = $url;
+    }
+
+    public function setCreated($created) {
+        $this->created = $created;
+    }
+
+    public function getCreated() {
+        return $this->created;
+    }
+
+    public function setUpdated($updated) {
+        $this->updated = $updated;
+    }
+
+    public function getUpdated() {
+        return $this->updated;
     }
 
 }
