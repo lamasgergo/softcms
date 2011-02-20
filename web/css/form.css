@@ -51,49 +51,52 @@ input {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#4e7d0e', endColorstr = '#7db72f');
 }
 
-.form table{
+form table{
     width: 100%;
     padding: 10px;
 }
 
-.form table td,
-.form table th{
+form table td,
+form table th{
     padding: 5px 0;
 }
 
-.form table th{
+form table th{
     font-weight: normal;
     text-align: right;
-    padding-right: 5px;
     border-right: 1px solid;
     text-transform: uppercase;
-    padding-right: 5px;
+    padding-right: 10px;
 }
 
-.form table td{
-    padding-left: 5px;
+form table td{
+    padding: 5px 5px 5px 10px;
 }
 
-.form table td div label {
+form table td div label {
 /*display: none;*/
     font-size: 12px;
 }
 
-.form table input[type=checkbox],
-.form table input[type=submit],
-.form table input[type=button] {
+form table input[type=checkbox],
+form table input[type=submit],
+form table input[type=button] {
     width: auto;
 }
 
-.form table input {
+form table input {
     width: 100%;
     margin: 0;
     padding-left: 5px;
 }
 
-.form table .submit,
-.form table .submit input {
+form table .submit,
+form table .submit input {
     width: auto;
+    text-align: right;
+}
+
+form div.submit{
     text-align: right;
 }
 

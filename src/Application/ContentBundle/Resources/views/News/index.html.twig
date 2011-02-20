@@ -1,0 +1,35 @@
+{% extends ":themes:2column.html.twig" %}
+
+{% block body %}
+<script>
+    $().ready(function() {
+        $(".item").mouseenter(
+                function() {
+                    $(this).find('.actions li').show();
+                }).mouseleave(function() {
+            $(this).find('.actions li').hide();
+        });
+    });
+</script>
+
+<div class="content">
+    <ul class="actions">
+        <li><a href="{{ path('news_create') }}">{% trans "Create" %}</a></li>
+    </ul>
+    <div class="clr"></div>
+    {% for item in data %}
+    <div class="item">
+        <h2 class="title">{{ item.title }}</h2>
+        <ul class="actions">
+            <li><a href="{{ path('news_modify', {'id': item.id }) }}">{% trans "Modify" %}</a></li>
+            <li><a href="{{ path('news_delete', {'id': item.id }) }}">{% trans "Delete" %}</a></li>
+        </ul>
+        <div class="clr"></div>
+        <div class="text">
+            {{ item.teaser|raw }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}
+        

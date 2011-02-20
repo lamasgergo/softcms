@@ -1,0 +1,20 @@
+{% extends ":themes:2column.html.twig" %}
+{% form_theme form ":forms:basic.html.twig" %}
+
+{% block body %}
+<script src="{{ asset('js/vendor/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('js/vendor/ckeditor/adapters/jquery.js') }}"></script>
+<script src="{{ asset('js/editor.js') }}"></script>
+<script>
+    $().ready(function(){
+        editorInit('textarea');
+    });
+</script>
+<form method="post" {{ form_enctype(form)}} >
+
+{{ form_field(form)}}
+<div class="submit">
+    <input type="submit" class="button" value="{% trans action %}">
+</div>
+</form>
+{% endblock body %}

@@ -20,7 +20,13 @@ security.config:
         use_referer: true
       logout: true
     content:
-      pattern: /content/[create|modify|delete]+
+      pattern: /article/[create|modify|delete]+
+      form_login:
+        provider: default
+        use_referer: true
+      logout: true
+    news:
+      pattern: /news/[create|modify|delete]+
       form_login:
         provider: default
         use_referer: true
@@ -29,7 +35,8 @@ security.config:
   access_control:
     - { path: /my/?.*, role: ROLE_USER }
     - { path: /user/edit, role: ROLE_USER }
-    - { path: /content/[create|modify|delete]+, role: ROLE_USER }
+    - { path: /article/[create|modify|delete]+, role: ROLE_USER }
+    - { path: /news/[create|modify|delete]+, role: ROLE_USER }
     - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
   role_hierarchy:

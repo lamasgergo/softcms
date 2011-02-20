@@ -373,4 +373,12 @@ class User implements AccountInterface {
     public function isAdmin(){
         return ($this->role=='ROLE_ADMIN');
     }
+
+    public function setRole($role) {
+        $this->role = $role;
+    }
+
+    public function getRole() {
+        return $this->role;
+    }
 }
