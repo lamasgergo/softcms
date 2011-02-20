@@ -25,7 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-if(!isset($_SESSION)){ session_start();}  
+//if(!isset($_SESSION)){ session_start();}
 
 /*
  * Uncomment lines below to enable PHP error reporting and displaying PHP errors.
@@ -48,19 +48,38 @@ if(!isset($_SESSION)){ session_start();}
  *
  * ... where $_SESSION['IsAuthorized'] is set to "true" as soon as the user logs in to your system.
 **/
+//if (!(isset($_SESSION['isAuthorized']) && $_SESSION['isAuthorized'])){
+//    die("You are not authorized!");
+//}
 
 /*
  * UPLOAD PATH
  * 
  * absolute path from root to upload folder (DON'T FORGET SLASHES)
  *
- * Example 
+ * Example
  * ---------------------------------------
  * http://www.domain.com/images/upload/
  * $uploadpath = '/images/upload/';
  *
  */
-$uploadpath = "/web/images/upload/"; // absolute path from root to upload folder (DON'T FORGET SLASHES)
+require_once(dirname(__FILE__).'/../../../../../app/bootstrap.php');
+require_once(dirname(__FILE__).'/../../../../../app/AppKernel.php');
+$instance = new \Symfony\Component\HttpFoundation\Session(new \Symfony\Component\HttpFoundation\SessionStorage\NativeSessionStorage(array('lifetime' => 3600)), array('default_locale' => 'ru'));
+$instance->start();
+$sesAttributes = $instance->getAttributes();
+if (!isset($sesAttributes['_security_public'])){
+    die("You are not authorized!");
+}
+$security = unserialize($sesAttributes['_security_public']);
+$user = $security->getUser();
+$uploadpath = "/web/images/upload/".$user->getId().'/'; // absolute path from root to upload folder (DON'T FORGET SLASHES)
+
+$webRoot = realpath(dirname(__FILE__).'/../../../../../');
+if (!file_exists($webRoot.$uploadpath)){
+    mkdir($webRoot.$uploadpath);
+    chmod($webRoot.$uploadpath, 0777);
+}
 
 /*
  * DEFAULT TIMEZONE
@@ -94,7 +113,7 @@ $viewLayout = 'tiles';
  * en.php file and translate the lines after the =>
  *
  */
-$defaultLanguage = 'ru';
+$defaultLanguage = $sesAttributes['_locale'];
 
 /*
  * ALLOWED ACTIONS
