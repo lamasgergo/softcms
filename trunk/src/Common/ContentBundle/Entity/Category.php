@@ -1,5 +1,5 @@
 <?php
-namespace Application\ContentBundle\Entity;
+namespace Common\ContentBundle\Entity;
 
 /**
  * @orm:Entity

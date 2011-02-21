@@ -1,13 +1,13 @@
 <?php
-namespace Application\ContentBundle\Controller;
+namespace Common\ContentBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
     Symfony\Component\Security\Acl\Domain\ObjectIdentity,
     Symfony\Component\Security\Acl\Domain\UserSecurityIdentity,
     Symfony\Component\Security\Acl\Permission\MaskBuilder;
 
-use Application\ContentBundle\Entity\News;
-use Application\ContentBundle\Forms\NewsForm;
+use Common\ContentBundle\Entity\News;
+use Common\ContentBundle\Forms\NewsForm;
 
 class NewsController extends Controller{
 

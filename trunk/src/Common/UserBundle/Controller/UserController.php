@@ -1,12 +1,12 @@
 <?php
-// Application/UserBundle/Controller/UserController.php
-namespace Application\UserBundle\Controller;
+// Common/UserBundle/Controller/UserController.php
+namespace Common\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Application\UserBundle\Entity\User;
+use Common\UserBundle\Entity\User;
 
-use Application\UserBundle\Forms\UserDetailsForm;
+use Common\UserBundle\Forms\UserDetailsForm;
 
 class UserController extends Controller {
 

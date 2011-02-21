@@ -1,5 +1,5 @@
 <?php
-namespace Application\HomeBundle\Controller;
+namespace Common\HomeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 

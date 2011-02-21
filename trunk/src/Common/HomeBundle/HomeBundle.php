@@ -1,5 +1,5 @@
 <?php
-namespace Application\HomeBundle;
+namespace Common\HomeBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

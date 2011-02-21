@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\UserBundle\Entity;
+namespace Common\UserBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Doctrine\ORM\EntityRepository;

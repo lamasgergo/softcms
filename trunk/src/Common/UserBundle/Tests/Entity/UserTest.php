@@ -1,7 +1,7 @@
 <?php
-namespace Application\UserBundle\Tests\Entity;
+namespace Common\UserBundle\Tests\Entity;
 
-use Application\UserBundle\Entity\User;
+use Common\UserBundle\Entity\User;
 
 class UserTest extends \PHPUnit_Framework_TestCase {
     public function testConstructorSetsTimestamps() {

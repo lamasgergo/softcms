@@ -20,11 +20,11 @@ class AppKernel extends Kernel
 
             // register your bundles
 //            new Sensio\HelloBundle\HelloBundle(),
-            new Application\UserBundle\UserBundle(),
+            new Common\UserBundle\UserBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Captcha\CaptchaBundle\CaptchaBundle(),
-            new Application\HomeBundle\HomeBundle(),
-            new Application\ContentBundle\ContentBundle(),
+            new Common\HomeBundle\HomeBundle(),
+            new Common\ContentBundle\ContentBundle(),
         );
 
         if ($this->isDebug()) {
