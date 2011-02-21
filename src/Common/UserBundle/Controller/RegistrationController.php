@@ -1,11 +1,11 @@
 <?php
 
-namespace Application\UserBundle\Controller;
+namespace Common\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
-    Application\UserBundle\Entity\User;
+    Common\UserBundle\Entity\User;
 
-use Application\UserBundle\Forms\RegistrationForm;
+use Common\UserBundle\Forms\RegistrationForm;
 use Captcha\CaptchaBundle\Captcha;
 
 class RegistrationController extends Controller {

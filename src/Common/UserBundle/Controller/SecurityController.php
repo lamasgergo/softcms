@@ -1,5 +1,5 @@
 <?php
-namespace Application\UserBundle\Controller;
+namespace Common\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
     Symfony\Component\Security\Core\SecurityContext;
@@ -17,7 +17,7 @@ class SecurityController extends Controller {
         }
 
         $user = $securityContext->getUser();
-        if ($user instanceof \Application\UserBundle\Entity\User){
+        if ($user instanceof \Common\UserBundle\Entity\User){
             $user->setLastLogin(new \DateTime());
             $em = $this->get('doctrine.orm.entity_manager');
             $em->persist($user);
@@ -38,7 +38,7 @@ class SecurityController extends Controller {
         $securityContext = $this->container->get('security.context');
 
         $user = $securityContext->getUser();
-        if ($user instanceof \Application\UserBundle\Entity\User){
+        if ($user instanceof \Common\UserBundle\Entity\User){
 //            $user = ;
             $user_id = $user->getId();
         }

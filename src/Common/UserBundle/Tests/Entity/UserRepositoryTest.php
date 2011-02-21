@@ -1,11 +1,11 @@
 <?php
-namespace Application\UserBundle\Tests\Entity;
+namespace Common\UserBundle\Tests\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class UserRepositoryTest extends WebTestCase {
     /**
-     * @var \Application\UserBundle\Entity\UserRepository
+     * @var \Common\UserBundle\Entity\UserRepository
      */
     protected $repository;
 

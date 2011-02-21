@@ -6,7 +6,7 @@ $loader = new UniversalClassLoader();
 $loader->registerNamespaces(array(
     'Symfony'                        => __DIR__.'/../vendor/symfony/src',
     'Sensio'                         => __DIR__.'/../src',
-    'Application'                    => __DIR__.'/../src',
+    'Common'                         => __DIR__.'/../src',
     'Captcha'                        => __DIR__.'/../src',
     'Utils'                          => __DIR__.'/../src',
     'Doctrine\\Common\\DataFixtures' => __DIR__.'/../vendor/doctrine-data-fixtures/lib',

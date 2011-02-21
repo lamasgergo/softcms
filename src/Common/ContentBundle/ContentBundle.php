@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\ContentBundle;
+namespace Common\ContentBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

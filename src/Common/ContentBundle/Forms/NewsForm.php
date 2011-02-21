@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\ContentBundle\Forms;
+namespace Common\ContentBundle\Forms;
 
 use Symfony\Component\Form\Form,
     Symfony\Component\Form\TextField,

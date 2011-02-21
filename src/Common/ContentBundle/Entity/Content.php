@@ -1,5 +1,5 @@
 <?php
-namespace Application\ContentBundle\Entity;
+namespace Common\ContentBundle\Entity;
 
 /**
  * @orm:Entity
@@ -19,7 +19,7 @@ abstract class Content {
     private $Id;
 
     /**
-     * @orm:ManyToOne(targetEntity="Application\UserBundle\Entity\User", inversedBy="content")
+     * @orm:ManyToOne(targetEntity="Common\UserBundle\Entity\User", inversedBy="content")
      * @orm:JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;

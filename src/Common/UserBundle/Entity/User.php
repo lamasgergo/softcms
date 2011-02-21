@@ -1,5 +1,5 @@
 <?php 
-namespace Application\UserBundle\Entity;
+namespace Common\UserBundle\Entity;
 
 use Symfony\Component\Security\Core\User\AccountInterface;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @orm:Entity(repositoryClass="Application\UserBundle\Entity\UserRepository")
+ * @orm:Entity(repositoryClass="Common\UserBundle\Entity\UserRepository")
  * @orm:Table(name="user",
  *     uniqueConstraints={
  *          @orm:UniqueConstraint(name="email_idx", columns={"email"})
@@ -113,7 +113,7 @@ class User implements AccountInterface {
 //    public $address;
 
     /**
-     * @orm:OneToMany(targetEntity="Application\ContentBundle\Entity\Content", mappedBy="user")
+     * @orm:OneToMany(targetEntity="Common\ContentBundle\Entity\Content", mappedBy="user")
      */
     private $content;
 
