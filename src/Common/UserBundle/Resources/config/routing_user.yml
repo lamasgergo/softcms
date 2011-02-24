@@ -1,7 +1,0 @@
-_user_index:
-  pattern: /
-  defaults: { _controller: UserBundle:User:index }
-
-_user_info:
-  pattern: /edit
-  defaults: { _controller: UserBundle:User:edit }
